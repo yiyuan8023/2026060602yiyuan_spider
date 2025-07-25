@@ -20,15 +20,14 @@ if __name__ == '__main__':
         shop_name = i[0]
         GoodObj = Goods(cookie)
         for days in crawl_day_list:
-            logger.info(f"正在采集{shop_name}，{get_date(days)}的数据")
+            logger.info(f"正在采集{shop_name},{get_date(days)}的数据")
             items = GoodObj.good_rank__all_good_day(days)
             for item in items:
                 item.update({
                     "店铺名称": shop_name,
                     "日期类型": "day",
-
                 })
-                item["key"] = f"{item["统计日期"]}_{item["商品ID"]}_{item['日期类型']}_{item['店铺名称']}"
+                item["key"] = f"{item['统计日期']}_{item['商品ID']}_{item['日期类型']}_{item['店铺名称']}"
 
             # print(items)
             # print(items[0].keys())

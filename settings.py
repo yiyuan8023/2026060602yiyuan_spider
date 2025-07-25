@@ -6,6 +6,6 @@ import os
 
 MYSQL_HOST = "223.5.242.173"
 MYSQL_DBNAME = os.environ.get("MYSQL_DBNAME") if os.environ.get("MYSQL_DBNAME") else "yiyuan_test"
-MYSQL_USER = "root"
-MYSQL_PASSWORD = "jide2025"
+MYSQL_USER = "bc_yiyuan_test"
+MYSQL_PASSWORD = "yiyuan12345678"
 MYSQL_PORT = 3306
