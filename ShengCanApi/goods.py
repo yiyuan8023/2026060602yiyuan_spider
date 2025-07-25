@@ -4,10 +4,11 @@ from urllib.parse import urlencode
 import numpy as np
 import pandas as pd
 import requests
-
+from extra_time import get_date, convert_to_timestamp
 
 from ShengCanApi.ShengCanBase import ShengCanBaseApi
 from logger_ import logger
+from settings import UA
 
 
 class Goods(ShengCanBaseApi):
@@ -21,7 +22,7 @@ class Goods(ShengCanBaseApi):
         """
         api = "https://sycm.taobao.com/cc/item/view/excel/top.json?"
         params = {
-            "dateRange": f"{self.get_date(days)}|{self.get_date(days)}",
+            "dateRange": f"{get_date(days)}|{get_date(days)}",
             "dateType": "day",
             "pageSize": 10,
             "page": 1,
@@ -39,7 +40,7 @@ class Goods(ShengCanBaseApi):
         }
         url = api + urlencode(params)
         res = requests.get(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": UA,
             "cookie": self.cookie})
         self.req_log(res)
         try:
@@ -71,12 +72,12 @@ class Goods(ShengCanBaseApi):
             "belong": "all",
             "cateId": cateId,
             "indexCode": "itmUv, itemCartByrCnt, itemCltByrCnt, payByrCnt",
-            "_": self.get_time_13(),
+            "_": convert_to_timestamp(),
             "token": self.token
         }
         url = api + urlencode(params)
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent":UA,
             "cookie": self.cookie,
             "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cateId}&dateRange={dateRange}&dateType=month"
         }
@@ -103,12 +104,12 @@ class Goods(ShengCanBaseApi):
             "device": 0,
             "kwType": "se_keyword",
             "indexCode": "uv,payOrderByrCnt,payConveRate",
-            "_": self.get_time_13(),
+            "_": convert_to_timestamp,
             "token": self.token
         }
         url = api + urlencode(params)
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": UA,
             "cookie": self.cookie,
         }
         res = requests.get(url, headers=headers)
@@ -135,7 +136,7 @@ class Goods(ShengCanBaseApi):
         url = api + urlencode(params)
         # print(url)
         res = requests.get(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": UA,
             "cookie": self.cookie})
         self.req_log(res)
         try:
@@ -150,8 +151,7 @@ class Goods(ShengCanBaseApi):
             # logger.error(f"{res.text}")
             return None
 
-
-    def recommend_analysis_single_excel(self,dateRange):
+    def recommend_analysis_single_excel(self, dateRange):
         """
         商品《《单条效果
         :param dateRange:
@@ -169,7 +169,7 @@ class Goods(ShengCanBaseApi):
         url = api + urlencode(params)
         # print(url)
         res = requests.get(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": UA,
             "cookie": self.cookie})
         self.req_log(res)
         try:

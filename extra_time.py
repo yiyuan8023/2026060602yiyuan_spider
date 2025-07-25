@@ -1,7 +1,7 @@
-
 from calendar import monthrange
-from datetime import date ,datetime, timedelta
+from datetime import date, datetime, timedelta
 from typing import Union, List, Tuple, Optional
+
 
 
 def get_date(day_offset=-1, date_format="%Y-%m-%d"):
@@ -61,28 +61,36 @@ def calculate_days_diff_with_range(date1: Union[str, datetime],
 
     return days_diff
 
-def convert_to_timestamp(time_input: Union[str, datetime],
-                        time_format: str = "%Y-%m-%d") -> int:
+
+def convert_to_timestamp(time_input: Union[str, datetime, None] = None,
+                         time_format: str = "%Y-%m-%d") -> int:
     """
-    将时间转换为时间戳。
+    将时间转换为时间戳。如果未提供时间输入，则返回当前时间的时间戳。（13位）
 
     Args:
-        time_input (str 或 datetime): 输入的时间，可以是字符串或 datetime 对象。
+        time_input (str 或 datetime 或 None): 输入的时间，可以是字符串或 datetime 对象。
+                                             如果为 None，则使用当前时间。
         time_format (str): 如果 time_input 是字符串，则需要指定其格式，默认为 "%Y-%m-%d"。
 
     Returns:
         int: 时间戳（毫秒级）。
 
     Examples:
-        # >>> convert_to_timestamp('2025-04-05')
+        >>> convert_to_timestamp()  # 返回当前时间的时间戳
         1743811200000
-        # >>> convert_to_timestamp('2025-04-05 14:30:00", "%Y-%m-%d %H:%M:%S')
+        >>> convert_to_timestamp('2025-04-05')
+        1743811200000
+        >>> convert_to_timestamp('2025-04-05 14:30:00', "%Y-%m-%d %H:%M:%S")
         1743863400000
-        # >>> convert_to_timestamp(datetime(2025, 4, 5))
+        >>> convert_to_timestamp(datetime(2025, 4, 5))
         1743811200000
     """
+    # 如果没有提供时间输入，则使用当前时间
+    if time_input is None:
+        dt = datetime.now()
     # 解析输入参数为 datetime 对象
-    if isinstance(time_input, str):
+
+    elif isinstance(time_input, str):
         # 如果输入是字符串，先将其解析为 datetime 对象
         dt = datetime.strptime(time_input, time_format)
     elif isinstance(time_input, datetime):
@@ -94,8 +102,10 @@ def convert_to_timestamp(time_input: Union[str, datetime],
     # 转换为毫秒级时间戳并返回
     return int(dt.timestamp() * 1000)
 
-def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
 
+
+
+def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
     """
     确保输入是 datetime 对象，支持自动检测常见日期格式。
     Args:
@@ -132,6 +142,7 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
         raise ValueError(f"无法解析日期字符串 '{date_input}'，支持的格式包括: {', '.join(common_formats)}")
     else:
         raise TypeError(f"不支持的日期格式。请提供 datetime 对象或字符串，当前类型: {type(date_input)}")
+
 
 def split_date_range(start_date: Union[str, datetime],
                      end_date: Union[str, datetime],
@@ -185,6 +196,7 @@ def split_date_range(start_date: Union[str, datetime],
 
     return result
 
+
 def get_month_first_and_last_day(month_str: Optional[str] = None) -> Tuple[str, str]:
     """
     获取指定月份或上个月的第一天和最后一天日期字符串（优化版本）。
@@ -222,7 +234,7 @@ def get_month_first_and_last_day(month_str: Optional[str] = None) -> Tuple[str, 
 
     return first_day, last_day_date
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     print(get_month_first_and_last_day())  # 默认返回上个月的第一天和最后一天（如果现在是2025年5月）
     print(get_month_first_and_last_day('03'))  # 返回指定月份（如2025年3月）的第一天和最后一天

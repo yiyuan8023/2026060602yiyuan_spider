@@ -6,6 +6,8 @@ import requests
 
 from ShengCanApi.ShengCanBase import ShengCanBaseApi
 from logger_ import logger
+from extra_time import get_date
+from settings import UA
 
 
 class Flow(ShengCanBaseApi):
@@ -22,13 +24,13 @@ class Flow(ShengCanBaseApi):
             "_path_": "v4/excel/shop/source/v3",
             "device": 2,
             "dateType": "day",
-            "dateRange": f"{self.get_date(days)}|{self.get_date(days)}",
+            "dateRange": f"{get_date(days)}|{get_date(days)}",
             "belong": "all"
         }
         url = api + urlencode(params)
         print(url)
         res = requests.get(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": UA,
             "cookie": self.cookie})
         self.req_log(res)
         try:
@@ -48,14 +50,14 @@ class Flow(ShengCanBaseApi):
         params = {
             "_path_": "v4/excel/shop/source/summay/v4",
             "dateType": "day",
-            "dateRange": f"{self.get_date(days)}|{self.get_date(days)}",
+            "dateRange": f"{get_date(days)}|{get_date(days)}",
             "crowdType": "all",
             "needCate":"undefined"
         }
         url = api + urlencode(params)
         # print(url)
         res = requests.get(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": UA,
             "cookie": self.cookie})
         self.req_log(res)
         try:
@@ -83,7 +85,7 @@ class Flow(ShengCanBaseApi):
             "_path_": "v6/excel/item/crowdtype/source/v3",
             "belong": "all",
             "dateType": "day",
-            "dateRange": f"{self.get_date(days)}|{self.get_date(days)}",
+            "dateRange": f"{get_date(days)}|{get_date(days)}",
             "crowdType": "all",
             "device": "2",
             "itemId": item_id,
@@ -94,7 +96,7 @@ class Flow(ShengCanBaseApi):
         url = api + urlencode(params)
         # print(url)
         res = requests.get(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": UA,
             "cookie": self.cookie})
         self.req_log(res)
         try:
@@ -114,7 +116,7 @@ class Flow(ShengCanBaseApi):
         params = {
             "_path_": "qzt/item/crowdtype/source/download",
             "dateType": "day",
-            "dateRange": f"{self.get_date(days)}|{self.get_date(days)}",
+            "dateRange": f"{get_date(days)}|{get_date(days)}",
             "crowdType": "all",
             "itemId": item_id,
             "order": "desc",
@@ -125,7 +127,7 @@ class Flow(ShengCanBaseApi):
         url = api + urlencode(params)
         # print(url)
         res = requests.get(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": UA,
             "cookie": self.cookie})
         self.req_log(res)
         try:
