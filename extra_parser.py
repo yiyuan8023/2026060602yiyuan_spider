@@ -31,17 +31,17 @@ def parser_main():
     parser.add_argument(
         '--start-date',
         type=parse_date,
-        help='开始日期 (YYYY-MM-DD)，仅在 daily 模式下有效'
+        help='开始日期 (YYYY-MM-DD),仅在 daily 模式下有效'
     )
     parser.add_argument(
         '--end-date',
         type=parse_date,
-        help='结束日期 (YYYY-MM-DD)，仅在 daily 模式下有效'
+        help='结束日期 (YYYY-MM-DD),仅在 daily 模式下有效'
     )
     parser.add_argument(
         '--month',
         type=str,
-        help='输入月份(01)，仅在 monthly 模式下有效'
+        help='输入月份(01),仅在 monthly 模式下有效'
     )
 
     # 解析命令行参数

@@ -9,6 +9,7 @@ from extra_time import get_date, convert_to_timestamp
 from ShengCanApi.ShengCanBase import ShengCanBaseApi
 from logger_ import logger
 from settings import UA
+from extra_date import get_recent_days
 
 
 class Goods(ShengCanBaseApi):
@@ -16,13 +17,14 @@ class Goods(ShengCanBaseApi):
         super().__init__(cookie)
         self.cookie = cookie
 
-    def good_rank__all_good_day(self, days: int = -1):
+    def good_rank__all_good_day(self, day):
         """
         商品排行》》全部商品》》日》》报表
         """
         api = "https://sycm.taobao.com/cc/item/view/excel/top.json?"
         params = {
-            "dateRange": f"{get_date(days)}|{get_date(days)}",
+            # "dateRange": f"{get_date(days)}|{get_date(days)}",
+            "dateRange": f"{day}|{day}",
             "dateType": "day",
             "pageSize": 10,
             "page": 1,
@@ -55,22 +57,23 @@ class Goods(ShengCanBaseApi):
             logger.warning(f"{e.args}")
             raise e
 
-    def category_360__flow_from(self, dateRange, cateId):
+    def category_360__flow_from(self, daterange, cateid):
         """
         商品》》品类360》》流量来源
-        :param dateRange:
-        :return:
+        :param daterange:
+        :param cateid: 品类ID
+        :return:接口返回的JSON数据或None
         """
         api = "https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?"
         params = {
-            "dateRange": dateRange,
+            "dateRange": daterange,
             "dateType": "month",
             "pageSize": 10,
             "page": 1,
             "order": "desc",
             "orderBy": "itmUv",
             "belong": "all",
-            "cateId": cateId,
+            "cateId": cateid,
             "indexCode": "itmUv, itemCartByrCnt, itemCltByrCnt, payByrCnt",
             "_": convert_to_timestamp(),
             "token": self.token
@@ -79,7 +82,7 @@ class Goods(ShengCanBaseApi):
         headers = {
             "User-Agent":UA,
             "cookie": self.cookie,
-            "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cateId}&dateRange={dateRange}&dateType=month"
+            "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cateid}&dateRange={daterange}&dateType=month"
         }
         res = requests.get(url, headers=headers)
         if self.req_log(res):

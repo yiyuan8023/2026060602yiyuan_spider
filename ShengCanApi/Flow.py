@@ -17,7 +17,7 @@ class Flow(ShengCanBaseApi):
 
     def shop_from__flow_from_build_day(self, days=-1):
         """
-        店铺来源》》流量来源构成 日
+        生意参谋-流量-店铺来源-流量来源构成 日
         """
         api = "https://sycm.taobao.com/flow/gray/excel.do?"
         params = {
@@ -35,7 +35,7 @@ class Flow(ShengCanBaseApi):
         self.req_log(res)
         try:
             data = io.BytesIO(res.content)
-            df = pd.read_excel(data,skiprows=5)
+            df = pd.read_excel(data,skiprows=5)  # 跳过5行
             if df.empty:
                 return {}
             else:
