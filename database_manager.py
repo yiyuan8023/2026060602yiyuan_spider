@@ -79,7 +79,7 @@ class DatabaseManager:
             return
 
         # 分析第一条数据的字段类型
-        sample_item = items[0]
+        sample_item = items[-1]
         columns = []
 
         # 获取所有字段名
@@ -133,13 +133,13 @@ class DatabaseManager:
 
 
 
-    def do_select_cookies(self, site: str ):
+    def do_select_cookies(self, site: str ,shop_name: str):
         """
         查询语句
         :param :
         :return:
         """
-        sql = f"select `店铺名称`,`cookie_str` from `xj_cookie` where  `站点`='{site}';"
+        sql = f"select `店铺名称`,`cookie_str` from `xj_cookie` where  `站点`='{site}' and `店铺名称`='{shop_name}';"
 
         self.cursor.execute(sql)
         self.connect.commit()

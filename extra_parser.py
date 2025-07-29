@@ -29,9 +29,9 @@ def parser_main():
 
     # 添加每日模式参数
     parser.add_argument(
-        '--start-date',
-        type=parse_date,
-        help='开始日期 (YYYY-MM-DD),仅在 daily 模式下有效'
+        '--start-date', # 定义命令行参数的名称，用户在命令行中需要使用 --end-date 来指定该参数
+        type=parse_date, # 参数类型为 parse_date 函数，这意味着输入的字符串会被传递给 parse_date 函数进行验证和转换
+        help='开始日期 (YYYY-MM-DD),仅在 daily 模式下有效' #参数的帮助信息
     )
     parser.add_argument(
         '--end-date',
@@ -44,20 +44,30 @@ def parser_main():
         help='输入月份(01),仅在 monthly 模式下有效'
     )
 
-    # 解析命令行参数
+    parser.add_argument(
+        '--shop-name',
+        type=str,
+        help='输入店铺名称'
+    )
+
+    # 解析命令行参数，将用户输入的参数转换为命名空间对象
     args = parser.parse_args()
+
+    # 获取用户指定的模式参数（daily/monthly/weekly），默认为 daily
     mode = args.mode
 
     # 根据不同模式返回相应参数
     if mode == 'daily':
-        return args.start_date, args.end_date
+        # argparse 自动将连字符转换为下划线（Python的命名约定），--start-date 在代码中变为 start_date
+        return args.start_date, args.end_date,args.shop_name
 
     elif mode == 'monthly':
         # monthly模式需要提供月份参数
         if not args.month:
             parser.error("monthly模式需要提供 --month 参数")
-        return get_month_first_and_last_day(args.month)
+        return get_month_first_and_last_day(args.month),args.shop_name
 
     elif mode == 'weekly':
         # TODO: 实现weekly模式逻辑
         raise NotImplementedError("weekly模式暂未实现")
+

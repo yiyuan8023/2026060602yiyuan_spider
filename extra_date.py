@@ -21,7 +21,7 @@ def get_recent_days(n=3):
 
 
 def get_date_range(start_date: Union[str, datetime],
-                   end_date: Union[str, datetime],
+                   end_date  : Union[str, datetime, None] =None ,
                    date_format: str = "%Y-%m-%d") -> List[str]:
     """
     获取两个日期之间的日期列表，支持多种日期格式
@@ -30,7 +30,6 @@ def get_date_range(start_date: Union[str, datetime],
         start_date (str 或 datetime): 起始日期
         end_date (str 或 datetime): 结束日期
         date_format (str): 输出日期格式，默认为 "%Y-%m-%d"
-
     Returns:
         list: 日期列表
 
@@ -40,6 +39,9 @@ def get_date_range(start_date: Union[str, datetime],
 
     """
     # 使用ensure_datetime 函数，将输入转换为 datetime 对象
+    if end_date is None:
+        end_date = start_date
+
     start_dt = ensure_datetime(start_date)
     end_dt = ensure_datetime(end_date)
 
@@ -124,7 +126,7 @@ if __name__ == "__main__":
     recent_3_days = get_recent_days(3)
     print(f"最近3天: {recent_3_days}")
 
-    result1 = get_date_range("20250721", "2025-07-27")
+    result1 = get_date_range("20250721")
     print(f"日期区间: {result1}")
 
     result_format = get_date_list_sorted(["2025-07-01", "2025-07-21", "2025-07-25"], )

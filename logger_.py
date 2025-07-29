@@ -30,7 +30,7 @@ def singleton_class_decorator(cls):
     """
     装饰器，单例类的装饰器
     """
-    # 在装饰器里定义一个字典，用来存放类的实例。
+    # 在装饰器里定义字典，用来存放类的实例。
     _instance = {}
 
     # 装饰器，被装饰的类
@@ -52,7 +52,9 @@ class Logger:
     def __init__(self):
         self.logger_add()
 
-    def get_project_path(self, project_path=None):
+
+    @staticmethod
+    def get_project_path(project_path=None):
         if project_path is None:
             # 当前项目文件的，绝对真实路径
             # 路径，一个点代表当前目录，两个点代表当前目录的上级目录
@@ -73,8 +75,8 @@ class Logger:
         return project_log_path
 
     def logger_add(self):
-        LOGFILE=1
-        if LOGFILE:
+        logfile=1
+        if logfile:
             loguru.logger.add(
                 sink=self.get_log_path(),
                 # 日志创建周期

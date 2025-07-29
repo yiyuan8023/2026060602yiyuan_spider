@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-# Author: Shao0000
-# Date: 2025-04-29
-# Time: 10:41
-# Project: jide
-# File: extra_cookie
+
 import http.cookiejar
 
 
