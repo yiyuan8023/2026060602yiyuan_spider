@@ -13,6 +13,12 @@ def parse_date(date_str):
     except ValueError:
         raise argparse.ArgumentTypeError(f"无效的日期格式: {date_str}. 使用 YYYY-MM-DD 格式.")
 
+def parse_shop_names(shop_names_str):
+    """解析店铺名称，支持逗号分隔的多个店铺"""
+    if shop_names_str:
+        return [name.strip() for name in shop_names_str.split(',')]
+    return []
+
 
 # 创建参数解析器
 def parser_main():
@@ -45,11 +51,10 @@ def parser_main():
     )
 
     parser.add_argument(
-        '--shop-name',
-        type=str,
-        help='输入店铺名称'
+        '--shop-names',
+        type=parse_shop_names,
+        help='输入店铺名称，多个店铺用逗号分隔，如：店铺1,店铺2'
     )
-
     # 解析命令行参数，将用户输入的参数转换为命名空间对象
     args = parser.parse_args()
 
@@ -59,13 +64,13 @@ def parser_main():
     # 根据不同模式返回相应参数
     if mode == 'daily':
         # argparse 自动将连字符转换为下划线（Python的命名约定），--start-date 在代码中变为 start_date
-        return args.start_date, args.end_date,args.shop_name
+        return args.start_date, args.end_date,args.shop_names
 
     elif mode == 'monthly':
         # monthly模式需要提供月份参数
         if not args.month:
             parser.error("monthly模式需要提供 --month 参数")
-        return get_month_first_and_last_day(args.month),args.shop_name
+        return get_month_first_and_last_day(args.month),args.shop_names
 
     elif mode == 'weekly':
         # TODO: 实现weekly模式逻辑

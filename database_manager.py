@@ -132,26 +132,26 @@ class DatabaseManager:
         self.connect.commit()
 
 
-
-    def do_select_cookies(self, site: str ,shop_name: str):
+    def select_cookies_shop(self, site: str ,shop_names: str):
         """
         查询语句
         :param :
         :return:
         """
-        sql = f"select `店铺名称`,`cookie_str` from `xj_cookie` where  `站点`='{site}' and `店铺名称`='{shop_name}';"
+        sql = f"select `店铺名称`,`cookie_str` from `cookie` where  `站点`='{site}' and `店铺名称` in {shop_names};"
 
         self.cursor.execute(sql)
         self.connect.commit()
         res = self.cursor.fetchall()
         return res
-    def do_select_cookies_jar(self, site: str ):
+
+    def select_cookies_all(self, site: str ):
         """
         查询语句
         :param :
         :return:
         """
-        sql = f"select `店铺名称`,`cookie` from `xj_cookie` where  `站点`='{site}';"
+        sql = f"select `店铺名称`,`cookie` from `cookie` where  `站点`='{site}';"
 
         self.cursor.execute(sql)
         self.connect.commit()

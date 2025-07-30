@@ -25,6 +25,7 @@ def get_date_range(start_date: Union[str, datetime],
                    date_format: str = "%Y-%m-%d") -> List[str]:
     """
     获取两个日期之间的日期列表，支持多种日期格式
+    如果解说日期为None,只返回开始日期一天数据
 
     Args:
         start_date (str 或 datetime): 起始日期

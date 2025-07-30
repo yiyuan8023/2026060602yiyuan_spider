@@ -15,7 +15,7 @@ class Flow(ShengCanBaseApi):
         super().__init__(cookie)
         self.cookie = cookie
 
-    def shop_from__flow_from_build_day(self, days=-1):
+    def shop_from__flow_from_build_day(self, day):
         """
         生意参谋-流量-店铺来源-流量来源构成 日
         """
@@ -24,7 +24,7 @@ class Flow(ShengCanBaseApi):
             "_path_": "v4/excel/shop/source/v3",
             "device": 2,
             "dateType": "day",
-            "dateRange": f"{get_date(days)}|{get_date(days)}",
+            "dateRange": f"{day}|{day}",
             "belong": "all"
         }
         url = api + urlencode(params)
