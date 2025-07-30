@@ -15,6 +15,23 @@ class Flow(ShengCanBaseApi):
         super().__init__(cookie)
         self.cookie = cookie
 
+    def _request_excel_data(self, api, params):
+        """
+        通用的Excel数据请求方法
+        """
+        url = api + urlencode(params)
+        res = requests.get(url, headers={
+            "User-Agent": UA,
+            "cookie": self.cookie
+        })
+        self.req_log(res)
+        # 将HTTP响应的二进制内容转换为内存中的文件对象。
+        # 这是一个文件对象
+        excel_file = io.BytesIO(res.content)
+        return  excel_file
+
+
+
     def shop_from__flow_from_build_day(self, day):
         """
         生意参谋-流量-店铺来源-流量来源构成 日
@@ -28,22 +45,18 @@ class Flow(ShengCanBaseApi):
             "belong": "all"
         }
         url = api + urlencode(params)
-        print(url)
-        res = requests.get(url, headers={
-            "User-Agent": UA,
-            "cookie": self.cookie})
-        self.req_log(res)
-        try:
-            data = io.BytesIO(res.content)
-            df = pd.read_excel(data,skiprows=5)  # 跳过5行
-            if df.empty:
-                return {}
-            else:
-                items = df.to_dict('records')
-                return items
-        except Exception as e:
-            # logger.error(f"{res.text}")
-            return None
+
+        def _request_excel_data(self, api, params):
+            """
+            通用的Excel数据请求方法
+            """
+            url = api + urlencode(params)
+            res = requests.get(url, headers={
+                "User-Agent": UA,
+                "cookie": self.cookie
+            })
+            self.req_log(res)
+            return io.BytesIO(res.content)
 
     def shop_from__flow_from_build__shop_flow_day(self,days=-1):
         api = "https://sycm.taobao.com/flow/gray/excel.do?"
@@ -54,61 +67,46 @@ class Flow(ShengCanBaseApi):
             "crowdType": "all",
             "needCate":"undefined"
         }
-        url = api + urlencode(params)
-        # print(url)
-        res = requests.get(url, headers={
-            "User-Agent": UA,
-            "cookie": self.cookie})
-        self.req_log(res)
         try:
-            res_data = []
-            data = io.BytesIO(res.content)
+            data = self._request_excel_data(api, params)
             all_sheets = pd.read_excel(data, sheet_name=None, skiprows=5)
-            items_dict={}
+            items_dict = {}
             for sheet_name, df in all_sheets.items():
-                # print(sheet_name)
-                # print(df)
-                # print(f"Sheet: {sheet_name}")  # _全店：店铺渠道, 经营优势来源渠道; _流量载体：无线流量来源, 经营优势来源渠道
-                if df.empty:
-                    pass
-                else:
-                    items_tmp = df.to_dict('records')
-                    items_dict[sheet_name] = items_tmp
-
+                if not df.empty:
+                    items_dict[sheet_name] = df.to_dict('records')
             return items_dict
         except Exception as e:
-            # logger.error(f"{res.text}")
             return None
-    def goods_from__listen_good_flow_day(self,item_id,days=-1):
+    def goods_from__listen_good_flow_day(self,item_id,day):
+        """
+        "tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504"
+        """
         api = "https://sycm.taobao.com/flow/excel.do?"
         params = {
             "_path_": "v6/excel/item/crowdtype/source/v3",
             "belong": "all",
             "dateType": "day",
-            "dateRange": f"{get_date(days)}|{get_date(days)}",
+            "dateRange": f"{day}|{day}",
             "crowdType": "all",
             "device": "2",
             "itemId": item_id,
             "order": "desc",
             "orderBy": "uv",
-
         }
-        url = api + urlencode(params)
-        # print(url)
-        res = requests.get(url, headers={
-            "User-Agent": UA,
-            "cookie": self.cookie})
-        self.req_log(res)
+
         try:
-            data = io.BytesIO(res.content)
-            df = pd.read_excel(data,skiprows=5)
+            data = self._request_excel_data(api, params)
+            df = pd.read_excel(data, skiprows=5)
+
+            # df.empty 是 pandas DataFrame 的属性
+            # 用于检查 DataFrame 是否为空（没有任何行数据）
+            # to_dict('records')，将 DataFrame 转换为字典格式
             if df.empty:
                 return {}
             else:
-                items = df.to_dict('records')
-                return items
+                return df.to_dict('records')
         except Exception as e:
-            # logger.error(f"{res.text}")
+            logger.error(f"获取商品流量数据失败: item_id={item_id}, day={day}, error={str(e)}")
             return None
 
     def goods_from__listen_good_flow_day_new(self,item_id,days=-1):
@@ -124,36 +122,27 @@ class Flow(ShengCanBaseApi):
             "flowBizType":"classic"
 
         }
-        url = api + urlencode(params)
-        # print(url)
-        res = requests.get(url, headers={
-            "User-Agent": UA,
-            "cookie": self.cookie})
-        self.req_log(res)
         try:
-            data = io.BytesIO(res.content)
+            data = self._request_excel_data(api, params)
             data.seek(0)
-            df = pd.read_excel(data,sheet_name="无线流量来源", skiprows=5)
+            df = pd.read_excel(data, sheet_name="无线流量来源", skiprows=5)
             if df.empty:
-                return None,None
-            else:
-                items = df.to_dict('records')
-                try:
-                    data.seek(0)
-                    df2=pd.read_excel(data,sheet_name="经营优势来源渠道", skiprows=5)
-                    print(df2.to_dict('records'))
-                    df2 = df2.rename(columns={'渠道名称': '三级来源'})
-                    df2["一级来源"]="经营优势"
-                    df2["二级来源"] = "经营优势"
-                    items2=df2.to_dict('records')
-                    # items.extend(items2)
-                    return items,items2
-                except:
-                    return items,None
+                return None, None
+            items = df.to_dict('records')
+
+            try:
+                data.seek(0)
+                df2 = pd.read_excel(data, sheet_name="经营优势来源渠道", skiprows=5)
+                df2 = df2.rename(columns={'渠道名称': '三级来源'})
+                df2["一级来源"] = "经营优势"
+                df2["二级来源"] = "经营优势"
+                items2 = df2.to_dict('records')
+                return items, items2
+            except:
+                return items, None
 
         except Exception as e:
-            # logger.error(f"{res.text}")
-            return None,None
+            return None, None
 
 #  """https://sycm.taobao.com/flow/gray/excel.do?_path_=v4/excel/shop/source/summay/v4
 #  &dateType=day

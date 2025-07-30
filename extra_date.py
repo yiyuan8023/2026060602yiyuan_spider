@@ -121,6 +121,29 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
     else:
         raise TypeError(f"不支持的日期格式。请提供 datetime 对象或字符串，当前类型: {type(date_input)}")
 
+
+def format_timestamp(timestamp):
+    """
+    将时间戳转换为标准日期格式
+    Args:       timestamp (int/float): 时间戳（支持秒级或毫秒级）
+    Returns:    str: 格式化后的日期字符串 (YYYY-MM-DD)
+    """
+    if not timestamp:
+        return None
+
+    # 判断是秒级还是毫秒级时间戳
+    # 一般以1970年到当前时间的毫秒数来判断临界值
+    if timestamp > 9999999999:  # 大约2286年之前的毫秒级时间戳
+        # 毫秒级时间戳转换为秒级
+        timestamp = timestamp / 1000
+
+    try:
+        return datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d")
+    except (ValueError, OSError):
+        # 时间戳无效时返回None
+        return None
+
+
 # 使用示例
 if __name__ == "__main__":
     # 获取最近3天

@@ -37,6 +37,7 @@ def data_collector(table_name: str,
     start_date, end_data ,shop_names = parser_main()
     # logger.info(f"解析得到的日期: start_date={start_date}, end_data={end_data},shop_names = {shop_names}")
 
+
     # 根据参数确定采集日期列表，# 如果命令行指定了日期，则使用指定的日期，# 否则默认采集最近3天的数据
     if start_date:
         crawl_day_list = get_date_range(start_date, end_data)
@@ -44,11 +45,13 @@ def data_collector(table_name: str,
     else:
         crawl_day_list = get_recent_days(recent_days)
 
+
     # 确定需要采集的店铺列表，如果命令行指定了店铺，则使用指定的店铺列表，如果函数参数提供了店铺列表，则使用该列表
     if shop_names:
         shop_name_list = shop_names
     else:
         shop_name_list  = shop_name_list
+
 
     # 格式化店铺名称用于SQL查询
     shop_names = f'''  ('{"','".join(shop_name_list )}') '''
@@ -61,6 +64,7 @@ def data_collector(table_name: str,
         shop_cookies = DatabaseManager().select_cookies_shop(site, shop_names)
     else:
         shop_cookies = DatabaseManager().select_cookies_all(site)
+
 
     # 返回店铺cookies和采集日期列表
     return shop_cookies,crawl_day_list

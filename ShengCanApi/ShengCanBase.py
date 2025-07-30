@@ -1,9 +1,8 @@
-import datetime
-import re
-import time
-from sys import _getframe
 
+import re
 import requests
+
+from sys import _getframe
 from logger_ import logger
 from settings import UA
 
@@ -38,14 +37,14 @@ class ShengCanBaseApi:
 
             # 提取token和userId
             token_match = re.findall(r"legalityToken=(.*?);", response.text)
-            userId_match = re.findall(r"mainUserId=(.*?);", response.text)
+            userid_match = re.findall(r"mainUserId=(.*?);", response.text)
 
-            if token_match and userId_match:
-                logger.success(f"SycmAPI初始化成功，token={token_match[0]},userId={userId_match[0]}")
-                print(f"token={token_match[0]},userId={userId_match[0]},session = {session}")
-                return token_match[0], userId_match[0], session
+            if token_match and userid_match:
+                logger.success(f"SycmAPI初始化成功，token={token_match[0]},userId={userid_match[0]}")
+                print(f"token={token_match[0]},userId={userid_match[0]},session = {session}")
+                return token_match[0], userid_match[0], session
             else:
-                logger.error("未能提取到token或userId，cookie可能已过期")
+                logger.error("未能提取到token或userid,cookie可能已过期")
                 return None, None, None
 
         except requests.RequestException as e:
@@ -59,7 +58,7 @@ class ShengCanBaseApi:
     def req_log(res: requests.models.Response):
         """
         针对request请求的response对象的日志，通配
-        # _getframe(1) 返回调用函数的名称，用于定位信息
+         sys._getframe(1) 返回调用函数的名称，用于定位信息
         """
         if res.status_code == 200:
             logger.info(f"在{_getframe(1)}发起了调用,请求成功（status_code:{res.status_code}）")

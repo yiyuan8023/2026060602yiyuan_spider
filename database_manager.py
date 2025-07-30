@@ -79,32 +79,19 @@ class DatabaseManager:
             return
 
         # 分析第一条数据的字段类型
-        sample_item = items[-1]
+        sample_item = items[0]
         columns = []
-
-        # 获取所有字段名
-        keys = list(sample_item.keys())
-
-        # 如果没有指定主键，则使用第一个字段作为主键
-        if primary_key is None:
-            primary_key = keys[0]
+        keys = list(sample_item.keys()) # 获取所有字段名
 
         # 添加主键字段
         for key in keys:
             # 根据值的类型推断字段类型
             value = sample_item[key]
-            if isinstance(value, int):
-                column_type = "BIGINT"
-            elif isinstance(value, float):
-                column_type = "DOUBLE"
-            elif isinstance(value, str):
-                # 根据字符串长度决定类型
-                if len(value) > 1000:
-                    column_type = "TEXT"
-                else:
-                    column_type = f"VARCHAR({min(max(len(value) * 2, 255), 1000)})"
+            str_value = str(value) if value is not None else ""
+            if len(str_value) > 1000:
+                column_type = "TEXT"
             else:
-                column_type = "VARCHAR(255)"
+                column_type = f"VARCHAR({min(max(len(str_value) * 2, 255), 1000)})"
 
             # 设置主键
             if key == primary_key:
@@ -151,7 +138,7 @@ class DatabaseManager:
         :param :
         :return:
         """
-        sql = f"select `店铺名称`,`cookie` from `cookie` where  `站点`='{site}';"
+        sql = f"select `店铺名称`,`cookie_str` from `cookie` where  `站点`='{site}';"
 
         self.cursor.execute(sql)
         self.connect.commit()

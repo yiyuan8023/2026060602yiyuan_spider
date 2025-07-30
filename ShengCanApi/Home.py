@@ -14,7 +14,7 @@ class Home(ShengCanBaseApi):
         super().__init__(cookie)
         self.cookie = cookie
 
-    def fetch_data_overview(self, days=-1):
+    def fetch_data_overview(self, day):
         """
         首页数据概览
         :return:
@@ -23,7 +23,7 @@ class Home(ShengCanBaseApi):
         params = {
             "needCycleCrc": True,
             "dateType": "day",
-            "dateRange": f"{get_date(days)}|{get_date(days)}",
+            "dateRange": f"{day}|{day}",
             "_": convert_to_timestamp(),
             "token": self.token
         }
