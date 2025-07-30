@@ -1,12 +1,14 @@
 
 import sys
+from typing import Union, List
+
 from database_manager import DatabaseManager
 from extra_parser import parser_main
 from logger_ import logger
 from extra_date import get_date_range,get_recent_days
 
 
-def data_collector(table_name: str,
+def data_collector(db_table_name: Union[str, List[str]],
                    site: str ='生意参谋',
                    shop_name_list = None,
                    recent_days: int = 3
@@ -15,7 +17,7 @@ def data_collector(table_name: str,
       数据采集器函数，用户获取要采集的店铺和采集日期
 
       Args:
-          table_name (str): 数据库表名
+          db_table_name: 数据库表名
           site (str): 站点名称
           shop_name_list (list, optional): 店铺名称列表，默认为None(所有店铺)
           recent_days (int): 默认采集天数，默认为3天
@@ -30,7 +32,7 @@ def data_collector(table_name: str,
     if shop_name_list is None:
         shop_name_list = []
     logger.info("*" * 100)
-    logger.info(f"开始采集：{table_name}")
+    logger.info(f"开始采集：{db_table_name}")
     logger.info(f"接收到的命令行参数: {sys.argv}")
 
     # 解析命令行参数获取日期范围和店铺名称

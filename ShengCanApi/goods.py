@@ -4,6 +4,8 @@ from urllib.parse import urlencode
 import numpy as np
 import pandas as pd
 import requests
+
+from downloader import Downloader
 from extra_time import get_date, convert_to_timestamp
 
 from ShengCanApi.ShengCanBase import ShengCanBaseApi
@@ -58,8 +60,9 @@ class Goods(ShengCanBaseApi):
             raise e
 
     def category_360__flow_from(self, daterange, cateid):
+
         """
-        商品》》品类360》》流量来源
+        tb_sycm_商品_品类360_流量分析_流量来源_202504
         :param daterange:
         :param cateid: 品类ID
         :return:接口返回的JSON数据或None
@@ -78,13 +81,12 @@ class Goods(ShengCanBaseApi):
             "_": convert_to_timestamp(),
             "token": self.token
         }
-        url = api + urlencode(params)
+
         headers = {
-            "User-Agent":UA,
-            "cookie": self.cookie,
             "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cateid}&dateRange={daterange}&dateType=month"
         }
-        res = requests.get(url, headers=headers)
+
+        res = Downloader(self.cookie).download_web(api, params,headers=headers)
         if self.req_log(res):
             return res.json()
         else:
@@ -154,12 +156,8 @@ class Goods(ShengCanBaseApi):
             # logger.error(f"{res.text}")
             return None
 
-    def recommend_analysis_single_excel(self, dateRange):
-        """
-        商品《《单条效果
-        :param dateRange:
-        :return:
-        """
+    def recommend_analysis_single_excel(self, day):
+        'tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507'
 
         api = "https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"
         params = {
@@ -167,16 +165,10 @@ class Goods(ShengCanBaseApi):
             "keyword": "",
             "contentType": "minidetail",
             "dateType": "day",
-            "dateRange": dateRange
+            "dateRange": f"{day}|{day}"
         }
-        url = api + urlencode(params)
-        # print(url)
-        res = requests.get(url, headers={
-            "User-Agent": UA,
-            "cookie": self.cookie})
-        self.req_log(res)
         try:
-            data = io.BytesIO(res.content)
+            data = Downloader(self.cookie).download_excel(api, params)
             df = pd.read_excel(data, skiprows=5)
             df.replace({np.nan: ''}, inplace=True)
             if df.empty:

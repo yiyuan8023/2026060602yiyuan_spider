@@ -1,10 +1,14 @@
 import io
+import logging
 import warnings
 import zipfile
+from typing import Literal, Optional
 
 import pandas as pd
 import requests
 import chardet
+
+
 # 忽略 UserWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 def read_excel_to_dict(excel_content):
@@ -80,6 +84,45 @@ def read_download_csv(url):
         print(f"{e.args}")
         raise e
     # 检查请求是否成功
+
+
+# yiyuan20250730
+def excel_engine(data, sheet_name=None) -> Optional[Literal["xlrd", "openpyxl", "odf", "pyxlsb", "calamine"]]:
+    """
+    自动确定Excel文件的打开引擎
+    Args:
+        data: BytesIO对象或文件路径
+        sheet_name: 工作表名称（可选，用于测试读取）
+    Returns:
+        str: 推荐的engine名称 ('openpyxl', 'xlrd', 或 None)
+    """
+    engines: list[Literal["xlrd", "openpyxl", "odf", "pyxlsb", "calamine"]] = ['openpyxl', 'xlrd']
+
+    # 保存当前文件指针位置（如果是BytesIO对象）
+    current_position = 0
+    if hasattr(data, 'tell'):
+        current_position = data.tell()
+
+    for engine in engines:
+        try:
+            # 重置文件指针位置
+            if hasattr(data, 'seek'):
+                data.seek(current_position)
+
+            # 尝试使用该引擎读取文件
+            if sheet_name:
+                pd.read_excel( data, nrows=1, sheet_name=sheet_name,  engine=engine)
+            else:
+                pd.read_excel(data, nrows=1, engine=engine )
+
+            return engine
+        except Exception as e:
+            # 如果需要调试，可以启用下面这行日志
+            logging.debug(f"尝试使用引擎 '{engine}' 读取Excel文件失败: {str(e)}")
+            continue
+
+    # 如果所有引擎都失败，返回None
+    return None
 
 if __name__ == '__main__':
 
