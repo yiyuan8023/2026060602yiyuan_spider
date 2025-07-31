@@ -1,0 +1,84 @@
+
+# File: 万相台无界_基础报表_宝贝主体
+from time import sleep
+
+import pandas as pd
+
+from WanXiangTaiApi.WanXiangTaiReport import WanXiangTaiReportApi
+from extra.data_collector import data_collector
+from extra.database_manager import DatabaseManager
+from extra.downloader import Downloader
+from extra.extra_date import get_n_days_ago_date
+from extra.logger_ import logger
+
+
+def delete_history_data(df):
+    # 删除历史数据
+    # 将日期列转换为 datetime 类型
+    df["日期"] = pd.to_datetime(df["日期"])
+
+    # 获取日期区间的最小值和最大值
+    min_date = df["日期"].min()
+    max_date = df["日期"].max()
+    print(min_date, max_date)
+    sql = f"DELETE FROM `{table_name}` WHERE `日期` BETWEEN '{min_date}' AND '{max_date}' and `店铺名称`='{shop_name}';"
+    # db_obj.do_sql(sql)
+
+
+if __name__ == '__main__':
+    shop_name_list  =['林内官方旗舰店'] # 默认采集店铺,如果为[],则采集所有店铺
+    db_table_name = "tb_tg_万相台无界_基础报表_人群报表_202504"
+    site = '生意参谋'
+    shop_cookies,crawl_day_list = data_collector(db_table_name,site,shop_name_list,1)
+
+    end_data = get_n_days_ago_date(0,crawl_day_list[0])
+    start_data = get_n_days_ago_date(30,crawl_day_list[0])
+    logger.info(f"采集日期区间{start_data}_{end_data}")
+
+
+    for i in shop_cookies:
+        cookie = i[1]
+        # cookie = '_tb_token_=b8f0d703-2e1c-4387-9dd8-3d2aea55b819; dnk=; t=61f6d9516106249f280ae435a10c9a79; lgc=; wk_cookie2=1de33e37072f0ef696f0385c1905c161; _tb_token_=313e8b0136b3; wk_unb=UoH%2B4NPsNoWZlw%3D%3D; cookie2=154930697d8a50696d572651f93a5a2b; _nk_=; cna=QpKMIIUcNlICASeqbVq05Ozi; xlly_s=1; uc1=cookie14=UoYajlesvxuitQ%3D%3D&cookie21=W5iHLLyFfoaZ; lid=%E6%9E%97%E5%86%85%E5%8E%A8%E7%94%B5%E6%97%97%E8%88%B0%E5%BA%97%3A%E4%B8%80%E5%85%83; unb=2212373938588; sgcookie=E100eK9lKaPAvPh32Rhx0Wrk22pCjCjkxB5bozkp8amFcgczA32rvWtf1NHfxUu2ojxtBs783DIwl9uxSO34BRayC0%2Bb7lIdr%2FyMhdwJdjXBG549bamGOo6ypc%2B71miUKwlv; cancelledSubSites=empty; csg=2f4422ce; sn=%E6%9E%97%E5%86%85%E5%8E%A8%E7%94%B5%E6%97%97%E8%88%B0%E5%BA%97%3A%E4%B8%80%E5%85%83; tfstk=gIft2V63QkqMejOus5wnnvAtOfUh7sQadG7SinxihMIdAMXMhRS0MsIcvPJbbCfAvGjhiOcclqLfxM1_WC9mMZsCojx1IncAM9_XohbMsENAAMjv3P-DcnIclO43Z7bN7IRXDuVuZ4UTIMIthITblvTkPyY6heqZTIRbqkDnGdPJgG69dUBfRyLDoAM1cfTBOH8SCVsXfpiByURXcisXOpT2knGjGEiBAH8XGnsXGydINpD90x-jMTJwuYLzsofdO6L9B3_LUYDz9KokJNtKGj92TdHG5HhjG6BvdSTMf8uH0CxNJFI4afR6Ht1MO1ZQGQ6PvspWw-4wCZBd0CfQlAt5IGAC1T3jGwd9cgCHpcEpV17CaB93NzQCTGbN9Z0bGejkAN56M7ay6Ct69e50YftAdt1MQIo_Dn5dR16A4uflwYHSq3LmCyUK3xJ68uEkuOSKzayMJ34h-xk2K8TpqyUK3xJ68eKu-3Dq3p25.'
+        shop_name = i[0]
+        WanXiangTaiReportObj = WanXiangTaiReportApi(cookie)
+        task_id=WanXiangTaiReportObj.crowd_report__main_data_details(start_data,end_data)
+        sleep(60*3)
+        # task_id = '10568864'
+        download_url = WanXiangTaiReportObj.get_download_url(task_id)
+
+        if download_url:
+            df = Downloader(cookie).download_zip(download_url)  # 下载zip文件,并读取csv文件
+            # 将DataFrame中的"日期"列转换为datetime类型，并处理可能的错误值
+
+            df["日期"] = pd.to_datetime(df["日期"], errors='coerce')
+
+
+            # 将日期列格式化为字符串
+            df["日期"] = df["日期"].dt.strftime('%Y-%m-%d')
+            df_filled = df.fillna("")
+
+            if df_filled.empty:
+                items = {}
+            else:
+                items = df_filled.to_dict('records')
+
+            for item in items:
+                item.update({
+                    "店铺名称": shop_name,
+                })
+
+
+            try:
+                DatabaseManager().upsert_data(items[:2], db_table_name)
+                delete_history_data(df)
+                DatabaseManager().upsert_data(items, db_table_name)
+            except Exception as e:
+                logger.error(e)
+
+
+
+
+
+
+
+

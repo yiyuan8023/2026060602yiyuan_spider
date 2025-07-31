@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="1.0.0.8">
+      <change afterPath="$PROJECT_DIR$/extra/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/淘系_万相台/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/生意参谋/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShengCanApi/Flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShengCanApi/Flow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShengCanApi/Home.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShengCanApi/Home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShengCanApi/ShengCanBase.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShengCanApi/ShengCanBase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShengCanApi/goods.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShengCanApi/goods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_collector.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_manager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extra_cookie.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extra_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extra_excel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extra_parser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extra_time.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tb_sycm_商品_商品排行_全部商品_202504.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tb_sycm_流量_商品来源_商品来源流量_新版_202504.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tb_sycm_首页_数据概览_图表_新版_202504.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/生参商品_商品360_标题优化_搜索词.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="30LwkqNASeIWFdyZEGDIIyE4lN8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python 测试.Doctest convert_to_timestamp.executor": "Run",
+    "Python 测试.Doctests (extra_date 内).executor": "Run",
+    "Python.extra_date.executor": "Run",
+    "Python.extra_excel (1).executor": "Run",
+    "Python.extra_time.executor": "Run",
+    "Python.goods.executor": "Run",
+    "Python.logger_.executor": "Run",
+    "Python.tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507 (1).executor": "Run",
+    "Python.tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.executor": "Run",
+    "Python.tb_sycm_商品_品类360_流量分析_流量来源_202504.executor": "Run",
+    "Python.tb_sycm_商品_商品360_标题优化_搜索词_202504.executor": "Run",
+    "Python.tb_sycm_商品_商品排行_全部商品_202504.executor": "Run",
+    "Python.tb_sycm_流量_商品来源_商品来源流量_新版_202504.executor": "Run",
+    "Python.tb_sycm_流量_商品来源_商品来源流量_旧版_202504.executor": "Run",
+    "Python.tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.executor": "Run",
+    "Python.tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.executor": "Run",
+    "Python.tb_sycm_首页_数据概览_图表_新版_202504 (1).executor": "Run",
+    "Python.tb_sycm_首页_数据概览_图表_新版_202504.executor": "Run",
+    "Python.tb_tg_万相台无界_基础报表_人群报表_202504 (1).executor": "Run",
+    "Python.tempfile_1753421115103.executor": "Run",
+    "Python.万相台无界_基础报表_人群报表.executor": "Run",
+    "Python.生参内容_渠道效果_推荐_单条效果_微详情视频.executor": "Run",
+    "Python.生参商品排行_全部商品.executor": "Debug",
+    "Python.生参首页_数据概览_图表.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Administrator/Desktop/yiyuan_spider",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\yiyuan_spider\淘系_万相台" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.tb_tg_万相台无界_基础报表_人群报表_202504 (1)">
+    <configuration name="tb_sycm_商品_品类360_流量分析_流量来源_202504" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/生意参谋" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/生意参谋/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_sycm_商品_品类360_流量分析_流量来源_202504" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/生意参谋" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/生意参谋/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_sycm_首页_数据概览_图表_新版_202504" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/生意参谋" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/生意参谋/tb_sycm_首页_数据概览_图表_新版_202504.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/生意参谋" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/生意参谋/tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_tg_万相台无界_基础报表_人群报表_202504 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/淘系_万相台" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_人群报表_202504.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_tg_万相台无界_基础报表_人群报表_202504" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/淘系_万相台" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Desktop\yiyuan_spider\淘系_万相台\tb_tg_万相台无界_基础报表_人群报表_202504.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tb_tg_万相台无界_基础报表_人群报表_202504 (1)" />
+        <item itemvalue="Python.tb_tg_万相台无界_基础报表_人群报表_202504" />
+        <item itemvalue="Python.tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507" />
+        <item itemvalue="Python.tb_sycm_商品_品类360_流量分析_流量来源_202504" />
+        <item itemvalue="Python.tb_sycm_首页_数据概览_图表_新版_202504" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-c2d6afa66fbe-39cff9de6eef-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.20224.347" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="" />
+      <created>1753420306600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753420306600</updated>
+      <workItem from="1753420307720" duration="17657000" />
+      <workItem from="1753443909509" duration="28406000" />
+      <workItem from="1753780347318" duration="12102000" />
+      <workItem from="1753842051933" duration="57000" />
+      <workItem from="1753842134218" duration="100000" />
+      <workItem from="1753842242972" duration="3391000" />
+      <workItem from="1753845675538" duration="42085000" />
+      <workItem from="1753951815841" duration="10505000" />
+    </task>
+    <task id="LOCAL-00001" summary="初版">
+      <option name="closed" value="true" />
+      <created>1753434278436</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753434278436</updated>
+    </task>
+    <task id="LOCAL-00002" summary="初版">
+      <option name="closed" value="true" />
+      <created>1753434908457</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753434908457</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1.0.0.1">
+      <option name="closed" value="true" />
+      <created>1753443943964</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753443943964</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1.0.0.2">
+      <option name="closed" value="true" />
+      <created>1753699510000</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753699510000</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1.0.0.2">
+      <option name="closed" value="true" />
+      <created>1753699579179</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1753699579179</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1.0.0.3">
+      <option name="closed" value="true" />
+      <created>1753780703332</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753780703332</updated>
+    </task>
+    <task id="LOCAL-00007" summary="1.0.0.4">
+      <option name="closed" value="true" />
+      <created>1753842005006</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1753842005006</updated>
+    </task>
+    <task id="LOCAL-00008" summary="1.0.0.5">
+      <option name="closed" value="true" />
+      <created>1753859828608</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1753859828608</updated>
+    </task>
+    <task id="LOCAL-00009" summary="1.0.0.5">
+      <option name="closed" value="true" />
+      <created>1753872141037</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1753872141037</updated>
+    </task>
+    <task id="LOCAL-00010" summary="1.0.0.6">
+      <option name="closed" value="true" />
+      <created>1753872175322</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1753872175322</updated>
+    </task>
+    <task id="LOCAL-00011" summary="1.0.0.7">
+      <option name="closed" value="true" />
+      <created>1753946049645</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1753946049645</updated>
+    </task>
+    <task id="LOCAL-00012" summary="1.0.0.8">
+      <option name="closed" value="true" />
+      <created>1753951120242</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1753951120242</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="初版" />
+    <MESSAGE value="1.0.0.1" />
+    <MESSAGE value="1.0.0.2" />
+    <MESSAGE value="1.0.0.3" />
+    <MESSAGE value="1.0.0.4" />
+    <MESSAGE value="1.0.0.5" />
+    <MESSAGE value="1.0.0.6" />
+    <MESSAGE value="1.0.0.7" />
+    <MESSAGE value="1.0.0.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.0.8" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ShengCanApi/Flow.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ShengCanApi/Flow.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ShengCanApi/Flow.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ShengCanApi/Flow.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ShengCanApi/Flow.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/生意参谋/tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/extra/downloader.py</url>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_人群报表_202504.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_人群报表_202504.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_人群报表_202504.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/yiyuan_spider$extra_excel__1_.coverage" NAME="extra_excel (1) 覆盖结果" MODIFIED="1753427734127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$Doctest_convert_to_timestamp.coverage" NAME="Doctest convert_to_timestamp 覆盖结果" MODIFIED="1753422903846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_____202504__1_.coverage" NAME="tb_sycm_首页_数据概览_图表_新版_202504 (1) 覆盖结果" MODIFIED="1753866504440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$Doctests__extra_date__.coverage" NAME="Doctests (extra_date 内) 覆盖结果" MODIFIED="1753687572108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_______202507.coverage" NAME="tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507 覆盖结果" MODIFIED="1753953609745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tg____202504__1_.coverage" NAME="tb_tg_万相台无界_基础报表_人群报表_202504 (1) 覆盖结果" MODIFIED="1753961384654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_万相台" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$____.coverage" NAME="生参内容_渠道效果_推荐_单条效果_微详情视频 覆盖结果" MODIFIED="1753869890563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_____.coverage" NAME="tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版 覆盖结果" MODIFIED="1753952725255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_____202504.coverage" NAME="tb_sycm_首页_数据概览_图表_新版_202504 覆盖结果" MODIFIED="1753952736946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm__360___202504.coverage" NAME="tb_sycm_商品_品类360_流量分析_流量来源_202504 覆盖结果" MODIFIED="1753953391896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$extra_time.coverage" NAME="extra_time 覆盖结果" MODIFIED="1753427328110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$goods.coverage" NAME="goods 覆盖结果" MODIFIED="1753952271495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ShengCanApi" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_______202507__1_.coverage" NAME="tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507 (1) 覆盖结果" MODIFIED="1753870268296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm____202504.coverage" NAME="tb_sycm_商品_商品排行_全部商品_202504 覆盖结果" MODIFIED="1753952704336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$logger_.coverage" NAME="logger_ 覆盖结果" MODIFIED="1753437220692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$__.coverage" NAME="万相台无界_基础报表_人群报表 覆盖结果" MODIFIED="1753957717249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_万相台" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$_.coverage" NAME="生参商品排行_全部商品 覆盖结果" MODIFIED="1753691817301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm______202504.coverage" NAME="tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504 覆盖结果" MODIFIED="1753952730968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$extra_date.coverage" NAME="extra_date 覆盖结果" MODIFIED="1753936977381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tempfile_1753421115103.coverage" NAME="tempfile_1753421115103 覆盖结果" MODIFIED="1753422915181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
