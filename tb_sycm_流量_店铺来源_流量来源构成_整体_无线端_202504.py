@@ -7,9 +7,9 @@ from data_collector import data_collector
 
 if __name__ == '__main__':
 
-    # shop_name_list  =['林内官方旗舰店','林内厨电旗舰店'] # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list  =['林内官方旗舰店'] # 默认采集店铺,如果为[],则采集所有店铺
     # shop_name_list  =['林内品牌折扣店'] # 默认采集店铺,如果为[],则采集所有店铺
-    shop_name_list  =None # 默认采集店铺,如果为[],则采集所有店铺
+    # shop_name_list  =None # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504"
     site = '生意参谋'
     shop_cookies,crawl_day_list = data_collector(table_name,site,shop_name_list,1)
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         shop_name = i[0]
         FlowObj = Flow(cookie)
         for day in crawl_day_list:
-            logger.info(f"正在采集{shop_name}，{day}的数据")
+            logger.info(f"正在采集{shop_name},{day}的数据")
             items = FlowObj.shop_from__flow_from_build_day(day)
             for item in items:
                 item.update({

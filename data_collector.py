@@ -5,28 +5,30 @@ from typing import Union, List
 from database_manager import DatabaseManager
 from extra_parser import parser_main
 from logger_ import logger
-from extra_date import get_date_range,get_recent_days
+from extra_date import get_date_range, get_recent_days, get_recent_months_first_day, get_unique_month_first_days
 
 
 def data_collector(db_table_name: Union[str, List[str]],
                    site: str ='生意参谋',
                    shop_name_list = None,
-                   recent_days: int = 3
+                   recent_period: int = 3,
+                   period_type: str = 'day'
                    ):
     """
-      数据采集器函数，用户获取要采集的店铺和采集日期
+    数据采集器函数，用户获取要采集的店铺和采集日期
 
-      Args:
-          db_table_name: 数据库表名
-          site (str): 站点名称
-          shop_name_list (list, optional): 店铺名称列表，默认为None(所有店铺)
-          recent_days (int): 默认采集天数，默认为3天
+    Args:
+        db_table_name: 数据库表名
+        site (str): 站点名称
+        shop_name_list (list, optional): 店铺名称列表，默认为None(所有店铺)
+        recent_period (int): 默认采集周期数，默认为3（最近3天或3个月）
+        period_type (str): 周期类型，'day'表示天，'month'表示月，默认为'day'
 
-      Returns:
-          tuple: (shop_cookies, crawl_day_list)
-              - shop_cookies: 包含店铺cookie信息的列表
-              - crawl_day_list: 需要采集的日期列表
-      """
+    Returns:
+        tuple: (shop_cookies, crawl_day_list)
+            - shop_cookies: 包含店铺cookie信息的列表
+            - crawl_day_list: 需要采集的日期列表
+    """
 
     # 记录开始采集日志
     if shop_name_list is None:
@@ -40,12 +42,25 @@ def data_collector(db_table_name: Union[str, List[str]],
     # logger.info(f"解析得到的日期: start_date={start_date}, end_data={end_data},shop_names = {shop_names}")
 
 
-    # 根据参数确定采集日期列表，# 如果命令行指定了日期，则使用指定的日期，# 否则默认采集最近3天的数据
+
+
+    # 根据参数确定采集日期列表
     if start_date:
-        crawl_day_list = get_date_range(start_date, end_data)
-        # logger.info(f"解析参数{start_date}-{end_data}，即采集列表{crawl_day_list}")
+        # 如果命令行指定了日期，则使用指定的日期范围
+        date_range = get_date_range(start_date, end_data)
+        if period_type == 'month':
+            # 对于月份类型，获取日期范围内的所有月初日期并去重
+            crawl_day_list = get_unique_month_first_days(date_range)
+        else:
+            # 对于天类型，直接使用日期范围
+            crawl_day_list = date_range
     else:
-        crawl_day_list = get_recent_days(recent_days)
+        # 如果没有指定日期，则根据period_type使用默认的近期日期
+        if period_type == 'month':
+            crawl_day_list = get_recent_months_first_day(recent_period)
+        else:
+            crawl_day_list = get_recent_days(recent_period)
+
 
 
     # 确定需要采集的店铺列表，如果命令行指定了店铺，则使用指定的店铺列表，如果函数参数提供了店铺列表，则使用该列表

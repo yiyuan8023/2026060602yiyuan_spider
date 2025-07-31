@@ -6,12 +6,12 @@ import pandas as pd
 import requests
 
 from downloader import Downloader
-from extra_time import get_date, convert_to_timestamp
+from extra_time import convert_to_timestamp
 
 from ShengCanApi.ShengCanBase import ShengCanBaseApi
 from logger_ import logger
 from settings import UA
-from extra_date import get_recent_days
+from extra_date import get_millisecond_timestamp
 
 
 class Goods(ShengCanBaseApi):
@@ -78,7 +78,7 @@ class Goods(ShengCanBaseApi):
             "belong": "all",
             "cateId": cateid,
             "indexCode": "itmUv, itemCartByrCnt, itemCltByrCnt, payByrCnt",
-            "_": convert_to_timestamp(),
+            "_": get_millisecond_timestamp(),
             "token": self.token
         }
 
@@ -92,14 +92,14 @@ class Goods(ShengCanBaseApi):
         else:
             return None
 
-    def goods_360__title_drainage(self, dateRange, itemId):
+    def goods_360__title_drainage(self, daterange, itemId):
         """
         商品》》商品360》》标题与选词引流优化
         :return:
         """
         api = "https://sycm.taobao.com/cc/item/title/v2/word/list.json?"
         params = {
-            "dateRange": dateRange,
+            "dateRange": daterange,
             "dateType": "day",
             "pageSize": 20,
             "page": 1,
@@ -123,10 +123,10 @@ class Goods(ShengCanBaseApi):
         else:
             return None
 
-    def goods_360__title_drainage_excel(self, dateRange, itemId):
+    def goods_360__title_drainage_excel(self, daterange, itemId):
         """
 
-        :param dateRange:
+        :param daterange:
         :param itemId:
         :return:
         """
@@ -136,7 +136,7 @@ class Goods(ShengCanBaseApi):
             "device": 0,
             "kwType": "se_keyword",
             "dateType": "day",
-            "dateRange": dateRange
+            "dateRange": daterange
         }
         url = api + urlencode(params)
         # print(url)
@@ -157,7 +157,11 @@ class Goods(ShengCanBaseApi):
             return None
 
     def recommend_analysis_single_excel(self, day):
-        'tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507'
+        """
+        tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507
+
+        """
+
 
         api = "https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"
         params = {

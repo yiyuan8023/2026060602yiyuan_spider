@@ -1,10 +1,13 @@
 
 # File: 生参商品_品类360_流量分析_流量来源
-import json
+
+
+
 
 from ShengCanApi.goods import Goods
 from data_collector import data_collector
 from database_manager import DatabaseManager
+from extra_date import get_month_first_and_last_day
 from logger_ import logger
 
 cn_en_mappings = {
@@ -27,15 +30,17 @@ cn_en_mappings = {
 }
 
 
-def analyzing_(data, d={}):
+def analyzing_(data, d=None):
+    if d is None:
+        d = {}
     items = []
     for i in data:
         item = {}
         add_dict = {}
         for k, v in i.items():
             if k == "pageName":
-                item[f"{k}_{i["pageLevel"]["value"]}"] = v["value"]
-                add_dict[f"{k}_{i["pageLevel"]["value"]}"] = v["value"]
+                item[f"{k}_{i['pageLevel']['value']}"] = v['value']
+                add_dict[f"{k}_{i['pageLevel']['value']}"] = v['value']
             else:
                 if "value" in v and k != "children":
                     item[k] = v["value"]
@@ -71,36 +76,42 @@ def analyzing_res(res_json):
             })
             item["key"]=f"{item['店铺名称']}_{item['统计日期']}_{item['日期类型']}_{item['一级流量来源']}_{item['二级流量来源']}_{item['三级流量来源']}"
             items.append(item)
-        DatabaseManager().upsert_data(items, table_name, primary_key="key")
+        DatabaseManager().upsert_data(items, db_table_name, primary_key="key")
 
     else:
         logger.info("数据为空")
 
 
 if __name__ == '__main__':
-    cate_info={
-        "126664001":"大家电>洗烘套装"
-    }
 
-    shop_name_list  =['林内官方旗舰店','林内厨电旗舰店'] # 默认采集店铺,如果为[],则采集所有店铺
-    # shop_name_list  =['林内品牌折扣店'] # 默认采集店铺,如果为[],则采集所有店铺
-    # shop_name_list  =None # 默认采集店铺,如果为[],则采集所有店铺
     db_table_name = 'tb_sycm_商品_品类360_流量分析_流量来源_202504'
 
+    shop_cate_info = {
+        '林内官方旗舰店': [{"50022703":"大家电>热水器>燃气热水器"}],
+        # '林内官方旗舰店': [{"50022703":"大家电>热水器>燃气热水器","50005928":"大家电>洗碗机"}],
+        # '林内厨电旗舰店': [{"50022703":"大家电>热水器>燃气热水器"}],
+    }
+    shop_name_list = shop_cate_info.keys()
     site = '生意参谋'
-    shop_cookies,crawl_day_list = data_collector(db_table_name,site,shop_name_list,1)
+
+    shop_cookies,crawl_day_list = data_collector(db_table_name,site,shop_name_list, recent_period=1, period_type='month')
+
 
     for i in shop_cookies:
         cookie = i[1]
         shop_name = i[0]
-        for k, v in cate_info.items():
+        for k, v in shop_cate_info.get(shop_name)[0].items():
             cateId = k
             cateName=v
             GoodObj = Goods(cookie)
-            dateRange = f"{start_date}|{end_data}"
-            logger.info(f"正在采集{dateRange}的月数据")
-            res_json = GoodObj.category_360__flow_from(dateRange, cateId)
-            analyzing_res(res_json)
+            for day in crawl_day_list:
+                start_date, end_data = get_month_first_and_last_day(day)  #获取本月第一天和最后一天
+                dateRange = f" {start_date}|{end_data}"
+                logger.info(f"正在采集{dateRange}的月数据")
+                res_json = GoodObj.category_360__flow_from(dateRange, cateId)
+                print(f"请求参数: dateRange={dateRange}, cateId={cateId}")
+                print(res_json)
+                analyzing_res(res_json)
         # print(res_json)
 
 # python tb_sycm_商品_品类360_流量分析_流量来源_202504.py --mode=monthly --month=01
