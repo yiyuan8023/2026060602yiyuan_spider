@@ -5,8 +5,8 @@ import requests
 
 from ShengCanApi.ShengCanBase import ShengCanBaseApi
 
-from extra_time import get_date, convert_to_timestamp
-from settings import UA
+from extra.extra_time import get_date, convert_to_timestamp
+from extra.settings import UA
 
 
 class Home(ShengCanBaseApi):

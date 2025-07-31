@@ -2,9 +2,8 @@
 import re
 import requests
 
-from sys import _getframe
-from logger_ import logger
-from settings import UA
+from extra.logger_ import logger
+from extra.settings import UA
 
 
 class ShengCanBaseApi:
@@ -54,15 +53,3 @@ class ShengCanBaseApi:
             logger.error(f"获取token时发生未知错误: {e}")
             return None, None, None
 
-    @staticmethod
-    def req_log(res: requests.models.Response):
-        """
-        针对request请求的response对象的日志，通配
-         sys._getframe(1) 返回调用函数的名称，用于定位信息
-        """
-        if res.status_code == 200:
-            logger.info(f"在{_getframe(1)}发起了调用,请求成功（status_code:{res.status_code}）")
-            return True
-        else:
-            logger.error(f"在{_getframe(1)}发起了调用,请求失败（status_code:{res.status_code}）")
-            return False

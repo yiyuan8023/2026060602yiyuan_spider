@@ -5,13 +5,14 @@ import numpy as np
 import pandas as pd
 import requests
 
-from downloader import Downloader
-from extra_time import convert_to_timestamp
+from extra.downloader import Downloader
+from extra.extra_reqlog import req_log
+from extra.extra_time import convert_to_timestamp
 
 from ShengCanApi.ShengCanBase import ShengCanBaseApi
-from logger_ import logger
-from settings import UA
-from extra_date import get_millisecond_timestamp
+from extra.logger_ import logger
+from extra.settings import UA
+from extra.extra_date import get_millisecond_timestamp
 
 
 class Goods(ShengCanBaseApi):
@@ -87,7 +88,7 @@ class Goods(ShengCanBaseApi):
         }
 
         res = Downloader(self.cookie).download_web(api, params,headers=headers)
-        if self.req_log(res):
+        if req_log(res):
             return res.json()
         else:
             return None
