@@ -125,7 +125,7 @@ class Goods(ShengCanBaseApi):
 
     def goods_360__title_drainage_excel(self, daterange, itemId):
         """
-
+        table_name = "tb_sycm_商品_商品360_标题优化_搜索词_202504"
         :param daterange:
         :param itemId:
         :return:
@@ -138,14 +138,9 @@ class Goods(ShengCanBaseApi):
             "dateType": "day",
             "dateRange": daterange
         }
-        url = api + urlencode(params)
-        # print(url)
-        res = requests.get(url, headers={
-            "User-Agent": UA,
-            "cookie": self.cookie})
-        self.req_log(res)
+
         try:
-            data = io.BytesIO(res.content)
+            data = Downloader(self.cookie).download_excel(api, params)
             df = pd.read_excel(data, skiprows=5)
             if df.empty:
                 return {}
@@ -161,8 +156,6 @@ class Goods(ShengCanBaseApi):
         tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507
 
         """
-
-
         api = "https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"
         params = {
             "contentSource": "all",
