@@ -21,8 +21,8 @@ def delete_history_data(df):
     min_date = df["日期"].min()
     max_date = df["日期"].max()
     print(min_date, max_date)
-    sql = f"DELETE FROM `{table_name}` WHERE `日期` BETWEEN '{min_date}' AND '{max_date}' and `店铺名称`='{shop_name}';"
-    # db_obj.do_sql(sql)
+    sql = f"DELETE FROM `{db_table_name}` WHERE `日期` BETWEEN '{min_date}' AND '{max_date}' and `店铺名称`='{shop_name}';"
+    DatabaseManager().execute_sql(sql)
 
 
 if __name__ == '__main__':
@@ -65,6 +65,7 @@ if __name__ == '__main__':
             for item in items:
                 item.update({
                     "店铺名称": shop_name,
+                    "归因周期":15,
                 })
 
 

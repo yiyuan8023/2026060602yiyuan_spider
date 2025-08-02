@@ -1,0 +1,102 @@
+2025-08-01 13:18:15 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 13:18:15 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_人群报表_202504
+2025-08-01 13:18:15 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_人群报表_202504.py']
+2025-08-01 13:18:15 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 13:18:15 | INFO | tb_tg_万相台无界_基础报表_人群报表_202504.py:36 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 13:18:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018C0403CFC0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 13:18:16 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:213e363f17540254947465188ef337
+2025-08-01 13:18:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018C041ED6C0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 71, code create_download_task>发起了调用,请求成功（status_code:200）
+2025-08-01 13:18:17 | SUCCESS | WanXiangTaiBase.py:74 : 创建任务成功，taskId：15930246
+2025-08-01 13:21:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018C041ED8A0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 104, code get_download_url>发起了调用,请求成功（status_code:200）
+2025-08-01 13:21:17 | SUCCESS | WanXiangTaiBase.py:107 : 获取下载链接成功，downloadUrl：https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15930246/MAIN?Expires=1754029276&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=O4PZkdhyYqCZ%2FyhI8gfmKvvFsk4%3D
+2025-08-01 13:21:17 | INFO | downloader.py:140 : https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15930246/MAIN?Expires=1754029276&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=O4PZkdhyYqCZ%2FyhI8gfmKvvFsk4%3D
+2025-08-01 13:21:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018C03036E60, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 144, code download_zip>发起了调用,请求成功（status_code:200）
+2025-08-01 13:21:54 | ERROR | tb_tg_万相台无界_基础报表_人群报表_202504.py:76 : name 'table_name' is not defined
+2025-08-01 13:45:34 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 13:45:34 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_人群报表_202504
+2025-08-01 13:45:34 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_人群报表_202504.py']
+2025-08-01 13:45:34 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 13:45:34 | INFO | tb_tg_万相台无界_基础报表_人群报表_202504.py:36 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 13:45:35 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000016FD0E8D3A0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 13:45:35 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:213e371117540271338116666e7ce4
+2025-08-01 13:45:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000016FD103D6C0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 71, code create_download_task>发起了调用,请求成功（status_code:200）
+2025-08-01 13:45:36 | SUCCESS | WanXiangTaiBase.py:74 : 创建任务成功，taskId：15930570
+2025-08-01 13:48:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000016FD103D8A0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 104, code get_download_url>发起了调用,请求成功（status_code:200）
+2025-08-01 13:48:36 | SUCCESS | WanXiangTaiBase.py:107 : 获取下载链接成功，downloadUrl：https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15930570/MAIN?Expires=1754030915&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=XtA7Q2Nt8X3QdLSnXmFCs2P2BK4%3D
+2025-08-01 13:48:36 | INFO | downloader.py:140 : https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15930570/MAIN?Expires=1754030915&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=XtA7Q2Nt8X3QdLSnXmFCs2P2BK4%3D
+2025-08-01 13:48:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000016FCEAA6AD0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 144, code download_zip>发起了调用,请求成功（status_code:200）
+2025-08-01 13:57:31 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 13:57:31 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_关键词_202504
+2025-08-01 13:57:31 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_关键词_202504.py']
+2025-08-01 13:57:31 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 13:57:31 | INFO | tb_tg_万相台无界_基础报表_关键词_202504.py:44 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 13:57:31 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000022793C3CFC0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 13:57:31 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:213e36a817540278500072782e7f6c
+2025-08-01 13:57:32 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 13:57:32 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_宝贝主体_202504
+2025-08-01 13:57:32 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_宝贝主体_202504.py']
+2025-08-01 13:57:32 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 13:57:32 | INFO | tb_tg_万相台无界_基础报表_宝贝主体_202504.py:39 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 13:57:33 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000236924E4FC0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 13:57:33 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:213e362517540278516353765ebe79
+2025-08-01 13:57:42 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 13:57:42 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_关键词_202504
+2025-08-01 13:57:42 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_关键词_202504.py']
+2025-08-01 13:57:42 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 13:57:42 | INFO | tb_tg_万相台无界_基础报表_关键词_202504.py:44 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 13:57:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001736A984FC0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 13:57:43 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:213e365717540278616967583e5eb9
+2025-08-01 13:58:16 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 13:58:16 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_关键词_202504
+2025-08-01 13:58:16 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_关键词_202504.py']
+2025-08-01 13:58:16 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 13:58:16 | INFO | tb_tg_万相台无界_基础报表_关键词_202504.py:44 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 13:58:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D501AECFC0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 13:58:17 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:2150436217540278955417994eaa5c
+2025-08-01 13:58:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D501C9D6C0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 71, code create_download_task>发起了调用,请求成功（status_code:200）
+2025-08-01 13:58:17 | SUCCESS | WanXiangTaiBase.py:74 : 创建任务成功，taskId：15930692
+2025-08-01 13:58:28 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 13:58:28 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_宝贝主体_202504
+2025-08-01 13:58:28 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_宝贝主体_202504.py']
+2025-08-01 13:58:28 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 13:58:28 | INFO | tb_tg_万相台无界_基础报表_宝贝主体_202504.py:39 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 13:58:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001E69B334FC0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 13:58:29 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:2150441a17540279074774747ec28b
+2025-08-01 13:58:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001E69B4ED6C0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 71, code create_download_task>发起了调用,请求成功（status_code:200）
+2025-08-01 13:58:29 | SUCCESS | WanXiangTaiBase.py:74 : 创建任务成功，taskId：15930697
+2025-08-01 14:01:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D501C9D8A0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 104, code get_download_url>发起了调用,请求成功（status_code:200）
+2025-08-01 14:01:18 | SUCCESS | WanXiangTaiBase.py:107 : 获取下载链接成功，downloadUrl：https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15930692/MAIN?Expires=1754031676&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=yta42%2FA4QEGwfjDql7ecu%2BTK2r4%3D
+2025-08-01 14:01:18 | INFO | downloader.py:140 : https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15930692/MAIN?Expires=1754031676&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=yta42%2FA4QEGwfjDql7ecu%2BTK2r4%3D
+2025-08-01 14:01:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D50096E650, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 144, code download_zip>发起了调用,请求成功（status_code:200）
+2025-08-01 14:01:26 | ERROR | tb_tg_万相台无界_基础报表_关键词_202504.py:79 : name 'table_name' is not defined
+2025-08-01 14:01:30 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001E69B4ED8A0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 104, code get_download_url>发起了调用,请求成功（status_code:200）
+2025-08-01 14:01:30 | SUCCESS | WanXiangTaiBase.py:107 : 获取下载链接成功，downloadUrl：https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15930697/MAIN?Expires=1754031688&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=KPDe9p3Mpuzr28t%2B9XhnbXuwNWQ%3D
+2025-08-01 14:01:30 | INFO | downloader.py:140 : https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15930697/MAIN?Expires=1754031688&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=KPDe9p3Mpuzr28t%2B9XhnbXuwNWQ%3D
+2025-08-01 14:01:30 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001E69A3639C0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 144, code download_zip>发起了调用,请求成功（status_code:200）
+2025-08-01 14:01:32 | ERROR | tb_tg_万相台无界_基础报表_宝贝主体_202504.py:72 : name 'table_name' is not defined
+2025-08-01 14:25:54 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 14:25:54 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_宝贝主体_202504
+2025-08-01 14:25:54 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_宝贝主体_202504.py']
+2025-08-01 14:25:54 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 14:25:54 | INFO | tb_tg_万相台无界_基础报表_宝贝主体_202504.py:36 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 14:25:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000180DB00CFC0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 14:25:55 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:2150455617540295536248059e830f
+2025-08-01 14:25:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000180DB1BD6C0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 71, code create_download_task>发起了调用,请求成功（status_code:200）
+2025-08-01 14:25:55 | SUCCESS | WanXiangTaiBase.py:74 : 创建任务成功，taskId：15931694
+2025-08-01 14:26:16 | INFO | data_collector.py:36 : ****************************************************************************************************
+2025-08-01 14:26:16 | INFO | data_collector.py:37 : 开始采集：tb_tg_万相台无界_基础报表_关键词_202504
+2025-08-01 14:26:16 | INFO | data_collector.py:38 : 接收到的命令行参数: ['C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\淘系_万相台\\tb_tg_万相台无界_基础报表_关键词_202504.py']
+2025-08-01 14:26:16 | INFO | data_collector.py:75 : 采集日期列表['2025-07-31'],采集店铺['林内官方旗舰店']
+2025-08-01 14:26:16 | INFO | tb_tg_万相台无界_基础报表_关键词_202504.py:45 : 采集日期区间2025-07-01_2025-07-31
+2025-08-01 14:26:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018366ACCFC0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 39, code test_cookie_and_fetch_csrfid>发起了调用,请求成功（status_code:200）
+2025-08-01 14:26:16 | SUCCESS | WanXiangTaiBase.py:20 : WanXiangTaiBaseApi 初始化成功,csrfId:c0c9627d21468c91eef646b29acaefc2_1_1_1,loginPointId:215041a217540295754394556ea4fd
+2025-08-01 14:26:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018366C7D6C0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 71, code create_download_task>发起了调用,请求成功（status_code:200）
+2025-08-01 14:26:17 | SUCCESS | WanXiangTaiBase.py:74 : 创建任务成功，taskId：15931709
+2025-08-01 14:28:57 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000180DB1BD8A0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 104, code get_download_url>发起了调用,请求成功（status_code:200）
+2025-08-01 14:28:57 | SUCCESS | WanXiangTaiBase.py:107 : 获取下载链接成功，downloadUrl：https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15931694/MAIN?Expires=1754033335&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=A2upsGVRX2X%2BsUw79yOhvGta4xk%3D
+2025-08-01 14:28:57 | INFO | downloader.py:140 : https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15931694/MAIN?Expires=1754033335&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=A2upsGVRX2X%2BsUw79yOhvGta4xk%3D
+2025-08-01 14:28:57 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000180D9FF4E60, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 144, code download_zip>发起了调用,请求成功（status_code:200）
+2025-08-01 14:29:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018366C7D8A0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\WanXiangTaiApi\\WanXiangTaiBase.py', line 104, code get_download_url>发起了调用,请求成功（status_code:200）
+2025-08-01 14:29:18 | SUCCESS | WanXiangTaiBase.py:107 : 获取下载链接成功，downloadUrl：https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15931709/MAIN?Expires=1754033356&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=KljmEyki9bCF7iufxs6FUyPKYJA%3D
+2025-08-01 14:29:18 | INFO | downloader.py:140 : https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/34274104/2025/08/01/15931709/MAIN?Expires=1754033356&OSSAccessKeyId=TMP.3Kq9rd5hkkyquEFvnwzQkZtZ9xictR5b6zuzRHMWx9zf81u96XNm2E8fwYjiqzdTbQcpxmXJ4KJmGDci9CE1vvGV3cGdbD&Signature=KljmEyki9bCF7iufxs6FUyPKYJA%3D
+2025-08-01 14:29:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001836449CCA0, file 'C:\\Users\\Administrator\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 144, code download_zip>发起了调用,请求成功（status_code:200）

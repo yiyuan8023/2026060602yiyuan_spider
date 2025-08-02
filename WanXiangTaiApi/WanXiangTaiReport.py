@@ -13,27 +13,27 @@ class WanXiangTaiReportApi(WanXiangTaiBaseApi):
         super().__init__(cookie)
         self.cookie = cookie
 
-    def main_report__main_data_details(self):
+    def main_report__main_data_details(self,start_date,end_date):
         """
-        主体报表》》主体数据明细
+        tb_tg_万相台无界_基础报表_宝贝主体_202504
         :return:
         """
         data = {
-            "excelName": f"主体报表_{self.get_date(0, '%Y%m%d')}_{uuid.uuid4().hex[:8]}",
+            "excelName": f"主体报表_{start_date}_{end_date}_{uuid.uuid4().hex[:8]}",
             "pageSize": 20,
             "offset": 0,
             "havingList": [],
-            "endTime": self.get_date(-1),
+            "endTime": end_date,
             "from": "pcBaseReport",
             "unifyType": "zhai",
             "effectEqual": 15,
-            "startTime": self.get_date(-30),
+            "startTime": start_date,
             "splitType": "day",
             "subPromotionTypes": ["ITEM_PRIVATE_MINI", "SHOP", "USER_DEFINE_URL", "SHORT_VIDEO", "ITEM", "RSS_CONTENT"],
             "queryFieldIn": ["adPv", "click", "charge", "ctr", "ecpc", "alipayInshopAmt", "alipayInshopNum", "cvr",
                              "cartInshopNum", "itemColInshopNum", "shopColDirNum", "colNum", "itemColInshopCost"],
             "vsType": "week",
-            "vsTime": self.get_date(-1),
+            "vsTime": end_date,
             "searchValue": "",
             "searchKey": "itemIdOrName",
             "queryDomains": ["promotion", "date", "campaign"],
@@ -50,12 +50,12 @@ class WanXiangTaiReportApi(WanXiangTaiBaseApi):
         # print(task_id)
         return task_id
 
-    def keyword_report__main_data_details(self):
+    def keyword_report__main_data_details(self,start_date,end_date):
         """
-        关键词报表》》主体数据明细
+        tb_tg_万相台无界_基础报表_关键词_202504
         :return:
         """
-        data = {"excelName": f"关键词报表_{self.get_date(0, '%Y%m%d')}_{uuid.uuid4().hex[:8]}",
+        data = {"excelName": f"关键词报表_{start_date}_{end_date}_{uuid.uuid4().hex[:8]}",
                 "_list": {"pageSize": 20,
                           "offset": 0,
                           "havingList": [],
@@ -69,16 +69,16 @@ class WanXiangTaiReportApi(WanXiangTaiBaseApi):
                 "offset_mx_list": 0,
                 "havingList": [],
                 "havingList_mx_list": [],
-                "endTime": self.get_date(-1),
+                "endTime": end_date,
                 "from": "pcBaseReport",
                 "unifyType": "zhai",
                 "effectEqual": 15,
-                "startTime": self.get_date(-30),
+                "startTime": start_date,
                 "splitType": "day",
                 "bizCodeIn": ["onebpSearch"],
                 "_sum": {"bizCodeIn": ["onebpSearch", "onebpStarShop"],
                          "vsType": "week",
-                         "vsTime": self.get_date(-1)
+                         "vsTime": end_date
                          },
                 "bizCodeIn_mx_sum": ["onebpSearch", "onebpStarShop"],
                 "isKeyWordNotContainChase": "true",
@@ -109,7 +109,7 @@ class WanXiangTaiReportApi(WanXiangTaiBaseApi):
         """
         "tb_tg_万相台无界_基础报表_人群报表_202504"
         """
-        data = {"excelName": f"人群报表_{start_date}_{end_date}{uuid.uuid4().hex[:8]}",
+        data = {"excelName": f"人群报表_{start_date}_{end_date}_{uuid.uuid4().hex[:8]}",
                 "pageSize": 20,
                 "offset": 0,
                 "havingList": [],

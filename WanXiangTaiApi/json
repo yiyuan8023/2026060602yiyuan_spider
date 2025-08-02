@@ -1,0 +1,28 @@
+
+test_cookie_and_fetch_csrfid 函数的返回结果
+{
+    "data": {
+        "loginPointId": "213e363117540306473142105e87f2",
+        "meta": {
+            "nickName": "林内官方旗舰店:一元",
+            "wirelessViewDTO": {},
+            "accountType": 1,
+            "memberId": 34274104
+        },
+        "accessInfo": {
+            "csrfId": "14f658ee31fed1fb08e446977bc9ccce_1_1_1"
+        }
+    },
+    "info": {
+        "strategyPoints": null,
+        "lockSla": false,
+        "redirectUrl": null,
+        "errorEntityIdList": null,
+        "httpStatus": null,
+        "errorCode": null,
+        "unlockUrl": null,
+        "ok": true,
+        "message": null,
+        "disableTime": false
+    }
+}

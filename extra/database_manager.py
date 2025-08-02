@@ -114,7 +114,7 @@ class DatabaseManager:
             logger.error(f"创建表 `{table_name}` 失败: {e}")
             raise
 
-    def do_sql(self,sql):
+    def execute_sql(self,sql):
         self.cursor.execute(sql)
         self.connect.commit()
 

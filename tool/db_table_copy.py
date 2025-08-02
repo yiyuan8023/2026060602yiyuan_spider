@@ -140,14 +140,19 @@ if __name__ == "__main__":
         'port': 3306
     }
 
+    table_name_list = ['tb_tg_万相台无界_基础报表_人群报表_202504',
+                   'tb_tg_万相台无界_基础报表_宝贝主体_202504',
+                   'tb_tg_万相台无界_基础报表_关键词_202504']
+
+
     # 复制多个表结构
     success = copy_mysql_tables_structure_safe(
         source_config=source_db_config,
         target_config=target_db_config,
-        table_names=['users', 'orders', 'products'],  # 多个表
+        table_names=table_name_list,  # 多个表
         source_database='project',
         target_database='yiyuan_test',
-        drop_if_exists=False
+        drop_if_exists = False
     )
     
     if success:

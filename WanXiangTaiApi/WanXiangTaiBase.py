@@ -24,9 +24,10 @@ class WanXiangTaiBaseApi:
     def test_cookie_and_fetch_csrfid(self):
         """
         测试cookie是否有效
-        获取万相台无界的csrfId 和 loginPointId
+        获取万相台无界的 csrfId 和 loginPointId
         :return:
         """
+        # 测试cookie,正常会包括在 checkAccess 接口返回的 json 中
         url = "https://one.alimama.com/member/checkAccess.json"
         headers = {
             "Cookie": self.cookie,
@@ -34,6 +35,7 @@ class WanXiangTaiBaseApi:
             "User-Agent": self.ua
         }
         data = {"bizCode": "universalBP"}
+
         res = requests.post(url, headers=headers, data=data)
 
         if req_log(res):
@@ -52,7 +54,7 @@ class WanXiangTaiBaseApi:
         """
         创建下载任务
         :param data:
-        :return:
+        :return: task_id
         """
         api = "https://one.alimama.com/report/createDownLoadTask.json?"
         params = {
