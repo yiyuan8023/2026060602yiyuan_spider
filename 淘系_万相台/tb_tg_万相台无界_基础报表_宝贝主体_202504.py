@@ -46,7 +46,8 @@ if __name__ == '__main__':
         # task_id = '10568864'
         download_url = WanXiangTaiReportObj.get_download_url(task_id)
         if download_url:
-            df = Downloader(cookie).download_zip(download_url)
+            df = Downloader(download_url).download_zip()
+
             df["日期"] = pd.to_datetime(df["日期"], errors='coerce')
 
             # 将日期列格式化为字符串

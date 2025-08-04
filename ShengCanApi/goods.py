@@ -6,6 +6,7 @@ import pandas as pd
 import requests
 
 from extra.downloader import Downloader
+from extra.extra_error import  handle_request_error
 from extra.extra_reqlog import req_log
 from extra.extra_time import convert_to_timestamp
 
@@ -22,7 +23,7 @@ class Goods(ShengCanBaseApi):
 
     def good_rank__all_good_day(self, day):
         """
-        商品排行》》全部商品》》日》》报表
+        tb_sycm_商品_商品排行_全部商品_202504
         """
         api = "https://sycm.taobao.com/cc/item/view/excel/top.json?"
         params = {
@@ -43,22 +44,20 @@ class Goods(ShengCanBaseApi):
             "cateLevel": "",
             "indexCode": "payAmt, sucRefundAmt, payItmCnt, payByrCnt, payRate, newPayByrCnt, payOldByrCnt, olderPayAmt, juPayAmt, mtdPayAmt, mtdPayItmCnt, ytdPayAmt, itemStatus, itemCartCnt, itemCartByrCnt, itemCltByrCnt, visitCartRate, visitCltRate, itmUv, itmPv, itmStayTime, itmBounceRate, seGuideUv, seGuidePayByrCnt, seGuidePayRate, uvAvgValue, starLevel001, itemUnitPrice1"
         }
-        url = api + urlencode(params)
-        res = requests.get(url, headers={
-            "User-Agent": UA,
-            "cookie": self.cookie})
-        self.req_log(res)
+
         try:
-            data = io.BytesIO(res.content)
+            data = Downloader(api=api, cookie=self.cookie, params=params).download_excel()
+
             df = pd.read_excel(data, skiprows=4, engine='xlrd')
-            if df.empty:
-                return {}
-            else:
-                items = df.to_dict('records')
-                return items
+
+            # 所有的NaN值（缺失值）替换为None
+            df.replace({np.nan: None}, inplace=True)
+
+            # 将数据转换为字典列表
+            return [] if df.empty else df.to_dict('records')
+
         except Exception as e:
-            logger.warning(f"{e.args}")
-            raise e
+            return handle_request_error(e)
 
     def category_360__flow_from(self, daterange, cateid):
 
@@ -87,11 +86,18 @@ class Goods(ShengCanBaseApi):
             "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cateid}&dateRange={daterange}&dateType=month"
         }
 
-        res = Downloader(self.cookie).download_web(api, params,headers=headers)
-        if req_log(res):
-            return res.json()
-        else:
-            return None
+        try:
+            res = Downloader(api=api, cookie=self.cookie, params=params,headers=headers).download_web()
+            if req_log(res):
+                return res.json()
+            else:
+                logger.warning("请求返回为空或请求日志记录失败")
+                return None
+
+        except Exception as e:
+            return handle_request_error(e)
+
+
 
     def goods_360__title_drainage(self, daterange, itemId):
         """
@@ -124,16 +130,16 @@ class Goods(ShengCanBaseApi):
         else:
             return None
 
-    def goods_360__title_drainage_excel(self, daterange, itemId):
+    def goods_360__title_drainage_excel(self, daterange, itemid):
         """
         table_name = "tb_sycm_商品_商品360_标题优化_搜索词_202504"
         :param daterange:
-        :param itemId:
+        :param itemid:
         :return:
         """
         api = "https://sycm.taobao.com/cc/item/title/word/excel.json?"
         params = {
-            "itemId": itemId,
+            "itemId": itemid,
             "device": 0,
             "kwType": "se_keyword",
             "dateType": "day",
@@ -141,16 +147,18 @@ class Goods(ShengCanBaseApi):
         }
 
         try:
-            data = Downloader(self.cookie).download_excel(api, params)
+            data = Downloader(api= api, cookie=self.cookie, params=params).download_excel()
             df = pd.read_excel(data, skiprows=5)
-            if df.empty:
-                return {}
-            else:
-                items = df.to_dict('records')
-                return items
+
+            # 所有的NaN值（缺失值）替换为None
+            df.replace({np.nan: None}, inplace=True)
+
+            # 将数据转换为字典列表
+            return [] if df.empty else df.to_dict('records')
+
         except Exception as e:
-            # logger.error(f"{res.text}")
-            return None
+            return handle_request_error(e)
+
 
     def recommend_analysis_single_excel(self, day):
         """
@@ -166,14 +174,14 @@ class Goods(ShengCanBaseApi):
             "dateRange": f"{day}|{day}"
         }
         try:
-            data = Downloader(self.cookie).download_excel(api, params)
+            data = Downloader(api= api, cookie=self.cookie, params=params).download_excel()
             df = pd.read_excel(data, skiprows=5)
-            df.replace({np.nan: ''}, inplace=True)
-            if df.empty:
-                return {}
-            else:
-                items = df.to_dict('records')
-                return items
+
+            # 所有的NaN值（缺失值）替换为None
+            df.replace({np.nan: None}, inplace=True)
+
+            # 将数据转换为字典列表
+            return [] if df.empty else df.to_dict('records')
+
         except Exception as e:
-            # logger.error(f"{res.text}")
-            return None
+            return handle_request_error(e)

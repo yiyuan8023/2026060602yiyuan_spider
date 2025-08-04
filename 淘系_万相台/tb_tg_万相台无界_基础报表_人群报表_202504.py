@@ -47,7 +47,7 @@ if __name__ == '__main__':
         download_url = WanXiangTaiReportObj.get_download_url(task_id)
 
         if download_url:
-            df = Downloader(cookie).download_zip(download_url)  # 下载zip文件,并读取csv文件
+            df = Downloader(download_url).download_zip()  # 下载zip文件,并读取csv文件
             # 将DataFrame中的"日期"列转换为datetime类型，并处理可能的错误值
 
             df["日期"] = pd.to_datetime(df["日期"], errors='coerce')
