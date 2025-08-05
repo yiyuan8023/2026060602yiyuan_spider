@@ -1,25 +1,20 @@
-
 from ShengCanApi.Flow import Flow
-
 
 from extra.data_collector import data_collector
 from extra.database_manager import DatabaseManager
 
 from extra.logger_ import logger
 
-
-
 if __name__ == '__main__':
-    shop_name_list  =['林内官方旗舰店','林内厨电旗舰店'] # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_流量_商品来源_商品来源流量_旧版_202504"
     site = '生意参谋'
-    shop_cookies,crawl_day_list = data_collector(table_name,site,shop_name_list,1)
+    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
 
-    shop_item_ids= {
-        '林内官方旗舰店':["684257114535", "710970001756", "772238538685"],
-        '林内厨电旗舰店':["673717490518"]
+    shop_item_ids = {
+        '林内官方旗舰店': ["684257114535", "710970001756", "772238538685"],
+        '林内厨电旗舰店': ["673717490518"]
     }
-
 
     for i in shop_cookies:
         cookie = i[1]
@@ -38,7 +33,8 @@ if __name__ == '__main__':
                             "统计日期": day,
                             "日期类型": "day",
                         })
-                        item["key"] = f"{item['商品id']}_{item['店铺名称']}_{day}_{item['日期类型']}_{item['一级来源']}_{item['二级来源']}_{item['三级来源']}"
+                        item[
+                            "key"] = f"{item['商品id']}_{item['店铺名称']}_{day}_{item['日期类型']}_{item['一级来源']}_{item['二级来源']}_{item['三级来源']}"
 
                     # print(items)
                     DatabaseManager().upsert_data(items, table_name, primary_key="key")

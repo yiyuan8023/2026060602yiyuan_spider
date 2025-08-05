@@ -34,6 +34,65 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
     else:
         raise TypeError(f"不支持的日期格式。请提供 datetime 对象或字符串，当前类型: {type(date_input)}")
 
+
+def get_date(date_input: Union[str, datetime, None],
+             date_format: str = "%Y-%m-%d") -> str:
+    """
+    将指定日期转换为文本日期格式
+    """
+
+    # 如果未提供日期参数，则使用当前日期
+    if date_input is None:
+        dt = datetime.now()
+    else:
+        # 使用ensure_datetime函数解析输入日期，支持多种格式
+        dt = ensure_datetime(date_input)
+
+    # 按指定格式返回日期字符串
+    return dt.strftime(date_format)
+
+
+def get_time_ago(n: int = 1,
+                 unit: str = "days",
+                 base_date: Union[str, datetime, None] = None,
+                 date_format: str = "%Y-%m-%d") -> str:
+    """
+    获取指定日期n个时间单位前的日期字符串
+
+    Args:
+        n (int): 时间单位数量，正数表示过去，负数表示未来
+        unit (str): 时间单位，支持 'days', 'hours', 'minutes', 'seconds', 'weeks'
+        base_date (str, datetime, None): 基准日期时间，None表示当前时间
+        date_format (str): 输出日期格式
+
+    Examples:
+        >>> get_time_ago(1, 'days', '2025-04-10 15:30:45')
+        '2025-04-09'
+    """
+    # 确定基准日期时间
+    if base_date is None:
+        target_date = datetime.now()
+    else:
+        target_date = ensure_datetime(base_date)
+
+    # 根据单位计算时间差
+    if unit == "days":
+        result_date = target_date - timedelta(days=n)
+    elif unit == "hours":
+        result_date = target_date - timedelta(hours=n)
+    elif unit == "minutes":
+        result_date = target_date - timedelta(minutes=n)
+    elif unit == "seconds":
+        result_date = target_date - timedelta(seconds=n)
+    elif unit == "weeks":
+        result_date = target_date - timedelta(weeks=n)
+    else:
+        raise ValueError(f"不支持的时间单位: {unit}，支持的单位: days, hours, minutes, seconds, weeks")
+
+    # 返回格式化的日期字符串
+    return result_date.strftime(date_format)
+
+
 def get_recent_days(n: int = 3) -> List[str]:
     """
     获取最近n天的日期列表（不包括今天）
@@ -45,14 +104,14 @@ def get_recent_days(n: int = 3) -> List[str]:
 
     # 从最早的日期到今天的顺序添加
     for i in range(n):
-        date_ = today - timedelta(days=i+1)
+        date_ = today - timedelta(days=i + 1)
         date_list.append(date_.strftime('%Y-%m-%d'))
 
     return date_list
 
 
 def get_date_range(start_date: Union[str, datetime],
-                   end_date  : Union[str, datetime, None] =None ,
+                   end_date: Union[str, datetime, None] = None,
                    date_format: str = "%Y-%m-%d") -> List[str]:
     """
     获取两个日期之间的日期列表，支持多种日期格式
@@ -113,10 +172,9 @@ def get_date_list_sorted(date_inputs: List[Union[str, datetime]],
         dt = ensure_datetime(date_input)
         date_dt_list.append(dt)
 
-    date_dt_list.sort(reverse=reverse) # 按日期排序
-    result = [dt.strftime(date_format) for dt in date_dt_list] # 格式化输出
+    date_dt_list.sort(reverse=reverse)  # 按日期排序
+    result = [dt.strftime(date_format) for dt in date_dt_list]  # 格式化输出
     return result
-
 
 
 def format_timestamp(timestamp):
@@ -140,6 +198,7 @@ def format_timestamp(timestamp):
         # 时间戳无效时返回None
         return None
 
+
 def get_second_timestamp(time_input: Union[str, datetime, None] = None) -> int:
     """
     将时间转换为时间戳。如果未提供时间输入，则返回当前时间的时间戳。（9位）
@@ -150,7 +209,7 @@ def get_second_timestamp(time_input: Union[str, datetime, None] = None) -> int:
         dt = datetime.now()
     else:
         dt = ensure_datetime(time_input)
-    return int(dt.timestamp()) # 转换为秒级时间戳并返回
+    return int(dt.timestamp())  # 转换为秒级时间戳并返回
 
 
 def get_millisecond_timestamp(time_input: Union[str, datetime, None] = None) -> int:
@@ -158,10 +217,10 @@ def get_millisecond_timestamp(time_input: Union[str, datetime, None] = None) -> 
     将时间转换为毫秒级时间戳。如果未提供时间输入，则返回当前时间的时间戳。（13位）
     """
     second_timestamp = get_second_timestamp(time_input)
-    return second_timestamp * 1000 # 转换为毫秒级时间戳
+    return second_timestamp * 1000  # 转换为毫秒级时间戳
 
 
-def get_month_first_and_last_day (date_input: Union[str, datetime, None] = None) -> Tuple[str, str]:
+def get_month_first_and_last_day(date_input: Union[str, datetime, None] = None) -> Tuple[str, str]:
     """
     获取指定日期所在月份的第一天和最后一天日期字符串。
     """
@@ -297,36 +356,49 @@ def get_unique_month_first_days(date_inputs: List[Union[str, datetime]]) -> List
     return result
 
 
-def get_n_days_ago_date(n: int = 1,
-                             base_date: Union[str, datetime, None] = None,
-                             date_format: str = "%Y-%m-%d") -> str:
+def get_date_min_max(date_inputs: List[Union[str, datetime]],
+                     date_format: str = "%Y-%m-%d") -> Tuple[str, str]:
     """
-    获取指定日期n天前的日期字符串
-    Args:
-        n (int): 天数偏移量，默认为1（表示前一天）
-        base_date (str 或 datetime 或 None): 基准日期,可以是字符串或datetime对象，如果为None则使用今天
-        date_format (str): 日期格式字符串，默认为"%Y-%m-%d"
-
-    Returns:
-        str: 格式化后的日期字符串
+    获取日期列表中的最小值和最大值日期
     Examples:
-        >>> get_n_days_ago_date()  # 获取昨天日期
-        '2025-04-04'
-        >>> get_n_days_ago_date(7)  # 获取7天前日期
-        '2025-03-29'
-        >>> get_n_days_ago_date(1, '2025-04-10')  # 获取2025-04-10的前一天
-        '2025-04-09'
+        >>> get_date_range_min_max(["2025-07-30", "2025-07-21", "2025/07/25"])
+        ('2025-07-21', '2025-07-30')
     """
-    # 确定基准日期
-    if base_date is None:
-        target_date = datetime.now() # 如果没有提供基准日期，使用今天
-    else:
-        target_date = ensure_datetime(base_date)  # 使用 ensure_datetime 函数解析输入日期
+    if not date_inputs:
+        raise ValueError("日期输入列表不能为空")
 
-    result_date = target_date - timedelta(days=n) # 计算n天前的日期
+    # 处理日期列表，转换为datetime对象
+    date_dt_list = []
+    for date_input in date_inputs:
+        dt = ensure_datetime(date_input)
+        date_dt_list.append(dt)
 
-    # 返回格式化的日期字符串
-    return result_date.strftime(date_format)
+    # 获取最小值和最大值
+    min_date = min(date_dt_list)
+    max_date = max(date_dt_list)
+
+    # 格式化输出
+    return min_date.strftime(date_format), max_date.strftime(date_format)
+
+
+def get_min_max_timestamps(date_inputs: List[Union[str, datetime]]) -> Tuple[int, int]:
+    """
+    获取日期列表中的最小值和最大值日期对应的时间戳
+    """
+
+    if not date_inputs:
+        raise ValueError("日期输入列表不能为空")
+
+    # 使用已有的函数获取最小值和最大值
+    min_date, max_date = get_date_min_max(date_inputs)
+
+    max_date = get_time_ago(-1, 'days', max_date)  # 获取后一天日期，也就是指定到00:00:00
+
+    # 转换为时间戳
+    min_timestamp = get_millisecond_timestamp(min_date)
+    max_timestamp = get_millisecond_timestamp(max_date)
+
+    return min_timestamp, max_timestamp
 
 
 # 使用示例

@@ -4,6 +4,10 @@ from extra.settings import *
 from extra.logger_ import logger
 
 
+# 添加mysql语言注释
+# noinspection SqlDialectInspection,SqlNoDataSourceInspection
+
+
 class DatabaseManager:
     def __init__(self):
         db_params = dict(
@@ -31,28 +35,35 @@ class DatabaseManager:
         if not self._table_exists(table_name):
             self._create_table(items, table_name, primary_key)
 
-        v_list = []
-        for j in items:  # 遍历每个数据字典
-            k_str = ""  # 字段名字符串
-            v_str = ""  # 值字符串
-            for k, v in j.items():  # 遍历字典中的每个键值对
-                k_str += f"`{k}`,"  # 构建字段名部分，用反引号包围
-                if not v:  # 如果值为空
-                    v_str += "NULL,"
-                elif isinstance(v, str):  # 如果是字符串类型
-                    v_str += f"'{escape_string(v)}',"  # 转义并加引号
+        # 获取字段名列表（从第一条记录）
+        field_names = list(items[0].keys())
+
+        # 构建字段名字符串
+        fields_str = ", ".join([f"`{field}`" for field in field_names])
+
+        # 构建所有记录的值字符串
+        values_list = []
+        for item in items:  # 遍历每个数据字典
+            values = []
+            for field in field_names:  # 按照统一的字段顺序处理值
+                value = item.get(field)  # 使用get方法避免KeyError
+                if not value:  # 如果值为空
+                    values.append("NULL")
+                elif isinstance(value, str):  # 如果是字符串类型
+                    values.append(f"'{escape_string(value)}'")  # 转义并加引号
                 else:
-                    v_str += f"{v},"  # 直接添加
-            v_list.append(f"({v_str[0:-1]})")  # 去掉末尾逗号，用括号包围
+                    values.append(f"{value}")  # 直接添加
+            values_list.append(f"({', '.join(values)})")
 
         # 构建ON DUPLICATE KEY UPDATE部分（排除created_at字段）
-        update_keys = [key for key in items[0].keys() if key not in ['created_at']]
-        duplicate_str = ",".join([f"`{i}`=VALUES(`{i}`)" for i in update_keys])
+        update_fields = [field for field in field_names if field not in ['created_at']]
+        duplicate_str = ",".join([f"`{field}`=VALUES(`{field}`)" for field in update_fields])
 
         # 构建完整的INSERT语句
-        insert_ignore_sql = f"INSERT INTO `{table_name}`({k_str[0:-1]}) VALUES {','.join(v_list)} ON DUPLICATE KEY UPDATE {duplicate_str};"
+        insert_sql = (f"INSERT INTO `{table_name}`({fields_str}) VALUES {','.join(values_list)}"
+                      f" ON DUPLICATE KEY UPDATE {duplicate_str};")
 
-        self.cursor.execute(insert_ignore_sql)
+        self.cursor.execute(insert_sql)
         self.connect.commit()
 
     def _table_exists(self, table_name):
@@ -62,9 +73,12 @@ class DatabaseManager:
         :return: bool
         """
         try:
-            self.cursor.execute(f"SELECT 1 FROM `{table_name}` LIMIT 1;")
+
+            sql = f"SELECT 1 FROM `{table_name}` LIMIT 1;"
+            self.cursor.execute(sql)
             return True
-        except Exception:
+        except Exception as e:
+            logger.debug(f"检查数据库表是否存在时出错: {e}")
             return False
 
     def _create_table(self, items, table_name, primary_key=None):
@@ -81,7 +95,7 @@ class DatabaseManager:
         # 分析第一条数据的字段类型
         sample_item = items[0]
         columns = []
-        keys = list(sample_item.keys()) # 获取所有字段名
+        keys = list(sample_item.keys())  # 获取所有字段名
 
         # 添加主键字段
         for key in keys:
@@ -114,12 +128,11 @@ class DatabaseManager:
             logger.error(f"创建表 `{table_name}` 失败: {e}")
             raise
 
-    def execute_sql(self,sql):
+    def execute_sql(self, sql):
         self.cursor.execute(sql)
         self.connect.commit()
 
-
-    def select_cookies_shop(self, site: str ,shop_names: str):
+    def select_cookies_shop(self, site: str, shop_names: str):
         """
         查询语句
         :param :
@@ -132,7 +145,7 @@ class DatabaseManager:
         res = self.cursor.fetchall()
         return res
 
-    def select_cookies_all(self, site: str ):
+    def select_cookies_all(self, site: str):
         """
         查询语句
         :param :

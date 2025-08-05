@@ -11,14 +11,14 @@ from extra.logger_ import logger
 
 if __name__ == "__main__":
 
-    shop_name_list  =['林内官方旗舰店','林内厨电旗舰店'] # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_商品_商品360_标题优化_搜索词_202504"
     site = '生意参谋'
-    shop_cookies,crawl_day_list = data_collector(table_name,site,shop_name_list,1)
+    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
 
-    shop_item_ids= {
-        '林内官方旗舰店':["684257114535", "710970001756", "772238538685"],
-        '林内厨电旗舰店':["673717490518"]
+    shop_item_ids = {
+        '林内官方旗舰店': ["684257114535", "710970001756", "772238538685"],
+        '林内厨电旗舰店': ["673717490518"]
     }
 
     for i in shop_cookies:
@@ -36,10 +36,11 @@ if __name__ == "__main__":
                         item.update({
                             "店铺名称": shop_name,
                             "日期类型": "day",
-                            "统计日期":day,
+                            "统计日期": day,
                             "商品ID": item_id,
                         })
-                        item["key"] = f"{item['统计日期']}_{item['商品ID']}_{item['日期类型']}_{item['店铺名称']}_{item['搜索词']}"
+                        item[
+                            "key"] = f"{item['统计日期']}_{item['商品ID']}_{item['日期类型']}_{item['店铺名称']}_{item['搜索词']}"
                     DatabaseManager().upsert_data(items, table_name, "key")
                     logger.info(f"{shop_name},item_id：{item_id},{day}的数据已保存")
 

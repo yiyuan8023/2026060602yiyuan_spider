@@ -4,12 +4,12 @@ import mysql.connector
 
 
 def copy_mysql_tables_structure_safe(
-    source_config: Dict[str, Any],
-    target_config: Dict[str, Any],
-    table_names: Union[str, List[str]],
-    source_database: str,
-    target_database: str,
-    drop_if_exists: bool = False
+        source_config: Dict[str, Any],
+        target_config: Dict[str, Any],
+        table_names: Union[str, List[str]],
+        source_database: str,
+        target_database: str,
+        drop_if_exists: bool = False
 ) -> bool:
     """
     安全地从源MySQL数据库复制一个或多个表结构到目标MySQL数据库
@@ -87,7 +87,7 @@ def copy_mysql_tables_structure_safe(
                 if table_exists:
                     if drop_if_exists:
                         # 删除已存在的表
-                        target_cursor.execute(f"DROP TABLE `{table_name}`")
+                        target_cursor.execute(f" DROP TABLE `{table_name}`")
                         print(f"已删除目标数据库中已存在的表 '{table_name}'")
                     else:
                         print(f"表 '{table_name}' 在目标数据库中已存在，操作取消")
@@ -144,9 +144,10 @@ if __name__ == "__main__":
         # 'tb_tg_万相台无界_基础报表_人群报表_202504',
         # 'tb_tg_万相台无界_基础报表_宝贝主体_202504',
         # 'tb_tg_万相台无界_基础报表_关键词_202504',
-          'tb_sycm_商品_商品排行_全部商品_202504',
-        ]
-
+        #   'tb_sycm_商品_商品排行_全部商品_202504',
+        #   'tb_tk_淘宝联盟_商品分析_202504',
+        'tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507',  # noqa
+    ]
 
     # 复制多个表结构
     success = copy_mysql_tables_structure_safe(
@@ -155,9 +156,9 @@ if __name__ == "__main__":
         table_names=table_name_list,  # 多个表
         source_database='project',
         target_database='yiyuan_test',
-        drop_if_exists = False
+        drop_if_exists=False
     )
-    
+
     if success:
         print("表结构复制成功")
     else:

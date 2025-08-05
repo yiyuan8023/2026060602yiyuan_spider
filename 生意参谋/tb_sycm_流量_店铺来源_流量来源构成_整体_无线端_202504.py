@@ -1,17 +1,15 @@
 
 from ShengCanApi.Flow import Flow
-from extra.database_manager import  DatabaseManager
+from extra.database_manager import DatabaseManager
 from extra.logger_ import logger
 from extra.data_collector import data_collector
 
-
 if __name__ == '__main__':
 
-    shop_name_list  =['林内官方旗舰店'] # 默认采集店铺,如果为[],则采集所有店铺
-    table_name = "tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504"
+    shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    table_name = "tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504" # NOQA
     site = '生意参谋'
-    shop_cookies,crawl_day_list = data_collector(table_name,site,shop_name_list,1)
-
+    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 3)
 
     for i in shop_cookies:
         cookie = i[1]
@@ -27,13 +25,12 @@ if __name__ == '__main__':
                     "统计日期": day,
                     "日期类型": "day",
                 })
-                item["key"] = f"无线_{item['店铺名称']}_{day}_{item['日期类型']}_{item['一级来源']}_{item['二级来源']}_{item['三级来源']}"
+                item[
+                    "key"] = f"无线_{item['店铺名称']}_{day}_{item['日期类型']}_{item['一级来源']}_{item['二级来源']}_{item['三级来源']}"
 
-
-            DatabaseManager().upsert_data (items, table_name,primary_key= 'key')
+            DatabaseManager().upsert_data(items, table_name, primary_key='key')
+            logger.info(f"{shop_name},{day}的数据已入库")
             logger.info("-" * 100)
-    logger.info("*" * 100)
+    logger.info(f"\n{'*' * 120}")
 
-
-
-# python tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py --start-date=2025-03-27 --end-date=2025-04-18
+# python tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py --start-date=2025-03-27 --end-date=2025-04-18 # NOQA

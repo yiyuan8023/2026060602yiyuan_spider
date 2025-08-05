@@ -4,6 +4,7 @@ from urllib.parse import urlencode
 import requests
 
 from ShengCanApi.ShengCanBase import ShengCanBaseApi
+from extra.extra_reqlog import req_log
 
 from extra.extra_time import get_date, convert_to_timestamp
 from extra.settings import UA
@@ -32,5 +33,5 @@ class Home(ShengCanBaseApi):
         res = requests.get(url, headers={
             "User-Agent": UA,
             "cookie": self.cookie})
-        self.req_log(res)
+        req_log(res)
         return res.json()

@@ -30,26 +30,6 @@ def read_excel_to_dict(excel_content):
 
 
 
-def read_download_csv(url):
-    # 发送 HTTP 请求下载 ZIP 文件
-    res = requests.get(url)
-    res.raise_for_status()
-    try:
-        data = io.BytesIO(res.content)
-
-        df = pd.read_csv(data)
-        df_filled = df.fillna("")
-        if df_filled.empty:
-            return {}
-        else:
-            items = df_filled.to_dict('records')
-            return items
-    except Exception as e:
-        print(f"{e.args}")
-        raise e
-    # 检查请求是否成功
-
-
 # yiyuan20250730
 def excel_engine(data, sheet_name=None) -> Optional[Literal["xlrd", "openpyxl", "odf", "pyxlsb", "calamine"]]:
     """
@@ -87,6 +67,8 @@ def excel_engine(data, sheet_name=None) -> Optional[Literal["xlrd", "openpyxl", 
 
     # 如果所有引擎都失败，返回None
     return None
+
+
 
 if __name__ == '__main__':
 
