@@ -34,6 +34,23 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
     else:
         raise TypeError(f"不支持的日期格式。请提供 datetime 对象或字符串，当前类型: {type(date_input)}")
 
+
+def get_date(date_input: Union[str, datetime,None],
+                         date_format: str = "%Y-%m-%d") -> str:
+    """
+    将指定日期转换为文本日期格式
+    """
+
+    # 如果未提供日期参数，则使用当前日期
+    if date_input is None:
+        dt = datetime.now()
+    else:
+        # 使用ensure_datetime函数解析输入日期，支持多种格式
+        dt = ensure_datetime(date_input)
+
+    # 按指定格式返回日期字符串
+    return dt.strftime(date_format)
+
 def get_recent_days(n: int = 3) -> List[str]:
     """
     获取最近n天的日期列表（不包括今天）
@@ -302,18 +319,7 @@ def get_n_days_ago_date(n: int = 1,
                              date_format: str = "%Y-%m-%d") -> str:
     """
     获取指定日期n天前的日期字符串
-    Args:
-        n (int): 天数偏移量，默认为1（表示前一天）
-        base_date (str 或 datetime 或 None): 基准日期,可以是字符串或datetime对象，如果为None则使用今天
-        date_format (str): 日期格式字符串，默认为"%Y-%m-%d"
-
-    Returns:
-        str: 格式化后的日期字符串
     Examples:
-        >>> get_n_days_ago_date()  # 获取昨天日期
-        '2025-04-04'
-        >>> get_n_days_ago_date(7)  # 获取7天前日期
-        '2025-03-29'
         >>> get_n_days_ago_date(1, '2025-04-10')  # 获取2025-04-10的前一天
         '2025-04-09'
     """
@@ -327,6 +333,49 @@ def get_n_days_ago_date(n: int = 1,
 
     # 返回格式化的日期字符串
     return result_date.strftime(date_format)
+
+
+def get_date_min_max(date_inputs: List[Union[str, datetime]],
+                           date_format: str = "%Y-%m-%d") -> Tuple[str, str]:
+    """
+    获取日期列表中的最小值和最大值日期
+    Examples:
+        >>> get_date_range_min_max(["2025-07-30", "2025-07-21", "2025/07/25"])
+        ('2025-07-21', '2025-07-30')
+    """
+    if not date_inputs:
+        raise ValueError("日期输入列表不能为空")
+
+    # 处理日期列表，转换为datetime对象
+    date_dt_list = []
+    for date_input in date_inputs:
+        dt = ensure_datetime(date_input)
+        date_dt_list.append(dt)
+
+    # 获取最小值和最大值
+    min_date = min(date_dt_list)
+    max_date = max(date_dt_list)
+
+    # 格式化输出
+    return min_date.strftime(date_format), max_date.strftime(date_format)
+
+
+def get_min_max_timestamps(date_inputs: List[Union[str, datetime]]) -> Tuple[int, int]:
+    """
+    获取日期列表中的最小值和最大值日期对应的时间戳
+    """
+
+    if not date_inputs:
+        raise ValueError("日期输入列表不能为空")
+
+    # 使用已有的函数获取最小值和最大值
+    min_date, max_date = get_date_min_max(date_inputs)
+
+    # 转换为时间戳
+    min_timestamp = get_millisecond_timestamp(min_date)
+    max_timestamp = get_millisecond_timestamp(max_date)
+
+    return min_timestamp, max_timestamp
 
 
 # 使用示例

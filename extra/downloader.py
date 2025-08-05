@@ -66,6 +66,25 @@ class Downloader:
             logger.info(f"请求URL: {self.url}")
             logger.info(f"响应状态码: {status_code}")
 
+    def make_request_get(self) -> requests.Response:
+        """
+        发送HTTP GET请求的通用方法
+        Returns: requests.Response: HTTP响应对象
+        """
+        try:
+            logger.info(self.url)
+            res = requests.get(self.url, headers=self.default_headers)
+            req_log(res)
+            return res
+        except requests.exceptions.RequestException as e:
+            logger.error(f"网络请求失败: {e}")
+            raise
+        except Exception as e:
+            logger.error(f"发送请求时发生未知错误: {e}")
+            raise
+
+
+
     def download_excel(self):
         """
         下载Excel文件并返回BytesIO对象
@@ -73,10 +92,7 @@ class Downloader:
             io.BytesIO: 包含Excel数据的BytesIO对象
         """
         try:
-            logger.info(self.url)# 构造完整URL
-            res = requests.get(self.url, headers= self.default_headers) # 发送请求
-            req_log(res)
-
+            res = self.make_request_get() # 发送请求
             return io.BytesIO(res.content) # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
 
         except requests.exceptions.RequestException as e:
@@ -92,10 +108,7 @@ class Downloader:
         Returns: requests.Response: HTTP响应对象
         """
         try:
-
-            logger.info(self.url)  # 构造完整URL
-            res = requests.get(self.url, headers= self.default_headers)    # 发送请求
-            req_log(res)
+            res = self.make_request_get() # 发送请求
             return res
 
         except requests.exceptions.RequestException as e:
@@ -123,12 +136,8 @@ class Downloader:
         Returns:- pd.DataFrame: 包含 CSV 数据的 Pandas DataFrame。
         """
         try:
-
-            logger.info(self.url)  # 构造完整URL
-
             # 发送 HTTP 请求下载 ZIP 文件
-            res = requests.get(self.url, headers = self.default_headers)  # 发送请求
-            req_log(res)
+            res = self.make_request_get() # 发送请求
 
             # 将 ZIP 文件加载到内存中
             with zipfile.ZipFile(io.BytesIO(res.content)) as zip_file:
@@ -147,4 +156,7 @@ class Downloader:
             print(f"发生错误: {e}")
             return None
 
-
+    def download_csv(self):
+        # 发送 HTTP 请求下载 csv 文件
+        data = self.download_excel()
+        return data

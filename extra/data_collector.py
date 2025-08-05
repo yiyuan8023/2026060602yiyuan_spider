@@ -33,7 +33,7 @@ def data_collector(db_table_name: Union[str, List[str]],
     # 记录开始采集日志
     if shop_name_list is None:
         shop_name_list = []
-    logger.info("*" * 100)
+    logger.info(f"\n{'*'*120}")
     logger.info(f"开始采集：{db_table_name}")
     logger.info(f"接收到的命令行参数: {sys.argv}")
 

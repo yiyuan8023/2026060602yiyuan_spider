@@ -125,7 +125,7 @@ class Goods(ShengCanBaseApi):
             "cookie": self.cookie,
         }
         res = requests.get(url, headers=headers)
-        if self.req_log(res):
+        if req_log(res):
             return res.json()
         else:
             return None
@@ -146,7 +146,9 @@ class Goods(ShengCanBaseApi):
             "dateRange": daterange
         }
 
+
         try:
+
             data = Downloader(api= api, cookie=self.cookie, params=params).download_excel()
             df = pd.read_excel(data, skiprows=5)
 
