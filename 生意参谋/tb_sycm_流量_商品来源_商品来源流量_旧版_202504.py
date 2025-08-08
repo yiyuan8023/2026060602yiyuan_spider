@@ -7,7 +7,7 @@ from extra.logger_ import logger
 
 if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
-    table_name = "tb_sycm_流量_商品来源_商品来源流量_旧版_202504"
+    table_name = "tb_sycm_流量_商品来源_商品来源流量_旧版_202504" # NOQA
     site = '生意参谋'
     shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
 
@@ -33,10 +33,14 @@ if __name__ == '__main__':
                             "统计日期": day,
                             "日期类型": "day",
                         })
-                        item[
-                            "key"] = f"{item['商品id']}_{item['店铺名称']}_{day}_{item['日期类型']}_{item['一级来源']}_{item['二级来源']}_{item['三级来源']}"
+                        item["key"] = (f"{item['商品id']}_{item['店铺名称']}_{day}_{item['日期类型']}_"
+                                       f"{item['一级来源']}_{item['二级来源']}_{item['三级来源']}")
 
                     # print(items)
                     DatabaseManager().upsert_data(items, table_name, primary_key="key")
 
-# python tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py --start-date=2025-03-27 --end-date=2025-04-18
+            logger.info(f"{shop_name},{day}的数据已入库")
+            logger.info("-" * 100)
+    logger.info(f"\n{'*' * 120}")
+
+# python tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py --start-date=2025-03-27 --end-date=2025-04-18 # NOQA

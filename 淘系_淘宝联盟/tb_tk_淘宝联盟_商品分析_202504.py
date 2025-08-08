@@ -6,7 +6,7 @@ from TaoBaoLianMengApi.TaoKeDataAnalysisApi import TaoKeDataAnalysisApi
 from extra.data_collector import data_collector
 from extra.database_manager import DatabaseManager
 
-from extra.logger_ import logger, Logger
+from extra.logger_ import logger
 
 
 def create_task(start_time, end_time):
@@ -33,10 +33,10 @@ def create_task(start_time, end_time):
 
 
 def get_finish_id(start_time, end_time):
-    finish_task, un_finish_task = Obj.get_task_status_list()
+    _finish_task, _un_finish_task = Obj.get_task_status_list()
     file_name = f"{start_time} 00:00:00~{end_time} 23:59:59-商品分析"
-    if file_name in finish_task.keys():
-        return finish_task[file_name]
+    if file_name in _finish_task.keys():
+        return _finish_task[file_name]
 
     else:
         res_json = Obj.goods_analysis__goods_management(start_time, end_time)
@@ -105,6 +105,8 @@ if __name__ == "__main__":
             else:
                 break
 
-        logger.info(f"{shop_name_list},{crawl_day_list}已完成")
+        logger.info(f"{shop_name_list},{crawl_day_list}已入库")
+        logger.info("-" * 100)
+    logger.info(f"\n{'*' * 120}")
 
 # python tb_tk_淘宝联盟_商品分析_202504.py --start-date=2025-03-27 --end-date=2025-04-18

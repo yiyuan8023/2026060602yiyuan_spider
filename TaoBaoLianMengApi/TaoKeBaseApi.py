@@ -1,22 +1,15 @@
-
 # File: TaoKeBaseApi
 
-import io
 
-import zipfile
-
-from sys import _getframe
 from urllib.parse import urlencode
-
 import pandas as pd
 import requests
-from aiohttp.hdrs import IF_RANGE
 
 from extra.downloader import Downloader
-from extra.extra_cookie import cookie_str_to_dict, get_cookie_value
+from extra.extra_cookie import get_cookie_value
 from extra.logger_ import logger
 from extra.settings import UA
-from extra.extra_date import  get_millisecond_timestamp
+from extra.extra_date import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 
 
@@ -37,7 +30,7 @@ class TaoKeBaseApi(object):
         t = get_millisecond_timestamp()
         params = {
             "t": t,
-            "_tb_token_": get_cookie_value(self.cookie,'_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
             "pageNo": 1,
             "pageSize": 40,
             "bizType": 126,
@@ -51,13 +44,12 @@ class TaoKeBaseApi(object):
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         }
 
-        url=api+urlencode(params)
+        url = api + urlencode(params)
         res = requests.get(url, headers=headers)
         if req_log(res):
             return res.json()
         else:
             return None
-
 
     @staticmethod
     def _process_task_status(result):
@@ -76,7 +68,6 @@ class TaoKeBaseApi(object):
                 un_finish_task.append(task["id"])
                 un_finish_task.append(task["fileName"])
         return finish_task, un_finish_task
-
 
     def get_task_status_list(self):
         """
@@ -99,8 +90,7 @@ class TaoKeBaseApi(object):
         logger.info(finish_task)
         return finish_task, un_finish_task
 
-
-    def  fetch_report_shop_data(self,id_list):
+    def fetch_report_shop_data(self, id_list):
         """
         获取淘宝联盟报表文件下载链接
         :param id_list:
@@ -109,7 +99,7 @@ class TaoKeBaseApi(object):
         api = "https://ad.alimama.com/openapi/param2/1/gateway.unionadv/shopkeeper.rpt.filelink.json?"
         params = {
             "t": get_millisecond_timestamp(),
-            "_tb_token_": get_cookie_value(self.cookie,'_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
             "idList": id_list,
             "bizType": 126
         }
@@ -122,7 +112,7 @@ class TaoKeBaseApi(object):
         url = api + urlencode(params)
         res = requests.get(url, headers=headers)
         if req_log(res):
-            file_link = res.json().get("data",{}).get("urlList",[{}])[0].get("url")
+            file_link = res.json().get("data", {}).get("urlList", [{}])[0].get("url")
             logger.info(file_link)
             # items = Downloader(api=file_link, cookie=None, params=None, headers=None).download_csv()
             data = Downloader(api=file_link).download_csv()
@@ -135,11 +125,3 @@ class TaoKeBaseApi(object):
                 return items
         else:
             return None
-
-
-
-
-
-
-
-

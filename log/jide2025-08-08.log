@@ -594,3 +594,340 @@
 2025-08-08 15:34:44 | INFO | tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py:65 : ----------------------------------------------------------------------------------------------------
 2025-08-08 15:34:44 | INFO | tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py:66 : 
 ************************************************************************************************************************
+2025-08-08 15:39:12 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:39:12 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_商品来源_商品来源流量_旧版_202504
+2025-08-08 15:39:12 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py']
+2025-08-08 15:39:12 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:39:12 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:39:12 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内厨电旗舰店,2025-08-07,673717490518的数据
+2025-08-08 15:39:12 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=673717490518&order=desc&orderBy=uv
+2025-08-08 15:39:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021E78C00B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:39:13 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:39:13 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,684257114535的数据
+2025-08-08 15:39:13 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=684257114535&order=desc&orderBy=uv
+2025-08-08 15:39:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021E78C00B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:39:13 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,710970001756的数据
+2025-08-08 15:39:13 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=710970001756&order=desc&orderBy=uv
+2025-08-08 15:39:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021E78C00B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:39:14 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,772238538685的数据
+2025-08-08 15:39:14 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=772238538685&order=desc&orderBy=uv
+2025-08-08 15:39:15 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021E78C00B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:40:07 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:40:07 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_商品来源_商品来源流量_旧版_202504
+2025-08-08 15:40:07 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py']
+2025-08-08 15:40:07 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:40:07 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:40:07 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内厨电旗舰店,2025-08-07,673717490518的数据
+2025-08-08 15:40:07 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=673717490518&order=desc&orderBy=uv
+2025-08-08 15:40:07 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000230E32F4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:40:07 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:41 : 林内厨电旗舰店,2025-08-07的数据已入库
+2025-08-08 15:40:07 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:42 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:40:07 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:40:07 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,684257114535的数据
+2025-08-08 15:40:07 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=684257114535&order=desc&orderBy=uv
+2025-08-08 15:40:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000230E32F4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:40:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,710970001756的数据
+2025-08-08 15:40:08 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=710970001756&order=desc&orderBy=uv
+2025-08-08 15:40:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000230E32F4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:40:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,772238538685的数据
+2025-08-08 15:40:08 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=772238538685&order=desc&orderBy=uv
+2025-08-08 15:40:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000230E32F4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:40:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:41 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 15:40:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:42 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:40:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:43 : 
+************************************************************************************************************************
+2025-08-08 15:41:26 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:41:26 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_商品来源_商品来源流量_旧版_202504
+2025-08-08 15:41:26 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py']
+2025-08-08 15:41:26 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:41:26 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:41:26 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内厨电旗舰店,2025-08-07,673717490518的数据
+2025-08-08 15:41:26 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=673717490518&order=desc&orderBy=uv
+2025-08-08 15:41:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000015623DF4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:41:26 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:41 : 林内厨电旗舰店,2025-08-07的数据已入库
+2025-08-08 15:41:26 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:42 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:41:26 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:41:26 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,684257114535的数据
+2025-08-08 15:41:26 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=684257114535&order=desc&orderBy=uv
+2025-08-08 15:41:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000015623DF4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:41:27 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,710970001756的数据
+2025-08-08 15:41:27 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=710970001756&order=desc&orderBy=uv
+2025-08-08 15:41:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000015623DF4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:41:27 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,772238538685的数据
+2025-08-08 15:41:27 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=772238538685&order=desc&orderBy=uv
+2025-08-08 15:41:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000015623DF4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:41:27 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:41 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 15:41:27 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:42 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:41:27 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:43 : 
+************************************************************************************************************************
+2025-08-08 15:42:17 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:42:17 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_商品来源_商品来源流量_旧版_202504
+2025-08-08 15:42:17 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py']
+2025-08-08 15:42:17 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:42:17 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:42:17 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内厨电旗舰店,2025-08-07,673717490518的数据
+2025-08-08 15:42:17 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=673717490518&order=desc&orderBy=uv
+2025-08-08 15:42:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000283D7F54B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:42:18 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:42:18 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:42 : 林内厨电旗舰店,2025-08-07的数据已入库
+2025-08-08 15:42:18 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:43 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:42:18 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:42:18 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,684257114535的数据
+2025-08-08 15:42:18 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=684257114535&order=desc&orderBy=uv
+2025-08-08 15:42:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000283D7F54B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:42:18 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,710970001756的数据
+2025-08-08 15:42:18 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=710970001756&order=desc&orderBy=uv
+2025-08-08 15:42:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000283D7F54B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:42:18 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,772238538685的数据
+2025-08-08 15:42:18 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=772238538685&order=desc&orderBy=uv
+2025-08-08 15:42:19 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000283D7F54B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:42:19 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:42:19 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:42 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 15:42:19 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:43 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:42:19 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:44 : 
+************************************************************************************************************************
+2025-08-08 15:42:32 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:42:32 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_商品来源_商品来源流量_旧版_202504
+2025-08-08 15:42:32 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py']
+2025-08-08 15:42:32 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:42:32 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:42:32 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内厨电旗舰店,2025-08-07,673717490518的数据
+2025-08-08 15:42:32 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=673717490518&order=desc&orderBy=uv
+2025-08-08 15:42:32 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002299B9F4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:42:33 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:42:33 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:42 : 林内厨电旗舰店,2025-08-07的数据已入库
+2025-08-08 15:42:33 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:42:33 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,684257114535的数据
+2025-08-08 15:42:33 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=684257114535&order=desc&orderBy=uv
+2025-08-08 15:42:33 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002299B9F4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:42:33 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,710970001756的数据
+2025-08-08 15:42:33 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=710970001756&order=desc&orderBy=uv
+2025-08-08 15:42:33 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002299B9F4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:42:33 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:26 : 正在采集林内官方旗舰店,2025-08-07,772238538685的数据
+2025-08-08 15:42:33 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=v6%2Fexcel%2Fitem%2Fcrowdtype%2Fsource%2Fv3&belong=all&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&device=2&itemId=772238538685&order=desc&orderBy=uv
+2025-08-08 15:42:34 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002299B9F4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:42:34 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:42:34 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:42 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 15:42:34 | INFO | tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py:43 : 
+************************************************************************************************************************
+2025-08-08 15:46:35 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:46:35 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_商品来源_商品来源流量_新版_202504
+2025-08-08 15:46:35 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_商品来源_商品来源流量_新版_202504.py']
+2025-08-08 15:46:35 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:46:35 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:46:35 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内厨电旗舰店,2025-08-07,673717490518的数据
+2025-08-08 15:46:35 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&itemId=673717490518&order=desc&orderBy=uv&flowBizType=classic
+2025-08-08 15:46:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001C86AC68B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:46:36 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:41 : 林内厨电旗舰店,2025-08-07的数据已入库
+2025-08-08 15:46:36 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:42 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:46:36 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:46:36 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-07,684257114535的数据
+2025-08-08 15:46:36 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&itemId=684257114535&order=desc&orderBy=uv&flowBizType=classic
+2025-08-08 15:46:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001C86AC68B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:46:37 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-07,710970001756的数据
+2025-08-08 15:46:37 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&itemId=710970001756&order=desc&orderBy=uv&flowBizType=classic
+2025-08-08 15:46:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001C86AC68B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:46:37 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-07,772238538685的数据
+2025-08-08 15:46:37 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&itemId=772238538685&order=desc&orderBy=uv&flowBizType=classic
+2025-08-08 15:46:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001C86AC68B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:46:38 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:41 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 15:46:38 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:42 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:46:38 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:43 : 
+************************************************************************************************************************
+2025-08-08 15:52:06 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:52:06 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_商品来源_商品来源流量_新版_202504
+2025-08-08 15:52:06 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_商品来源_商品来源流量_新版_202504.py']
+2025-08-08 15:52:06 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:52:07 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:52:07 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内厨电旗舰店,2025-08-07,673717490518的数据
+2025-08-08 15:52:07 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&itemId=673717490518&order=desc&orderBy=uv&flowBizType=classic
+2025-08-08 15:52:07 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000012FD49A4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:52:07 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:40 : 林内厨电旗舰店,2025-08-07的数据已入库
+2025-08-08 15:52:07 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:52:07 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:52:07 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-07,684257114535的数据
+2025-08-08 15:52:07 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&itemId=684257114535&order=desc&orderBy=uv&flowBizType=classic
+2025-08-08 15:52:07 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000012FD49A4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:52:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-07,710970001756的数据
+2025-08-08 15:52:08 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&itemId=710970001756&order=desc&orderBy=uv&flowBizType=classic
+2025-08-08 15:52:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000012FD49A4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:52:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-07,772238538685的数据
+2025-08-08 15:52:08 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-07%7C2025-08-07&crowdType=all&itemId=772238538685&order=desc&orderBy=uv&flowBizType=classic
+2025-08-08 15:52:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000012FD49A4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:52:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:40 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 15:52:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:52:08 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:42 : 
+************************************************************************************************************************
+2025-08-08 15:52:55 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:52:55 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-08 15:52:55 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-08 15:52:55 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:52:56 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:52:56 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:17 : 正在采集【林内厨电旗舰店】,2025-08-07数据
+2025-08-08 15:52:56 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-07%7C2025-08-07&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-08 15:52:56 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023CDF188D60, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:52:56 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:29 : 林内厨电旗舰店,2025-08-07的数据已入库
+2025-08-08 15:52:56 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:52:56 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:52:56 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:17 : 正在采集【林内官方旗舰店】,2025-08-07数据
+2025-08-08 15:52:56 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-07%7C2025-08-07&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-08 15:52:56 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023CDF188D60, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:52:57 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:29 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 15:52:57 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:52:57 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:31 : 
+************************************************************************************************************************
+2025-08-08 15:54:25 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:54:25 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品360_标题优化_搜索词_202504
+2025-08-08 15:54:25 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_商品_商品360_标题优化_搜索词_202504.py']
+2025-08-08 15:54:25 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:54:25 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:54:25 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:26 : 正在采集林内厨电旗舰店,item_id：673717490518,2025-08-07的数据
+2025-08-08 15:54:25 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/title/word/excel.json?&itemId=673717490518&device=0&kwType=se_keyword&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 15:54:25 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000027633B58F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:54:25 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:40 : 林内厨电旗舰店,item_id：673717490518,2025-08-07的数据已保存
+2025-08-08 15:54:26 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:54:26 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:26 : 正在采集林内官方旗舰店,item_id：684257114535,2025-08-07的数据
+2025-08-08 15:54:26 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/title/word/excel.json?&itemId=684257114535&device=0&kwType=se_keyword&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 15:54:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000027633B58F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:54:26 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:40 : 林内官方旗舰店,item_id：684257114535,2025-08-07的数据已保存
+2025-08-08 15:54:26 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:26 : 正在采集林内官方旗舰店,item_id：710970001756,2025-08-07的数据
+2025-08-08 15:54:26 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/title/word/excel.json?&itemId=710970001756&device=0&kwType=se_keyword&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 15:54:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000027633B58F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:54:26 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:40 : 林内官方旗舰店,item_id：710970001756,2025-08-07的数据已保存
+2025-08-08 15:54:26 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:26 : 正在采集林内官方旗舰店,item_id：772238538685,2025-08-07的数据
+2025-08-08 15:54:26 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/title/word/excel.json?&itemId=772238538685&device=0&kwType=se_keyword&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 15:54:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000027633B58F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:54:27 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:40 : 林内官方旗舰店,item_id：772238538685,2025-08-07的数据已保存
+2025-08-08 15:54:59 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:54:59 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品360_标题优化_搜索词_202504
+2025-08-08 15:54:59 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_商品_商品360_标题优化_搜索词_202504.py']
+2025-08-08 15:54:59 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 15:55:00 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:26 : 正在采集林内厨电旗舰店,item_id：673717490518,2025-08-07的数据
+2025-08-08 15:55:00 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/title/word/excel.json?&itemId=673717490518&device=0&kwType=se_keyword&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 15:55:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000279B4188F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:40 : 林内厨电旗舰店,item_id：673717490518,2025-08-07的数据已保存
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:42 : 
+************************************************************************************************************************
+2025-08-08 15:55:00 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:26 : 正在采集林内官方旗舰店,item_id：684257114535,2025-08-07的数据
+2025-08-08 15:55:00 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/title/word/excel.json?&itemId=684257114535&device=0&kwType=se_keyword&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 15:55:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000279B4188F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:40 : 林内官方旗舰店,item_id：684257114535,2025-08-07的数据已保存
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:26 : 正在采集林内官方旗舰店,item_id：710970001756,2025-08-07的数据
+2025-08-08 15:55:00 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/title/word/excel.json?&itemId=710970001756&device=0&kwType=se_keyword&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 15:55:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000279B4188F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:40 : 林内官方旗舰店,item_id：710970001756,2025-08-07的数据已保存
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:55:00 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:26 : 正在采集林内官方旗舰店,item_id：772238538685,2025-08-07的数据
+2025-08-08 15:55:00 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/title/word/excel.json?&itemId=772238538685&device=0&kwType=se_keyword&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 15:55:01 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000279B4188F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:55:01 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:40 : 林内官方旗舰店,item_id：772238538685,2025-08-07的数据已保存
+2025-08-08 15:55:01 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-08 15:55:01 | INFO | tb_sycm_商品_商品360_标题优化_搜索词_202504.py:42 : 
+************************************************************************************************************************
+2025-08-08 15:55:43 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:55:43 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_品类360_流量分析_流量来源_202504
+2025-08-08 15:55:43 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_商品_品类360_流量分析_流量来源_202504.py']
+2025-08-08 15:55:43 | INFO | data_collector.py:67 : 采集日期列表['2025-07-01'],采集店铺dict_keys(['林内官方旗舰店'])
+2025-08-08 15:55:43 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:55:43 | INFO | tb_sycm_商品_品类360_流量分析_流量来源_202504.py:107 : 正在采集 2025-07-01|2025-07-31的月数据
+2025-08-08 15:55:43 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?&dateRange=+2025-07-01%7C2025-07-31&dateType=month&pageSize=10&page=1&order=desc&orderBy=itmUv&belong=all&cateId=50022703&indexCode=itmUv%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+payByrCnt&_=1754639743000&token=8a7a957c4
+2025-08-08 15:55:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000268E2F19300, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:55:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000268E1DABFC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\ShengCanApi\\goods.py', line 91, code category_360__flow_from>发起了调用,请求成功（status_code:200）
+2025-08-08 15:56:43 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:56:43 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_品类360_流量分析_流量来源_202504
+2025-08-08 15:56:43 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_商品_品类360_流量分析_流量来源_202504.py']
+2025-08-08 15:56:43 | INFO | data_collector.py:67 : 采集日期列表['2025-07-01'],采集店铺dict_keys(['林内官方旗舰店'])
+2025-08-08 15:56:45 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:56:45 | INFO | tb_sycm_商品_品类360_流量分析_流量来源_202504.py:107 : 正在采集 2025-07-01|2025-07-31的月数据
+2025-08-08 15:56:45 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?&dateRange=+2025-07-01%7C2025-07-31&dateType=month&pageSize=10&page=1&order=desc&orderBy=itmUv&belong=all&cateId=50022703&indexCode=itmUv%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+payByrCnt&_=1754639805000&token=8a7a957c4
+2025-08-08 15:56:45 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026A58579300, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:56:45 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026A57479D10, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\ShengCanApi\\goods.py', line 91, code category_360__flow_from>发起了调用,请求成功（status_code:200）
+2025-08-08 15:59:51 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 15:59:51 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_品类360_流量分析_流量来源_202504
+2025-08-08 15:59:51 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_商品_品类360_流量分析_流量来源_202504.py']
+2025-08-08 15:59:51 | INFO | data_collector.py:67 : 采集日期列表['2025-05-01', '2025-06-01', '2025-07-01'],采集店铺dict_keys(['林内官方旗舰店'])
+2025-08-08 15:59:51 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 15:59:51 | INFO | tb_sycm_商品_品类360_流量分析_流量来源_202504.py:107 : 正在采集 2025-05-01|2025-05-31的月数据
+2025-08-08 15:59:51 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?&dateRange=+2025-05-01%7C2025-05-31&dateType=month&pageSize=10&page=1&order=desc&orderBy=itmUv&belong=all&cateId=50022703&indexCode=itmUv%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+payByrCnt&_=1754639991000&token=8a7a957c4
+2025-08-08 15:59:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D6FD029300, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:59:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D6FBE48710, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\ShengCanApi\\goods.py', line 91, code category_360__flow_from>发起了调用,请求成功（status_code:200）
+2025-08-08 15:59:52 | INFO | tb_sycm_商品_品类360_流量分析_流量来源_202504.py:107 : 正在采集 2025-06-01|2025-06-30的月数据
+2025-08-08 15:59:52 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?&dateRange=+2025-06-01%7C2025-06-30&dateType=month&pageSize=10&page=1&order=desc&orderBy=itmUv&belong=all&cateId=50022703&indexCode=itmUv%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+payByrCnt&_=1754639992000&token=8a7a957c4
+2025-08-08 15:59:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D6FD029300, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:59:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D6FBE48710, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\ShengCanApi\\goods.py', line 91, code category_360__flow_from>发起了调用,请求成功（status_code:200）
+2025-08-08 15:59:52 | INFO | tb_sycm_商品_品类360_流量分析_流量来源_202504.py:107 : 正在采集 2025-07-01|2025-07-31的月数据
+2025-08-08 15:59:52 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?&dateRange=+2025-07-01%7C2025-07-31&dateType=month&pageSize=10&page=1&order=desc&orderBy=itmUv&belong=all&cateId=50022703&indexCode=itmUv%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+payByrCnt&_=1754639992000&token=8a7a957c4
+2025-08-08 15:59:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D6FD029300, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 15:59:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D6FBE48710, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\ShengCanApi\\goods.py', line 91, code category_360__flow_from>发起了调用,请求成功（status_code:200）
+2025-08-08 16:00:36 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 16:00:36 | INFO | data_collector.py:35 : 开始采集：tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507
+2025-08-08 16:00:36 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py']
+2025-08-08 16:00:36 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 16:00:36 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 16:00:36 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:24 : 正在采集林内厨电旗舰店，2025-08-07的数据
+2025-08-08 16:00:36 | INFO | downloader.py:72 : https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?&contentSource=all&keyword=&contentType=minidetail&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 16:00:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018034DC4F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 16:00:37 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 16:00:37 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:24 : 正在采集林内官方旗舰店，2025-08-07的数据
+2025-08-08 16:00:37 | INFO | downloader.py:72 : https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?&contentSource=all&keyword=&contentType=minidetail&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 16:00:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000018034DC4F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 16:01:32 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 16:01:32 | INFO | data_collector.py:35 : 开始采集：tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507
+2025-08-08 16:01:32 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py']
+2025-08-08 16:01:32 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-08 16:01:32 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=5b3f8745b,userId=2212375622312
+2025-08-08 16:01:32 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:21 : 正在采集林内厨电旗舰店，2025-08-07的数据
+2025-08-08 16:01:32 | INFO | downloader.py:72 : https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?&contentSource=all&keyword=&contentType=minidetail&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 16:01:33 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002019E728F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 16:01:33 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:33 : 林内厨电旗舰店,2025-08-07的数据已入库
+2025-08-08 16:01:33 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:34 : ----------------------------------------------------------------------------------------------------
+2025-08-08 16:01:33 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 16:01:33 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:21 : 正在采集林内官方旗舰店，2025-08-07的数据
+2025-08-08 16:01:33 | INFO | downloader.py:72 : https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?&contentSource=all&keyword=&contentType=minidetail&dateType=day&dateRange=2025-08-07%7C2025-08-07
+2025-08-08 16:01:34 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002019E728F40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 16:01:34 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:33 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 16:01:34 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:34 : ----------------------------------------------------------------------------------------------------
+2025-08-08 16:01:34 | INFO | tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py:35 : 
+************************************************************************************************************************
+2025-08-08 16:11:12 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-08 16:11:12 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504
+2025-08-08 16:11:12 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py']
+2025-08-08 16:11:12 | INFO | data_collector.py:67 : 采集日期列表['2025-08-07', '2025-08-06', '2025-08-05'],采集店铺['林内官方旗舰店']
+2025-08-08 16:11:12 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=8a7a957c4,userId=1087143051
+2025-08-08 16:11:12 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:19 : 正在采集林内官方旗舰店,2025-08-07的数据
+2025-08-08 16:11:12 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/gray/excel.do?&_path_=v4%2Fexcel%2Fshop%2Fsource%2Fv3&device=2&dateType=day&dateRange=2025-08-07%7C2025-08-07&belong=all
+2025-08-08 16:11:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000248A2DC4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 16:11:13 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:32 : 林内官方旗舰店,2025-08-07的数据已入库
+2025-08-08 16:11:13 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:33 : ----------------------------------------------------------------------------------------------------
+2025-08-08 16:11:13 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:19 : 正在采集林内官方旗舰店,2025-08-06的数据
+2025-08-08 16:11:13 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/gray/excel.do?&_path_=v4%2Fexcel%2Fshop%2Fsource%2Fv3&device=2&dateType=day&dateRange=2025-08-06%7C2025-08-06&belong=all
+2025-08-08 16:11:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000248A2DC4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 16:11:14 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:32 : 林内官方旗舰店,2025-08-06的数据已入库
+2025-08-08 16:11:14 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:33 : ----------------------------------------------------------------------------------------------------
+2025-08-08 16:11:14 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:19 : 正在采集林内官方旗舰店,2025-08-05的数据
+2025-08-08 16:11:14 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/gray/excel.do?&_path_=v4%2Fexcel%2Fshop%2Fsource%2Fv3&device=2&dateType=day&dateRange=2025-08-05%7C2025-08-05&belong=all
+2025-08-08 16:11:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000248A2DC4B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-08 16:11:14 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:32 : 林内官方旗舰店,2025-08-05的数据已入库
+2025-08-08 16:11:14 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:33 : ----------------------------------------------------------------------------------------------------
+2025-08-08 16:11:14 | INFO | tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py:34 : 
+************************************************************************************************************************

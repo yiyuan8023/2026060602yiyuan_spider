@@ -1,4 +1,3 @@
-import io
 from urllib.parse import urlencode
 
 import numpy as np
@@ -6,7 +5,7 @@ import pandas as pd
 import requests
 
 from extra.downloader import Downloader
-from extra.extra_error import  handle_request_error
+from extra.extra_error import handle_request_error
 from extra.extra_reqlog import req_log
 from extra.extra_time import convert_to_timestamp
 
@@ -22,9 +21,8 @@ class Goods(ShengCanBaseApi):
         self.cookie = cookie
 
     def good_rank__all_good_day(self, day):
-        """
-        tb_sycm_商品_商品排行_全部商品_202504
-        """
+        # tb_sycm_商品_商品排行_全部商品_202504 # noqa
+
         api = "https://sycm.taobao.com/cc/item/view/excel/top.json?"
         params = {
             # "dateRange": f"{get_date(days)}|{get_date(days)}",
@@ -42,7 +40,11 @@ class Goods(ShengCanBaseApi):
             "follow": False,
             "cateId": "",
             "cateLevel": "",
-            "indexCode": "payAmt, sucRefundAmt, payItmCnt, payByrCnt, payRate, newPayByrCnt, payOldByrCnt, olderPayAmt, juPayAmt, mtdPayAmt, mtdPayItmCnt, ytdPayAmt, itemStatus, itemCartCnt, itemCartByrCnt, itemCltByrCnt, visitCartRate, visitCltRate, itmUv, itmPv, itmStayTime, itmBounceRate, seGuideUv, seGuidePayByrCnt, seGuidePayRate, uvAvgValue, starLevel001, itemUnitPrice1"
+            "indexCode": f"payAmt, sucRefundAmt, payItmCnt, payByrCnt, payRate, newPayByrCnt, "
+                         f"payOldByrCnt, olderPayAmt, juPayAmt, mtdPayAmt, mtdPayItmCnt, ytdPayAmt, "
+                         f"itemStatus, itemCartCnt, itemCartByrCnt, itemCltByrCnt, visitCartRate, visitCltRate, "
+                         f"itmUv, itmPv, itmStayTime, itmBounceRate, seGuideUv, seGuidePayByrCnt, seGuidePayRate, "
+                         f"uvAvgValue, starLevel001, itemUnitPrice1"
         }
 
         try:
@@ -59,14 +61,14 @@ class Goods(ShengCanBaseApi):
         except Exception as e:
             return handle_request_error(e)
 
-    def category_360__flow_from(self, daterange, cateid):
-
+    def category_360__flow_from(self, daterange, cate_id):
         """
-        tb_sycm_商品_品类360_流量分析_流量来源_202504
+        tb_sycm_商品_品类360_流量分析_流量来源_202504 
         :param daterange:
-        :param cateid: 品类ID
+        :param cate_id: 品类ID
         :return:接口返回的JSON数据或None
-        """
+        """  # noqa
+
         api = "https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?"
         params = {
             "dateRange": daterange,
@@ -76,18 +78,19 @@ class Goods(ShengCanBaseApi):
             "order": "desc",
             "orderBy": "itmUv",
             "belong": "all",
-            "cateId": cateid,
+            "cateId": cate_id,
             "indexCode": "itmUv, itemCartByrCnt, itemCltByrCnt, payByrCnt",
             "_": get_millisecond_timestamp(),
             "token": self.token
         }
 
         headers = {
-            "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cateid}&dateRange={daterange}&dateType=month"
+            "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cate_id}"
+                       f"&dateRange={daterange}&dateType=month"
         }
 
         try:
-            res = Downloader(api=api, cookie=self.cookie, params=params,headers=headers).download_web()
+            res = Downloader(api=api, cookie=self.cookie, params=params, headers=headers).download_web()
             if req_log(res):
                 return res.json()
             else:
@@ -97,9 +100,7 @@ class Goods(ShengCanBaseApi):
         except Exception as e:
             return handle_request_error(e)
 
-
-
-    def goods_360__title_drainage(self, daterange, itemId):
+    def goods_360__title_drainage(self, daterange, itemid):
         """
         商品》》商品360》》标题与选词引流优化
         :return:
@@ -112,10 +113,10 @@ class Goods(ShengCanBaseApi):
             "page": 1,
             "order": "desc",
             "orderBy": "uv",
-            "itemId": itemId,
+            "itemId": itemid,
             "device": 0,
             "kwType": "se_keyword",
-            "indexCode": "uv,payOrderByrCnt,payConveRate",
+            "indexCode": "uv,payOrderByrCnt,payConveRate",  # noqa
             "_": convert_to_timestamp,
             "token": self.token
         }
@@ -133,10 +134,11 @@ class Goods(ShengCanBaseApi):
     def goods_360__title_drainage_excel(self, daterange, itemid):
         """
         table_name = "tb_sycm_商品_商品360_标题优化_搜索词_202504"
-        :param daterange:
-        :param itemid:
+        :param daterange: 日期区间
+        :param itemid: 类目id
         :return:
-        """
+        """  # noqa
+
         api = "https://sycm.taobao.com/cc/item/title/word/excel.json?"
         params = {
             "itemId": itemid,
@@ -146,37 +148,31 @@ class Goods(ShengCanBaseApi):
             "dateRange": daterange
         }
 
-
         try:
-
-            data = Downloader(api= api, cookie=self.cookie, params=params).download_excel()
+            data = Downloader(api=api, cookie=self.cookie, params=params).download_excel() # NOQA
             df = pd.read_excel(data, skiprows=5)
-
             # 所有的NaN值（缺失值）替换为None
             df.replace({np.nan: None}, inplace=True)
-
             # 将数据转换为字典列表
             return [] if df.empty else df.to_dict('records')
 
         except Exception as e:
+            logger.warning("请求返回为空或请求日志记录失败")
             return handle_request_error(e)
 
-
     def recommend_analysis_single_excel(self, day):
-        """
-        tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507
+        # tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507 # noqa
 
-        """
-        api = "https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"
+        api = r"https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"
         params = {
             "contentSource": "all",
             "keyword": "",
-            "contentType": "minidetail",
+            "contentType": "minidetail",  # noqa
             "dateType": "day",
             "dateRange": f"{day}|{day}"
         }
         try:
-            data = Downloader(api= api, cookie=self.cookie, params=params).download_excel()
+            data = Downloader(api=api, cookie=self.cookie, params=params).download_excel() # NOQA
             df = pd.read_excel(data, skiprows=5)
 
             # 所有的NaN值（缺失值）替换为None
