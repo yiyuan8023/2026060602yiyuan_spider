@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_商品_商品360_标题优化_搜索词_202504" # noqa
-    site = '生意参谋'
+    site = '淘系_生意参谋'
     shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
 
     shop_item_ids = {

@@ -89,7 +89,7 @@ if __name__ == '__main__':
         # '林内厨电旗舰店': [{"50022703":"大家电>热水器>燃气热水器"}],
     }
     shop_name_list = shop_cate_info.keys()
-    site = '生意参谋'
+    site = '淘系_生意参谋'
 
     shop_cookies, crawl_day_list = data_collector(db_table_name, site, shop_name_list, recent_period=3,
                                                   period_type='month')

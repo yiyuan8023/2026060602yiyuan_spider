@@ -8,7 +8,7 @@ from extra.logger_ import logger
 if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_流量_商品来源_商品来源流量_旧版_202504" # NOQA
-    site = '生意参谋'
+    site = '淘系_生意参谋'
     shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
 
     shop_item_ids = {

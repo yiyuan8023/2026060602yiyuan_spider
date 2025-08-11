@@ -3,6 +3,7 @@ from datetime import datetime
 
 from extra.extra_time import get_month_first_and_last_day
 
+
 # 命令行参数解析工具，主要用于处理数据采集任务的时间范围参数
 
 
@@ -12,6 +13,7 @@ def parse_date(date_str):
         return datetime.strptime(date_str, '%Y-%m-%d')
     except ValueError:
         raise argparse.ArgumentTypeError(f"无效的日期格式: {date_str}. 使用 YYYY-MM-DD 格式.")
+
 
 def parse_shop_names(shop_names_str):
     """解析店铺名称，支持逗号分隔的多个店铺"""
@@ -35,9 +37,9 @@ def parser_main():
 
     # 添加每日模式参数
     parser.add_argument(
-        '--start-date', # 定义命令行参数的名称，用户在命令行中需要使用 --end-date 来指定该参数
-        type=parse_date, # 参数类型为 parse_date 函数，这意味着输入的字符串会被传递给 parse_date 函数进行验证和转换
-        help='开始日期 (YYYY-MM-DD),仅在 daily 模式下有效' #参数的帮助信息
+        '--start-date',  # 定义命令行参数的名称，用户在命令行中需要使用 --end-date 来指定该参数
+        type=parse_date,  # 参数类型为 parse_date 函数，这意味着输入的字符串会被传递给 parse_date 函数进行验证和转换
+        help='开始日期 (YYYY-MM-DD),仅在 daily 模式下有效'  # 参数的帮助信息
     )
     parser.add_argument(
         '--end-date',
@@ -64,15 +66,14 @@ def parser_main():
     # 根据不同模式返回相应参数
     if mode == 'daily':
         # argparse 自动将连字符转换为下划线（Python的命名约定），--start-date 在代码中变为 start_date
-        return args.start_date, args.end_date,args.shop_names
+        return args.start_date, args.end_date, args.shop_names
 
     elif mode == 'monthly':
         # monthly模式需要提供月份参数
         if not args.month:
             parser.error("monthly模式需要提供 --month 参数")
-        return get_month_first_and_last_day(args.month),args.shop_names
+        return get_month_first_and_last_day(args.month), args.shop_names
 
     elif mode == 'weekly':
         # TODO: 实现weekly模式逻辑
         raise NotImplementedError("weekly模式暂未实现")
-

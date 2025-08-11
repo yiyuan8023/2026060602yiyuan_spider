@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     db_table_name = "tb_tg_万相台无界_基础报表_宝贝主体_202504"
-    site = '生意参谋'
+    site = '淘系_生意参谋'
     shop_cookies, crawl_day_list = data_collector(db_table_name, site, shop_name_list, 1)
 
     end_data = get_time_ago(0, 'days', crawl_day_list[0])

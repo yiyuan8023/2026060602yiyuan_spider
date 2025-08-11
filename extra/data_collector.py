@@ -8,7 +8,7 @@ from extra.extra_date import get_date_range, get_recent_days, get_recent_months_
 
 
 def data_collector(db_table_name: Union[str, List[str]],
-                   site: str = '生意参谋',
+                   site: str = '淘系_生意参谋',
                    shop_name_list=None,
                    recent_period: int = 3,
                    period_type: str = 'day'
@@ -74,3 +74,5 @@ def data_collector(db_table_name: Union[str, List[str]],
 
     # 返回店铺cookies和采集日期列表
     return shop_cookies, crawl_day_list
+
+

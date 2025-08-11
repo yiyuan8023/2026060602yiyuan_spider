@@ -5,8 +5,6 @@
 # Project: jide
 # File: TaoKeDataAnalysis
 
-from urllib.parse import urlencode
-
 import requests
 
 from TaoBaoLianMengApi.TaoKeBaseApi import TaoKeBaseApi
@@ -14,7 +12,7 @@ from extra.extra_date import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 from extra.logger_ import logger
 
-from extra.extra_cookie import get_cookie_value
+from cookie_manager.extra_cookie import get_cookie_value
 
 
 class TaoKeDataAnalysisApi(TaoKeBaseApi):

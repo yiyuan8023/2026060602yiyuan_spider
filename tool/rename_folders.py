@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from pathlib import Path
 
+
 def rename_folders_from_excel(excel_path, target_directory):
     """
     根据Excel表格中的映射关系重命名目标目录下的文件夹
@@ -36,7 +37,7 @@ def rename_folders_from_excel(excel_path, target_directory):
 
     # 使用前两列作为原始名称和新名称
     original_name_col = df.columns[0]  # 第一列
-    new_name_col = df.columns[1]       # 第二列
+    new_name_col = df.columns[1]  # 第二列
 
     print(f"使用列 '{original_name_col}' 作为原始名称，列 '{new_name_col}' 作为新名称")
 
@@ -53,27 +54,27 @@ def rename_folders_from_excel(excel_path, target_directory):
         # 获取原始名称和新名称
         original_name = str(row[original_name_col]).strip() if pd.notna(row[original_name_col]) else ""
         new_name = str(row[new_name_col]).strip() if pd.notna(row[new_name_col]) else ""
-        
+
         # 跳过空行
         if not original_name or not new_name:
             continue
-            
+
         # 构造原始文件夹和新文件夹的完整路径
         original_folder = target_path / original_name
         new_folder = target_path / new_name
-        
+
         # 检查原始文件夹是否存在
         if not original_folder.exists():
             fail_count += 1
             failed_operations.append(f"原始文件夹不存在: {original_name}")
             continue
-            
+
         # 检查新名称是否已存在
         if new_folder.exists():
             fail_count += 1
             failed_operations.append(f"目标文件夹已存在: {new_name}")
             continue
-            
+
         # 执行重命名操作
         try:
             original_folder.rename(new_folder)
@@ -82,7 +83,7 @@ def rename_folders_from_excel(excel_path, target_directory):
         except Exception as e:
             fail_count += 1
             failed_operations.append(f"重命名失败 {original_name} -> {new_name}: {str(e)}")
-    
+
     # 返回统计结果
     result = {
         "success_count": success_count,
@@ -90,30 +91,31 @@ def rename_folders_from_excel(excel_path, target_directory):
         "failed_operations": failed_operations,
         "total_processed": success_count + fail_count
     }
-    
+
     return result
+
 
 # 使用示例
 if __name__ == "__main__":
     # 定义Excel文件路径和目标目录
     excel_file = r"C:\Users\Administrator\Desktop\改名.xlsx"
     target_dir = r"C:\Users\Administrator\Desktop\国补审计材料_天猫【拱墅区202507】"
-    
+
     try:
         # 执行重命名操作
         result = rename_folders_from_excel(excel_file, target_dir)
-        
+
         # 打印结果统计
         print(f"\n重命名操作完成:")
         print(f"成功: {result['success_count']} 个")
         print(f"失败: {result['fail_count']} 个")
         print(f"总计: {result['total_processed']} 个")
-        
+
         # 打印失败的操作详情
         if result['failed_operations']:
             print(f"\n失败的操作详情:")
             for operation in result['failed_operations']:
                 print(f"  - {operation}")
-                
+
     except Exception as e:
         print(f"执行过程中发生错误: {e}")

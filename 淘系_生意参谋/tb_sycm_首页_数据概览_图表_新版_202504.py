@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_首页_数据概览_图表_新版_202504" # NOQA
-    site = '生意参谋'
+    site = '淘系_生意参谋'
     shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 3)
 
     for i in shop_cookies:

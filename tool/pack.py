@@ -16,3 +16,6 @@
 
 # 安装指定包
 # pip install aiohttp==3.12.15 chardet==5.2.0 db==0.1.1
+
+# 浏览器自动化工具，直播中控台使用过
+# playwright install chromium

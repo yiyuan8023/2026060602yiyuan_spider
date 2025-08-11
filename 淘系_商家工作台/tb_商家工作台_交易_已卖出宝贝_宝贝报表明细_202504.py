@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_商家工作台_交易_已卖出宝贝_宝贝报表明细_202504"
-    site = '生意参谋'
+    site = '淘系_生意参谋'
     shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 3)
     start_timestamp, end_timestamp = get_min_max_timestamps(crawl_day_list)
 

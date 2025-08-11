@@ -7,28 +7,34 @@
 """
 淘宝直播》》数据
 """
+
 import json
 import re
 from urllib.parse import urlencode
-
 import requests
 
 from TiaoMaoMySellerApi.MySellerBase import MySellerBaseAPI
+from extra.extra_date import get_min_max_timestamps
+from extra.extra_reqlog import req_log
 
 
 class TbLiveDataAPI(MySellerBaseAPI):
     def __init__(self, cookie):
         super().__init__(cookie)
         self.cookie = cookie
-    def live_overview(self,begin_date,end_date):
+
+    def live_overview(self, begin_date, end_date):
+        # tb_zbzkt_数据_直播概览_每日分析_202507 # noqa
         api = "https://h5api.m.taobao.com/h5/mtop.dreamweb.query.general.generalquery/1.0/"
-        cookie_token = self.get_cookie_token(self.cookie)
-        print(cookie_token)
-        token = cookie_token["token"]
-        new_cookie = self.get_new_cookie(self.cookie, cookie_token["_m_h5_tk"], cookie_token["_m_h5_tk_enc"],filter=['tfstk'])
-        print(new_cookie)
-        t = self.get_time_13()
-        data=r'{"dataApi":"dataQRForm","param":"{\"queryCycleCode\":\"30d\",\"queryCycleStartDate\":\"\",\"queryCycleEndDate\":\"\",\"cpType\":\"cd\",\"calType\":\"uv\",\"dataQRFormId\":\"live_overview_dashboard_v2\",\"orderColumn\":\"ds\",\"orderType\":\"1\",\"queryUserRole\":\"ALL\",\"beginDate\":\"%s\",\"endDate\":\"%s\",\"time\":\"\"}"}'%(begin_date,end_date)
+        # cookie_token = self.get_cookie_token(self.cookie)
+        # print(cookie_token)
+        # token = cookie_token["token"]
+        # new_cookie = self.get_new_cookie(self.cookie, cookie_token["_m_h5_tk"], cookie_token["_m_h5_tk_enc"],
+        #                                  filter=['tfstk'])
+        # print(new_cookie)
+        # t = get_min_max_timestamps()
+        data = r'{"dataApi":"dataQRForm","param":"{\"queryCycleCode\":\"30d\",\"queryCycleStartDate\":\"\",\"queryCycleEndDate\":\"\",\"cpType\":\"cd\",\"calType\":\"uv\",\"dataQRFormId\":\"live_overview_dashboard_v2\",\"orderColumn\":\"ds\",\"orderType\":\"1\",\"queryUserRole\":\"ALL\",\"beginDate\":\"%s\",\"endDate\":\"%s\",\"time\":\"\"}"}' % (
+        begin_date, end_date)
         sign = self.get_sign(token, t, data)
         params = {
             "jsv": "2.7.4",
@@ -51,7 +57,7 @@ class TbLiveDataAPI(MySellerBaseAPI):
         }
         url = api + "?" + urlencode(params)
         res = requests.get(url=url, headers=headers)
-        if self.req_log(res):
+        if req_log(res):
             json_str = re.findall(r'mtopjsonp\d+\((.*?)\)', res.text)
             res_json = json.loads(json_str[0])
             print(res.headers)

@@ -63,8 +63,13 @@ class DatabaseManager:
         insert_sql = (f"INSERT INTO `{table_name}`({fields_str}) VALUES {','.join(values_list)}"
                       f" ON DUPLICATE KEY UPDATE {duplicate_str};")
 
-        self.cursor.execute(insert_sql)
-        self.connect.commit()
+        try:
+            self.cursor.execute(insert_sql)
+            self.connect.commit()
+        except Exception as e:
+            self.connect.rollback()
+            logger.error(f"执行 SQL 语句时发生错误: {e}")
+            raise
 
     def _table_exists(self, table_name):
         """
@@ -133,12 +138,7 @@ class DatabaseManager:
         self.connect.commit()
 
     def select_cookies_shop(self, site: str, shop_names: str):
-        """
-        查询语句
-        :param :
-        :return:
-        """
-        sql = f"select `店铺名称`,`cookie_str` from `cookie` where  `站点`='{site}' and `店铺名称` in {shop_names};"
+        sql = f"select `店铺名称`,`cookie_str`,`cookie`  from `cookie` where  `站点`='{site}' and `店铺名称` in {shop_names};"
 
         self.cursor.execute(sql)
         self.connect.commit()
@@ -146,11 +146,6 @@ class DatabaseManager:
         return res
 
     def select_cookies_all(self, site: str):
-        """
-        查询语句
-        :param :
-        :return:
-        """
         sql = f"select `店铺名称`,`cookie_str` from `cookie` where  `站点`='{site}';"
 
         self.cursor.execute(sql)

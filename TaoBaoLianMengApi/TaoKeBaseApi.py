@@ -6,7 +6,7 @@ import pandas as pd
 import requests
 
 from extra.downloader import Downloader
-from extra.extra_cookie import get_cookie_value
+from cookie_manager.extra_cookie import get_cookie_value
 from extra.logger_ import logger
 from extra.settings import UA
 from extra.extra_date import get_millisecond_timestamp

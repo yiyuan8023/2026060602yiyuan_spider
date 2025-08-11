@@ -8,7 +8,7 @@ if __name__ == '__main__':
     table_name = "tb_sycm_商品_商品排行_全部商品_202504" # noqa
     site = '生意参谋'
     shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
-
+    print(shop_cookies)
     for i in shop_cookies:
         cookie = i[1]
         shop_name = i[0]

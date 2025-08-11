@@ -14,7 +14,7 @@ if __name__ == '__main__':
         'tb_sycm_流量_店铺来源_流量来源构成_全店_分载体流量来源_202504', # noqa
     ]
 
-    site = '生意参谋'
+    site = '淘系_生意参谋'
 
     shop_cookies, crawl_day_list = data_collector(db_table_name, site, shop_name_list, 1)
 
