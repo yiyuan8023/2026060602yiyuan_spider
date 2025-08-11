@@ -1,0 +1,246 @@
+2025-08-11 14:16:08 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-11 14:16:08 | INFO | data_collector.py:35 : 开始采集：tb_sycm_流量_商品来源_商品来源流量_新版_202504
+2025-08-11 14:16:08 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\生意参谋\\tb_sycm_流量_商品来源_商品来源流量_新版_202504.py']
+2025-08-11 14:16:08 | INFO | data_collector.py:67 : 采集日期列表['2025-08-10'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 14:16:09 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=bd61f5819,userId=2212375622312
+2025-08-11 14:16:09 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内厨电旗舰店,2025-08-10,673717490518的数据
+2025-08-11 14:16:09 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-10%7C2025-08-10&crowdType=all&itemId=673717490518&order=desc&orderBy=uv&flowBizType=classic
+2025-08-11 14:16:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000025282F44B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-11 14:16:10 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:40 : 林内厨电旗舰店,2025-08-10的数据已入库
+2025-08-11 14:16:10 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-11 14:16:10 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=963733060,userId=1087143051
+2025-08-11 14:16:10 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-10,684257114535的数据
+2025-08-11 14:16:10 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-10%7C2025-08-10&crowdType=all&itemId=684257114535&order=desc&orderBy=uv&flowBizType=classic
+2025-08-11 14:16:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000025282F44B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-11 14:16:10 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-10,710970001756的数据
+2025-08-11 14:16:10 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-10%7C2025-08-10&crowdType=all&itemId=710970001756&order=desc&orderBy=uv&flowBizType=classic
+2025-08-11 14:16:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000025282F44B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-11 14:16:11 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:24 : 正在采集林内官方旗舰店,2025-08-10,772238538685的数据
+2025-08-11 14:16:11 | INFO | downloader.py:72 : https://sycm.taobao.com/flow/excel.do?&_path_=qzt%2Fitem%2Fcrowdtype%2Fsource%2Fdownload&dateType=day&dateRange=2025-08-10%7C2025-08-10&crowdType=all&itemId=772238538685&order=desc&orderBy=uv&flowBizType=classic
+2025-08-11 14:16:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000025282F44B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-11 14:16:12 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:40 : 林内官方旗舰店,2025-08-10的数据已入库
+2025-08-11 14:16:12 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:41 : ----------------------------------------------------------------------------------------------------
+2025-08-11 14:16:12 | INFO | tb_sycm_流量_商品来源_商品来源流量_新版_202504.py:42 : 
+************************************************************************************************************************
+2025-08-11 14:24:51 | INFO | live_cookie_manager.py:265 : 正在获取店铺 '林内官方旗舰店:一元' 的生意参谋Cookie...
+2025-08-11 14:24:51 | ERROR | live_cookie_manager.py:51 : 从数据库获取生意参谋Cookie时出错: (1146, "Table 'yiyuan_test.sycm_cookies' doesn't exist")
+2025-08-11 16:36:45 | INFO | cookie_collector.py:15 : 
+************************************************************************************************************************
+2025-08-11 16:36:45 | INFO | cookie_collector.py:16 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:36:45 | INFO | cookie_collector.py:17 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 16:38:24 | INFO | cookie_collector.py:15 : 
+************************************************************************************************************************
+2025-08-11 16:38:24 | INFO | cookie_collector.py:16 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:38:24 | INFO | cookie_collector.py:17 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 16:39:09 | INFO | cookie_collector.py:15 : 
+************************************************************************************************************************
+2025-08-11 16:39:09 | INFO | cookie_collector.py:16 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:39:09 | INFO | cookie_collector.py:17 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 16:39:17 | INFO | cookie_collector.py:15 : 
+************************************************************************************************************************
+2025-08-11 16:39:17 | INFO | cookie_collector.py:16 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:39:17 | INFO | cookie_collector.py:17 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 16:39:47 | INFO | cookie_collector.py:15 : 
+************************************************************************************************************************
+2025-08-11 16:39:47 | INFO | cookie_collector.py:16 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:39:47 | INFO | cookie_collector.py:17 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 16:47:41 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 16:47:41 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:47:41 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 16:50:20 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-11 16:50:20 | INFO | data_collector.py:35 : 开始采集：['tb_sycm_流量_店铺来源_流量来源构成_全店_全店流量来源_202504', 'tb_sycm_流量_店铺来源_流量来源构成_全店_经营优势来源渠道_202504', 'tb_sycm_流量_店铺来源_流量来源构成_全店_分载体流量来源_202504']
+2025-08-11 16:50:20 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py']
+2025-08-11 16:50:20 | INFO | data_collector.py:67 : 采集日期列表['2025-08-10'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:50:42 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-11 16:50:42 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-11 16:50:42 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-11 16:50:42 | INFO | data_collector.py:67 : 采集日期列表['2025-08-10'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:50:42 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:31 : 
+************************************************************************************************************************
+2025-08-11 16:51:09 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-11 16:51:09 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-11 16:51:09 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-11 16:51:09 | INFO | data_collector.py:67 : 采集日期列表['2025-08-10'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:51:09 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:31 : 
+************************************************************************************************************************
+2025-08-11 16:52:14 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-11 16:52:14 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-11 16:52:14 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-11 16:52:34 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-11 16:52:34 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-11 16:52:34 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-11 16:52:34 | INFO | data_collector.py:67 : 采集日期列表['2025-08-10'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 16:52:34 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=bd61f5819,userId=2212375622312
+2025-08-11 16:52:34 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:17 : 正在采集【林内厨电旗舰店】,2025-08-10数据
+2025-08-11 16:52:34 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-10%7C2025-08-10&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-11 16:52:34 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D7B74E8D60, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-11 16:52:34 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:29 : 林内厨电旗舰店,2025-08-10的数据已入库
+2025-08-11 16:52:34 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : ----------------------------------------------------------------------------------------------------
+2025-08-11 16:52:34 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=963733060,userId=1087143051
+2025-08-11 16:52:34 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:17 : 正在采集【林内官方旗舰店】,2025-08-10数据
+2025-08-11 16:52:34 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-10%7C2025-08-10&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-11 16:52:35 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D7B74E8D60, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-11 16:52:35 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:29 : 林内官方旗舰店,2025-08-10的数据已入库
+2025-08-11 16:52:35 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : ----------------------------------------------------------------------------------------------------
+2025-08-11 16:52:35 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:31 : 
+************************************************************************************************************************
+2025-08-11 16:54:37 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 16:54:37 | INFO | cookie_collector.py:15 : 开始获取cookie采集：[]
+2025-08-11 16:54:37 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:00:49 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:00:49 | INFO | cookie_collector.py:15 : 开始获取cookie采集：[]
+2025-08-11 17:00:49 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:00:49 | INFO | cookie_collector.py:33 : 需要转换cookie店铺[]
+2025-08-11 17:01:13 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:01:13 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:01:13 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:01:13 | INFO | cookie_collector.py:33 : 需要转换cookie店铺[]
+2025-08-11 17:02:04 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:02:04 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:02:04 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:02:04 | INFO | cookie_collector.py:33 : 需要转换cookie店铺[]
+2025-08-11 17:04:30 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:04:30 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:04:30 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:06:29 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:06:29 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:06:29 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:07:23 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:07:23 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:07:23 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:07:44 | INFO | cookie_collector.py:28 : 需要转换cookie店铺(None, None, None)
+2025-08-11 17:08:02 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:08:05 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:08:05 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:08:43 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:08:46 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:08:46 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:12:50 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:12:50 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:12:50 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:12:50 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:13:10 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:13:12 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:13:12 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:13:20 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:16:24 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:16:24 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:16:24 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:16:24 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:16:50 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:16:50 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:16:50 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:16:50 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:18:27 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:18:27 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:18:27 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:18:27 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:56:58 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:56:58 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:56:58 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:56:58 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:58:41 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 17:58:41 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 17:58:41 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 17:58:41 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-11 18:02:10 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:02:10 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:02:10 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:02:10 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:02:45 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:02:45 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:02:45 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:02:45 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:08:57 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:08:57 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:08:57 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:08:57 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:13:24 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:13:24 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:13:24 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:13:24 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:14:27 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:14:27 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:14:27 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:14:27 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:26:51 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:26:51 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:26:51 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:26:51 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:28:23 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:28:23 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:28:23 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:/other/PyCharm 2024.1.7/plugins/python/helpers/pydev/pydevconsole.py', '--mode=client', '--host=127.0.0.1', '--port=56663']
+2025-08-11 18:29:00 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:29:00 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:29:00 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:29:00 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:33:03 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:33:03 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:33:03 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:33:03 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:33:15 | ERROR | database_manager.py:71 : 执行 SQL 语句时发生错误: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''XSRF-TOKEN': 'fd0646fa-e3ca-465e-88ea-1b9a5fc0cbb2', '_samesite_flag_': 'true',' at line 1")
+2025-08-11 18:35:18 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:35:19 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:35:19 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:35:19 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:35:31 | ERROR | database_manager.py:71 : 执行 SQL 语句时发生错误: (1364, "Field 'key' doesn't have a default value")
+2025-08-11 18:36:23 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:36:23 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:36:23 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:36:23 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:36:36 | ERROR | database_manager.py:71 : 执行 SQL 语句时发生错误: (1364, "Field 'key' doesn't have a default value")
+2025-08-11 18:36:59 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:36:59 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:36:59 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:36:59 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:37:12 | ERROR | database_manager.py:71 : 执行 SQL 语句时发生错误: (1364, "Field 'key' doesn't have a default value")
+2025-08-11 18:39:32 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:39:32 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:39:32 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:39:32 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:39:47 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:39:47 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:39:47 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:39:47 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-11 18:44:26 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-11 18:44:26 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-11 18:44:26 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\直播cookie.py']
+2025-08-11 18:44:26 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
