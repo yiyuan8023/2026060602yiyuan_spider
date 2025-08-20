@@ -14,7 +14,7 @@ from urllib.parse import urlencode
 import requests
 
 from TiaoMaoMySellerApi.MySellerBase import MySellerBaseAPI
-from extra.extra_date import get_min_max_timestamps
+from extra.extra_date import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 
 
@@ -26,27 +26,32 @@ class TbLiveDataAPI(MySellerBaseAPI):
     def live_overview(self, begin_date, end_date):
         # tb_zbzkt_数据_直播概览_每日分析_202507 # noqa
         api = "https://h5api.m.taobao.com/h5/mtop.dreamweb.query.general.generalquery/1.0/"
-        # cookie_token = self.get_cookie_token(self.cookie)
-        # print(cookie_token)
-        # token = cookie_token["token"]
-        # new_cookie = self.get_new_cookie(self.cookie, cookie_token["_m_h5_tk"], cookie_token["_m_h5_tk_enc"],
-        #                                  filter=['tfstk'])
-        # print(new_cookie)
-        # t = get_min_max_timestamps()
-        data = r'{"dataApi":"dataQRForm","param":"{\"queryCycleCode\":\"30d\",\"queryCycleStartDate\":\"\",\"queryCycleEndDate\":\"\",\"cpType\":\"cd\",\"calType\":\"uv\",\"dataQRFormId\":\"live_overview_dashboard_v2\",\"orderColumn\":\"ds\",\"orderType\":\"1\",\"queryUserRole\":\"ALL\",\"beginDate\":\"%s\",\"endDate\":\"%s\",\"time\":\"\"}"}' % (
-        begin_date, end_date)
+        cookie_token = self.get_cookie_token(self.cookie)
+        print(cookie_token)
+        token = cookie_token["token"]
+
+        new_cookie = self.get_new_cookie(self.cookie, cookie_token["_m_h5_tk"], cookie_token["_m_h5_tk_enc"],
+                                         filter_=['tfstk']) # noqa
+
+        print(new_cookie)
+        t = get_millisecond_timestamp()
+
+        # data = r'{"dataApi":"dataQRForm","param":"{\"queryCycleCode\":\"30d\",\"queryCycleStartDate\":\"\",\"queryCycleEndDate\":\"\",\"cpType\":\"cd\",\"calType\":\"uv\",\"dataQRFormId\":\"live_overview_dashboard_v2\",\"orderColumn\":\"ds\",\"orderType\":\"1\",\"queryUserRole\":\"ALL\",\"beginDate\":\"%s\",\"endDate\":\"%s\",\"time\":\"\"}"}' % (
+        # begin_date, end_date)
+
+        data = r'{"dataApi":"zkt_zbgl_all_data_all","param":"{\"startDate\":\"20250814\",\"endDate\":\"20250814\",\"fieldColumns\":\"post_content_cnt_nd,post_time_nd,look_uv_nd,look_pv_nd,atn_uv_nd,atn_uv_rate_nd,fans_return_rate_nd,expo_uv_itm_nd,expo_pv_itm_nd,ipv_uv_nd,ipv_nd,pay_byr_cnt_nd,cvr_nd,pay_itm_qty_nd,pay_ord_cnt_nd,pay_amt_nd,confirm_byr_cnt_nd,confirm_itm_qty_nd,confirm_ord_cnt_nd,confirm_amt_nd,pay_byr_cnt_nd_new,pay_amt_nd_new,atv_nd,aov_nd,aiv_nd,rfd_byr_cnt_nd_filter,rfd_itm_qty_nd_filter,rfd_ord_cnt_nd_filter,rfd_amt_nd_filter,cart_uv_nd,cart_pv_nd,cart_itm_qty_nd,cart_amt_nd,look_time_nd,look_time_pu_nd,look_time_pt_nd,fvr_uv_nd,fvr_pv_nd,cmt_uv_nd,cmt_pv_nd,shr_uv_nd,shr_pv_nd,sns_uv_nd,sns_pv_nd,sns_pv_pu_nd,pay_amt_nd_self_rate,mbr_cnt_incr_nd,pay_byr_cnt_nd_mbr,pay_amt_nd_mbr,pay_amt_nd_slr,pay_amt_nd_slr_rate,pay_itm_qty_nd_mbr,pay_ord_cnt_nd_mbr,pay_amt_nd_self\",\"start\":\"0\",\"hit\":\"30\",\"orderColumn\":\"ds\",\"orderType\":\"desc\",\"summary\":\"false\"}'
         sign = self.get_sign(token, t, data)
         params = {
             "jsv": "2.7.4",
             "appKey": "12574478",
             "t": t,
             "sign": sign,
-            "api": "mtop.dreamweb.query.general.generalQuery",
+            "api": "mtop.dreamweb.query.general.generalQuery", # noqa
             "v": "1.0",
             "preventFallback": "true",
             "type": "jsonp",
             "dataType": "jsonp",
-            "callback": "mtopjsonp71",
+            "callback": "mtopjsonp71",  # noqa
             "data": data,
 
         }
@@ -61,6 +66,7 @@ class TbLiveDataAPI(MySellerBaseAPI):
             json_str = re.findall(r'mtopjsonp\d+\((.*?)\)', res.text)
             res_json = json.loads(json_str[0])
             print(res.headers)
+            print(res_json)
             return res_json
         else:
             return None

@@ -146,7 +146,7 @@ class DatabaseManager:
         return res
 
     def select_cookies_all(self, site: str):
-        sql = f"select `店铺名称`,`cookie_str` from `cookie` where  `站点`='{site}';"
+        sql = f"select `店铺名称`,`cookie_str`,`cookie`  from `cookie` where  `站点`='{site}';"
 
         self.cursor.execute(sql)
         self.connect.commit()

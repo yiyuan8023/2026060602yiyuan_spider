@@ -1,0 +1,24 @@
+2025-08-13 17:26:11 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-13 17:26:11 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-13 17:26:11 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\淘宝直播cookie.py']
+2025-08-13 17:26:11 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-13 17:26:25 | ERROR | database_manager.py:71 : 执行 SQL 语句时发生错误: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''url': 'https://liveplatform.taobao.com/restful/index/live/overview', 'cookies':' at line 1")
+2025-08-13 17:28:33 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-13 17:28:33 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-13 17:28:33 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\淘宝直播cookie.py']
+2025-08-13 17:28:33 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-13 17:28:47 | INFO | 淘宝直播cookie.py:46 : 林内官方旗舰店获取cookie成功
+2025-08-13 17:30:04 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-13 17:30:04 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-13 17:30:04 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\淘宝直播cookie.py']
+2025-08-13 17:30:04 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-13 17:30:18 | INFO | 淘宝直播cookie.py:46 : 林内官方旗舰店获取cookie成功
+2025-08-13 17:31:51 | INFO | cookie_collector.py:14 : 
+************************************************************************************************************************
+2025-08-13 17:31:51 | INFO | cookie_collector.py:15 : 开始获取cookie采集：['林内官方旗舰店']
+2025-08-13 17:31:51 | INFO | cookie_collector.py:16 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\cookie_manager\\淘宝直播cookie.py']
+2025-08-13 17:31:51 | INFO | cookie_collector.py:28 : 需要转换cookie店铺['林内官方旗舰店']
+2025-08-13 17:32:04 | INFO | 淘宝直播cookie.py:46 : 林内官方旗舰店获取cookie成功

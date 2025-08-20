@@ -1,8 +1,4 @@
-# -*- coding: utf-8 -*-
-# Author: Shao0000
-# Date: 2025-04-11
-# Time: 14:08
-# Project: jide
+
 # File: MySellerBaseAPI
 import json
 import os
@@ -29,12 +25,11 @@ class MySellerBaseAPI:
         self.ua = UA
         self.headers = {"user-agent": self.ua}
 
-    def get_sign(self, token, t, data):
-        appKey = "12574478"
-        p1 = token + "&" + str(t) + "&" + appKey + "&" + data
+    @staticmethod
+    def get_sign(token, t, data):
+        appkey = "12574478"  # noqa
+        p1 = token + "&" + str(t) + "&" + appkey + "&" + data
         return hashlib.md5(p1.encode()).hexdigest()
-
-
 
     def get_cookie_token(self, cookie=None):
         api = 'https://h5api.m.taobao.com/h5/mtop.user.getusersimple/1.0/'
@@ -42,7 +37,7 @@ class MySellerBaseAPI:
         t = get_millisecond_timestamp()
         sign = self.get_sign("undefined", t, data)
         params = {
-            'jsv': '2.6.2',
+            'jsv': '2.7.4',
             'appKey': '12574478',
             't': t,
             'sign': sign,
@@ -50,24 +45,31 @@ class MySellerBaseAPI:
             'v': '1.0',
             'type': 'jsonp',
             'dataType': 'jsonp',
-            'callback': 'mtopjsonp1', # noqa
+            'callback': 'mtopjsonp1',  # noqa
             'data': data,
         }
         url = api + "?" + urlencode(params)
         headers = {"user-agent": self.ua, "cookie": cookie if cookie else self.cookie}
         res = requests.get(url, headers=headers)
         req_log(res)
+
+        print(res.headers)
+
         if res.headers and res.headers.get("Set-Cookie"):
+
             try:
+                #  _m_h5_tk=f40338c2e6e593cfbc292bab5bf98414_1755688942842;
                 _m_h5_tk = re.findall("_m_h5_tk=(.*?);", res.headers["Set-Cookie"])[0]
                 token = _m_h5_tk.split("_")[0]
             except Exception as e:
                 _m_h5_tk = None
                 token = None
+
             try:
                 _m_h5_tk_enc = re.findall("_m_h5_tk_enc=(.*?);", res.headers["Set-Cookie"])[0]
             except Exception as e:
                 _m_h5_tk_enc = None
+
             return {
                 "token": token,
                 "_m_h5_tk_enc": _m_h5_tk_enc,
@@ -75,6 +77,35 @@ class MySellerBaseAPI:
             }
         else:
             return None
+
+    @staticmethod
+    def get_new_cookie(cookie_str, _m_h5_tk, _m_h5_tk_enc, filter_=None):
+        """
+        更新的cookie
+        :param cookie_str:原始 cookie 字符串
+        :param _m_h5_tk: 新的 _m_h5_tk 值
+        :param _m_h5_tk_enc: 新的 _m_h5_tk_enc 值
+        :param filter_: 需要过滤掉的 cookie key 列表
+        :return:更新后的 cookie 字符串
+        """
+        cookie_dict = {}
+        for item in cookie_str.split(';'):
+            # 去掉空格并分割键值对
+            if '=' in item:
+                key, value = item.strip().split('=', 1)
+                if not filter_:
+                    cookie_dict[key] = value
+                else:
+                    if key not in filter_:
+                        cookie_dict[key] = value
+                    else:
+                        pass
+        if _m_h5_tk:
+            cookie_dict['_m_h5_tk'] = _m_h5_tk
+        if _m_h5_tk_enc:
+            cookie_dict['_m_h5_tk_enc'] = _m_h5_tk_enc
+        cookie_str = "; ".join([f"{key}={value}" for key, value in cookie_dict.items()])
+        return cookie_str
 
     def cn_to_en(self, d: dict, kk: str):
         en_dict = {}

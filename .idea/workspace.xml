@@ -4,49 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="1.0.0.16">
-      <change afterPath="$PROJECT_DIR$/ChiTuApi/ChiTuBaseAPI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiTuApi/ChiTuClearAGlanceAPI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiTuApi/ChiTuShopPerformanceAPI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiTuApi/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChiTuApi/login_.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cookie_manager/cookie_collector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cookie_manager/web_cookie_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cookie_manager/直播cookie.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/淘系_生意参谋/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/淘系_赤兔/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/淘系_赤兔/赤兔名品_一目了然_客服和店铺报表全字段.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/淘系_赤兔/赤兔名品_店铺绩效_商品咨询分析.py" afterDir="false" />
+    <list default="true" id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="1.0.0.17">
+      <change afterPath="$PROJECT_DIR$/log/jide2025-08-12.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/jide2025-08-13.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/jide2025-08-20.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tool/db_backup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaoBaoLianMengApi/TaoKeBaseApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TaoBaoLianMengApi/TaoKeBaseApi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaoBaoLianMengApi/TaoKeDataAnalysisApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TaoBaoLianMengApi/TaoKeDataAnalysisApi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TiaoMaoMySellerApi/MySellerBase.py" beforeDir="false" afterPath="$PROJECT_DIR$/TiaoMaoMySellerApi/MySellerBase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TiaoMaoMySellerApi/MysellerTrade——备用.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TiaoMaoMySellerApi/TbLiveDataAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/TiaoMaoMySellerApi/TbLiveDataAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TiaoMaoMySellerApi/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/TiaoMaoMySellerApi/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TiaoMaoMySellerApi/login_.py" beforeDir="false" afterPath="$PROJECT_DIR$/TiaoMaoMySellerApi/login_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/data_collector.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/data_collector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookie_manager/web_cookie_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/cookie_manager/web_cookie_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookie_manager/直播cookie.py" beforeDir="false" afterPath="$PROJECT_DIR$/cookie_manager/淘宝直播cookie.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extra/database_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/database_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/extra_cookie.py" beforeDir="false" afterPath="$PROJECT_DIR$/cookie_manager/extra_cookie.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/extra_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/extra_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/pack.py" beforeDir="false" afterPath="$PROJECT_DIR$/tool/pack.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/rename_folders.py" beforeDir="false" afterPath="$PROJECT_DIR$/tool/rename_folders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_人群报表_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_人群报表_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_关键词_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_关键词_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_宝贝主体_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_万相台/tb_tg_万相台无界_基础报表_宝贝主体_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/淘系_商家工作台/商家工作台_交易_已卖出宝贝_宝贝报表明细.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/淘系_商家工作台/商家工作台_交易_已卖出宝贝_宝贝报表明细1.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_商家工作台/tb_商家工作台_交易_已卖出宝贝_宝贝报表明细_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/淘系_直播/淘宝直播_数据_每日分析_每日明细.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_直播/tb_zbzkt_数据_直播概览_每日分析_202507.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cookie_manager/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_商品_商品360_标题优化_搜索词_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_商品_商品360_标题优化_搜索词_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_商品_商品排行_全部商品_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_商品_商品排行_全部商品_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_流量_商品来源_商品来源流量_新版_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_流量_商品来源_商品来源流量_新版_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_流量_商品来源_商品来源流量_旧版_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/生意参谋/tb_sycm_首页_数据概览_图表_新版_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_首页_数据概览_图表_新版_202504.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/淘系_直播/tb_zbzkt_数据_直播概览_每日分析_202507.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_直播/tb_zbzkt_数据_直播概览_每日分析_202507.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +51,7 @@
     "Python 测试.Doctest convert_to_timestamp.executor": "Run",
     "Python 测试.Doctests (extra_date 内).executor": "Run",
     "Python.MysellerTrade.executor": "Run",
+    "Python.TbLiveDataAPI.executor": "Run",
     "Python.db_get_all_table.executor": "Run",
     "Python.db_table_copy (1).executor": "Run",
     "Python.db_table_copy.executor": "Run",
@@ -114,12 +86,14 @@
     "Python.tb_tg_万相台无界_基础报表_关键词_202504.executor": "Run",
     "Python.tb_tg_万相台无界_基础报表_宝贝主体_202504.executor": "Run",
     "Python.tb_tk_淘宝联盟_商品分析_202504.executor": "Run",
+    "Python.tb_zbzkt_数据_直播概览_每日分析_202507.executor": "Run",
     "Python.tempfile_1753421115103.executor": "Run",
     "Python.tempfile_1754879591454.executor": "Run",
     "Python.万相台无界_基础报表_人群报表.executor": "Run",
     "Python.商家工作台_交易_已卖出宝贝_宝贝报表明细.executor": "Run",
     "Python.商家工作台_交易_已卖出宝贝_宝贝报表明细1.executor": "Debug",
     "Python.测试.executor": "Run",
+    "Python.淘宝直播cookie (1).executor": "Run",
     "Python.生参内容_渠道效果_推荐_单条效果_微详情视频.executor": "Run",
     "Python.生参商品排行_全部商品.executor": "Debug",
     "Python.生参首页_数据概览_图表.executor": "Run",
@@ -133,7 +107,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -155,8 +129,8 @@
       <recent name="C:\Users\admin\Desktop\yiyuan_spider\idea" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.直播cookie">
-    <configuration name="直播cookie" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.tb_zbzkt_数据_直播概览_每日分析_202507">
+    <configuration name="TbLiveDataAPI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="yiyuan_spider" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -165,12 +139,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cookie_manager" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TiaoMaoMySellerApi" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cookie_manager/直播cookie.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TiaoMaoMySellerApi/TbLiveDataAPI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,7 +153,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="live_cookie_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="淘宝直播cookie (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="yiyuan_spider" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -193,7 +167,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cookie_manager/live_cookie_manager.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cookie_manager/淘宝直播cookie.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="淘宝直播cookie" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cookie_manager" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\admin\Desktop\yiyuan_spider\cookie_manager\淘宝直播cookie.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -225,7 +222,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="tb_zbzkt_数据_直播概览_每日分析_202507" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="yiyuan_spider" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -234,35 +231,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/淘系_生意参谋" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/淘系_直播" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="web_cookie_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cookie_manager" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\admin\Desktop\yiyuan_spider\cookie_manager\web_cookie_manager.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/淘系_直播/tb_zbzkt_数据_直播概览_每日分析_202507.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -273,11 +247,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.直播cookie" />
+        <item itemvalue="Python.tb_zbzkt_数据_直播概览_每日分析_202507" />
+        <item itemvalue="Python.TbLiveDataAPI" />
+        <item itemvalue="Python.淘宝直播cookie (1)" />
         <item itemvalue="Python.tb_sycm_商品_商品排行_全部商品_202504" />
-        <item itemvalue="Python.tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版" />
-        <item itemvalue="Python.web_cookie_manager" />
-        <item itemvalue="Python.live_cookie_manager" />
+        <item itemvalue="Python.淘宝直播cookie" />
       </list>
     </recent_temporary>
   </component>
@@ -312,7 +286,9 @@
       <workItem from="1754464961907" duration="1784000" />
       <workItem from="1754529286834" duration="49777000" />
       <workItem from="1754879481730" duration="3849000" />
-      <workItem from="1754893210044" duration="15555000" />
+      <workItem from="1754893210044" duration="39534000" />
+      <workItem from="1755580667089" duration="5360000" />
+      <workItem from="1755676242464" duration="12344000" />
     </task>
     <task id="LOCAL-00001" summary="初版">
       <option name="closed" value="true" />
@@ -474,7 +450,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754640981274</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="1.0.0.17">
+      <option name="closed" value="true" />
+      <created>1754909602746</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1754909602746</updated>
+    </task>
+    <task id="LOCAL-00022" summary="1.0.0.17">
+      <option name="closed" value="true" />
+      <created>1754909615815</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1754909615815</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +490,8 @@
     <MESSAGE value="1.0.0.14" />
     <MESSAGE value="1.0.0.15" />
     <MESSAGE value="1.0.0.16" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.0.16" />
+    <MESSAGE value="1.0.0.17" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.0.17" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -619,39 +612,44 @@
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cookie_manager/直播cookie.py</url>
+          <url>file://$PROJECT_DIR$/cookie_manager/淘宝直播cookie.py</url>
           <line>8</line>
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cookie_manager/直播cookie.py</url>
+          <url>file://$PROJECT_DIR$/cookie_manager/淘宝直播cookie.py</url>
           <line>17</line>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cookie_manager/直播cookie.py</url>
+          <url>file://$PROJECT_DIR$/cookie_manager/淘宝直播cookie.py</url>
           <line>18</line>
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cookie_manager/直播cookie.py</url>
+          <url>file://$PROJECT_DIR$/cookie_manager/淘宝直播cookie.py</url>
           <line>20</line>
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cookie_manager/cookie_collector.py</url>
-          <line>12</line>
+          <url>file://$PROJECT_DIR$/TiaoMaoMySellerApi/MySellerBase.py</url>
+          <line>55</line>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cookie_manager/cookie_collector.py</url>
-          <line>13</line>
+          <url>file://$PROJECT_DIR$/TiaoMaoMySellerApi/MySellerBase.py</url>
+          <line>53</line>
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cookie_manager/cookie_collector.py</url>
-          <line>14</line>
+          <url>file://$PROJECT_DIR$/TiaoMaoMySellerApi/TbLiveDataAPI.py</url>
+          <line>67</line>
           <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TiaoMaoMySellerApi/TbLiveDataAPI.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="112" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -668,7 +666,7 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$db_get_all_table.coverage" NAME="db_get_all_table 覆盖结果" MODIFIED="1754028941261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$scan_system_programs.coverage" NAME="scan_system_programs 覆盖结果" MODIFIED="1754882634724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$___.coverage" NAME="商家工作台_交易_已卖出宝贝_宝贝报表明细 覆盖结果" MODIFIED="1754557866712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_商家工作台" />
-    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm____202504.coverage" NAME="tb_sycm_商品_商品排行_全部商品_202504 覆盖结果" MODIFIED="1754902353666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_生意参谋" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm____202504.coverage" NAME="tb_sycm_商品_商品排行_全部商品_202504 覆盖结果" MODIFIED="1755674868748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_生意参谋" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$rename_folders.coverage" NAME="rename_folders 覆盖结果" MODIFIED="1754377163232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$downloader.coverage" NAME="downloader 覆盖结果" MODIFIED="1754620138410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/extra" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tempfile_1754879591454.coverage" NAME="tempfile_1754879591454 覆盖结果" MODIFIED="1754879679522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
@@ -683,10 +681,13 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$get_new_cookie.coverage" NAME="get_new_cookie 覆盖结果" MODIFIED="1754900063964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cookie_manager" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$cookie.coverage" NAME="直播cookie 覆盖结果" MODIFIED="1754909066229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cookie_manager" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$goods.coverage" NAME="goods 覆盖结果" MODIFIED="1753952271495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ShengCanApi" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$cookie__1_.coverage" NAME="淘宝直播cookie (1) 覆盖结果" MODIFIED="1755674881282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cookie_manager" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$TbLiveDataAPI.coverage" NAME="TbLiveDataAPI 覆盖结果" MODIFIED="1755687400980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TiaoMaoMySellerApi" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$db_table_copy__1_.coverage" NAME="db_table_copy (1) 覆盖结果" MODIFIED="1754029076308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$extra_date.coverage" NAME="extra_date 覆盖结果" MODIFIED="1753936977381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tg____202504__1_.coverage" NAME="tb_tg_万相台无界_基础报表_人群报表_202504 (1) 覆盖结果" MODIFIED="1754027133798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_万相台" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$extra_time.coverage" NAME="extra_time 覆盖结果" MODIFIED="1753427328110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_zbzkt____202507.coverage" NAME="tb_zbzkt_数据_直播概览_每日分析_202507 覆盖结果" MODIFIED="1755687404431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_直播" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_____202504.coverage" NAME="tb_sycm_流量_商品来源_商品来源流量_新版_202504 覆盖结果" MODIFIED="1754892968150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$_.coverage" NAME="生参商品排行_全部商品 覆盖结果" MODIFIED="1753691817301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_____202504__1_.coverage" NAME="tb_sycm_首页_数据概览_图表_新版_202504 (1) 覆盖结果" MODIFIED="1753866504440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

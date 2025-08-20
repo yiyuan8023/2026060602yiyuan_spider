@@ -1,6 +1,7 @@
 import json
 from playwright.sync_api import sync_playwright
 
+
 from extra.database_manager import DatabaseManager
 
 
@@ -32,6 +33,7 @@ class WebCookieManager:
         # 加载初始Cookie,并打开淘宝直播平台页面并
 
         # 解析并添加初始Cookie
+
         self.context.add_cookies(json.loads(self.first_cookie)["cookies"])
 
         # 访问登录页面
@@ -42,9 +44,11 @@ class WebCookieManager:
         self.target_page.wait_for_timeout(2 * 1000)  # 等待页面加载
 
     def login_successfully(self):
+
         """
-        检查登录是否成功, 通过检测页面特定元素判断是否已登录
-        Returns: bool: 登录成功返回True，否则返回False
+            检查登录是否成功, 通过检测页面特定元素判断是否已登录
+            Returns: bool: 登录成功返回True，否则返回False
+
         """
         try:
             # 查找直播空间项元素，存在则表示已登录
@@ -61,7 +65,7 @@ class WebCookieManager:
                     locator = self.target_page.locator(f"xpath=//div[@class='live-space-item']")
                     if locator.count() > 0:
                         return True
-            return False
+                    return False
         except Exception as e:
             print(f"检查登录状态时出错: {e}")
             return False

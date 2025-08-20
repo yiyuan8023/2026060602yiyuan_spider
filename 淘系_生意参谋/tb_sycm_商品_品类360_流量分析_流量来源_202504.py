@@ -81,7 +81,7 @@ def analyzing_res(res_json):
 
 if __name__ == '__main__':
 
-    db_table_name = 'tb_sycm_商品_品类360_流量分析_流量来源_202504'
+    db_table_name = 'tb_sycm_商品_品类360_流量分析_流量来源_202504' # noqa
 
     shop_cate_info = {
         '林内官方旗舰店': [{"50022703": "大家电>热水器>燃气热水器"}],
