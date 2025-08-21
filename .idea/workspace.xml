@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="1.0.0.17">
-      <change afterPath="$PROJECT_DIR$/log/jide2025-08-12.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/jide2025-08-13.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/jide2025-08-20.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/db_backup.py" afterDir="false" />
+    <list default="true" id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="1.0.0.18">
+      <change afterPath="$PROJECT_DIR$/tool/公众号评论获取.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tool/外汇.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TiaoMaoMySellerApi/MySellerBase.py" beforeDir="false" afterPath="$PROJECT_DIR$/TiaoMaoMySellerApi/MySellerBase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TiaoMaoMySellerApi/MysellerTrade——备用.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TiaoMaoMySellerApi/TbLiveDataAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/TiaoMaoMySellerApi/TbLiveDataAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cookie_manager/web_cookie_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/cookie_manager/web_cookie_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cookie_manager/直播cookie.py" beforeDir="false" afterPath="$PROJECT_DIR$/cookie_manager/淘宝直播cookie.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/database_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/database_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_生意参谋/tb_sycm_商品_品类360_流量分析_流量来源_202504.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/淘系_直播/tb_zbzkt_数据_直播概览_每日分析_202507.py" beforeDir="false" afterPath="$PROJECT_DIR$/淘系_直播/tb_zbzkt_数据_直播概览_每日分析_202507.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +40,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python 测试.Doctest convert_to_timestamp.executor": "Run",
     "Python 测试.Doctests (extra_date 内).executor": "Run",
+    "Python.MySellerBase_1755770042144.executor": "Run",
     "Python.MysellerTrade.executor": "Run",
     "Python.TbLiveDataAPI.executor": "Run",
     "Python.db_get_all_table.executor": "Run",
@@ -122,14 +113,37 @@
       <recent name="C:\Users\admin\Desktop\yiyuan_spider\淘系_商家工作台" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\yiyuan_spider\tool" />
       <recent name="C:\Users\admin\Desktop\yiyuan_spider\cookie_manager" />
       <recent name="C:\Users\admin\Desktop\yiyuan_spider\extra" />
       <recent name="C:\Users\admin\Desktop\yiyuan_spider\淘系_赤兔" />
       <recent name="C:\Users\admin\Desktop\yiyuan_spider" />
-      <recent name="C:\Users\admin\Desktop\yiyuan_spider\idea" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.tb_zbzkt_数据_直播概览_每日分析_202507">
+  <component name="RunManager" selected="Python.外汇">
+    <configuration name="外汇" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TiaoMaoMySellerApi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\admin\Desktop\yiyuan_spider\tool\外汇.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="TbLiveDataAPI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="yiyuan_spider" />
       <option name="ENV_FILES" value="" />
@@ -168,29 +182,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cookie_manager/淘宝直播cookie.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="淘宝直播cookie" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cookie_manager" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\admin\Desktop\yiyuan_spider\cookie_manager\淘宝直播cookie.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -247,11 +238,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.外汇" />
         <item itemvalue="Python.tb_zbzkt_数据_直播概览_每日分析_202507" />
         <item itemvalue="Python.TbLiveDataAPI" />
         <item itemvalue="Python.淘宝直播cookie (1)" />
         <item itemvalue="Python.tb_sycm_商品_商品排行_全部商品_202504" />
-        <item itemvalue="Python.淘宝直播cookie" />
       </list>
     </recent_temporary>
   </component>
@@ -288,7 +279,7 @@
       <workItem from="1754879481730" duration="3849000" />
       <workItem from="1754893210044" duration="39534000" />
       <workItem from="1755580667089" duration="5360000" />
-      <workItem from="1755676242464" duration="12344000" />
+      <workItem from="1755676242464" duration="18905000" />
     </task>
     <task id="LOCAL-00001" summary="初版">
       <option name="closed" value="true" />
@@ -466,7 +457,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754909615815</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="1.0.0.18">
+      <option name="closed" value="true" />
+      <created>1755694014375</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1755694014375</updated>
+    </task>
+    <task id="LOCAL-00024" summary="1.0.0.18">
+      <option name="closed" value="true" />
+      <created>1755694026051</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1755694026051</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +498,8 @@
     <MESSAGE value="1.0.0.15" />
     <MESSAGE value="1.0.0.16" />
     <MESSAGE value="1.0.0.17" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.0.17" />
+    <MESSAGE value="1.0.0.18" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.0.18" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -699,5 +707,6 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tg____202504.coverage" NAME="tb_tg_万相台无界_基础报表_宝贝主体_202504 覆盖结果" MODIFIED="1754636891901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_万相台" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm__360___202504.coverage" NAME="tb_sycm_商品_品类360_流量分析_流量来源_202504 覆盖结果" MODIFIED="1754639991115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm______202504.coverage" NAME="tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504 覆盖结果" MODIFIED="1754640671956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$MySellerBase_1755770042144.coverage" NAME="MySellerBase_1755770042144 覆盖结果" MODIFIED="1755770060123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TiaoMaoMySellerApi" />
   </component>
 </project>
