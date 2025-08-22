@@ -1,0 +1,111 @@
+2025-08-22 13:41:30 | INFO | database_manager.py:131 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 13:41:31 | INFO | html_to_db.py:59 : C:\Users\admin\Desktop\新建文件夹 (3)的数据已入库
+2025-08-22 13:41:31 | INFO | html_to_db.py:60 : 成功处理文件数: 0
+2025-08-22 13:41:31 | INFO | html_to_db.py:61 : 出错文件数: 0
+2025-08-22 13:41:31 | INFO | html_to_db.py:63 : 
+************************************************************************************************************************
+2025-08-22 14:11:06 | ERROR | database_manager.py:140 : 创建表 `gzh_html_files_202508` 失败: (1075, 'Incorrect table definition; there can be only one auto column and it must be defined as a key')
+2025-08-22 14:35:20 | ERROR | database_manager.py:139 : 创建表 `gzh_html_files_202508` 失败: (1075, 'Incorrect table definition; there can be only one auto column and it must be defined as a key')
+2025-08-22 14:40:52 | ERROR | database_manager.py:139 : 创建表 `gzh_html_files_202508` 失败: (1075, 'Incorrect table definition; there can be only one auto column and it must be defined as a key')
+2025-08-22 14:41:46 | INFO | database_manager.py:137 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 14:41:46 | INFO | html_to_db.py:55 : C:\Users\admin\Desktop\新建文件夹 (3)的数据已入库
+2025-08-22 14:41:46 | INFO | html_to_db.py:56 : 成功处理文件数: 0
+2025-08-22 14:41:46 | INFO | html_to_db.py:57 : 出错文件数: 0
+2025-08-22 14:41:46 | INFO | html_to_db.py:59 : 
+************************************************************************************************************************
+2025-08-22 14:45:13 | INFO | database_manager.py:137 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 14:45:13 | INFO | html_to_db.py:55 : C:\Users\admin\Desktop\新建文件夹 (3)的数据已入库
+2025-08-22 14:45:13 | INFO | html_to_db.py:56 : 成功处理文件数: 0
+2025-08-22 14:45:13 | INFO | html_to_db.py:57 : 出错文件数: 0
+2025-08-22 14:45:13 | INFO | html_to_db.py:59 : 
+************************************************************************************************************************
+2025-08-22 14:46:08 | INFO | html_to_db.py:56 : C:\Users\admin\Desktop\新建文件夹 (3)的数据已入库
+2025-08-22 14:46:08 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 14:46:08 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 14:46:08 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 14:47:45 | INFO | html_to_db.py:56 : C:\Users\admin\Desktop\新建文件夹 (3)的数据已入库
+2025-08-22 14:47:45 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 14:47:45 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 14:47:45 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 14:47:56 | INFO | database_manager.py:137 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 14:47:56 | INFO | html_to_db.py:56 : C:\Users\admin\Desktop\新建文件夹 (3)的数据已入库
+2025-08-22 14:47:56 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 14:47:56 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 14:47:56 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 14:48:16 | INFO | html_to_db.py:56 : C:\Users\admin\Desktop\新建文件夹 (3)的数据已入库
+2025-08-22 14:48:16 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 14:48:16 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 14:48:16 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 14:48:28 | INFO | html_to_db.py:56 : C:\Users\admin\Desktop\新建文件夹 (3)的数据已入库
+2025-08-22 14:48:28 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 14:48:28 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 14:48:28 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 14:49:10 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-22 14:49:10 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-22 14:49:10 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-22 14:49:10 | INFO | data_collector.py:67 : 采集日期列表['2025-08-21'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-22 14:49:11 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=53a9f2bd0,userId=2212375622312
+2025-08-22 14:49:11 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:17 : 正在采集【林内厨电旗舰店】,2025-08-21数据
+2025-08-22 14:49:11 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-21%7C2025-08-21&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-22 14:49:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000014DA65B8B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-22 14:49:11 | INFO | database_manager.py:137 : 表 `tb_sycm_商品_商品排行_全部商品_202504` 创建成功
+2025-08-22 14:49:11 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:29 : 林内厨电旗舰店,2025-08-21的数据已入库
+2025-08-22 14:49:11 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : ----------------------------------------------------------------------------------------------------
+2025-08-22 14:49:11 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=ff0b0dee5,userId=1087143051
+2025-08-22 14:49:11 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:17 : 正在采集【林内官方旗舰店】,2025-08-21数据
+2025-08-22 14:49:11 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-21%7C2025-08-21&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-22 14:49:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000014DA65B8B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-22 14:49:12 | ERROR | database_manager.py:71 : 执行 SQL 语句时发生错误: (1054, "Unknown column '总支付商品件数' in 'field list'")
+2025-08-22 14:50:31 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-22 14:50:31 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-22 14:50:31 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-22 14:50:31 | INFO | data_collector.py:67 : 采集日期列表['2025-08-21'],采集店铺['林内官方旗舰店']
+2025-08-22 14:50:31 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=ff0b0dee5,userId=1087143051
+2025-08-22 14:50:31 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:18 : 正在采集【林内官方旗舰店】,2025-08-21数据
+2025-08-22 14:50:31 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-21%7C2025-08-21&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-22 14:50:32 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000226DB268B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-22 14:50:32 | INFO | database_manager.py:137 : 表 `tb_sycm_商品_商品排行_全部商品_202504` 创建成功
+2025-08-22 14:50:32 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : 林内官方旗舰店,2025-08-21的数据已入库
+2025-08-22 14:50:32 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:31 : ----------------------------------------------------------------------------------------------------
+2025-08-22 14:50:32 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:32 : 
+************************************************************************************************************************
+2025-08-22 14:51:07 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-22 14:51:07 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-22 14:51:07 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-22 14:51:07 | INFO | data_collector.py:67 : 采集日期列表['2025-08-21'],采集店铺['林内厨电旗舰店']
+2025-08-22 14:51:07 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=53a9f2bd0,userId=2212375622312
+2025-08-22 14:51:07 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:18 : 正在采集【林内厨电旗舰店】,2025-08-21数据
+2025-08-22 14:51:07 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-21%7C2025-08-21&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-22 14:51:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001CE399F8B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-22 14:51:08 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : 林内厨电旗舰店,2025-08-21的数据已入库
+2025-08-22 14:51:08 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:31 : ----------------------------------------------------------------------------------------------------
+2025-08-22 14:51:08 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:32 : 
+************************************************************************************************************************
+2025-08-22 14:51:22 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-08-22 14:51:22 | INFO | data_collector.py:35 : 开始采集：tb_sycm_商品_商品排行_全部商品_202504
+2025-08-22 14:51:22 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_生意参谋\\tb_sycm_商品_商品排行_全部商品_202504.py']
+2025-08-22 14:51:22 | INFO | data_collector.py:67 : 采集日期列表['2025-08-21'],采集店铺['林内官方旗舰店', '林内厨电旗舰店']
+2025-08-22 14:51:23 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=53a9f2bd0,userId=2212375622312
+2025-08-22 14:51:23 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:18 : 正在采集【林内厨电旗舰店】,2025-08-21数据
+2025-08-22 14:51:23 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-21%7C2025-08-21&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-22 14:51:23 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000277197A8B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-22 14:51:23 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : 林内厨电旗舰店,2025-08-21的数据已入库
+2025-08-22 14:51:23 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:31 : ----------------------------------------------------------------------------------------------------
+2025-08-22 14:51:23 | SUCCESS | ShengCanBase.py:42 : SycmAPI初始化成功，token=ff0b0dee5,userId=1087143051
+2025-08-22 14:51:23 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:18 : 正在采集【林内官方旗舰店】,2025-08-21数据
+2025-08-22 14:51:23 | INFO | downloader.py:72 : https://sycm.taobao.com/cc/item/view/excel/top.json?&dateRange=2025-08-21%7C2025-08-21&dateType=day&pageSize=10&page=1&order=desc&orderBy=payAmt&dtUpdateTime=False&dtMaxAge=0&device=0&compareType=cycle&keyword=&follow=False&cateId=&cateLevel=&indexCode=payAmt%2C+sucRefundAmt%2C+payItmCnt%2C+payByrCnt%2C+payRate%2C+newPayByrCnt%2C+payOldByrCnt%2C+olderPayAmt%2C+juPayAmt%2C+mtdPayAmt%2C+mtdPayItmCnt%2C+ytdPayAmt%2C+itemStatus%2C+itemCartCnt%2C+itemCartByrCnt%2C+itemCltByrCnt%2C+visitCartRate%2C+visitCltRate%2C+itmUv%2C+itmPv%2C+itmStayTime%2C+itmBounceRate%2C+seGuideUv%2C+seGuidePayByrCnt%2C+seGuidePayRate%2C+uvAvgValue%2C+starLevel001%2C+itemUnitPrice1
+2025-08-22 14:51:24 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000277197A8B80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-08-22 14:51:24 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:30 : 林内官方旗舰店,2025-08-21的数据已入库
+2025-08-22 14:51:24 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:31 : ----------------------------------------------------------------------------------------------------
+2025-08-22 14:51:24 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:32 : 
+************************************************************************************************************************
+2025-08-22 16:07:55 | INFO | database_manager.py:147 : 表 `gzh_html_files_202508` 创建成功

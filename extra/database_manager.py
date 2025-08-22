@@ -1,4 +1,6 @@
 import pymysql
+import uuid
+
 from pymysql.converters import escape_string
 from extra.settings import *
 from extra.logger_ import logger
@@ -20,12 +22,13 @@ class DatabaseManager:
         self.connect = pymysql.connect(**db_params)
         self.cursor = self.connect.cursor()
 
-    def upsert_data(self, items, table_name, primary_key=None):
+    def upsert_data(self, items, table_name, primary_key=None, uuid=None):
         """
         新增或更新数据，如果表不存在则自动创建
         :param items: 要插入的数据列表，每个元素是一个字典
         :param table_name: 目标表名
         :param primary_key: 主键字段名，默认为数据中的第一个字段
+        :param uuid: 是否为每条记录添加 UUID 字段（默认不添加）
         :return:
         """
         if not items:
@@ -33,7 +36,12 @@ class DatabaseManager:
 
         # 检查表是否存在，如果不存在则创建
         if not self._table_exists(table_name):
-            self._create_table(items, table_name, primary_key)
+            self._create_table(items, table_name, primary_key, uuid)
+
+        # 为每个数据项添加UUID（如果不存在）
+        for item in items:
+            if 'uuid' not in item:
+                item['uuid'] = str(uuid.uuid4())
 
         # 获取字段名列表（从第一条记录）
         field_names = list(items[0].keys())
@@ -86,12 +94,12 @@ class DatabaseManager:
             logger.debug(f"检查数据库表是否存在时出错: {e}")
             return False
 
-    def _create_table(self, items, table_name, primary_key=None):
+    def _create_table(self, items, table_name, primary_key=None, uuid=None):
         """
         根据数据自动创建表
         :param items: 数据列表
         :param table_name: 表名
-        :param primary_key: 主键字段名，默认为第一个字段
+        :param primary_key: 主键字段名
         :return:
         """
         if not items:
@@ -100,9 +108,14 @@ class DatabaseManager:
         # 分析第一条数据的字段类型
         sample_item = items[0]
         columns = []
-        keys = list(sample_item.keys())  # 获取所有字段名
+        keys = list(sample_item.keys())  # 获取所有字段名,并添加id字段
 
-        # 添加主键字段
+        if primary_key:
+            columns.append("`id` INT AUTO_INCREMENT UNIQUE")   # 添加自增ID字段，为唯一键
+        else:
+            columns.append("`id` INT AUTO_INCREMENT PRIMARY KEY")  # 添加自增ID字段,作为主键
+
+        # 判断字段类型并添加主键字段
         for key in keys:
             # 根据值的类型推断字段类型
             value = sample_item[key]
@@ -113,6 +126,7 @@ class DatabaseManager:
                 column_type = f"VARCHAR({min(max(len(str_value) * 2, 255), 1000)})"
 
             # 设置主键
+
             if key == primary_key:
                 columns.append(f"`{key}` {column_type} PRIMARY KEY")
             else:
@@ -121,6 +135,10 @@ class DatabaseManager:
         # 添加创建时间和更新时间字段
         columns.append("`create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
         columns.append("`update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+
+        # 添加UUID字段
+        if uuid:
+            columns.append("`uuid` VARCHAR(36) UNIQUE")  # UUID通常为36个字符
 
         # 构建创建表的SQL语句
         create_sql = f"CREATE TABLE `{table_name}` ({', '.join(columns)});"
@@ -133,9 +151,23 @@ class DatabaseManager:
             logger.error(f"创建表 `{table_name}` 失败: {e}")
             raise
 
-    def execute_sql(self, sql):
+    def execute_sql(self, sql, fetch=False):
+        """
+        执行SQL语句
+        :param sql: SQL语句
+        :param fetch: 是否获取查询结果（仅适用于SELECT语句）
+        :return: 查询结果（如果fetch=True）或None
+        """
         self.cursor.execute(sql)
-        self.connect.commit()
+
+        if fetch:
+            results = self.cursor.fetchall()
+            self.connect.commit()
+            return results
+        else:
+            self.connect.commit()
+            return None
+
 
     def select_cookies_shop(self, site: str, shop_names: str):
         sql = f"select `店铺名称`,`cookie_str`,`cookie`  from `cookie` where  `站点`='{site}' and `店铺名称` in {shop_names};"

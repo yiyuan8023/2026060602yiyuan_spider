@@ -5,6 +5,7 @@ from extra.data_collector import data_collector
 
 if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    # shop_name_list = ['林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_商品_商品排行_全部商品_202504" # noqa
     site = '生意参谋'
     shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
