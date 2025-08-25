@@ -109,3 +109,66 @@
 2025-08-22 14:51:24 | INFO | tb_sycm_商品_商品排行_全部商品_202504.py:32 : 
 ************************************************************************************************************************
 2025-08-22 16:07:55 | INFO | database_manager.py:147 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 22:10:21 | INFO | database_manager.py:149 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 22:10:21 | ERROR | database_manager.py:79 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 22:11:59 | ERROR | database_manager.py:79 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 22:14:39 | ERROR | database_manager.py:79 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 22:15:29 | ERROR | database_manager.py:79 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 22:16:31 | ERROR | database_manager.py:79 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 22:17:22 | ERROR | database_manager.py:79 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 22:18:58 | INFO | database_manager.py:149 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 22:18:58 | INFO | html_to_db.py:56 : D:\1921681859\AA的数据已入库
+2025-08-22 22:18:58 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 22:18:58 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 22:18:58 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 23:01:36 | INFO | database_manager.py:191 : 为表 `gzh_html_files_202508` 创建触发器成功
+2025-08-22 23:01:36 | INFO | database_manager.py:155 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 23:01:36 | INFO | html_to_db.py:56 : D:\1921681859\AA的数据已入库
+2025-08-22 23:01:36 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 23:01:36 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 23:01:36 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 23:03:05 | INFO | html_to_db.py:56 : D:\1921681859\AA的数据已入库
+2025-08-22 23:03:05 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 23:03:05 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 23:03:05 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 23:08:20 | INFO | database_manager.py:157 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 23:08:20 | INFO | html_to_db.py:56 : D:\1921681859\AA的数据已入库
+2025-08-22 23:08:20 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 23:08:20 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 23:08:20 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 23:11:16 | INFO | database_manager.py:94 : gzh_html_files_202508不存在,为您创建gzh_html_files_202508检查数据库表是否存在时出错: (1146, "Table 'yiyuan_test.gzh_html_files_202508' doesn't exist")
+2025-08-22 23:11:16 | INFO | database_manager.py:157 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 23:11:16 | INFO | html_to_db.py:56 : D:\1921681859\AA的数据已入库
+2025-08-22 23:11:16 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 23:11:16 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 23:11:16 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 23:16:43 | INFO | database_manager.py:95 : 【gzh_html_files_202508】不存在,为您重新创建: (1146, "Table 'yiyuan_test.gzh_html_files_202508' doesn't exist")
+2025-08-22 23:16:43 | INFO | database_manager.py:195 : 为表 `gzh_html_files_202508` 创建触发器成功
+2025-08-22 23:16:43 | INFO | database_manager.py:159 : 表 `gzh_html_files_202508` 创建成功
+2025-08-22 23:16:43 | INFO | html_to_db.py:56 : D:\1921681859\AA的数据已入库
+2025-08-22 23:16:43 | INFO | html_to_db.py:57 : 成功处理文件数: 2
+2025-08-22 23:16:43 | INFO | html_to_db.py:58 : 出错文件数: 0
+2025-08-22 23:16:43 | INFO | html_to_db.py:60 : 
+************************************************************************************************************************
+2025-08-22 23:53:57 | INFO | 公众号评论获取(from_db).py:200 : 数据已入库
+2025-08-22 23:53:57 | INFO | 公众号评论获取(from_db).py:201 : ----------------------------------------------------------------------------------------------------
+2025-08-22 23:53:57 | INFO | 公众号评论获取(from_db).py:200 : 数据已入库
+2025-08-22 23:53:57 | INFO | 公众号评论获取(from_db).py:201 : ----------------------------------------------------------------------------------------------------
+2025-08-22 23:53:57 | INFO | 公众号评论获取(from_db).py:202 : 
+************************************************************************************************************************
+2025-08-22 23:55:09 | INFO | database_manager.py:95 : 【gzh_article_comments_202508】不存在,为您重新创建: (1146, "Table 'yiyuan_test.gzh_article_comments_202508' doesn't exist")
+2025-08-22 23:55:09 | INFO | database_manager.py:159 : 表 `gzh_article_comments_202508` 创建成功
+2025-08-22 23:55:09 | ERROR | database_manager.py:80 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 23:55:34 | INFO | database_manager.py:95 : 【gzh_article_comments_202508】不存在,为您重新创建: (1146, "Table 'yiyuan_test.gzh_article_comments_202508' doesn't exist")
+2025-08-22 23:55:34 | INFO | database_manager.py:159 : 表 `gzh_article_comments_202508` 创建成功
+2025-08-22 23:55:34 | ERROR | database_manager.py:80 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 23:57:34 | ERROR | database_manager.py:80 : 执行 SQL 语句时发生错误: (1054, "Unknown column 'uu_id' in 'field list'")
+2025-08-22 23:59:02 | ERROR | database_manager.py:80 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '内容' at row 12")
+2025-08-22 23:59:23 | INFO | database_manager.py:95 : 【gzh_article_comments_202508】不存在,为您重新创建: (1146, "Table 'yiyuan_test.gzh_article_comments_202508' doesn't exist")
+2025-08-22 23:59:23 | INFO | database_manager.py:159 : 表 `gzh_article_comments_202508` 创建成功
+2025-08-22 23:59:23 | ERROR | database_manager.py:80 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '内容' at row 12")

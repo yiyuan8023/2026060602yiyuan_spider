@@ -1,4 +1,3 @@
-
 # File: WanXiangTaiReport
 import uuid
 
@@ -9,11 +8,12 @@ class WanXiangTaiReportApi(WanXiangTaiBaseApi):
     """
     报表
     """
+
     def __init__(self, cookie):
         super().__init__(cookie)
         self.cookie = cookie
 
-    def main_report__main_data_details(self,start_date,end_date):
+    def main_report__main_data_details(self, start_date, end_date):
         """
         tb_tg_万相台无界_基础报表_宝贝主体_202504
         :return:
@@ -50,7 +50,7 @@ class WanXiangTaiReportApi(WanXiangTaiBaseApi):
         # print(task_id)
         return task_id
 
-    def keyword_report__main_data_details(self,start_date,end_date):
+    def keyword_report__main_data_details(self, start_date, end_date):
         """
         tb_tg_万相台无界_基础报表_关键词_202504
         :return:
@@ -105,7 +105,7 @@ class WanXiangTaiReportApi(WanXiangTaiBaseApi):
         # print(task_id)
         return task_id
 
-    def crowd_report__main_data_details(self,start_date,end_date):
+    def crowd_report__main_data_details(self, start_date, end_date):
         """
         "tb_tg_万相台无界_基础报表_人群报表_202504"
         """
@@ -136,7 +136,7 @@ class WanXiangTaiReportApi(WanXiangTaiBaseApi):
                 "source": "async_dowdload",
                 "csrfId": self.csrfId,
                 "bizCode": "universalBP",
-                "loginPointId":self.loginPointId}
+                "loginPointId": self.loginPointId}
 
         task_id = self.create_download_task(data)
         # print(task_id)

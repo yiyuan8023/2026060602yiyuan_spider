@@ -3,6 +3,7 @@ import os
 from extra.database_manager import DatabaseManager
 from extra.logger_ import logger
 
+
 def read_html_to_mysql(folder_path, table_name):
     """
     读取文件夹下的HTML文件并保存到MySQL数据库
@@ -26,6 +27,7 @@ def read_html_to_mysql(folder_path, table_name):
                         with open(file_path, 'r', encoding='utf-8') as f:
                             html_content = f.read()
                             processed_count += 1
+                            print(f" {html_content}")
                     except UnicodeDecodeError:
                         # 如果UTF-8解码失败，尝试其他编码
                         try:
@@ -49,8 +51,8 @@ def read_html_to_mysql(folder_path, table_name):
                             'html_content': html_content,
                             'file_size': file_size}
                     items.append(item)
-
-        DatabaseManager().upsert_data(items, table_name, primary_key="file", uuid=True)
+        print(items)
+        DatabaseManager().upsert_data(items, table_name, primary_key='file', uu_id=True, user=True)
         logger.info(f"{folder_path}的数据已入库")
         logger.info(f"成功处理文件数: {processed_count}")
         logger.info(f"出错文件数: {error_count}")
@@ -62,12 +64,12 @@ def read_html_to_mysql(folder_path, table_name):
 
 if __name__ == "__main__":
     # 指定HTML文件所在的文件夹路径
-    folder_path = r"C:\Users\admin\Desktop\新建文件夹 (3)"
-    table_name = 'gzh_html_files_202508'
+    folder_path_ = r"D:\1921681859\AA"
+    table_name_ = f'gzh_html_files_202508'
 
     # 检查文件夹是否存在
-    if not os.path.exists(folder_path):
-        logger.info(f"文件夹不存在: {folder_path}")
+    if not os.path.exists(folder_path_):
+        logger.info(f"文件夹不存在: {folder_path_}")
 
     # 读取HTML文件并保存到数据库
-    read_html_to_mysql(folder_path, table_name)
+    read_html_to_mysql(folder_path_, table_name_)

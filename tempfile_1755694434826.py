@@ -2,23 +2,24 @@ import os
 import pandas as pd
 from bs4 import BeautifulSoup
 import re
-
-from extra.database_manager import DatabaseManager
-from extra.logger_ import logger
+from datetime import datetime
 
 
-def extract_html_comments(html_content):
+def extract_html_comments(html_path):
     """
     从HTML文件中提取评论信息，包含赞的数量、作者回复和作者回复的赞数量
     """
     comments_data = []
 
     try:
+        with open(html_path, 'r', encoding='utf-8') as file:  # 读取HTML文件
+            html_content = file.read()
+
         soup = BeautifulSoup(html_content, 'html.parser')  # 使用BeautifulSoup解析HTML
         msg_boxes = soup.find_all('div', class_='msgBox')  # 找到所有评论容器
 
         if not msg_boxes:
-            print(f"在 {html_content} 中未找到评论区域")
+            print(f"在 {html_path} 中未找到评论区域")
             return comments_data
 
         for msg_box in msg_boxes:
@@ -26,7 +27,9 @@ def extract_html_comments(html_content):
 
             for message in messages:
                 # 提取用户头像和昵称
+
                 user_name = message.find('p', class_='userName')  # 提取昵称 地区 时间
+
                 if not user_name:
                     continue
 
@@ -34,15 +37,12 @@ def extract_html_comments(html_content):
                 if img_tag:
                     src = img_tag.get('src')  # 使用 .get() 安全获取
                 else:
-                    src = ""  # 提取用户头像链接
+                    src = ""  # 提取用户头像
 
                 # 提取昵称、地区和时间（从userName标签中）
                 nickname = user_name.contents[0]  # 获取昵称
 
                 location_time_span = user_name.find('span')  # 从span标签中提取地区和时间
-
-                location = "未知"
-                time = "未知"
                 if location_time_span:
                     location_time_text = location_time_span.get_text().strip()
                     # 使用正则表达式提取地区和时间
@@ -51,6 +51,9 @@ def extract_html_comments(html_content):
                     if location_match:
                         location = location_match.group(1).strip()  # 获取地区
                         time = location_match.group(2).strip()  # 获取时间
+                else:
+                    location = "未知"
+                    time = "未知"
 
                 # 提取评论内容
                 reply_body = message.find('p', class_='replyBody')
@@ -61,16 +64,17 @@ def extract_html_comments(html_content):
 
                 # 提取赞的数量
                 reply_like_num = reply_body.find('span', class_='reply_like_num')
-                like_num = 0
                 if reply_like_num:
                     like_text = reply_like_num.get_text().strip()
                     like_match = re.search(r'赞\s+(\d+)', like_text)
                     if like_match:
                         like_num = int(like_match.group(1))
+                else:
+                    like_num = 0
 
                 # 创建用户评论记录
                 comment_info = {
-                    # '文件路径': html_path,  # 新增文件路径字段
+                    '文件路径': html_path,  # 新增文件路径字段
                     '图像链接': src,
                     '昵称': nickname,
                     '地址': location,
@@ -89,7 +93,6 @@ def extract_html_comments(html_content):
                 msg_body_reply = message.find('div', class_='msgBodyReply')
                 if msg_body_reply:
                     author_replies = msg_body_reply.find_all('div', class_='msgBodyReplyList')
-                    print(author_replies)
 
                     for author_reply in author_replies:
                         author_user_name = author_reply.find('p', class_='userName')
@@ -129,9 +132,28 @@ def extract_html_comments(html_content):
                                 comment_info['作者回复赞数量'] = author_like_num
 
     except Exception as e:
-        print(f"处理html时出错: {str(e)}")
+        print(f"处理文件 {html_path} 时出错: {str(e)}")
 
     return comments_data
+
+
+def extract_all_html_comments(folder_path):
+    """
+    提取文件夹下所有HTML文件的评论
+    """
+    all_comments = []
+
+    # 遍历文件夹中的所有文件
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            if file.lower().endswith('.html'):
+                html_path = os.path.join(root, file)
+                print(f"正在处理: {html_path}")
+
+                comments = extract_html_comments(html_path)
+                all_comments.extend(comments)
+
+    return all_comments
 
 
 def save_to_excel(comments_data, output_path):
@@ -157,34 +179,17 @@ def save_to_excel(comments_data, output_path):
     print(f"数据已保存到: {output_path}")
 
 
+def main():
+    folder_path = r"D:\1921681859\文小叔说\html"  # 设置文件夹路径
+    output_path = r"D:\1921681859\文小叔说\文小叔说html_comments.xlsx"  # 设置输出Excel文件路径
+
+    print("开始提取HTML评论...")
+    comments_data = extract_all_html_comments(folder_path)  # 提取所有HTML评论
+    print(f"共找到 {len(comments_data)} 条评论")
+
+    save_to_excel(comments_data, output_path)  # 保存为Excel
+    print("处理完成!")
+
+
 if __name__ == "__main__":
-    table_name = 'gzh_article_comments_202508'
-    sql = f"select * from `gzh_html_files_202508`"  # noqa
-    html_files_records = DatabaseManager().execute_sql(sql, fetch=True)
-    print(html_files_records)
-
-    # 遍历文件夹中的所有文件
-    for html_files_record in html_files_records:
-        file = html_files_record[2]
-        items = extract_html_comments(html_files_record[3])
-        for item in items:
-            item.update({
-                "file": file,
-            })
-            item["key"] = f"{item['昵称']}_{item['时间']}"
-
-        # print(items)
-        # print(items[0].keys())
-        DatabaseManager().upsert_data(items, table_name, primary_key='key', uu_id=True, user=True)
-        logger.info(f"数据已入库")
-        logger.info("-" * 100)
-    logger.info(f"\n{'*' * 120}")
-
-    # output_path = r"D:\1921681859\AA\文小叔说html_comments.xlsx"  # 设置输出Excel文件路径
-    #
-    # print("开始提取HTML评论...")
-    # comments_data = extract_all_html_comments()  # 提取所有HTML评论
-    # print(f"共找到 {len(comments_data)} 条评论")
-    #
-    # save_to_excel(comments_data, output_path)  # 保存为Excel
-    # print("处理完成!")
+    main()

@@ -22,13 +22,14 @@ class DatabaseManager:
         self.connect = pymysql.connect(**db_params)
         self.cursor = self.connect.cursor()
 
-    def upsert_data(self, items, table_name, primary_key=None, uuid=None):
+    def upsert_data(self, items, table_name, primary_key=None, uu_id=None, user=None):
         """
         新增或更新数据，如果表不存在则自动创建
         :param items: 要插入的数据列表，每个元素是一个字典
         :param table_name: 目标表名
         :param primary_key: 主键字段名，默认为数据中的第一个字段
-        :param uuid: 是否为每条记录添加 UUID 字段（默认不添加）
+        :param uu_id: 是否为每条记录添加 UUID 字段（默认不添加）
+        :param user:是否添加更新用户触发器
         :return:
         """
         if not items:
@@ -36,12 +37,12 @@ class DatabaseManager:
 
         # 检查表是否存在，如果不存在则创建
         if not self._table_exists(table_name):
-            self._create_table(items, table_name, primary_key, uuid)
+            self._create_table(items, table_name, primary_key, uu_id, user)
 
         # 为每个数据项添加UUID（如果不存在）
         for item in items:
-            if 'uuid' not in item:
-                item['uuid'] = str(uuid.uuid4())
+            if 'uu_id' not in item and uu_id:
+                item['uu_id'] = str(uuid.uuid4())
 
         # 获取字段名列表（从第一条记录）
         field_names = list(items[0].keys())
@@ -91,15 +92,16 @@ class DatabaseManager:
             self.cursor.execute(sql)
             return True
         except Exception as e:
-            logger.debug(f"检查数据库表是否存在时出错: {e}")
+            logger.info(f"【{table_name}】不存在,为您重新创建: {e}")
             return False
 
-    def _create_table(self, items, table_name, primary_key=None, uuid=None):
+    def _create_table(self, items, table_name, primary_key=None, uu_id=None, user=None):
         """
         根据数据自动创建表
         :param items: 数据列表
         :param table_name: 表名
         :param primary_key: 主键字段名
+        user: 是否添加创建用户，更新用户
         :return:
         """
         if not items:
@@ -111,7 +113,7 @@ class DatabaseManager:
         keys = list(sample_item.keys())  # 获取所有字段名,并添加id字段
 
         if primary_key:
-            columns.append("`id` INT AUTO_INCREMENT UNIQUE")   # 添加自增ID字段，为唯一键
+            columns.append("`id` INT AUTO_INCREMENT UNIQUE")  # 添加自增ID字段，为唯一键
         else:
             columns.append("`id` INT AUTO_INCREMENT PRIMARY KEY")  # 添加自增ID字段,作为主键
 
@@ -132,24 +134,68 @@ class DatabaseManager:
             else:
                 columns.append(f"`{key}` {column_type}")
 
+        # 添加UU_ID字段
+        if uu_id:
+            columns.append(f"`uu_id` VARCHAR(36) UNIQUE")  # UU_ID通常为36个字符
+
         # 添加创建时间和更新时间字段
         columns.append("`create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
         columns.append("`update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
 
-        # 添加UUID字段
-        if uuid:
-            columns.append("`uuid` VARCHAR(36) UNIQUE")  # UUID通常为36个字符
+        # 添加创建用户和更新用户字段
+        if user:
+            columns.append("`create_user` VARCHAR(50) DEFAULT NULL")
+            columns.append("`update_user` VARCHAR(50) DEFAULT NULL")
 
         # 构建创建表的SQL语句
         create_sql = f"CREATE TABLE `{table_name}` ({', '.join(columns)});"
 
         try:
             self.cursor.execute(create_sql)
+            if user:
+                # 创建触发器
+                self._create_triggers(table_name)
             self.connect.commit()
             logger.info(f"表 `{table_name}` 创建成功")
         except Exception as e:
             logger.error(f"创建表 `{table_name}` 失败: {e}")
             raise
+
+    def _create_triggers(self, table_name):
+        """
+        为指定表创建自动设置用户信息的触发器
+        :param table_name: 表名
+        :return:
+        """
+        # 创建INSERT触发器
+        insert_trigger_sql = f"""
+        CREATE TRIGGER `before_insert_{table_name}` 
+        BEFORE INSERT ON `{table_name}` 
+        FOR EACH ROW 
+        BEGIN
+            SET NEW.create_user = USER();
+        END;
+        """
+
+        # 创建UPDATE触发器
+        update_trigger_sql = f"""
+        CREATE TRIGGER `before_update_{table_name}` 
+        BEFORE UPDATE ON `{table_name}` 
+        FOR EACH ROW 
+        BEGIN
+            SET NEW.update_user = USER();
+        END;
+        """
+
+        # 执行触发器创建语句
+        try:
+            self.cursor.execute(insert_trigger_sql)
+            self.cursor.execute(update_trigger_sql)
+            self.connect.commit()
+            logger.info(f"表 `{table_name}` 创建用户插入和更新触发器成功")
+        except Exception as e:
+            logger.warning(f"表 `{table_name}`创建用户插入和更新触发器失败（可能由于权限问题）: {e}")
+            self.connect.rollback()
 
     def execute_sql(self, sql, fetch=False):
         """
@@ -167,7 +213,6 @@ class DatabaseManager:
         else:
             self.connect.commit()
             return None
-
 
     def select_cookies_shop(self, site: str, shop_names: str):
         sql = f"select `店铺名称`,`cookie_str`,`cookie`  from `cookie` where  `站点`='{site}' and `店铺名称` in {shop_names};"
