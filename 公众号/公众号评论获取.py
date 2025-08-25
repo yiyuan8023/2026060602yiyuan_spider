@@ -43,6 +43,9 @@ def extract_html_comments(html_path):
                 nickname = user_name.contents[0]  # 获取昵称
 
                 location_time_span = user_name.find('span')  # 从span标签中提取地区和时间
+
+                location = "未知"
+                time = "未知"
                 if location_time_span:
                     location_time_text = location_time_span.get_text().strip()
                     # 使用正则表达式提取地区和时间
@@ -51,9 +54,6 @@ def extract_html_comments(html_path):
                     if location_match:
                         location = location_match.group(1).strip()  # 获取地区
                         time = location_match.group(2).strip()  # 获取时间
-                else:
-                    location = "未知"
-                    time = "未知"
 
                 # 提取评论内容
                 reply_body = message.find('p', class_='replyBody')
@@ -64,13 +64,7 @@ def extract_html_comments(html_path):
 
                 # 提取赞的数量
                 reply_like_num = reply_body.find('span', class_='reply_like_num')
-                if reply_like_num:
-                    like_text = reply_like_num.get_text().strip()
-                    like_match = re.search(r'赞\s+(\d+)', like_text)
-                    if like_match:
-                        like_num = int(like_match.group(1))
-                else:
-                    like_num = 0
+                like_num = extract_like_num(reply_like_num)
 
                 # 创建用户评论记录
                 comment_info = {
@@ -81,60 +75,79 @@ def extract_html_comments(html_path):
                     '时间': time,
                     '内容': content,
                     '赞数量': like_num,
-                    '作者回复': '',
-                    '作者回复时间': '',
-                    '作者回复内容': '',
-                    '作者回复赞数量': '',
+                    '等级': '主评论',
 
                 }
                 comments_data.append(comment_info)
 
-                # 提取作者回复
+                # 提取作者or用户回复
                 msg_body_reply = message.find('div', class_='msgBodyReply')
                 if msg_body_reply:
                     author_replies = msg_body_reply.find_all('div', class_='msgBodyReplyList')
 
                     for author_reply in author_replies:
+                        author_time = "未知"
+                        author_content_text = ""  # 回复内容
+                        author_like_num = ''  # 回复的赞数量
+
                         author_user_name = author_reply.find('p', class_='userName')
                         if author_user_name:
-                            author_nickname = author_user_name.get_text().strip()
+                            # author_nickname = author_user_name.get_text().strip()
 
                             # 检查是否为作者回复
-                            if '作者' in author_nickname:
-                                author_time_span = author_user_name.find('span', class_='userInfo')
+                            author_time_span = author_user_name.find('span', class_='userInfo')
+                            # 回复时间
+                            if author_time_span:
+                                author_time = author_time_span.get_text().strip()
 
-                                # 作者回复时间
-                                if author_time_span:
-                                    author_time = author_time_span.get_text().strip()
-                                else:
-                                    author_time = "未知"
+                            author_content = author_reply.find('p', class_='autherBody')
+                            if author_content:
+                                author_content_text = author_content.contents[0]
 
-                                # 提取作者回复内容
-                                author_content = author_reply.find('p', class_='autherBody')
-                                if author_content:
-                                    author_content_text = author_content.contents[0]
-                                else:
-                                    author_content_text = ""
+                            author_reply_like_num = author_content.find('span', class_='reply_like_num')
+                            reply_like_num = extract_like_num(author_reply_like_num)
 
-                                # 提取作者回复的赞数量
-                                author_like_num = ''
-                                author_reply_like_num = author_content.find('span', class_='reply_like_num')
-                                if author_reply_like_num:
-                                    author_like_text = author_reply_like_num.get_text().strip()
-                                    author_like_match = re.search(r'赞\s+(\d+)', author_like_text)
-                                    if author_like_match:
-                                        author_like_num = int(author_like_match.group(1))
+                            comment_info = {
+                                '文件路径': html_path,  # 新增文件路径字段
+                                '图像链接': src,
+                                '昵称': nickname,
+                                '地址': location,
+                                '时间': author_time,
+                                '内容': author_content_text,
+                                '赞数量': reply_like_num,
+                                '等级': '回复评论',
 
-                                        # 更新评论记录中的作者回复信息
-                                comment_info['作者回复'] = '是'
-                                comment_info['作者回复时间'] = author_time
-                                comment_info['作者回复内容'] = author_content_text
-                                comment_info['作者回复赞数量'] = author_like_num
+                            }
+                            comments_data.append(comment_info)
+
 
     except Exception as e:
         print(f"处理文件 {html_path} 时出错: {str(e)}")
 
     return comments_data
+
+
+def extract_like_num(reply_like_num_tag):
+    """
+    提取赞的数量
+    :param reply_like_num_tag: 包含赞数量的标签
+    :return: 赞的数量（整数）
+    """
+    like_num = 0
+    if reply_like_num_tag:
+        like_text = reply_like_num_tag.get_text().strip()
+        like_match = re.search(r'赞\s+(\d+)', like_text)
+        if like_match:
+            like_num = int(like_match.group(1))
+    return like_num
+
+
+# 原始代码中调用位置修改为：
+# 用户评论赞数量提取部分替换为：
+like_num = extract_like_num(reply_like_num)
+
+# 作者回复赞数量提取部分替换为：
+author_like_num = extract_like_num(author_reply_like_num)
 
 
 def extract_all_html_comments(folder_path):
