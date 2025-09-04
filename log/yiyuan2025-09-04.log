@@ -1,0 +1,99 @@
+2025-09-04 10:16:52 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-04 10:16:52 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-04 10:16:52 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-04 10:16:52 | INFO | data_collector.py:67 : 采集日期列表['2025-09-03'],采集店铺['林内热水器旗舰店']
+2025-09-04 10:16:52 | INFO | TaoKeBaseApi.py:28 : <bound method TaoKeGoodAnalysisApi.task_status_list of <TaoBaoLianMengApi.TaoKeGoodAnalysisApi.TaoKeGoodAnalysisApi object at 0x000002466E030DF0>>
+2025-09-04 10:18:00 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-04 10:18:00 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-04 10:18:00 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-04 10:18:00 | INFO | data_collector.py:67 : 采集日期列表['2025-09-03'],采集店铺['林内热水器旗舰店']
+2025-09-04 10:18:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026CBE0B0DD0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeGoodAnalysisApi.py', line 128, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-04 10:18:00 | INFO | TaoKeBaseApi.py:27 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 2, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-04 10:18:00 | INFO | TaoKeBaseApi.py:38 : {'2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-04 10:18:00 | INFO | TaoKeGoodAnalysisApi.py:70 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析 报告
+2025-09-04 10:18:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026CBE0B3680, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeGoodAnalysisApi.py', line 57, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-04 10:18:00 | SUCCESS | TaoKeGoodAnalysisApi.py:58 : 成功！！！创建任务日期:2025-09-03
+2025-09-04 10:18:00 | INFO | TaoKeGoodAnalysisApi.py:81 : 任务已创建，661347871
+2025-09-04 10:18:00 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:42 : 待采集['2025-09-03']
+2025-09-04 10:18:00 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:45 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-03的数据
+2025-09-04 10:18:55 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-04 10:18:55 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-04 10:18:55 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-04 10:18:55 | INFO | data_collector.py:67 : 采集日期列表['2025-09-03'],采集店铺['林内热水器旗舰店']
+2025-09-04 10:18:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000172816889F0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeGoodAnalysisApi.py', line 128, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-04 10:18:55 | INFO | TaoKeBaseApi.py:27 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-04 10:18:01', 'id': 661347871, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 3, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-04 10:18:55 | INFO | TaoKeBaseApi.py:38 : {'2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析': 661347871, '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-04 10:18:55 | INFO | TaoKeGoodAnalysisApi.py:70 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析 报告
+2025-09-04 10:18:55 | INFO | TaoKeGoodAnalysisApi.py:73 : 报告已存在，且完成2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析
+2025-09-04 10:18:55 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:42 : 待采集['2025-09-03']
+2025-09-04 10:18:55 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:45 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-03的数据
+2025-09-04 10:20:23 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-04 10:20:23 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-04 10:20:23 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-04 10:20:23 | INFO | data_collector.py:67 : 采集日期列表['2025-09-03'],采集店铺['林内热水器旗舰店']
+2025-09-04 10:20:23 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002D646E789F0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeGoodAnalysisApi.py', line 128, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-04 10:20:23 | INFO | TaoKeBaseApi.py:27 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-04 10:18:01', 'id': 661347871, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 3, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-04 10:20:23 | INFO | TaoKeBaseApi.py:38 : {'2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析': 661347871, '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-04 10:20:23 | INFO | TaoKeGoodAnalysisApi.py:70 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析 报告
+2025-09-04 10:20:23 | INFO | TaoKeGoodAnalysisApi.py:73 : 报告已存在，且完成2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析
+2025-09-04 10:20:23 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:43 : 待采集['2025-09-03']
+2025-09-04 10:20:23 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:46 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-03的数据
+2025-09-04 10:21:38 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-04 10:21:38 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-04 10:21:38 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-04 10:21:45 | INFO | data_collector.py:67 : 采集日期列表['2025-09-03'],采集店铺['林内热水器旗舰店']
+2025-09-04 10:21:56 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002627AA1E320, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeGoodAnalysisApi.py', line 128, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-04 10:22:59 | INFO | TaoKeBaseApi.py:27 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-04 10:18:01', 'id': 661347871, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 3, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-04 10:22:59 | INFO | TaoKeBaseApi.py:38 : {'2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析': 661347871, '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-04 10:23:39 | INFO | TaoKeGoodAnalysisApi.py:70 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析 报告
+2025-09-04 10:23:39 | INFO | TaoKeGoodAnalysisApi.py:73 : 报告已存在，且完成2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析
+2025-09-04 10:23:45 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:43 : 待采集['2025-09-03']
+2025-09-04 10:23:45 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:46 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-03的数据
+2025-09-04 10:44:49 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-04 10:44:49 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-04 10:44:49 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-04 10:44:49 | INFO | data_collector.py:67 : 采集日期列表['2025-09-03'],采集店铺['林内热水器旗舰店']
+2025-09-04 10:44:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000225948BCDD0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeGoodAnalysisApi.py', line 112, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-04 10:44:49 | INFO | TaoKeBaseApi.py:27 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-04 10:18:01', 'id': 661347871, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 3, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-04 10:44:49 | INFO | TaoKeBaseApi.py:38 : {'2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析': 661347871, '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-04 10:44:49 | INFO | TaoKeGoodAnalysisApi.py:70 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析 报告
+2025-09-04 10:44:49 | INFO | TaoKeGoodAnalysisApi.py:73 : 报告已存在，且完成2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析
+2025-09-04 10:44:49 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:43 : 待采集['2025-09-03']
+2025-09-04 10:44:49 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:46 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-03的数据
+2025-09-04 10:44:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000225948BCDD0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeGoodAnalysisApi.py', line 112, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-04 10:44:49 | INFO | TaoKeBaseApi.py:27 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-04 10:18:01', 'id': 661347871, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 3, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-04 10:44:49 | INFO | TaoKeBaseApi.py:38 : {'2025-09-03 00:00:00~2025-09-03 23:59:59-商品分析': 661347871, '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-04 10:44:50 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000225949B1040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeGoodAnalysisApi.py', line 157, code fetch_report_shop_data>发起了调用,请求成功（status_code:200）
+2025-09-04 10:44:50 | INFO | TaoKeGoodAnalysisApi.py:159 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_46a2a9b77ded13b14143420debfd57e3?Expires=1756953900&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=QH4I9gFZd7QDPn3uMcE5Ojz4pFM%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-03%2000%253A00%253A00%257E2025-09-03%2023%253A59%253A59-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-04 10:44:50 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_46a2a9b77ded13b14143420debfd57e3?Expires=1756953900&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=QH4I9gFZd7QDPn3uMcE5Ojz4pFM%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-03%2000%253A00%253A00%257E2025-09-03%2023%253A59%253A59-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-04 10:44:50 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000225949BCF40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-04 10:44:50 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:69 : ['林内热水器旗舰店'],['2025-09-03']已入库
+2025-09-04 10:44:50 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:70 : ----------------------------------------------------------------------------------------------------
+2025-09-04 10:44:50 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:71 : 
+************************************************************************************************************************
