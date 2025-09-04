@@ -216,6 +216,21 @@ def get_millisecond_timestamp(time_input: Union[str, datetime, None] = None) -> 
     """
     将时间转换为毫秒级时间戳。如果未提供时间输入，则返回当前时间的时间戳。（13位）
     """
+
+    # 解析输入参数为 datetime 对象
+    if time_input is None:
+        dt = datetime.now()
+    else:
+        dt = ensure_datetime(time_input)
+
+    # 直接生成毫秒级时间戳
+    return int(dt.timestamp() * 1000)
+
+
+def get_second_timestamp_1000(time_input: Union[str, datetime, None] = None) -> int:
+    """
+    将时间转换为毫秒级时间戳。如果未提供时间输入，则返回当前时间的时间戳。（13位）
+    """
     second_timestamp = get_second_timestamp(time_input)
     return second_timestamp * 1000  # 转换为毫秒级时间戳
 

@@ -1,0 +1,116 @@
+2025-09-03 16:47:13 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-03 16:47:13 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-03 16:47:13 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-03 16:47:13 | INFO | data_collector.py:67 : 采集日期列表['2025-09-02'],采集店铺['林内热水器旗舰店']
+2025-09-03 16:47:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026B83880800, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeBaseApi.py', line 49, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-03 16:47:13 | INFO | TaoKeBaseApi.py:60 : {'data': {'result': [{'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'nextPage': 1, 'pageNo': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 1, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-03 16:47:13 | INFO | TaoKeBaseApi.py:72 : {'2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-03 16:47:13 | INFO | TaoKeDataAnalysisApi.py:52 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析 报告
+2025-09-03 16:47:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026B838830B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeDataAnalysisApi.py', line 39, code goods_analysis__goods_management>发起了调用,请求成功（status_code:200）
+2025-09-03 16:47:13 | SUCCESS | TaoKeDataAnalysisApi.py:40 : 成功！！！创建任务日期:2025-09-02
+2025-09-03 16:47:13 | INFO | TaoKeDataAnalysisApi.py:63 : 任务已创建，661111970
+2025-09-03 16:47:13 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:40 : 待采集['2025-09-02']
+2025-09-03 16:47:13 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:43 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-02的数据
+2025-09-03 16:47:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026B83880800, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeBaseApi.py', line 49, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-03 16:47:14 | INFO | TaoKeBaseApi.py:60 : {'data': {'result': [{'process': '0', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:14', 'id': 661111970, 'memberId': 1220600123, 'status': 3}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': False, 'pageSize': 40, 'hasNext': False, 'totalCount': 2, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-03 16:47:14 | INFO | TaoKeBaseApi.py:72 : {'2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-03 16:47:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026B838830B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeDataAnalysisApi.py', line 39, code goods_analysis__goods_management>发起了调用,请求成功（status_code:200）
+2025-09-03 16:47:14 | SUCCESS | TaoKeDataAnalysisApi.py:40 : 成功！！！创建任务日期:2025-09-02
+2025-09-03 16:47:14 | INFO | TaoKeDataAnalysisApi.py:80 : 任务已经存在
+2025-09-03 16:47:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:40 : 待采集['2025-09-02']
+2025-09-03 16:47:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:43 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-02的数据
+2025-09-03 16:47:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026B83880800, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeBaseApi.py', line 49, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-03 16:47:44 | INFO | TaoKeBaseApi.py:60 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 2, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-03 16:47:44 | INFO | TaoKeBaseApi.py:72 : {'2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-03 16:47:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026B838B4840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeBaseApi.py', line 114, code fetch_report_shop_data>发起了调用,请求成功（status_code:200）
+2025-09-03 16:47:44 | INFO | TaoKeBaseApi.py:116 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_562bf28486000ae7c112ef07cb48b2fe?Expires=1756889274&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=LNw5ME4XeNa7U%2FlQfb0E706KATs%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-02%2000%253A00%253A00%257E2025-09-02%2023%253A59%253A59-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-03 16:47:44 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_562bf28486000ae7c112ef07cb48b2fe?Expires=1756889274&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=LNw5ME4XeNa7U%2FlQfb0E706KATs%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-02%2000%253A00%253A00%257E2025-09-02%2023%253A59%253A59-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-03 16:47:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026B838A8220, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-03 16:47:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:66 : ['林内热水器旗舰店'],['2025-09-02']已入库
+2025-09-03 16:47:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:67 : ----------------------------------------------------------------------------------------------------
+2025-09-03 16:47:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:68 : 
+************************************************************************************************************************
+2025-09-03 17:05:02 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:05:03 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000258F4BB4040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 72, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:06:45 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:06:45 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000164C0F54040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 72, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:08:10 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:08:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001A58E064040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 72, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:09:08 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:09:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D43F744040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 72, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:11:16 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:11:38 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:11:47 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:11:53 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:18:11 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:18:23 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:19:13 | INFO | TaoKeCpsApi.py:70 : 删除已生成报表
+2025-09-03 17:19:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000231BB784040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 72, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:21:12 | INFO | TaoKeCpsApi.py:71 : 删除已生成报表
+2025-09-03 17:21:17 | INFO | TaoKeCpsApi.py:71 : 删除已生成报表
+2025-09-03 17:21:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000225FD6D4040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 73, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:22:36 | INFO | TaoKeCpsApi.py:71 : 删除已生成报表
+2025-09-03 17:22:41 | INFO | TaoKeCpsApi.py:71 : 删除已生成报表
+2025-09-03 17:22:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000016955684040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 73, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:24:28 | INFO | TaoKeCpsApi.py:72 : 删除已生成报表
+2025-09-03 17:24:28 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002B86BB38DD0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 74, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:36:46 | INFO | TaoKeCpsApi.py:72 : 删除已生成报表
+2025-09-03 17:45:58 | INFO | TaoKeCpsApi.py:75 : 删除已生成报表
+2025-09-03 17:46:04 | INFO | TaoKeCpsApi.py:75 : 删除已生成报表
+2025-09-03 17:46:04 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000273D08F7640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 77, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:49:26 | INFO | TaoKeCpsApi.py:76 : 删除已生成报表
+2025-09-03 17:49:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000261E95E7640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 78, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:49:48 | INFO | TaoKeCpsApi.py:77 : 删除已生成报表
+2025-09-03 17:49:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001AB75787640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 79, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:53:28 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-03 17:53:28 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-03 17:53:28 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-03 17:53:28 | INFO | data_collector.py:67 : 采集日期列表['2025-09-02'],采集店铺['林内热水器旗舰店']
+2025-09-03 17:53:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000020B5AF74800, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeBaseApi.py', line 49, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-03 17:53:29 | INFO | TaoKeBaseApi.py:60 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 2, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-03 17:53:29 | INFO | TaoKeBaseApi.py:72 : {'2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-03 17:53:29 | INFO | TaoKeDataAnalysisApi.py:52 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析 报告
+2025-09-03 17:53:29 | INFO | TaoKeDataAnalysisApi.py:55 : 报告已存在，且完成2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析
+2025-09-03 17:53:29 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:40 : 待采集['2025-09-02']
+2025-09-03 17:53:29 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:43 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-02的数据
+2025-09-03 17:53:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000020B5AF74800, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeBaseApi.py', line 49, code task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-03 17:53:29 | INFO | TaoKeBaseApi.py:60 : {'data': {'result': [{'process': '100', 'fileName': '2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 16:47:15', 'id': 661111970, 'memberId': 1220600123, 'status': 1}, {'process': '100', 'fileName': '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析', 'bizType': 126, 'createTime': '2025-09-03 15:18:29', 'id': 661082003, 'memberId': 1220600123, 'status': 1}], 'prePage': 1, 'pageNo': 1, 'nextPage': 1, 'totalPages': 1, 'allDone': True, 'pageSize': 40, 'hasNext': False, 'totalCount': 2, 'hasPre': False}, 'success': True, 'resultCode': 200, 'bizErrorCode': 0}
+2025-09-03 17:53:29 | INFO | TaoKeBaseApi.py:72 : {'2025-09-02 00:00:00~2025-09-02 23:59:59-商品分析': 661111970, '2025-08-31 00:00:00~2025-08-31 23:59:59-商品分析': 661082003}
+2025-09-03 17:53:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000020B5AFA0A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeBaseApi.py', line 114, code fetch_report_shop_data>发起了调用,请求成功（status_code:200）
+2025-09-03 17:53:29 | INFO | TaoKeBaseApi.py:116 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_562bf28486000ae7c112ef07cb48b2fe?Expires=1756893219&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=wrBJKvC1%2BlGshkZq0nJd4XpGjxA%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-02%2000%253A00%253A00%257E2025-09-02%2023%253A59%253A59-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-03 17:53:29 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_562bf28486000ae7c112ef07cb48b2fe?Expires=1756893219&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=wrBJKvC1%2BlGshkZq0nJd4XpGjxA%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-02%2000%253A00%253A00%257E2025-09-02%2023%253A59%253A59-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-03 17:53:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000020B5AFB4220, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-03 17:53:29 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:66 : ['林内热水器旗舰店'],['2025-09-02']已入库
+2025-09-03 17:53:29 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:67 : ----------------------------------------------------------------------------------------------------
+2025-09-03 17:53:29 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:68 : 
+************************************************************************************************************************
+2025-09-03 17:53:39 | INFO | TaoKeCpsApi.py:77 : 删除已生成报表
+2025-09-03 17:53:39 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000022A1EED7640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 79, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:55:01 | INFO | TaoKeCpsApi.py:77 : 删除已生成报表
+2025-09-03 17:55:07 | INFO | TaoKeCpsApi.py:77 : 删除已生成报表
+2025-09-03 17:55:07 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001BB92AD7640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 79, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:55:32 | INFO | TaoKeCpsApi.py:77 : 删除已生成报表
+2025-09-03 17:55:32 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000209D5617640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 79, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:57:17 | INFO | TaoKeCpsApi.py:100 : 删除已生成报表
+2025-09-03 17:57:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000022902DF4040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 102, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:58:04 | INFO | TaoKeCpsApi.py:101 : 删除已生成报表
+2025-09-03 17:58:04 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002BC69FA4040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 103, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 17:59:23 | INFO | TaoKeCpsApi.py:101 : 删除已生成报表
+2025-09-03 17:59:23 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000022EE8224040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 103, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 18:00:55 | INFO | TaoKeCpsApi.py:103 : 删除已生成报表
+2025-09-03 18:00:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002F604554040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 105, code delete_report>发起了调用,请求成功（status_code:200）
+2025-09-03 18:14:54 | INFO | TaoKeCpsApi.py:80 : 删除已生成报表
+2025-09-03 18:15:01 | INFO | TaoKeCpsApi.py:80 : 删除已生成报表
+2025-09-03 18:15:01 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000020B19AA7640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\TaoBaoLianMengApi\\TaoKeCpsApi.py', line 82, code delete_report>发起了调用,请求成功（status_code:200）

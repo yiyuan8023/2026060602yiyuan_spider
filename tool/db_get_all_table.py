@@ -1,5 +1,3 @@
-
-
 def get_all_table_structures(connection_config: dict, database_name: str) -> dict:
     """
     获取指定数据库中所有表的创建SQL语句
@@ -13,23 +11,23 @@ def get_all_table_structures(connection_config: dict, database_name: str) -> dic
     """
     import mysql.connector
     import re
-    
+
     # 存储表结构的字典
     table_structures = {}
-    
+
     try:
         # 连接数据库
         conn = mysql.connector.connect(**connection_config)
         cursor = conn.cursor()
-        
+
         # 获取所有表名
         cursor.execute(f"SHOW TABLES FROM `{database_name}`")
         tables = cursor.fetchall()
-        
+
         if not tables:
             print(f"数据库 '{database_name}' 中没有找到任何表")
             return table_structures
-        
+
         # 遍历每个表，获取创建语句
         for table_row in tables:
             table_name = table_row[0]
@@ -37,7 +35,7 @@ def get_all_table_structures(connection_config: dict, database_name: str) -> dic
                 # 获取表的创建语句
                 cursor.execute(f"SHOW CREATE TABLE `{database_name}`.`{table_name}`")
                 result = cursor.fetchone()
-                
+
                 if result:
                     # result[1] 包含创建表的SQL语句
                     create_table_sql = result[1]
@@ -47,23 +45,24 @@ def get_all_table_structures(connection_config: dict, database_name: str) -> dic
                     print(f"成功获取表 '{table_name}' 的结构")
                 else:
                     print(f"无法获取表 '{table_name}' 的结构")
-                    
+
             except mysql.connector.Error as e:
                 print(f"获取表 '{table_name}' 结构时出错: {e}")
                 continue
-        
+
         cursor.close()
         conn.close()
-        
+
         print(f"共获取 {len(table_structures)} 个表的结构")
         return table_structures
-        
+
     except mysql.connector.Error as e:
         print(f"MySQL连接错误: {e}")
         return table_structures
     except Exception as e:
         print(f"获取表结构时出错: {e}")
         return table_structures
+
 
 # 使用示例
 if __name__ == "__main__":
@@ -78,7 +77,7 @@ if __name__ == "__main__":
     db_name = 'project'
     # 获取数据库中所有表的结构
     table_structures = get_all_table_structures(db_config, db_name)
-    
+
     # 打印结果
     for table_name, create_sql in table_structures.items():
         print(f"\n表名: {table_name}")

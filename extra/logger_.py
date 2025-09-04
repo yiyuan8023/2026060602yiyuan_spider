@@ -10,6 +10,7 @@ import os
 import datetime
 import loguru
 
+
 # from settings import LOGFILE
 
 # # 初始化一个空列表来存储错误信息
@@ -52,7 +53,6 @@ class Logger:
     def __init__(self):
         self.logger_add()
 
-
     @staticmethod
     def get_project_path(project_path=None):
         if project_path is None:
@@ -68,14 +68,14 @@ class Logger:
         # 项目日志目录
         project_log_dir = os.path.join(project_path, './log')
         # 日志文件名
-        project_log_filename = 'jide{}.log'.format(datetime.date.today())
+        project_log_filename = 'yiyuan{}.log'.format(datetime.date.today()) # noqa
         # 日志文件路径
         project_log_path = os.path.join(project_log_dir, project_log_filename)
         # 返回日志路径
         return project_log_path
 
     def logger_add(self):
-        logfile=1
+        logfile = 1
         if logfile:
             loguru.logger.add(
                 sink=self.get_log_path(),
@@ -93,9 +93,11 @@ class Logger:
                 level='INFO',
             )
         else:
-            loguru.logger.add(sink=sys.stdout,format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}" ,level='INFO',)
+            loguru.logger.add(sink=sys.stdout,
+                              format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}", level='INFO', )
 
         # 加了@property后，可以用调用属性的形式来调用方法,后面不需要加（）。
+
     @property
     def get_logger(self):
         return loguru.logger

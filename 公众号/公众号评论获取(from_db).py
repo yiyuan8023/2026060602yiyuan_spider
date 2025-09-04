@@ -161,7 +161,7 @@ class HtmlCommentExtractor:
 
 if __name__ == "__main__":
     table_name = 'gzh_article_comments_202508'
-    sql = "select * from `gzh_html_files_202508` where id =1" # noqa
+    sql = "select * from `gzh_html_files_202508` where id =1"  # noqa
     html_files_records = DatabaseManager().execute_sql(sql, fetch=True)
 
     for html_files_record in html_files_records:
