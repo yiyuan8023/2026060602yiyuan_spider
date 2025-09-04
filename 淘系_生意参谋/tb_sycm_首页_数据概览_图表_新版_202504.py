@@ -1,5 +1,5 @@
 
-from ShengCanApi.Home import Home
+from API_ShengCan.Home import Home
 from extra.data_collector import data_collector
 from extra.database_manager import DatabaseManager
 from extra.logger_ import logger

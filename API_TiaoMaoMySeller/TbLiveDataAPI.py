@@ -13,7 +13,7 @@ import re
 from urllib.parse import urlencode
 import requests
 
-from TiaoMaoMySellerApi.MySellerBase import MySellerBaseAPI
+from API_TiaoMaoMySeller.MySellerBase import MySellerBaseAPI
 from extra.extra_date import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 

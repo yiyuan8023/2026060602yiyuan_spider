@@ -5,20 +5,27 @@ from pymysql.converters import escape_string
 from extra.settings import *
 from extra.logger_ import logger
 
-
 # 添加mysql语言注释
 # noinspection SqlDialectInspection,SqlNoDataSourceInspection
+A = DATABASE_CONFIGS.get('test')
+print(A)
 
 
 class DatabaseManager:
-    def __init__(self):
-        db_params = dict(
-            host=MYSQL_HOST,
-            db=MYSQL_DBNAME,
-            user=MYSQL_USER,
-            password=MYSQL_PASSWORD,
-            port=MYSQL_PORT,
-        )
+    def __init__(self, db_config=None):
+        # db_params = dict(
+        #     host=MYSQL_HOST,
+        #     db=MYSQL_DBNAME,
+        #     user=MYSQL_USER,
+        #     password=MYSQL_PASSWORD,
+        #     port=MYSQL_PORT,
+        # )
+        if db_config is None:
+            db_params = DATABASE_CONFIGS.get('test')
+        else:
+            db_params = DATABASE_CONFIGS.get(db_config)
+        print(db_params)
+
         self.connect = pymysql.connect(**db_params)
         self.cursor = self.connect.cursor()
 
@@ -237,3 +244,7 @@ class DatabaseManager:
         """
         self.cursor.close()
         self.connect.close()
+
+
+if __name__ == '__main__':
+    db = DatabaseManager()

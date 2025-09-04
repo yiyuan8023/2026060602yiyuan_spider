@@ -2,7 +2,7 @@
 
 from time import sleep
 
-from TaoBaoLianMengApi.TaoKeGoodAnalysisApi import TaoKeDataAnalysisApi
+from Api_TaoBaoLianMeng.TaoKeGoodAnalysisApi import TaoKeDataAnalysisApi
 from extra.data_collector import data_collector
 from extra.database_manager import DatabaseManager
 

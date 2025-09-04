@@ -3,7 +3,7 @@ from urllib.parse import urlencode
 
 import requests
 
-from ShengCanApi.ShengCanBase import ShengCanBaseApi
+from API_ShengCan.ShengCanBase import ShengCanBaseApi
 from extra.extra_reqlog import req_log
 
 from extra.extra_time import get_date, convert_to_timestamp

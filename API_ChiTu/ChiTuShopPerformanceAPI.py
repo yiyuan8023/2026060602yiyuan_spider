@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 
 import requests
-from ChiTuApi.ChiTuBaseAPI import ChiTuABasePI
+from API_ChiTu.ChiTuBaseAPI import ChiTuABasePI
 from logger_ import logger
 
 """

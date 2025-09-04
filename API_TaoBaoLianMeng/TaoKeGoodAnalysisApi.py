@@ -15,7 +15,7 @@ from urllib.parse import urlencode
 import pandas as pd
 import requests
 
-from TaoBaoLianMengApi.TaoKeBaseApi import TaoKeBaseApi
+from Api_TaoBaoLianMeng.TaoKeBaseApi import TaoKeBaseApi
 from extra.extra_date import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 from extra.logger_ import logger
@@ -82,7 +82,7 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
             else:
                 logger.info("任务已经存在")
 
-    def task_status_list(self):
+    def goods_task_status_list(self):
         """
         获取淘宝联盟任务状态列表JSON数据
         该函数用于查询当前账号下所有报表任务的执行状态，包括任务ID、文件名、
@@ -116,7 +116,7 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
 
     def get_finish_id(self, start_time, end_time):
 
-        task_status_list_res = self.task_status_list()  # 任务状态列表json数据包
+        task_status_list_res = self.goods_task_status_list()  # 任务状态列表json数据包
         _finish_task, _un_finish_task = self.get_task_status_list(
             task_status_list_res=task_status_list_res)  # 解析数据包, 获取任务状态id
         file_name = f"{start_time} 00:00:00~{end_time} 23:59:59-{self.name_suffix}"
@@ -133,7 +133,7 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
                 logger.info("任务已经存在")
                 return None
 
-    def fetch_report_shop_data(self, id_list):
+    def fetch_goods_file_link(self, id_list):
         """
         获取【tb_tk_淘宝联盟_商品分析】文件下载链接
         :param id_list:

@@ -17,7 +17,7 @@ class TaoKeBaseApi(object):
         # 调用API获取任务状态列表
         logger.info(task_status_list_res)
         if not task_status_list_res:
-            return {}, []
+            return {}, {}
 
         # 检查返回结果中的错误码，判断cookie是否过期
         if task_status_list_res.get("code") == 601:
@@ -37,12 +37,13 @@ class TaoKeBaseApi(object):
         :return: (finish_task, un_finish_task)
         """
         finish_task = {}  # {文件名: 任务ID}
-        un_finish_task = []  # [任务ID, 文件名, ...]
+        un_finish_task = {}  # [任务ID, 文件名, ...]
 
         for task in result:
             if task.get('process') == "100" and task.get('status') == 1:
                 finish_task[task["fileName"]] = task["id"]
+            elif task.get('process') == "0":
+                un_finish_task[task["fileName"]] = task["id"]
             elif task.get('errorMessage') == "超时停止调度":
-                un_finish_task.append(task["id"])
-                un_finish_task.append(task["fileName"])
+                un_finish_task[task["fileName"]] = task["id"]
         return finish_task, un_finish_task

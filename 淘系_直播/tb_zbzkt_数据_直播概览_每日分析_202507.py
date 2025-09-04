@@ -1,6 +1,6 @@
 
-from TiaoMaoMySellerApi.TbLiveDataAPI import TbLiveDataAPI
-from TiaoMaoMySellerApi.login_ import ZBZKTCookies
+from API_TiaoMaoMySeller.TbLiveDataAPI import TbLiveDataAPI
+from API_TiaoMaoMySeller.login_ import ZBZKTCookies
 
 from extra.data_collector import data_collector
 from cookie_manager.extra_cookie import cookiejar_to_cookie_str

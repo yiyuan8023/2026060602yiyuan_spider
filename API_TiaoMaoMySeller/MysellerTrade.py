@@ -9,7 +9,7 @@ from lxml import etree
 
 import requests
 
-from TiaoMaoMySellerApi.MySellerBase import MySellerBaseAPI
+from API_TiaoMaoMySeller.MySellerBase import MySellerBaseAPI
 from extra.downloader import Downloader
 from extra.extra_date import get_date, get_time_ago
 from extra.extra_error import handle_request_error

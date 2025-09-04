@@ -2,7 +2,7 @@
 
 from time import sleep
 
-from TaoBaoLianMengApi.TaoKeGoodAnalysisApi import TaoKeGoodAnalysisApi
+from Api_TaoBaoLianMeng.TaoKeGoodAnalysisApi import TaoKeGoodAnalysisApi
 from extra.data_collector import data_collector
 from extra.database_manager import DatabaseManager
 from extra.logger_ import logger
@@ -19,7 +19,7 @@ if __name__ == "__main__":
         cookie = i[1]
         shop_name = i[0]
         Obj = TaoKeGoodAnalysisApi(cookie, name_suffix=name_suffix)
-        task_status_list_res = Obj.task_status_list()  # 任务状态列表json数据包
+        task_status_list_res = Obj.goods_task_status_list()  # 任务状态列表json数据包
         finish_task, un_finish_task = Obj.get_task_status_list(
             task_status_list_res=task_status_list_res)  # 解析数据包, 获取任务状态id
         # print(finish_task,un_finish_task)
@@ -48,7 +48,7 @@ if __name__ == "__main__":
                     # print(id)
                     if finish_id:
                         # 获取报表下载链接
-                        items = Obj.fetch_report_shop_data(finish_id)
+                        items = Obj.fetch_goods_file_link(finish_id)
 
                         for item in items:
                             item.update({

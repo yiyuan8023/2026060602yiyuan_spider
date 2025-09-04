@@ -1,6 +1,6 @@
 import requests
 
-from TaoBaoLianMengApi.TaoKeBaseApi import TaoKeBaseApi
+from Api_TaoBaoLianMeng.TaoKeBaseApi import TaoKeBaseApi
 from extra.extra_date import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 from extra.logger_ import logger

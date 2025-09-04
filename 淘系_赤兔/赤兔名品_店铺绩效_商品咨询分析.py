@@ -1,5 +1,5 @@
-from ChiTuApi.ChiTuShopPerformanceAPI import ChiTuShopPerformanceAPI
-from ChiTuApi.login_ import ChituCookies
+from API_ChiTu.ChiTuShopPerformanceAPI import ChiTuShopPerformanceAPI
+from API_ChiTu.login_ import ChituCookies
 from db import DB
 from extra_cookie import cookiejar_to_cookie_str
 

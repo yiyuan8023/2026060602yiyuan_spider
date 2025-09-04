@@ -1,7 +1,7 @@
 
 import pandas as pd
 
-from ShengCanApi.ShengCanBase import ShengCanBaseApi
+from API_ShengCan.ShengCanBase import ShengCanBaseApi
 from extra.logger_ import logger
 from extra.downloader import Downloader
 from extra.extra_excel import excel_engine

@@ -1,7 +1,7 @@
 # File: WanXiangTaiReport
 import uuid
 
-from WanXiangTaiApi.WanXiangTaiBase import WanXiangTaiBaseApi
+from API_WanXiangTai.WanXiangTaiBase import WanXiangTaiBaseApi
 
 
 class WanXiangTaiReportApi(WanXiangTaiBaseApi):

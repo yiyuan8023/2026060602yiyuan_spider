@@ -1,5 +1,5 @@
-from ChiTuApi.ChiTuClearAGlanceAPI import ChiTuClearAGlanceAPI
-from ChiTuApi.login_ import ChituCookies
+from API_ChiTu.ChiTuClearAGlanceAPI import ChiTuClearAGlanceAPI
+from API_ChiTu.login_ import ChituCookies
 from db import DB
 from extra_cookie import cookiejar_to_cookie_str
 from extra_parser import parser_main

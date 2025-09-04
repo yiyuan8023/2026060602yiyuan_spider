@@ -9,7 +9,7 @@ from extra.extra_error import handle_request_error
 from extra.extra_reqlog import req_log
 from extra.extra_time import convert_to_timestamp
 
-from ShengCanApi.ShengCanBase import ShengCanBaseApi
+from API_ShengCan.ShengCanBase import ShengCanBaseApi
 from extra.logger_ import logger
 from extra.settings import UA
 from extra.extra_date import get_millisecond_timestamp

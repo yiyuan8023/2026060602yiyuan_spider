@@ -1,6 +1,6 @@
 # File: 生参商品_品类360_流量分析_流量来源
 
-from ShengCanApi.goods import Goods
+from API_ShengCan.goods import Goods
 from extra.data_collector import data_collector
 from extra.database_manager import DatabaseManager
 from extra.extra_date import get_month_first_and_last_day

@@ -1,5 +1,5 @@
 
-from ShengCanApi.Flow import Flow
+from API_ShengCan.Flow import Flow
 from extra.database_manager import DatabaseManager
 from extra.logger_ import logger
 from extra.data_collector import data_collector

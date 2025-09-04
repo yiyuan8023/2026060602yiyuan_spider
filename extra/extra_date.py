@@ -376,7 +376,7 @@ def get_date_min_max(date_inputs: List[Union[str, datetime]],
     """
     获取日期列表中的最小值和最大值日期
     Examples:
-        >>> get_date_range_min_max(["2025-07-30", "2025-07-21", "2025/07/25"])
+        >>> get_date_min_max(["2025-07-30", "2025-07-21", "2025/07/25"])
         ('2025-07-21', '2025-07-30')
     """
     if not date_inputs:
@@ -414,6 +414,58 @@ def get_min_max_timestamps(date_inputs: List[Union[str, datetime]]) -> Tuple[int
     max_timestamp = get_millisecond_timestamp(max_date)
 
     return min_timestamp, max_timestamp
+
+
+def split_date_range(
+        start_date: Union[str, datetime],
+        end_date: Union[str, datetime],
+        interval_days: int = 30,
+        date_format: str = "%Y-%m-%d") -> List[Tuple[str, str]]:
+    """
+    将日期区间按指定天数间隔分割，返回包含最小日期和最大日期的列表
+
+    Args:
+        start_date: 开始日期，支持字符串或datetime对象
+        end_date: 结束日期，支持字符串或datetime对象
+        interval_days: 分割间隔天数，默认30天
+        date_format: 输出日期格式，默认为 "%Y-%m-%d"
+
+    Returns:
+        List[Tuple[str, str]]: 包含(最小日期, 最大日期)的元组列表
+
+    Examples:
+        >>> split_date_range("2025-01-01", "2025-03-15", 30)
+        [('2025-01-01', '2025-01-30'), ('2025-01-31', '2025-03-01'), ('2025-03-02', '2025-03-15')]
+    """
+    # 使用现有函数解析日期
+    start_dt = ensure_datetime(start_date)
+    end_dt = ensure_datetime(end_date)
+
+    # 确保开始日期不大于结束日期
+    if start_dt > end_dt:
+        start_dt, end_dt = end_dt, start_dt
+
+    result = []
+    current_start = start_dt
+
+    while current_start <= end_dt:
+        # 计算当前段的结束日期
+        current_end = current_start + timedelta(days=interval_days - 1)
+
+        # 如果计算出的结束日期超过了总结束日期，则使用总结束日期
+        if current_end > end_dt:
+            current_end = end_dt
+
+        # 格式化日期字符串
+        start_str = current_start.strftime(date_format)
+        end_str = current_end.strftime(date_format)
+
+        result.append((start_str, end_str))
+
+        # 下一段的开始日期是当前段结束日期下一天
+        current_start = current_end + timedelta(days=1)
+
+    return result
 
 
 # 使用示例

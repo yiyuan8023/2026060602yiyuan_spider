@@ -1,4 +1,4 @@
-from ShengCanApi.goods import Goods
+from API_ShengCan.goods import Goods
 from extra.database_manager import DatabaseManager
 from extra.logger_ import logger
 from extra.data_collector import data_collector

@@ -3,7 +3,7 @@ from time import sleep
 
 import pandas as pd
 
-from WanXiangTaiApi.WanXiangTaiReport import WanXiangTaiReportApi
+from API_WanXiangTai.WanXiangTaiReport import WanXiangTaiReportApi
 from extra.data_collector import data_collector
 from extra.database_manager import DatabaseManager
 from extra.downloader import Downloader
