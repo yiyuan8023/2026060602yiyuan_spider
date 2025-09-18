@@ -24,4 +24,28 @@ DATABASE_CONFIGS = {
         "password": "yy123456",
         "port": 3306
         },
+    "caiwu_hzbc":  # noqa
+        {
+            "host": "223.5.242.173",
+            "db": "caiwu_hzbc",  # noqa
+            "user": "bc_yiyuan",  # noqa
+            "password": "yy123456",
+            "port": 3306
+        },
+    "rinnai":  # noqa
+        {
+            "host": "223.5.242.173",
+            "db": "rinnai",  # noqa
+            "user": "bc_yiyuan",  # noqa
+            "password": "yy123456",
+            "port": 3306
+        },
+    "bc":  # noqa
+        {
+            "host": "223.5.242.173",
+            "db": "bc",  # noqa
+            "user": "bc_yiyuan",  # noqa
+            "password": "yy123456",
+            "port": 3306
+        },
 }

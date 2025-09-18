@@ -1,4 +1,6 @@
 # daily_scheduler.py
+import os
+
 import schedule
 import time
 import subprocess
@@ -7,15 +9,25 @@ from datetime import datetime
 from extra.logger_ import logger  # 导入现有的logger
 
 
-def run_program():
+def run_program(script_name):
     """
     运行指定程序
     """
     try:
         logging.info("开始执行程序...")
+        # 使用相对路径或绝对路径
+        script_name = 'tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py'
+        # script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', script_name)
+        script_path = os.path.abspath(script_path)
+
+        logger.info(f"尝试运行脚本: {script_path}")
+
+        if not os.path.exists(script_path):
+            logger.error(f"脚本文件不存在: {script_path}")
+            return
 
         # 方法1: 运行Python脚本
-        result = subprocess.run(['python', 'tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py'],
+        result = subprocess.run(['python', script_path],
                                 capture_output=True, text=True, timeout=3600)
 
         # 方法2: 运行可执行文件
@@ -38,8 +50,7 @@ def main():
     主函数
     """
     # 设置定时任务
-    # 每天上午9点执行
-    schedule.every().day.at("09:00").do(run_program)
+    schedule.every().day.at("10:55").do(run_program('tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py'))
 
     # 也可以设置多个时间点
     # schedule.every().day.at("14:00").do(run_program)  # 下午2点

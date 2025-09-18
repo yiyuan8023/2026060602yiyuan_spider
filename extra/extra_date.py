@@ -1,3 +1,26 @@
+
+"""
+主要函数列表：
+ensure_datetime：确保输入是 datetime 对象，支持自动检测常见日期格式
+get_date：将指定日期转换为文本日期格式
+get_time_ago：获取指定日期n个时间单位前的日期字符串
+get_recent_days：获取最近n天的日期列表（不包括今天）
+get_date_range：获取两个日期之间的日期列表，支持多种日期格式
+get_date_List_sorted：获取指定非连续日期列表并排序，支持多种日期格式输入和自定义输出格式
+format_timestamp：将时间戳转换为标准日期格式
+get_second_timestamp：将时间转换为时间戳（秒级）
+get_millisecond_timestamp：将时间转换为毫秒级时间戳  # noqa
+get_second_timestamp_18oe：将时间转换为毫秒级时间戳（通过秒级转换）
+get_month_first_and_Last_day：获取指定日期所在月份的第一天和最后一天日期字符串
+get_recent_months_first_day：获取最近n个月的月初日期列表（不包括当前月份）
+get_month_first_days_in_range：获取指定日期区间内所有月份的月初日期列表
+get_unique_month_first_days：获取非连续日期列表中每个日期所在月份的月初日期
+get_date_min_max：获取日期列表中的最小值和最大值日期
+get_min_max_timestamps：获取日期列表中的最小值和最大值日期对应的时间戳
+spLit_date_range：将日期区间按指定天数间隔分割
+"""
+
+
 from calendar import monthrange
 from datetime import datetime, timedelta, date
 from typing import Union, List, Tuple

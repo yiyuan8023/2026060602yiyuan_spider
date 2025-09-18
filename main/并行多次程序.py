@@ -18,17 +18,20 @@ def run_single_program(program_info: Dict, results: Dict, index: int):
     try:
         name = program_info.get('name', f'程序{index}')
         command = program_info['command']
-        timeout = program_info.get('timeout', 3600)
+        timeout = program_info.get('timeout', 600)
 
         logger.info(f"开始执行 {name}: {' '.join(command)}")
 
         start_time = time.time()
+        # 修复编码问题：显式指定编码为 utf-8
         result = subprocess.run(
             command,
-            capture_output=True,
+            capture_output=True,  # 捕获输出，但是不显示输出
             text=True,
             timeout=timeout,
-            cwd=program_info.get('cwd')  # 工作目录
+            cwd=program_info.get('cwd'),  # 工作目录
+            encoding='utf-8',  # 指定编码
+            errors='ignore'  # 忽略编码错误
         )
         end_time = time.time()
 
@@ -70,12 +73,8 @@ def run_single_program(program_info: Dict, results: Dict, index: int):
 def run_multiple_programs(programs: List[Dict]) -> Dict:
     """
     并行执行多个程序
-
-    Args:
-        programs: 程序列表，每个元素包含命令和其他配置
-
-    Returns:
-        Dict: 执行结果
+    programs: 程序列表，每个元素包含命令和其他配置
+    Dict: 执行结果
     """
     logger.info(f"开始并行执行 {len(programs)} 个程序")
 
@@ -124,9 +123,15 @@ def main():
             'timeout': 1800
         },
         {
-            'name': '数据清理脚本',
-            'command': ['python', 'data_cleanup.py'],
-            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\utils',
+            'name': '我报名的商品',
+            'command': ['python', 'tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py'],
+            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\淘系_淘宝联盟',
+            'timeout': 1800
+        },
+        {
+            'name': 'tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509',
+            'command': ['python', 'tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py'],
+            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\淘系_淘宝联盟',
             'timeout': 600
         }
     ]

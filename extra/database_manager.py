@@ -1,3 +1,4 @@
+import re
 import pymysql
 import uuid
 
@@ -5,26 +6,15 @@ from pymysql.converters import escape_string
 from extra.settings import *
 from extra.logger_ import logger
 
+
 # 添加mysql语言注释
 # noinspection SqlDialectInspection,SqlNoDataSourceInspection
-A = DATABASE_CONFIGS.get('test')
-print(A)
-
-
 class DatabaseManager:
     def __init__(self, db_config=None):
-        # db_params = dict(
-        #     host=MYSQL_HOST,
-        #     db=MYSQL_DBNAME,
-        #     user=MYSQL_USER,
-        #     password=MYSQL_PASSWORD,
-        #     port=MYSQL_PORT,
-        # )
         if db_config is None:
             db_params = DATABASE_CONFIGS.get('test')
         else:
             db_params = DATABASE_CONFIGS.get(db_config)
-        print(db_params)
 
         self.connect = pymysql.connect(**db_params)
         self.cursor = self.connect.cursor()
@@ -63,6 +53,14 @@ class DatabaseManager:
             values = []
             for field in field_names:  # 按照统一的字段顺序处理值
                 value = item.get(field)  # 使用get方法避免KeyError
+
+                # 添加剔除首尾空格和不可见字符的处理
+                if isinstance(value, str):
+                    # 去除首尾空格并移除不可见字符（包括制表符、换行符等）
+                    value = value.strip()
+                    # 使用正则表达式移除所有不可见字符
+                    value = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]', '', value)
+
                 if not value:  # 如果值为空
                     values.append("NULL")
                 elif isinstance(value, str):  # 如果是字符串类型
@@ -95,7 +93,7 @@ class DatabaseManager:
         """
         try:
 
-            sql = f"SELECT 1 FROM `{table_name}` LIMIT 1;"
+            sql = f"SELECT 1 FROM `{table_name}` LIMIT 1;"  # noqa
             self.cursor.execute(sql)
             return True
         except Exception as e:
@@ -155,7 +153,7 @@ class DatabaseManager:
             columns.append("`update_user` VARCHAR(50) DEFAULT NULL")
 
         # 构建创建表的SQL语句
-        create_sql = f"CREATE TABLE `{table_name}` ({', '.join(columns)});"
+        create_sql = f"CREATE TABLE `{table_name}` ({', '.join(columns)});"  # noqa
 
         try:
             self.cursor.execute(create_sql)
@@ -174,9 +172,10 @@ class DatabaseManager:
         :param table_name: 表名
         :return:
         """
+
         # 创建INSERT触发器
         insert_trigger_sql = f"""
-        CREATE TRIGGER `before_insert_{table_name}` 
+        CREATE TRIGGER `before_insert_{table_name}`  
         BEFORE INSERT ON `{table_name}` 
         FOR EACH ROW 
         BEGIN
@@ -185,8 +184,9 @@ class DatabaseManager:
         """
 
         # 创建UPDATE触发器
+
         update_trigger_sql = f"""
-        CREATE TRIGGER `before_update_{table_name}` 
+        CREATE TRIGGER `before_update_{table_name}`  
         BEFORE UPDATE ON `{table_name}` 
         FOR EACH ROW 
         BEGIN
@@ -222,7 +222,9 @@ class DatabaseManager:
             return None
 
     def select_cookies_shop(self, site: str, shop_names: str):
-        sql = f"select `店铺名称`,`cookie_str`,`cookie`  from `cookie` where  `站点`='{site}' and `店铺名称` in {shop_names};"
+
+        sql = f"""select `店铺名称`,`cookie_str`,`cookie`  from `cookie` 
+                    where  `站点`='{site}' and `店铺名称` in {shop_names};"""
 
         self.cursor.execute(sql)
         self.connect.commit()
@@ -230,6 +232,7 @@ class DatabaseManager:
         return res
 
     def select_cookies_all(self, site: str):
+
         sql = f"select `店铺名称`,`cookie_str`,`cookie`  from `cookie` where  `站点`='{site}';"
 
         self.cursor.execute(sql)
