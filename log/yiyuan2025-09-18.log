@@ -1302,3 +1302,345 @@ Traceback (most recent call last):
           └ <class 'execjs._exceptions.ProgramError'>
 
 execjs._exceptions.ProgramError: SyntaxError: 语法错误
+2025-09-18 18:12:18 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:12:18 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:12:18 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:12:18 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:12:19 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (23596), thread 'MainThread' (35064):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x000001A9FFBC6D40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000001A9FFD2BF10>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x000001A9FFBC5750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000001A9FFD2BF10>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 40, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   │    │       └ <function AbstractRuntimeContext.call at 0x000001A9FFB6B7F0>
+                   │    └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000001A9FFD707C0>
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000001A9FFD2BF10>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 37, in call
+    return self._call(name, *args)
+           │    │     │      └ ()
+           │    │     └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._call at 0x000001A9FFBC4160>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000001A9FFD707C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 92, in _call
+    return self._eval("{identifier}.apply(this, {args})".format(identifier=identifier, args=args))
+           │    │                                                          │                └ '[]'
+           │    │                                                          └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._eval at 0x000001A9FFBC4040>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000001A9FFD707C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 78, in _eval
+    return self.exec_(code)
+           │    │     └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function AbstractRuntimeContext.exec_ at 0x000001A9FFB6B6D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000001A9FFD707C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 18, in exec_
+    return self._exec_(source)
+           │    │      └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function ExternalRuntime.Context._exec_ at 0x000001A9FFBC40D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000001A9FFD707C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 88, in _exec_
+    return self._extract_result(output)
+           │    │               └ '["err","SyntaxError: \\u8bed\\u6cd5\\u9519\\u8bef"]\n'
+           │    └ <function ExternalRuntime.Context._extract_result at 0x000001A9FFBC4430>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000001A9FFD707C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 167, in _extract_result
+    raise ProgramError(value)
+          │            └ 'SyntaxError: 语法错误'
+          └ <class 'execjs._exceptions.ProgramError'>
+
+execjs._exceptions.ProgramError: SyntaxError: 语法错误
+2025-09-18 18:14:35 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:14:35 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:14:35 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:14:35 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:14:35 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (16436), thread 'MainThread' (35980):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000023B919F6D40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000023B901EB550>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000023B919F5750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000023B901EB550>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 40, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   │    │       └ <function AbstractRuntimeContext.call at 0x0000023B9199B7F0>
+                   │    └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000023B91BA0A30>
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000023B901EB550>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 37, in call
+    return self._call(name, *args)
+           │    │     │      └ ()
+           │    │     └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._call at 0x0000023B919F4160>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000023B91BA0A30>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 92, in _call
+    return self._eval("{identifier}.apply(this, {args})".format(identifier=identifier, args=args))
+           │    │                                                          │                └ '[]'
+           │    │                                                          └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._eval at 0x0000023B919F4040>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000023B91BA0A30>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 78, in _eval
+    return self.exec_(code)
+           │    │     └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function AbstractRuntimeContext.exec_ at 0x0000023B9199B6D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000023B91BA0A30>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 18, in exec_
+    return self._exec_(source)
+           │    │      └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function ExternalRuntime.Context._exec_ at 0x0000023B919F40D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000023B91BA0A30>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 88, in _exec_
+    return self._extract_result(output)
+           │    │               └ '["err","SyntaxError: \\u8bed\\u6cd5\\u9519\\u8bef"]\n'
+           │    └ <function ExternalRuntime.Context._extract_result at 0x0000023B919F4430>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000023B91BA0A30>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 167, in _extract_result
+    raise ProgramError(value)
+          │            └ 'SyntaxError: 语法错误'
+          └ <class 'execjs._exceptions.ProgramError'>
+
+execjs._exceptions.ProgramError: SyntaxError: 语法错误
+2025-09-18 18:16:30 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:16:30 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:16:30 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:16:30 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:16:30 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (33924), thread 'MainThread' (22416):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000021824102D40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002182426BE80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000021824101750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002182426BE80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 40, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   │    │       └ <function AbstractRuntimeContext.call at 0x00000218240AB7F0>
+                   │    └ <execjs._external_runtime.ExternalRuntime.Context object at 0x00000218242B05E0>
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002182426BE80>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 37, in call
+    return self._call(name, *args)
+           │    │     │      └ ()
+           │    │     └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._call at 0x0000021824100160>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x00000218242B05E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 92, in _call
+    return self._eval("{identifier}.apply(this, {args})".format(identifier=identifier, args=args))
+           │    │                                                          │                └ '[]'
+           │    │                                                          └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._eval at 0x0000021824100040>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x00000218242B05E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 78, in _eval
+    return self.exec_(code)
+           │    │     └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function AbstractRuntimeContext.exec_ at 0x00000218240AB6D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x00000218242B05E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 18, in exec_
+    return self._exec_(source)
+           │    │      └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function ExternalRuntime.Context._exec_ at 0x00000218241000D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x00000218242B05E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 88, in _exec_
+    return self._extract_result(output)
+           │    │               └ '["err","SyntaxError: \\u8bed\\u6cd5\\u9519\\u8bef"]\n'
+           │    └ <function ExternalRuntime.Context._extract_result at 0x0000021824100430>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x00000218242B05E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 167, in _extract_result
+    raise ProgramError(value)
+          │            └ 'SyntaxError: 语法错误'
+          └ <class 'execjs._exceptions.ProgramError'>
+
+execjs._exceptions.ProgramError: SyntaxError: 语法错误
+2025-09-18 18:28:17 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:28:17 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:28:17 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:28:17 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:28:17 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (34840), thread 'MainThread' (36208):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x000002207A1B2D40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002207A31BEB0>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x000002207A1B1750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002207A31BEB0>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 40, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   │    │       └ <function AbstractRuntimeContext.call at 0x000002207A15B7F0>
+                   │    └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000002207A3605E0>
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002207A31BEB0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 37, in call
+    return self._call(name, *args)
+           │    │     │      └ ()
+           │    │     └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._call at 0x000002207A1B0160>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000002207A3605E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 92, in _call
+    return self._eval("{identifier}.apply(this, {args})".format(identifier=identifier, args=args))
+           │    │                                                          │                └ '[]'
+           │    │                                                          └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._eval at 0x000002207A1B0040>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000002207A3605E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 78, in _eval
+    return self.exec_(code)
+           │    │     └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function AbstractRuntimeContext.exec_ at 0x000002207A15B6D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000002207A3605E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 18, in exec_
+    return self._exec_(source)
+           │    │      └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function ExternalRuntime.Context._exec_ at 0x000002207A1B00D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000002207A3605E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 88, in _exec_
+    return self._extract_result(output)
+           │    │               └ '["err","SyntaxError: \\u8bed\\u6cd5\\u9519\\u8bef"]\n'
+           │    └ <function ExternalRuntime.Context._extract_result at 0x000002207A1B0430>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x000002207A3605E0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 167, in _extract_result
+    raise ProgramError(value)
+          │            └ 'SyntaxError: 语法错误'
+          └ <class 'execjs._exceptions.ProgramError'>
+
+execjs._exceptions.ProgramError: SyntaxError: 语法错误
+2025-09-18 18:30:16 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:30:16 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:30:16 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:30:16 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:30:16 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (33764), thread 'MainThread' (17396):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000018D50DB2D40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000018D4F54B490>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000018D50DB1750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000018D4F54B490>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 40, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   │    │       └ <function AbstractRuntimeContext.call at 0x0000018D50D5F7F0>
+                   │    └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000018D50F649A0>
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000018D4F54B490>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 37, in call
+    return self._call(name, *args)
+           │    │     │      └ ()
+           │    │     └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._call at 0x0000018D50DB0160>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000018D50F649A0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 92, in _call
+    return self._eval("{identifier}.apply(this, {args})".format(identifier=identifier, args=args))
+           │    │                                                          │                └ '[]'
+           │    │                                                          └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._eval at 0x0000018D50DB0040>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000018D50F649A0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 78, in _eval
+    return self.exec_(code)
+           │    │     └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function AbstractRuntimeContext.exec_ at 0x0000018D50D5F6D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000018D50F649A0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 18, in exec_
+    return self._exec_(source)
+           │    │      └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function ExternalRuntime.Context._exec_ at 0x0000018D50DB00D0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000018D50F649A0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 88, in _exec_
+    return self._extract_result(output)
+           │    │               └ '["err","SyntaxError: \\u8bed\\u6cd5\\u9519\\u8bef"]\n'
+           │    └ <function ExternalRuntime.Context._extract_result at 0x0000018D50DB0430>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000018D50F649A0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 167, in _extract_result
+    raise ProgramError(value)
+          │            └ 'SyntaxError: 语法错误'
+          └ <class 'execjs._exceptions.ProgramError'>
+
+execjs._exceptions.ProgramError: SyntaxError: 语法错误
+2025-09-18 18:32:36 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:32:36 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:32:36 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:32:36 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:32:37 | INFO | API_Pdd_Base.py:57 : {"web_spider_rule": "49d5bc8e5e684ffb9806d7aa9b6e3a1fv10QHZV1/SjqFX7qSYZChhscPlSzD4r/4P2Rh975uPxztPloD+f1SQjoaTRvP+7XIP5", "ttf_url": "https://pfile.pddpic.com/webspider-sdk-api/49d5bc8e5e684ffb9806d7aa9b6e3a1f-2191da4a2bc34288a70600d2aaa71015.ttf", "font_type_vos": []}
+2025-09-18 18:32:37 | INFO | API_Pdd_Base.py:57 : {"web_spider_rule": "c782d472fc5b486694c4233f8a310e21v101P993RSXQEk2F/f2SVevzozMHeITbECS4r/pwknKRDDYoYloNIns0QKZHyDsFb/o", "ttf_url": "https://pfile.pddpic.com/webspider-sdk-api/c782d472fc5b486694c4233f8a310e21-4df4f474b4bf46c58a55da33f3c7ea32.ttf", "font_type_vos": []}
+2025-09-18 18:32:37 | INFO | API_Pdd_Base.py:93 : 字体映射关系:{"\\ue84f": "6", "\\ue6c1": "1", "\\ue635": "9", "\\ue318": "5", "\\uec32": "2", "\\uec8f": "4", "\\ue579": "7", "\\ueb00": "3", "\\ueb57": "0", "\\ued26": "8"}
+2025-09-18 18:32:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001B55B2D6E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 66, code trade_data__data_overview>发起了调用,请求成功（status_code:200）
+2025-09-18 18:33:40 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:33:40 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:33:40 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:33:40 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:33:41 | INFO | API_Pdd_Base.py:57 : {"web_spider_rule": "61bc327735484589985f3ef368969a04v10AUyfWEnx3AxlvRm2llnXTN83e4WGBKmMHgmZbVx7UU2cDcCYTd9/k/UZl2oTEiBP", "ttf_url": "https://pfile.pddpic.com/webspider-sdk-api/61bc327735484589985f3ef368969a04-34eea0aa455846df97445b9ad3e526d2.ttf", "font_type_vos": []}
+2025-09-18 18:33:41 | INFO | API_Pdd_Base.py:57 : {"web_spider_rule": "edb41ca99cfd44f0921016aff8148678v10l8aUrQOuw8ldbfhJQaN3nxc5CLoQibghNeMhbxn8jUqWOmilwjE4Yny5q3ivyHaH", "ttf_url": "https://pfile.pddpic.com/webspider-sdk-api/edb41ca99cfd44f0921016aff8148678-aaa3731ceeb04acf80a28041d4cf353b.ttf", "font_type_vos": []}
+2025-09-18 18:33:41 | INFO | API_Pdd_Base.py:93 : 字体映射关系:{"\\ue82f": "3", "\\ued48": "7", "\\uef69": "4", "\\ue8dd": "9", "\\ue623": "6", "\\ue627": "2", "\\ue998": "8", "\\ue32c": "0", "\\ue3b6": "5", "\\ue560": "1"}
+2025-09-18 18:33:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021659646E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 66, code trade_data__data_overview>发起了调用,请求成功（status_code:200）
+2025-09-18 18:33:54 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:33:54 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:33:54 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:33:54 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:33:54 | INFO | API_Pdd_Base.py:57 : {"web_spider_rule": "8eac39fd1cad4a20992baa4880719e37v10UeOon0Sh4JFD3c8E9fw7fhJI1vbxn95PGjtxNaio6kNoI+xI0/adyFQ3S/mBOQKa", "ttf_url": "https://pfile.pddpic.com/webspider-sdk-api/8eac39fd1cad4a20992baa4880719e37-baf418bbc2164cee972da6602f8b679c.ttf", "font_type_vos": []}
+2025-09-18 18:33:54 | INFO | API_Pdd_Base.py:57 : {"web_spider_rule": "bb1b4af643394b04b8e9a7771cba807ev10fROp1VZc7e8utKQK9Ekr44LPK2r0u7VJ5aeZ6HVVxtNC6nkoHokRcFGoUsN4md8I", "ttf_url": "https://pfile.pddpic.com/webspider-sdk-api/bb1b4af643394b04b8e9a7771cba807e-7e2a45c947df4130a3274f959dab35d4.ttf", "font_type_vos": []}
+2025-09-18 18:33:54 | INFO | API_Pdd_Base.py:93 : 字体映射关系:{"\\ueb68": "0", "\\ued89": "7", "\\ue49c": "3", "\\ue9a3": "4", "\\ue63a": "1", "\\uef2a": "9", "\\uec7e": "2", "\\uec15": "6", "\\ueff5": "8", "\\ue7e8": "5"}
+2025-09-18 18:33:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002029D09AE40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 66, code trade_data__data_overview>发起了调用,请求成功（status_code:200）

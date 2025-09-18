@@ -113,25 +113,25 @@ def main():
         {
             'name': '淘宝联盟CPS订单明细',
             'command': ['python', 'tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py'],
-            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\淘系_淘宝联盟',
+            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\执行脚本\淘系_淘宝联盟',
             'timeout': 3600
         },
         {
             'name': '淘宝联盟商品分析',
             'command': ['python', 'tb_tk_淘宝联盟_商品分析_202504.py'],
-            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\淘系_淘宝联盟',
+            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\执行脚本\淘系_淘宝联盟',
             'timeout': 1800
         },
         {
             'name': '我报名的商品',
             'command': ['python', 'tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py'],
-            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\淘系_淘宝联盟',
+            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\执行脚本\淘系_淘宝联盟',
             'timeout': 1800
         },
         {
             'name': 'tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509',
             'command': ['python', 'tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py'],
-            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\淘系_淘宝联盟',
+            'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\执行脚本\淘系_淘宝联盟',
             'timeout': 600
         }
     ]

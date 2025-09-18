@@ -1,0 +1,267 @@
+ title: "访客数",
+                dataIndex: "goodsVisitorNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "goodsVisitorNum")
+                }
+            }, {
+                title: "浏览量",
+                dataIndex: "goodsBrowseNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "goodsBrowseNum")
+                }
+            }, {
+                title: "UV价值",
+                dataIndex: "uvValue",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "uvValue")
+                }
+            }, {
+                title: "商品关注数",
+                dataIndex: "goodsConcernNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "goodsConcernNum")
+                }
+            }, {
+                title: "详情页跳出率",
+                dataIndex: "ProSkipOut",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ProSkipOut")
+                }
+            }, {
+                title: "曝光量",
+                dataIndex: "ExposureNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ExposureNum")
+                }
+            }, {
+                title: "点击次数",
+                dataIndex: "ClickNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ClickNum")
+                }
+            }, {
+                title: "点击率",
+                dataIndex: "ClickRate",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ClickRate")
+                }
+            }, {
+                title: "PV现货率",
+                dataIndex: "PvRate",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "PvRate")
+                }
+            }, {
+                title: "加购商品件数",
+                dataIndex: "addBuyGoodsPieceNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "addBuyGoodsPieceNum")
+                }
+            }, {
+                title: "加购人数",
+                dataIndex: "addBuyCustNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "addBuyCustNum")
+                }
+            }, {
+                title: "下单客户数",
+                dataIndex: "OrderCustNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "OrderCustNum")
+                }
+            }, {
+                title: "下单商品件数",
+                dataIndex: "OrderGoodsPieceNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "OrderGoodsPieceNum")
+                }
+            }, {
+                title: "下单转化率",
+                dataIndex: "ToOrderRate",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ToOrderRate")
+                }
+            }, {
+                title: "下单成交转化率",
+                dataIndex: "DealToOrderRate",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "DealToOrderRate")
+                }
+            }, {
+                title: "下单金额",
+                dataIndex: "OrderAmt",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "OrderAmt")
+                }
+            }, {
+                title: "成交客户数",
+                dataIndex: "ordCustNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ordCustNum")
+                }
+            }, {
+                title: "成交单量",
+                dataIndex: "ordNum",
+                sortOrder: "descend",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ordNum")
+                }
+            }, {
+                title: "成交商品件数",
+                dataIndex: "ordGoodsPieceNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ordGoodsPieceNum")
+                }
+            }, {
+                title: "成交金额",
+                dataIndex: "ordAmt",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ordAmt")
+                }
+            }, {
+                title: "成交转化率",
+                dataIndex: "goodsConverRate",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "goodsConverRate")
+                }
+            }, {
+                title: "客单价",
+                dataIndex: "CustPriceAvg",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "CustPriceAvg")
+                }
+            }, {
+                title: "件单价",
+                dataIndex: "UnitPriceAvg",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                description: "成交金额/成交商品件数",
+                render: function(e, t) {
+                    return Re(0, t, "UnitPriceAvg")
+                }
+            }, {
+                title: "取消及售后退款金额",
+                dataIndex: "CancelOrdAmt",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "CancelOrdAmt")
+                }
+            }, {
+                title: "取消及售后退款件数",
+                dataIndex: "CancelSaleQty",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "CancelSaleQty")
+                }
+            }, {
+                title: "取消及售后退款单量",
+                dataIndex: "CancelOrdQty",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "CancelOrdQty")
+                }
+            }, {
+                title: "最近上架时间",
+                dataIndex: "shelvesDate",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e) {
+                    if (null === e)
+                        return "--";
+                    var t = e.indexOf(" ");
+                    return e.slice(0, t)
+                }
+            }, {
+                title: "系统预测未来7天销量",
+                dataIndex: "ForecastSalesNum",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "ForecastSalesNum")
+                }
+            }, {
+                title: "商品综合得分",
+                dataIndex: "Point",
+                sorter: !0,
+                affix: !1,
+                align: "right",
+                render: function(e, t) {
+                    return Re(0, t, "Point")
+                }
+            }]
+

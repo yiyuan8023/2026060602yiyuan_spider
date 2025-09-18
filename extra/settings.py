@@ -5,7 +5,7 @@ import os
 # 如果条件为假（环境变量不存在或为空）：使用默认值 "yiyuan_test" # noqa
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"  # noqa
-
+EMAIL = "yiyuan@bi-cheng.cn"
 
 # 预定义的数据库配置
 DATABASE_CONFIGS = {

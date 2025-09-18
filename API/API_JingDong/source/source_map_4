@@ -1,0 +1,262 @@
+C = {
+            FansMember: {
+                name: "关注店铺用户数据",
+                desc: "",
+                format: ""
+            },
+            FansVisit: {
+                name: "关注店铺用户访问",
+                desc: "",
+                format: ""
+            },
+            FansDeal: {
+                name: "关注店铺用户交易",
+                desc: "",
+                format: ""
+            },
+            VCustNum: {
+                name: "有效用户总数",
+                desc: "截止到统计日期，关注店铺的有效去重用户数。（有效：排除账号异常&平台长期不活跃用户后的用户总数。）",
+                format: "number_0"
+            },
+            VNewCustNum: {
+                name: "有效新增用户数",
+                desc: "统计时间内关注店铺的有效新增去重用户数。（有效：除去异常账号&平台长期不活跃账号的其他用户。）",
+                format: "number_0"
+            },
+            VNetCustNum: {
+                name: "有效净增用户数",
+                desc: "统计时间内关注店铺的有效净增去重用户数。（天维度：当天有效用户总数-前一天有效用户总数；时间段维度：本期最后一天有效用户总数-上期最后一天有效用户总数；）",
+                format: "number_0"
+            },
+            ShopUV: {
+                name: "进店访客数",
+                desc: "统计时间内，店铺关注用户到本店铺各页面的访问人数，00:00-24:00内，同一访客多次访问，只计为1个访客。",
+                format: "number_0"
+            },
+            ShopPV: {
+                name: "进店浏览量",
+                desc: "统计时间内，店铺各页面被该店铺关注用户访问的次数，包含商详页、店铺首页、店铺活动页等所有店铺页面。用户多次打开或刷新同一个页面，浏览量累加。",
+                format: "number_0"
+            },
+            DetPVRate: {
+                name: "商详流量用户占比",
+                desc: "统计时间内，店铺关注用户访问店铺商品详情页浏览量/店铺所有用户访问整体商品详情页浏览量。",
+                format: "percent_2_0_1"
+            },
+            ShopPVRate: {
+                name: "店铺流量用户占比",
+                desc: "统计时间内，店铺关注用户进店浏览量/店铺所有用户整体浏览量。",
+                format: "percent_2_0_1"
+            },
+            OrdCustNum: {
+                name: "成交客户数",
+                desc: "统计时间内，本店铺的关注用户在店铺产生有效订单的客户的数量，按京东账号计算，同一账号多个订单仅算1个成交客户。",
+                format: "number_0"
+            },
+            OrdCustNumRate: {
+                name: "成交客户数占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            OrdNum: {
+                name: "成交单量",
+                desc: "统计时间内，本店铺的关注用户在店铺产生的有效订单的数量。先款订单付款时纳入计算，付款当天取消则扣减。先货订单下单时纳入计算，下单当天取消则扣减。",
+                format: "number_0"
+            },
+            OrdNumRate: {
+                name: "成交单量占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            OrdAmt: {
+                name: "成交金额",
+                desc: "统计时间内，本店铺的关注用户在店铺产生的有效订单的金额汇总。先款订单付款时纳入计算，付款当天取消则扣减。先货订单成交时纳入计算，下单当天取消则扣减。金额为优惠前金额-（单品促销、满减、套装促销、团购促销）等促销金额-商家承担的优惠券金额+全球购税费+运费（含大件服务费）。",
+                format: "currency_2_￥"
+            },
+            OrdAmtRate: {
+                name: "成交金额占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            CustPriceAvg: {
+                name: "成交客单价",
+                desc: "关注店铺用户成交金额/店铺整体成交客户数",
+                format: "currency_2_￥"
+            },
+            CustProNumAvg: {
+                name: "成交客单件数",
+                desc: "",
+                format: "currency_2_￥"
+            },
+            CustOrdNumAvg: {
+                name: "用户客单量",
+                desc: "",
+                format: "currency_2_￥"
+            },
+            ToOrdRate: {
+                name: "成交转化率",
+                desc: "关注店铺用户成交客户数/店铺所有用户进店访客数",
+                format: "percent_2_0_1"
+            },
+            The30RepBuyRate: {
+                name: "30天复购率",
+                desc: "近30天，在本店铺购买2单及以上的本店铺关注用户数，占全部成交用户数的比例。",
+                format: "percent_2_0_1"
+            },
+            The90RepBuyRate: {
+                name: "90天复购率",
+                desc: "近90天，在本店铺购买2单及以上的本店铺关注用户数，占全部成交用户数的比例。",
+                format: "percent_2_0_1"
+            },
+            999999: {
+                name: "全部成交客户",
+                desc: "",
+                format: ""
+            },
+            1: {
+                name: "关注店铺用户",
+                desc: "",
+                format: ""
+            },
+            2: {
+                name: "非关注店铺用户",
+                desc: "",
+                format: ""
+            },
+            "999999-OrdCustNum": {
+                name: "全部成交客户-成交客户数",
+                desc: "选定日期内，本店铺的用户在店铺产生有效订单的客户的数量，按京东账号计算，同一账号多个订单仅算1个成交客户。",
+                format: "number_0"
+            },
+            "999999-OrdCustNumRate": {
+                name: "全部成交客户-成交客户数占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "999999-OrdNum": {
+                name: "全部成交客户-成交单量",
+                desc: "选定日期内，本店铺的用户在店铺产生的有效订单的数量。先款订单付款时纳入计算，付款当天取消则扣减。先货订单下单时纳入计算，下单当天取消则扣减。",
+                format: "number_0"
+            },
+            "999999-OrdNumRate": {
+                name: "全部成交客户-成交单量占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "999999-OrdAmt": {
+                name: "全部成交客户-成交金额",
+                desc: "统计时间内，本店铺的用户在店铺产生的有效订单的金额汇总。先款订单付款时纳入计算，付款当天取消则扣减。先货订单成交时纳入计算，下单当天取消则扣减。金额为优惠前金额-（单品促销、满减、套装促销、团购促销）等促销金额-商家承担的优惠券金额+全球购税费+运费（含大件服务费）。",
+                format: "currency_2_￥"
+            },
+            "999999-OrdAmtRate": {
+                name: "全部成交客户-成交金额占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "999999-CustOrdNumAvg": {
+                name: "全部成交客户-客单量",
+                desc: "",
+                format: "currency_2_￥"
+            },
+            "999999-CustProNumAvg": {
+                name: "全部成交客户-成交客单件数",
+                desc: "",
+                format: "currency_2_￥"
+            },
+            "999999-CustPriceAvg": {
+                name: "全部成交客户-成交客单价",
+                desc: "用户成交金额/成交用户数",
+                format: "currency_2_￥"
+            },
+            "1-OrdCustNum": {
+                name: "关注店铺用户-成交客户数",
+                desc: "选定日期内，本店铺的关注店铺用户在店铺产生有效订单的客户的数量，按京东账号计算，同一账号多个订单仅算1个成交客户。",
+                format: "number_0"
+            },
+            "1-OrdCustNumRate": {
+                name: "关注店铺用户-成交客户数占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "1-OrdNum": {
+                name: "关注店铺用户-成交单量",
+                desc: "选定日期内，本店铺的关注店铺用户在店铺产生的有效订单的数量。先款订单付款时纳入计算，付款当天取消则扣减。先货订单下单时纳入计算，下单当天取消则扣减。",
+                format: "number_0"
+            },
+            "1-OrdNumRate": {
+                name: "关注店铺用户-成交单量占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "1-OrdAmt": {
+                name: "关注店铺用户-成交金额",
+                desc: "统计时间内，本店铺的关注店铺用户在店铺产生的有效订单的金额汇总。先款订单付款时纳入计算，付款当天取消则扣减。先货订单成交时纳入计算，下单当天取消则扣减。金额为优惠前金额-（单品促销、满减、套装促销、团购促销）等促销金额-商家承担的优惠券金额+全球购税费+运费（含大件服务费）。",
+                format: "currency_2_￥"
+            },
+            "1-OrdAmtRate": {
+                name: "关注店铺用户-成交金额占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "1-CustOrdNumAvg": {
+                name: "关注店铺用户-客单量",
+                desc: "",
+                format: "currency_2_￥"
+            },
+            "1-CustProNumAvg": {
+                name: "关注店铺用户-成交客单件数",
+                desc: "",
+                format: "currency_2_￥"
+            },
+            "1-CustPriceAvg": {
+                name: "关注店铺用户-成交客单价",
+                desc: "关注店铺用户成交金额/关注店铺用户成交数",
+                format: "currency_2_￥"
+            },
+            "2-OrdCustNum": {
+                name: "非关注店铺用户-成交客户数",
+                desc: "选定日期内，本店铺的关注店铺用户在店铺产生有效订单的客户的数量，按京东账号计算，同一账号多个订单仅算1个成交客户。",
+                format: "number_0"
+            },
+            "2-OrdCustNumRate": {
+                name: "非关注店铺用户-成交客户数占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "2-OrdNum": {
+                name: "非关注店铺用户-成交单量",
+                desc: "选定日期内，本店铺的非关注店铺用户在店铺产生的有效订单的数量。先款订单付款时纳入计算，付款当天取消则扣减。先货订单下单时纳入计算，下单当天取消则扣减。",
+                format: "number_0"
+            },
+            "2-OrdNumRate": {
+                name: "非关注店铺用户-成交单量占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "2-OrdAmt": {
+                name: "非关注店铺用户-成交金额",
+                desc: "统计时间内，本店铺的非关注店铺用户在店铺产生的有效订单的金额汇总。先款订单付款时纳入计算，付款当天取消则扣减。先货订单成交时纳入计算，下单当天取消则扣减。金额为优惠前金额-（单品促销、满减、套装促销、团购促销）等促销金额-商家承担的优惠券金额+全球购税费+运费（含大件服务费）。",
+                format: "currency_2_￥"
+            },
+            "2-OrdAmtRate": {
+                name: "非关注店铺用户-成交金额占比",
+                desc: "",
+                format: "percent_2_0_1"
+            },
+            "2-CustOrdNumAvg": {
+                name: "非关注店铺用户-客单量",
+                desc: "",
+                format: "currency_2_￥"
+            },
+            "2-CustProNumAvg": {
+                name: "非关注店铺用户-成交客单件数",
+                desc: "",
+                format: "currency_2_￥"
+            },
+            "2-CustPriceAvg": {
+                name: "非关注店铺用户-成交客单价",
+                desc: "非关注店铺用户成交金额/非关注店铺用户成交数",
+                format: "currency_2_￥"
+            }
+        };

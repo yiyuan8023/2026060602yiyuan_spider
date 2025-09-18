@@ -58,7 +58,7 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
         raise TypeError(f"不支持的日期格式。请提供 datetime 对象或字符串，当前类型: {type(date_input)}")
 
 
-def get_date(date_input: Union[str, datetime, None],
+def get_date(date_input: Union[str, datetime, None] = None,
              date_format: str = "%Y-%m-%d") -> str:
     """
     将指定日期转换为文本日期格式

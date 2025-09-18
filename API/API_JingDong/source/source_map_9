@@ -1,0 +1,87 @@
+      , ie = [{
+                label: "实时",
+                value: 0
+            }, {
+                label: "离线",
+                value: 1
+            }]
+              , se = [{
+                label: "行业类目",
+                value: "IndustryCategoryName"
+            }, {
+                label: "店铺类目",
+                value: "ShopCategoryName"
+            }]
+              , ue = [{
+                label: "访客数",
+                value: "UV"
+            }, {
+                label: "浏览量",
+                value: "PV"
+            }, {
+                label: "加购商品件数",
+                value: "AddBuyGoodsNum"
+            }, {
+                label: "成交客户数",
+                value: "DealCustNum"
+            }, {
+                label: "成交金额",
+                value: "OrdAmt"
+            }, {
+                label: "成交转化率",
+                value: "DealCustRate"
+            }]
+              , de = {
+                industCheckBoxData: [{
+                    label: "上架商品数(SPU)",
+                    value: "ShelvesNumSPU"
+                }, {
+                    label: "上架商品数(SKU)",
+                    value: "ShelvesNumSKU"
+                }, {
+                    label: "访客数",
+                    value: "UV"
+                }, {
+                    label: "浏览量",
+                    value: "PV"
+                }, {
+                    label: "加购商品件数",
+                    value: "AddBuyGoodsNum"
+                }, {
+                    label: "成交客户数",
+                    value: "DealCustNum"
+                }, {
+                    label: "成交金额",
+                    value: "OrdAmt"
+                }, {
+                    label: "成交转化率",
+                    value: "DealCustRate"
+                }],
+                shopCheckBoxData: [{
+                    label: "上架商品数(SPU)",
+                    value: "ShelvesNumSPU"
+                }, {
+                    label: "上架商品数(SKU)",
+                    value: "ShelvesNumSKU"
+                }, {
+                    label: "访客数",
+                    value: "UV"
+                }, {
+                    label: "浏览量",
+                    value: "PV"
+                }, {
+                    label: "加购商品件数",
+                    value: "AddBuyGoodsNum"
+                }, {
+                    label: "成交客户数",
+                    value: "DealCustNum"
+                }, {
+                    label: "成交金额",
+                    value: "OrdAmt"
+                }, {
+                    label: "引导点击转化率",
+                    value: "GuideClickCustRate"
+                }, {
+                    label: "引导成交转化率",
+                    value: "GuideDealCustRate"
+                }],

@@ -51,15 +51,13 @@ if __name__ == '__main__':
             for k, v in dict_str.items():
                 item[v] = res.get("result", {}).get(k, "")
 
+            item.update({
+                "店铺名称": shop_name,
+
+            })
+            item["key"] = f"{item['店铺名称']}_{item['统计日期']}"
+
             items.append(item)
-
-            for item in items:
-                item.update({
-                    "店铺名称": shop_name,
-
-                })
-                item["key"] = f"{item['店铺名称']}_{item['统计日期']}"
-            # print(items)
 
             DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key="key")
             logger.info(f"{shop_name}_{date}数据已入库")

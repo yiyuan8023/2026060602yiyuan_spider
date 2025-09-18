@@ -30,7 +30,6 @@ class PddBaseApi(object):
 
         with open(js_file_path, 'r', encoding="utf8") as js_file:
             self.context = execjs.compile(js_file.read())
-        print("self.context")
 
     def get_anti_content(self):
         """
@@ -92,3 +91,5 @@ class PddBaseApi(object):
         font_dict = dict(zip(char_k_list, char_list))
         logger.info(f"字体映射关系:{json.dumps(font_dict)}")
         return font_dict
+
+

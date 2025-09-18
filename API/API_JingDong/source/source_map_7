@@ -1,0 +1,69 @@
+e.constant("indecatorsMeta", {
+            rate: {
+                name: "较前一",
+                desc: "",
+                pos: "left",
+                minWidth: 100,
+                format: "percent_2_0_1"
+            },
+            NumTH: {
+                name: "退货量",
+                format: "number_0",
+                pos: "left",
+                desc: "处理结果为退货的服务单量"
+            },
+            NumChange: {
+                name: "换货量",
+                format: "number_0",
+                pos: "left",
+                desc: "处理结果为换货的服务单量"
+            },
+            NumFix: {
+                name: "返修量",
+                format: "number_0",
+                pos: "left",
+                desc: "处理结果为返修的服务单量"
+            },
+            AmtTH: {
+                name: "退款金额",
+                format: "currency_￥",
+                pos: "left",
+                desc: "服务单处理结果为退货的退款金额"
+            },
+            THRate: {
+                name: "退货率",
+                format: "percent_2_0_1",
+                pos: "left",
+                desc: "退货率=退货量/成交单量"
+            },
+            ConnectRatio: {
+                name: "400接通率",
+                format: "percent_2_0_1",
+                pos: "left",
+                desc: "接通数/呼入数"
+            },
+            CollectRatio: {
+                name: "订单48H揽件率",
+                format: "percent_2_0_1",
+                pos: "left",
+                desc: "48小时内揽件量/（有效订单量-大件订单量）"
+            },
+            Duration: {
+                name: "售后服务时长",
+                format: "number_2_0",
+                pos: "left",
+                desc: "服务单售后服务整体时长之和/总暂完结单量。每个服务单售后服务时长=服务单暂完结时间-服务单申请时间。服务单暂完结时间：闪电退款、上门换新、拒绝服务单以首次审核时间作为暂完结时间；普通退换货、不退货仅退款服务单以首次处理时间作为暂完结时间；补发商品、直赔商品以新订单/物流单号实际发货时间作为暂完结时间。考核中部分场景包含剔除逻辑详情请见店铺星级规则。单位：小时"
+            },
+            OrdDisRatio: {
+                name: "交易纠纷率",
+                format: "percent_2_0_1",
+                pos: "left",
+                desc: "（商家责任仲裁单量+双方责任仲裁单量-申诉通过单量）/下单单量"
+            },
+            ShopActScore: {
+                name: "店铺动态评分（DSR）",
+                format: "number_2_0",
+                pos: "left",
+                desc: ""
+            }
+        });

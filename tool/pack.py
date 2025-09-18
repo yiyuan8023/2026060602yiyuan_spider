@@ -12,7 +12,7 @@
 
 
 # 使用 pip 从文件安装
-# pip install -r C:\Users\admin\Desktop\yiyuan_spider\requirements.txt
+# pip install -r C:\Users\admin\Desktop\yiyuan_spider\\\requirements.txt
 
 # 安装指定包
 # pip install aiohttp==3.12.15 chardet==5.2.0 db==0.1.1
