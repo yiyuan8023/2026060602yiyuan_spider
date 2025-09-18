@@ -40,3 +40,1265 @@
 2025-09-18 14:01:08 | INFO | 并行多次程序.py:102 : 执行完成: 成功 0 个，失败 4 个
 2025-09-18 14:01:08 | INFO | 并行多次程序.py:143 : ==================================================
 2025-09-18 14:01:08 | INFO | 并行多次程序.py:144 : 执行结果汇总:
+2025-09-18 14:02:37 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:02:37 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-09-18 14:02:37 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-09-18 14:02:37 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-09-18 14:02:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:37 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-17 00:00:00~2025-09-17 23:59:59-超级U选/全部活动 报告
+2025-09-18 14:02:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:37 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-17
+2025-09-18 14:02:37 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345040
+2025-09-18 14:02:37 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-16 00:00:00~2025-09-16 23:59:59-超级U选/全部活动 报告
+2025-09-18 14:02:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:38 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-16
+2025-09-18 14:02:38 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345041
+2025-09-18 14:02:38 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-15 00:00:00~2025-09-15 23:59:59-超级U选/全部活动 报告
+2025-09-18 14:02:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:38 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-15
+2025-09-18 14:02:38 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345042
+2025-09-18 14:02:38 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-17的数据
+2025-09-18 14:02:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:38 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-17
+2025-09-18 14:02:38 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:02:38 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-16的数据
+2025-09-18 14:02:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:38 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-16
+2025-09-18 14:02:38 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:02:38 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-15的数据
+2025-09-18 14:02:39 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:39 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:39 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-15
+2025-09-18 14:02:39 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:02:41 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:02:41 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505
+2025-09-18 14:02:41 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py']
+2025-09-18 14:02:41 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-09-18 14:02:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000263049714E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 58, code tb_tk_cps_settlement_report>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:42 | SUCCESS | API_TaoKe_Cps.py:59 : 成功！！！创建任务日期:2025-09-15_2025-09-17
+2025-09-18 14:02:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000263049A14E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 93, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:42 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:40 : 等待30s
+2025-09-18 14:02:45 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:02:45 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509
+2025-09-18 14:02:45 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py']
+2025-09-18 14:02:45 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15', '2025-09-14', '2025-09-13', '2025-09-12', '2025-09-11', '2025-09-10', '2025-09-09', '2025-09-08', '2025-09-07', '2025-09-06', '2025-09-05', '2025-09-04', '2025-09-03', '2025-09-02', '2025-09-01', '2025-08-31', '2025-08-30', '2025-08-29', '2025-08-28', '2025-08-27', '2025-08-26', '2025-08-25', '2025-08-24', '2025-08-23', '2025-08-22', '2025-08-21', '2025-08-20', '2025-08-19', '2025-08-18', '2025-08-17', '2025-08-16', '2025-08-15', '2025-08-14', '2025-08-13', '2025-08-12', '2025-08-11', '2025-08-10', '2025-08-09', '2025-08-08', '2025-08-07', '2025-08-06', '2025-08-05', '2025-08-04', '2025-08-03', '2025-08-02', '2025-08-01', '2025-07-31', '2025-07-30', '2025-07-29', '2025-07-28', '2025-07-27', '2025-07-26', '2025-07-25', '2025-07-24', '2025-07-23', '2025-07-22', '2025-07-21', '2025-07-20', '2025-07-19', '2025-07-18', '2025-07-17', '2025-07-16', '2025-07-15', '2025-07-14', '2025-07-13', '2025-07-12', '2025-07-11', '2025-07-10', '2025-07-09', '2025-07-08', '2025-07-07', '2025-07-06', '2025-07-05', '2025-07-04', '2025-07-03', '2025-07-02', '2025-07-01', '2025-06-30', '2025-06-29', '2025-06-28', '2025-06-27', '2025-06-26', '2025-06-25', '2025-06-24', '2025-06-23', '2025-06-22', '2025-06-21', '2025-06-20', '2025-06-19', '2025-06-18', '2025-06-17', '2025-06-16', '2025-06-15', '2025-06-14', '2025-06-13', '2025-06-12', '2025-06-11', '2025-06-10', '2025-06-09', '2025-06-08', '2025-06-07', '2025-06-06', '2025-06-05', '2025-06-04', '2025-06-03', '2025-06-02', '2025-06-01', '2025-05-31', '2025-05-30', '2025-05-29', '2025-05-28', '2025-05-27', '2025-05-26', '2025-05-25', '2025-05-24', '2025-05-23', '2025-05-22', '2025-05-21', '2025-05-20', '2025-05-19', '2025-05-18', '2025-05-17', '2025-05-16', '2025-05-15', '2025-05-14', '2025-05-13', '2025-05-12', '2025-05-11', '2025-05-10', '2025-05-09', '2025-05-08', '2025-05-07', '2025-05-06', '2025-05-05', '2025-05-04', '2025-05-03', '2025-05-02', '2025-05-01', '2025-04-30', '2025-04-29', '2025-04-28', '2025-04-27', '2025-04-26', '2025-04-25', '2025-04-24', '2025-04-23', '2025-04-22', '2025-04-21', '2025-04-20', '2025-04-19', '2025-04-18', '2025-04-17', '2025-04-16', '2025-04-15', '2025-04-14', '2025-04-13', '2025-04-12', '2025-04-11', '2025-04-10', '2025-04-09', '2025-04-08', '2025-04-07', '2025-04-06', '2025-04-05', '2025-04-04', '2025-04-03', '2025-04-02', '2025-04-01', '2025-03-31', '2025-03-30', '2025-03-29', '2025-03-28', '2025-03-27', '2025-03-26', '2025-03-25', '2025-03-24', '2025-03-23', '2025-03-22', '2025-03-21', '2025-03-20', '2025-03-19', '2025-03-18', '2025-03-17', '2025-03-16', '2025-03-15', '2025-03-14', '2025-03-13', '2025-03-12', '2025-03-11', '2025-03-10', '2025-03-09', '2025-03-08', '2025-03-07', '2025-03-06', '2025-03-05', '2025-03-04', '2025-03-03', '2025-03-02', '2025-03-01', '2025-02-28', '2025-02-27', '2025-02-26', '2025-02-25', '2025-02-24', '2025-02-23', '2025-02-22', '2025-02-21', '2025-02-20', '2025-02-19', '2025-02-18', '2025-02-17', '2025-02-16', '2025-02-15', '2025-02-14', '2025-02-13', '2025-02-12', '2025-02-11', '2025-02-10', '2025-02-09', '2025-02-08', '2025-02-07', '2025-02-06', '2025-02-05', '2025-02-04', '2025-02-03', '2025-02-02', '2025-02-01', '2025-01-31', '2025-01-30', '2025-01-29', '2025-01-28', '2025-01-27', '2025-01-26', '2025-01-25', '2025-01-24', '2025-01-23', '2025-01-22', '2025-01-21', '2025-01-20', '2025-01-19', '2025-01-18', '2025-01-17', '2025-01-16', '2025-01-15', '2025-01-14', '2025-01-13', '2025-01-12', '2025-01-11', '2025-01-10', '2025-01-09', '2025-01-08', '2025-01-07', '2025-01-06', '2025-01-05', '2025-01-04', '2025-01-03', '2025-01-02', '2025-01-01', '2024-12-31', '2024-12-30', '2024-12-29', '2024-12-28', '2024-12-27', '2024-12-26', '2024-12-25', '2024-12-24', '2024-12-23', '2024-12-22', '2024-12-21', '2024-12-20', '2024-12-19', '2024-12-18', '2024-12-17', '2024-12-16', '2024-12-15', '2024-12-14', '2024-12-13', '2024-12-12', '2024-12-11', '2024-12-10', '2024-12-09', '2024-12-08', '2024-12-07', '2024-12-06', '2024-12-05', '2024-12-04', '2024-12-03', '2024-12-02', '2024-12-01', '2024-11-30', '2024-11-29', '2024-11-28', '2024-11-27', '2024-11-26', '2024-11-25', '2024-11-24', '2024-11-23', '2024-11-22', '2024-11-21', '2024-11-20', '2024-11-19', '2024-11-18', '2024-11-17', '2024-11-16', '2024-11-15', '2024-11-14', '2024-11-13', '2024-11-12', '2024-11-11', '2024-11-10', '2024-11-09', '2024-11-08', '2024-11-07', '2024-11-06', '2024-11-05', '2024-11-04', '2024-11-03', '2024-11-02', '2024-11-01', '2024-10-31', '2024-10-30', '2024-10-29', '2024-10-28', '2024-10-27', '2024-10-26', '2024-10-25', '2024-10-24', '2024-10-23', '2024-10-22', '2024-10-21', '2024-10-20', '2024-10-19', '2024-10-18', '2024-10-17', '2024-10-16', '2024-10-15', '2024-10-14', '2024-10-13', '2024-10-12', '2024-10-11', '2024-10-10', '2024-10-09', '2024-10-08', '2024-10-07', '2024-10-06', '2024-10-05', '2024-10-04', '2024-10-03', '2024-10-02', '2024-10-01', '2024-09-30', '2024-09-29', '2024-09-28', '2024-09-27', '2024-09-26', '2024-09-25', '2024-09-24', '2024-09-23', '2024-09-22', '2024-09-21', '2024-09-20', '2024-09-19', '2024-09-18', '2024-09-17', '2024-09-16', '2024-09-15', '2024-09-14', '2024-09-13', '2024-09-12', '2024-09-11', '2024-09-10', '2024-09-09', '2024-09-08', '2024-09-07', '2024-09-06', '2024-09-05', '2024-09-04', '2024-09-03', '2024-09-02', '2024-09-01', '2024-08-31', '2024-08-30', '2024-08-29', '2024-08-28', '2024-08-27', '2024-08-26', '2024-08-25', '2024-08-24', '2024-08-23', '2024-08-22', '2024-08-21', '2024-08-20', '2024-08-19', '2024-08-18', '2024-08-17', '2024-08-16', '2024-08-15', '2024-08-14'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-09-18 14:02:45 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:22 : 正常采集第【林内官方旗舰店】数据
+2025-09-18 14:02:45 | INFO | downloader.py:72 : https://ad.alimama.com/openapi/param2/1/gateway.unionadv/data.event.taoke.campaign.json?t=1758175365672&_tb_token_=ea85b7bbe637e&itemId=&cStep=0&startDate=2024-08-14&endDate=2025-09-17&campaignTemplateId=992&advPageEnum=adv_992&pageNo=1&pageSize=2000
+2025-09-18 14:02:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002A8443D4400, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002A84324F060, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_Taoke_DingXiang.py', line 48, code get_campaign>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:47 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:37 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:02:47 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:22 : 正常采集第【林内热水器旗舰店】数据
+2025-09-18 14:02:47 | INFO | downloader.py:72 : https://ad.alimama.com/openapi/param2/1/gateway.unionadv/data.event.taoke.campaign.json?t=1758175367906&_tb_token_=781f391ee3e71&itemId=&cStep=0&startDate=2024-08-14&endDate=2025-09-17&campaignTemplateId=992&advPageEnum=adv_992&pageNo=1&pageSize=2000
+2025-09-18 14:02:48 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:02:48 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品_202509
+2025-09-18 14:02:48 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py']
+2025-09-18 14:02:48 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-09-18 14:02:48 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:81 : 正常采集第1页数据
+2025-09-18 14:02:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002A8443D4400, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002A84324F060, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_Taoke_DingXiang.py', line 48, code get_campaign>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:49 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:37 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:02:49 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:38 : 
+************************************************************************************************************************
+2025-09-18 14:02:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000241FBFAA040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_MyProducts.py', line 45, code tb_tk_my_enrolled_products>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:49 | SUCCESS | API_TaoKe_MyProducts.py:46 : 第1获取成功！！！
+2025-09-18 14:02:49 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:96 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:02:49 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:81 : 正常采集第1页数据
+2025-09-18 14:02:50 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000241FBFAA040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_MyProducts.py', line 45, code tb_tk_my_enrolled_products>发起了调用,请求成功（status_code:200）
+2025-09-18 14:02:50 | SUCCESS | API_TaoKe_MyProducts.py:46 : 第1获取成功！！！
+2025-09-18 14:02:51 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:96 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:02:51 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:97 : 
+************************************************************************************************************************
+2025-09-18 14:03:09 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-17的数据
+2025-09-18 14:03:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:09 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_c729ba1797ccd9ccf42608b7b0ce4a0d?Expires=1758175400&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=tf3CXjABVSgvBabiJYnVcX1hztc%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-17%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:03:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:10 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-17已入库
+2025-09-18 14:03:10 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-16的数据
+2025-09-18 14:03:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:10 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_a7f04764b70af88bd5c28ddfeaac7fb4?Expires=1758175401&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=K22V%2FDHoaeBAoCBhsuLcUJtb%2B7E%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-16%2000%253A00%253A00%257E2025-09-16%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:03:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:10 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-16已入库
+2025-09-18 14:03:10 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-15的数据
+2025-09-18 14:03:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:11 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_41d589ccc416a26847eaf03afaf06666?Expires=1758175402&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=iT%2BQJB1HWsYt9F55BqjogPgw%2FDU%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-15%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:03:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:11 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-15已入库
+2025-09-18 14:03:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:11 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-17 00:00:00~2025-09-17 23:59:59-超级淘客/全部活动 报告
+2025-09-18 14:03:11 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:11 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-17
+2025-09-18 14:03:11 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345120
+2025-09-18 14:03:11 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-16 00:00:00~2025-09-16 23:59:59-超级淘客/全部活动 报告
+2025-09-18 14:03:12 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:12 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-16
+2025-09-18 14:03:12 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345121
+2025-09-18 14:03:12 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-15 00:00:00~2025-09-15 23:59:59-超级淘客/全部活动 报告
+2025-09-18 14:03:12 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:12 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-15
+2025-09-18 14:03:12 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345123
+2025-09-18 14:03:12 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-17的数据
+2025-09-18 14:03:12 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000263049A14E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 93, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:12 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:47 : {'2025-09-15 00:00:00~2025-09-17 23:59:59-订单结算明细报表': 243044208}
+2025-09-18 14:03:12 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:40 : 等待30s
+2025-09-18 14:03:12 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:12 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:12 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-17
+2025-09-18 14:03:12 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:03:12 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-16的数据
+2025-09-18 14:03:12 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:13 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-16
+2025-09-18 14:03:13 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:03:13 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-15的数据
+2025-09-18 14:03:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:13 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:13 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-15
+2025-09-18 14:03:13 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:03:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000263049A14E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 93, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:42 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:47 : {}
+2025-09-18 14:03:42 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:49 : 
+========================================================================================================================
+开始采集林内官方旗舰店，2025-09-15_2025-09-17的数据
+2025-09-18 14:03:43 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-17的数据
+2025-09-18 14:03:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:43 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_9d4e9f6bdee6f7b41356991c3698847c?Expires=1758175434&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=BK8AYtJf7JMrfpXN6K%2F4uuVHfDY%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-17%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:03:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-17已入库
+2025-09-18 14:03:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-16的数据
+2025-09-18 14:03:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:44 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_108c72313739c4e19a26863ba95ab845?Expires=1758175435&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=V5hN%2FbsVPeO%2BlUkVMbohcpOEwqY%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-16%2000%253A00%253A00%257E2025-09-16%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:03:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-16已入库
+2025-09-18 14:03:44 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-15的数据
+2025-09-18 14:03:45 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:45 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:45 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_e2d3a9ff91b87b1ef4c553baec9d1f4a?Expires=1758175436&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=1G%2FPKh06Y7e8VEY%2F5iSNU%2FSfAVg%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-15%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:03:45 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:45 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-15已入库
+2025-09-18 14:03:45 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:45 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-17 00:00:00~2025-09-17 23:59:59-普通招商/全部活动 报告
+2025-09-18 14:03:46 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:46 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-17
+2025-09-18 14:03:46 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345406
+2025-09-18 14:03:46 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-16 00:00:00~2025-09-16 23:59:59-普通招商/全部活动 报告
+2025-09-18 14:03:46 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:46 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-16
+2025-09-18 14:03:46 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345407
+2025-09-18 14:03:46 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-15 00:00:00~2025-09-15 23:59:59-普通招商/全部活动 报告
+2025-09-18 14:03:46 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:46 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-15
+2025-09-18 14:03:46 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345408
+2025-09-18 14:03:46 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-17的数据
+2025-09-18 14:03:46 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:46 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:46 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-17
+2025-09-18 14:03:46 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:03:46 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-16的数据
+2025-09-18 14:03:46 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:47 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-16
+2025-09-18 14:03:47 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:03:47 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-15的数据
+2025-09-18 14:03:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:47 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-15
+2025-09-18 14:03:47 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:03:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026304989A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 119, code fetch_cps_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:47 | INFO | API_TaoKe_Cps.py:121 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_34274104_1_3_1757865600000_1758124799000?Expires=1758175438&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=%2F5NCvi31sjugIucbZdc%2B9zqNSwo%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:03:47 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_34274104_1_3_1757865600000_1758124799000?Expires=1758175438&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=%2F5NCvi31sjugIucbZdc%2B9zqNSwo%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:03:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000263049A1C60, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:47 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:63 : 林内官方旗舰店,2025-09-15_2025-09-17已入库
+2025-09-18 14:03:47 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:64 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:03:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000263049714E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 58, code tb_tk_cps_settlement_report>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:48 | SUCCESS | API_TaoKe_Cps.py:59 : 成功！！！创建任务日期:2025-09-15_2025-09-17
+2025-09-18 14:03:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000263049A14E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 93, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:03:48 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:40 : 等待30s
+2025-09-18 14:04:17 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-17的数据
+2025-09-18 14:04:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:17 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_d097dfa145e6cdf71ba8fa0c34697c2e?Expires=1758175468&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=Fp6KXAD%2F8yfjDecA%2FtO8wZKExlE%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-17%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:04:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:18 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-17已入库
+2025-09-18 14:04:18 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-16的数据
+2025-09-18 14:04:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000263049A14E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 93, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:18 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:47 : {}
+2025-09-18 14:04:18 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:49 : 
+========================================================================================================================
+开始采集林内热水器旗舰店，2025-09-15_2025-09-17的数据
+2025-09-18 14:04:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:18 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_5af7359f10c4a5fa862f994519690b93?Expires=1758175469&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=LaFBnLoZKljIv%2FASf985LEOwJHA%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-16%2000%253A00%253A00%257E2025-09-16%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:04:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:18 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-16已入库
+2025-09-18 14:04:18 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-09-15的数据
+2025-09-18 14:04:19 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:19 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:19 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_e94832bb3f4a9b4223dd560f063a1ad5?Expires=1758175470&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=I9GeKpfnAVCVXstT8Cg2yHD9x5U%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-15%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:04:19 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:19 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-15已入库
+2025-09-18 14:04:19 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:86 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:04:19 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:19 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-17 00:00:00~2025-09-17 23:59:59-超级U选/全部活动 报告
+2025-09-18 14:04:19 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:19 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-17
+2025-09-18 14:04:19 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345509
+2025-09-18 14:04:19 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-16 00:00:00~2025-09-16 23:59:59-超级U选/全部活动 报告
+2025-09-18 14:04:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:20 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-16
+2025-09-18 14:04:20 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345510
+2025-09-18 14:04:20 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-15 00:00:00~2025-09-15 23:59:59-超级U选/全部活动 报告
+2025-09-18 14:04:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:20 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-15
+2025-09-18 14:04:20 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345511
+2025-09-18 14:04:20 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-17的数据
+2025-09-18 14:04:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:20 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-17
+2025-09-18 14:04:20 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:04:20 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-16的数据
+2025-09-18 14:04:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:20 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-16
+2025-09-18 14:04:20 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:04:20 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-15的数据
+2025-09-18 14:04:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:21 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-09-15
+2025-09-18 14:04:21 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:04:23 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000026304989A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 119, code fetch_cps_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:23 | INFO | API_TaoKe_Cps.py:121 : None
+2025-09-18 14:04:23 | INFO | downloader.py:72 : None
+2025-09-18 14:04:23 | ERROR | downloader.py:77 : 网络请求失败: Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2025-09-18 14:04:23 | ERROR | downloader.py:93 : 下载Excel文件失败: Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2025-09-18 14:04:51 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-17的数据
+2025-09-18 14:04:51 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:51 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:51 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_6106723577eb11d05a32a8fd2d017ce0?Expires=1758175502&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=tzMH3RJqASNRXwB%2FtmEX%2F1QgTlE%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-17%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:04:51 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:52 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-17已入库
+2025-09-18 14:04:52 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-16的数据
+2025-09-18 14:04:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:52 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_b39d9f1218a581ff8923fc26a7287953?Expires=1758175503&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=5XYHn2TjV50B7I5MVZfwuO52liU%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-16%2000%253A00%253A00%257E2025-09-16%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:04:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:52 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-16已入库
+2025-09-18 14:04:52 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-15的数据
+2025-09-18 14:04:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:53 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_1d6d24f3702f445f0b88dc0835ae686f?Expires=1758175503&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=qN7ajjHe4nm0PE3%2FUmzyJ%2FO7LdU%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-15%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:04:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:53 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-15已入库
+2025-09-18 14:04:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:53 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-17 00:00:00~2025-09-17 23:59:59-超级淘客/全部活动 报告
+2025-09-18 14:04:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:53 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-17
+2025-09-18 14:04:53 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345893
+2025-09-18 14:04:53 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-16 00:00:00~2025-09-16 23:59:59-超级淘客/全部活动 报告
+2025-09-18 14:04:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:53 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-16
+2025-09-18 14:04:53 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345894
+2025-09-18 14:04:53 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-15 00:00:00~2025-09-15 23:59:59-超级淘客/全部活动 报告
+2025-09-18 14:04:54 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:54 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-15
+2025-09-18 14:04:54 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666345895
+2025-09-18 14:04:54 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-17的数据
+2025-09-18 14:04:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:55 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-17
+2025-09-18 14:04:55 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:04:55 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-16的数据
+2025-09-18 14:04:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:55 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-16
+2025-09-18 14:04:55 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:04:55 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-15的数据
+2025-09-18 14:04:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:56 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:04:56 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-09-15
+2025-09-18 14:04:56 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:05:26 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-17的数据
+2025-09-18 14:05:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:26 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_1e7aec28bf6719d0719ead02c7a5c2b6?Expires=1758175537&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=Nh43%2BGxDsv99yVeSbMxwujQFP38%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-17%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:05:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:26 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-17已入库
+2025-09-18 14:05:26 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-16的数据
+2025-09-18 14:05:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:27 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_d462ebd714d7744c4f9286e1300c222d?Expires=1758175537&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=FL9mHRaAyxtpaoCp2m7cqyvK%2F2E%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-16%2000%253A00%253A00%257E2025-09-16%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:05:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:27 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-16已入库
+2025-09-18 14:05:27 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-15的数据
+2025-09-18 14:05:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:27 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_47c1597b7876ec55ab7f641eabe8100d?Expires=1758175538&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=V3bod%2BPHDG%2FedxXL6m%2BBFeHSdJs%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-15%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:05:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:27 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-15已入库
+2025-09-18 14:05:27 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:27 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-17 00:00:00~2025-09-17 23:59:59-普通招商/全部活动 报告
+2025-09-18 14:05:28 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:28 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-17
+2025-09-18 14:05:28 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666346123
+2025-09-18 14:05:28 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-16 00:00:00~2025-09-16 23:59:59-普通招商/全部活动 报告
+2025-09-18 14:05:28 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:28 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-16
+2025-09-18 14:05:28 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666346124
+2025-09-18 14:05:28 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-09-15 00:00:00~2025-09-15 23:59:59-普通招商/全部活动 报告
+2025-09-18 14:05:28 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:28 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-15
+2025-09-18 14:05:28 | INFO | API_TaoKe_Good.py:89 : 任务已创建，666346126
+2025-09-18 14:05:28 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-17的数据
+2025-09-18 14:05:28 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:28 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:28 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-17
+2025-09-18 14:05:28 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:05:28 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-16的数据
+2025-09-18 14:05:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:29 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-16
+2025-09-18 14:05:29 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:05:29 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-15的数据
+2025-09-18 14:05:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:29 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5840, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:29 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-09-15
+2025-09-18 14:05:29 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-09-18 14:05:59 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-17的数据
+2025-09-18 14:05:59 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:59 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:05:59 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_adc4cba5cac07727670301befacff0f3?Expires=1758175570&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=ELGcu04oxVDkjv4mQXD04jNYJVQ%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-17%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:06:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:06:00 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-17已入库
+2025-09-18 14:06:00 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-16的数据
+2025-09-18 14:06:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:06:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:06:00 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_7dcaec988bc0b6499843b008dc6664f9?Expires=1758175571&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=TBypNZd53OGygTALT9X1RWDGfgo%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-16%2000%253A00%253A00%257E2025-09-16%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:06:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:06:00 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-16已入库
+2025-09-18 14:06:00 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-09-15的数据
+2025-09-18 14:06:01 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002171692D3A0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:06:01 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716AB5A40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:06:01 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_a6c59215a42a6a1e729a02791ec572ea?Expires=1758175572&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=ZqDVmTjNqd7j5GDFXTacZ%2Bpc%2BHQ%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-15%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:06:01 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021716ACCB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:06:01 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-09-15已入库
+2025-09-18 14:06:01 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:86 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:06:01 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:87 : 
+************************************************************************************************************************
+2025-09-18 14:11:54 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:11:54 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505
+2025-09-18 14:11:54 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py']
+2025-09-18 14:11:54 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-09-18 14:11:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000019B5D561300, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 58, code tb_tk_cps_settlement_report>发起了调用,请求成功（status_code:200）
+2025-09-18 14:11:55 | SUCCESS | API_TaoKe_Cps.py:59 : 成功！！！创建任务日期:2025-09-15_2025-09-17
+2025-09-18 14:11:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000019B5D5954E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 93, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:11:55 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:49 : 
+========================================================================================================================
+开始采集林内官方旗舰店，2025-09-15_2025-09-17的数据
+2025-09-18 14:12:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000019B5D581640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 119, code fetch_cps_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:12:00 | INFO | API_TaoKe_Cps.py:121 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_34274104_1_3_1757865600000_1758124799000?Expires=1758175931&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=AWT4HRH%2FRbT9x5SFVl33akHwNos%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:12:00 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_34274104_1_3_1757865600000_1758124799000?Expires=1758175931&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=AWT4HRH%2FRbT9x5SFVl33akHwNos%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:12:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000019B5D595A80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:12:00 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:63 : 林内官方旗舰店,2025-09-15_2025-09-17已入库
+2025-09-18 14:12:00 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:64 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:12:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000019B5D561300, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 58, code tb_tk_cps_settlement_report>发起了调用,请求成功（status_code:200）
+2025-09-18 14:12:00 | SUCCESS | API_TaoKe_Cps.py:59 : 成功！！！创建任务日期:2025-09-15_2025-09-17
+2025-09-18 14:12:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000019B5D5954E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 93, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-09-18 14:12:00 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:49 : 
+========================================================================================================================
+开始采集林内热水器旗舰店，2025-09-15_2025-09-17的数据
+2025-09-18 14:12:06 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000019B5D581640, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 119, code fetch_cps_file_link>发起了调用,请求成功（status_code:200）
+2025-09-18 14:12:06 | INFO | API_TaoKe_Cps.py:121 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_1220600123_1_3_1757865600000_1758124799000?Expires=1758175937&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=zNYNv6T%2FIPY%2Be2NTnPpMfDRWs%2Bo%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:12:06 | INFO | downloader.py:72 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_1220600123_1_3_1757865600000_1758124799000?Expires=1758175937&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=zNYNv6T%2FIPY%2Be2NTnPpMfDRWs%2Bo%3D&response-content-disposition=attachment%3B%20filename%3D2025-09-15%2000%253A00%253A00%257E2025-09-17%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-09-18 14:12:06 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000019B5D595A80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:12:06 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:63 : 林内热水器旗舰店,2025-09-15_2025-09-17已入库
+2025-09-18 14:12:06 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:64 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:12:06 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:65 : 
+************************************************************************************************************************
+2025-09-18 14:34:12 | INFO | database_manager.py:100 : 【yp_报表管理_目录视图_预实汇总_032001】不存在,为您重新创建: (1146, "Table 'yiyuan_test.yp_报表管理_目录视图_预实汇总_032001' doesn't exist")
+2025-09-18 14:34:12 | INFO | database_manager.py:164 : 表 `yp_报表管理_目录视图_预实汇总_032001` 创建成功
+2025-09-18 14:43:45 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:43:45 | INFO | data_collector.py:35 : 开始采集：tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509
+2025-09-18 14:43:45 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py']
+2025-09-18 14:43:45 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15', '2025-09-14', '2025-09-13', '2025-09-12', '2025-09-11', '2025-09-10', '2025-09-09', '2025-09-08', '2025-09-07', '2025-09-06', '2025-09-05', '2025-09-04', '2025-09-03', '2025-09-02', '2025-09-01', '2025-08-31', '2025-08-30', '2025-08-29', '2025-08-28', '2025-08-27', '2025-08-26', '2025-08-25', '2025-08-24', '2025-08-23', '2025-08-22', '2025-08-21', '2025-08-20', '2025-08-19', '2025-08-18', '2025-08-17', '2025-08-16', '2025-08-15', '2025-08-14', '2025-08-13', '2025-08-12', '2025-08-11', '2025-08-10', '2025-08-09', '2025-08-08', '2025-08-07', '2025-08-06', '2025-08-05', '2025-08-04', '2025-08-03', '2025-08-02', '2025-08-01', '2025-07-31', '2025-07-30', '2025-07-29', '2025-07-28', '2025-07-27', '2025-07-26', '2025-07-25', '2025-07-24', '2025-07-23', '2025-07-22', '2025-07-21', '2025-07-20', '2025-07-19', '2025-07-18', '2025-07-17', '2025-07-16', '2025-07-15', '2025-07-14', '2025-07-13', '2025-07-12', '2025-07-11', '2025-07-10', '2025-07-09', '2025-07-08', '2025-07-07', '2025-07-06', '2025-07-05', '2025-07-04', '2025-07-03', '2025-07-02', '2025-07-01', '2025-06-30', '2025-06-29', '2025-06-28', '2025-06-27', '2025-06-26', '2025-06-25', '2025-06-24', '2025-06-23', '2025-06-22', '2025-06-21', '2025-06-20', '2025-06-19', '2025-06-18', '2025-06-17', '2025-06-16', '2025-06-15', '2025-06-14', '2025-06-13', '2025-06-12', '2025-06-11', '2025-06-10', '2025-06-09', '2025-06-08', '2025-06-07', '2025-06-06', '2025-06-05', '2025-06-04', '2025-06-03', '2025-06-02', '2025-06-01', '2025-05-31', '2025-05-30', '2025-05-29', '2025-05-28', '2025-05-27', '2025-05-26', '2025-05-25', '2025-05-24', '2025-05-23', '2025-05-22', '2025-05-21', '2025-05-20', '2025-05-19', '2025-05-18', '2025-05-17', '2025-05-16', '2025-05-15', '2025-05-14', '2025-05-13', '2025-05-12', '2025-05-11', '2025-05-10', '2025-05-09', '2025-05-08', '2025-05-07', '2025-05-06', '2025-05-05', '2025-05-04', '2025-05-03', '2025-05-02', '2025-05-01', '2025-04-30', '2025-04-29', '2025-04-28', '2025-04-27', '2025-04-26', '2025-04-25', '2025-04-24', '2025-04-23', '2025-04-22', '2025-04-21', '2025-04-20', '2025-04-19', '2025-04-18', '2025-04-17', '2025-04-16', '2025-04-15', '2025-04-14', '2025-04-13', '2025-04-12', '2025-04-11', '2025-04-10', '2025-04-09', '2025-04-08', '2025-04-07', '2025-04-06', '2025-04-05', '2025-04-04', '2025-04-03', '2025-04-02', '2025-04-01', '2025-03-31', '2025-03-30', '2025-03-29', '2025-03-28', '2025-03-27', '2025-03-26', '2025-03-25', '2025-03-24', '2025-03-23', '2025-03-22', '2025-03-21', '2025-03-20', '2025-03-19', '2025-03-18', '2025-03-17', '2025-03-16', '2025-03-15', '2025-03-14', '2025-03-13', '2025-03-12', '2025-03-11', '2025-03-10', '2025-03-09', '2025-03-08', '2025-03-07', '2025-03-06', '2025-03-05', '2025-03-04', '2025-03-03', '2025-03-02', '2025-03-01', '2025-02-28', '2025-02-27', '2025-02-26', '2025-02-25', '2025-02-24', '2025-02-23', '2025-02-22', '2025-02-21', '2025-02-20', '2025-02-19', '2025-02-18', '2025-02-17', '2025-02-16', '2025-02-15', '2025-02-14', '2025-02-13', '2025-02-12', '2025-02-11', '2025-02-10', '2025-02-09', '2025-02-08', '2025-02-07', '2025-02-06', '2025-02-05', '2025-02-04', '2025-02-03', '2025-02-02', '2025-02-01', '2025-01-31', '2025-01-30', '2025-01-29', '2025-01-28', '2025-01-27', '2025-01-26', '2025-01-25', '2025-01-24', '2025-01-23', '2025-01-22', '2025-01-21', '2025-01-20', '2025-01-19', '2025-01-18', '2025-01-17', '2025-01-16', '2025-01-15', '2025-01-14', '2025-01-13', '2025-01-12', '2025-01-11', '2025-01-10', '2025-01-09', '2025-01-08', '2025-01-07', '2025-01-06', '2025-01-05', '2025-01-04', '2025-01-03', '2025-01-02', '2025-01-01', '2024-12-31', '2024-12-30', '2024-12-29', '2024-12-28', '2024-12-27', '2024-12-26', '2024-12-25', '2024-12-24', '2024-12-23', '2024-12-22', '2024-12-21', '2024-12-20', '2024-12-19', '2024-12-18', '2024-12-17', '2024-12-16', '2024-12-15', '2024-12-14', '2024-12-13', '2024-12-12', '2024-12-11', '2024-12-10', '2024-12-09', '2024-12-08', '2024-12-07', '2024-12-06', '2024-12-05', '2024-12-04', '2024-12-03', '2024-12-02', '2024-12-01', '2024-11-30', '2024-11-29', '2024-11-28', '2024-11-27', '2024-11-26', '2024-11-25', '2024-11-24', '2024-11-23', '2024-11-22', '2024-11-21', '2024-11-20', '2024-11-19', '2024-11-18', '2024-11-17', '2024-11-16', '2024-11-15', '2024-11-14', '2024-11-13', '2024-11-12', '2024-11-11', '2024-11-10', '2024-11-09', '2024-11-08', '2024-11-07', '2024-11-06', '2024-11-05', '2024-11-04', '2024-11-03', '2024-11-02', '2024-11-01', '2024-10-31', '2024-10-30', '2024-10-29', '2024-10-28', '2024-10-27', '2024-10-26', '2024-10-25', '2024-10-24', '2024-10-23', '2024-10-22', '2024-10-21', '2024-10-20', '2024-10-19', '2024-10-18', '2024-10-17', '2024-10-16', '2024-10-15', '2024-10-14', '2024-10-13', '2024-10-12', '2024-10-11', '2024-10-10', '2024-10-09', '2024-10-08', '2024-10-07', '2024-10-06', '2024-10-05', '2024-10-04', '2024-10-03', '2024-10-02', '2024-10-01', '2024-09-30', '2024-09-29', '2024-09-28', '2024-09-27', '2024-09-26', '2024-09-25', '2024-09-24', '2024-09-23', '2024-09-22', '2024-09-21', '2024-09-20', '2024-09-19', '2024-09-18', '2024-09-17', '2024-09-16', '2024-09-15', '2024-09-14', '2024-09-13', '2024-09-12', '2024-09-11', '2024-09-10', '2024-09-09', '2024-09-08', '2024-09-07', '2024-09-06', '2024-09-05', '2024-09-04', '2024-09-03', '2024-09-02', '2024-09-01', '2024-08-31', '2024-08-30', '2024-08-29', '2024-08-28', '2024-08-27', '2024-08-26', '2024-08-25', '2024-08-24', '2024-08-23', '2024-08-22', '2024-08-21', '2024-08-20', '2024-08-19', '2024-08-18', '2024-08-17', '2024-08-16', '2024-08-15', '2024-08-14'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-09-18 14:43:45 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:22 : 正常采集第【林内官方旗舰店】数据
+2025-09-18 14:43:45 | INFO | downloader.py:72 : https://ad.alimama.com/openapi/param2/1/gateway.unionadv/data.event.taoke.campaign.json?t=1758177825402&_tb_token_=ea85b7bbe637e&itemId=&cStep=0&startDate=2024-08-14&endDate=2025-09-17&campaignTemplateId=992&advPageEnum=adv_992&pageNo=1&pageSize=2000
+2025-09-18 14:43:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000029F591A4220, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:43:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000029F57E984E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_Taoke_DingXiang.py', line 48, code get_campaign>发起了调用,请求成功（status_code:200）
+2025-09-18 14:43:49 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:37 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:43:49 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:22 : 正常采集第【林内热水器旗舰店】数据
+2025-09-18 14:43:49 | INFO | downloader.py:72 : https://ad.alimama.com/openapi/param2/1/gateway.unionadv/data.event.taoke.campaign.json?t=1758177829732&_tb_token_=781f391ee3e71&itemId=&cStep=0&startDate=2024-08-14&endDate=2025-09-17&campaignTemplateId=992&advPageEnum=adv_992&pageNo=1&pageSize=2000
+2025-09-18 14:43:50 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000029F591A4220, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 74, code make_request_get>发起了调用,请求成功（status_code:200）
+2025-09-18 14:43:50 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000029F57E984E0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_Taoke_DingXiang.py', line 48, code get_campaign>发起了调用,请求成功（status_code:200）
+2025-09-18 14:43:51 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:37 : ----------------------------------------------------------------------------------------------------
+2025-09-18 14:43:51 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:38 : 
+************************************************************************************************************************
+2025-09-18 14:50:32 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:50:32 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 14:50:32 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 14:50:32 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 14:50:33 | INFO | pdd_数据中心_服务数据_售后数据.py:18 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 14:51:04 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:51:04 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 14:51:04 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 14:51:04 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 14:51:04 | INFO | pdd_数据中心_服务数据_售后数据.py:18 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 14:52:38 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:52:38 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 14:52:38 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 14:52:38 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 14:52:38 | INFO | pdd_数据中心_服务数据_售后数据.py:18 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 14:52:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001B5EC576F60, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 14:52:41 | INFO | pdd_数据中心_服务数据_售后数据.py:28 : res
+2025-09-18 14:52:57 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 14:52:57 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 14:52:57 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 14:52:57 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 14:52:58 | INFO | pdd_数据中心_服务数据_售后数据.py:18 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 14:52:58 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002DDD564AD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 14:53:01 | INFO | pdd_数据中心_服务数据_售后数据.py:28 : {'success': True, 'errorCode': 1000000, 'errorMsg': None, 'result': {'statDate': '2025-09-17', 'dsptRfSucOrdrCnt1m': 0, 'dsptRfSucRto1m': 0.0, 'pltInvlOrdrRto1m': 0.0034207525655644243, 'qurfOrdCnt1m': 4, 'qurfOrdRto1m': 0.004561003420752566, 'pltInvlOrdrCnt1m': 3, 'avgSucRfProcTime1m': 0.3087138349392753, 'sucRfOrdrAmt1d': 26392.0, 'sucRfOrdrCnt1d': 13, 'rfSucRto1m': 0.4903078677309008, 'avgSlfSucRfProcTime1mMgr': 2.7124955484330484, 'avgSlfSucRfProcTime1mMr': 0.02463054152637486, 'ssslAvgSucRfProcTime1mPct': 0.6666666666666666, 'bestSsslAvgSucRfProcTime1m': 0.0, 'passSsslAvgSucRfProcTime1m': 0.017397429757343555, 'checkInsurancePunish': 0, 'freePunishOrder': None, 'checkRfPunish': 0}}
+2025-09-18 15:27:19 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:168 : ✅ 数据处理完成!
+2025-09-18 15:27:19 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:169 : 📊 总共处理了 4824 个数据块
+2025-09-18 15:27:19 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:170 : 📈 总处理行数: 171055
+2025-09-18 15:27:19 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:171 : 🔍 过滤掉的空行数: 470537
+2025-09-18 15:27:19 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:172 : 💾 最终输出行数: 171055
+2025-09-18 15:27:19 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:173 : 📄 结果已保存到: Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接 (202508)已处理.xlsx
+2025-09-18 15:27:19 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:174 : 📋 最终数据列数: 16
+2025-09-18 15:27:19 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:176 : ❌ 没有找到可处理的数据
+2025-09-18 15:31:22 | INFO | database_manager.py:100 : 【yp_报表管理_目录视图_预实汇总_032001】不存在,为您重新创建: (1146, "Table 'yiyuan_test.yp_报表管理_目录视图_预实汇总_032001' doesn't exist")
+2025-09-18 15:31:22 | INFO | database_manager.py:164 : 表 `yp_报表管理_目录视图_预实汇总_032001` 创建成功
+2025-09-18 15:31:40 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:168 : ✅ 数据处理完成!
+2025-09-18 15:31:40 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:169 : 📊 总共处理了 4824 个数据块
+2025-09-18 15:31:40 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:170 : 📈 总处理行数: 171055
+2025-09-18 15:31:40 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:171 : 🔍 过滤掉的空行数: 470537
+2025-09-18 15:31:40 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:172 : 💾 最终输出行数: 171055
+2025-09-18 15:31:40 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:173 : 📄 结果已保存到: Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接 (202508)已处理.xlsx
+2025-09-18 15:31:40 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:174 : 📋 最终数据列数: 16
+2025-09-18 15:31:40 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:176 : ❌ 没有找到可处理的数据
+2025-09-18 15:56:46 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:168 : ✅ 数据处理完成!
+2025-09-18 15:56:46 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:169 : 📊 总共处理了 4824 个数据块
+2025-09-18 15:56:46 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:170 : 📈 总处理行数: 171055
+2025-09-18 15:56:46 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:171 : 🔍 过滤掉的空行数: 470537
+2025-09-18 15:56:46 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:172 : 💾 最终输出行数: 171055
+2025-09-18 15:56:46 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:173 : 📄 结果已保存到: Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接 (202508)已处理.xlsx
+2025-09-18 15:56:46 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:174 : 📋 最终数据列数: 16
+2025-09-18 15:56:46 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:176 : ❌ 没有找到可处理的数据
+2025-09-18 16:00:53 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:168 : ✅ 数据处理完成!
+2025-09-18 16:00:53 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:169 : 📊 总共处理了 4824 个数据块
+2025-09-18 16:00:53 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:170 : 📈 总处理行数: 171055
+2025-09-18 16:00:53 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:171 : 🔍 过滤掉的空行数: 470537
+2025-09-18 16:00:53 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:172 : 💾 最终输出行数: 171055
+2025-09-18 16:00:53 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:173 : 📄 结果已保存到: Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接 (202508)已处理.xlsx
+2025-09-18 16:00:53 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:174 : 📋 最终数据列数: 16
+2025-09-18 16:00:53 | INFO | yp_报表管理_目录视图_预实汇总_032001.py:176 : ❌ 没有找到可处理的数据
+2025-09-18 16:27:17 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:27:17 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:27:17 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:27:17 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:27:17 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:27:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002B155CEAD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:29:40 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:29:40 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:29:40 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:29:40 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:29:40 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:30:26 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:30:26 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:30:26 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:30:26 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:30:26 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:30:26 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001FBFFDFAD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:32:24 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:32:24 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:32:24 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:32:24 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:32:24 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:32:24 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002512055AD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:33:16 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:33:16 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:33:16 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:33:16 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:33:17 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:33:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001A0CF47AD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:35:41 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:35:41 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:35:41 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:35:41 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:35:41 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:35:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021A992EAD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:36:40 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:36:40 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:36:40 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:36:40 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:36:40 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:36:40 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001D7FB44AD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:36:57 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:36:57 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:36:57 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:36:57 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:36:57 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:36:57 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000020960B0AD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:38:17 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:38:17 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:38:17 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:38:17 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:38:17 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:38:17 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000220A131ED90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:38:32 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:38:32 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:38:32 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:38:32 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:38:32 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:38:32 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000296B590AD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 16:38:44 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 16:38:44 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 16:38:44 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 16:38:44 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 16:38:44 | INFO | pdd_数据中心_服务数据_售后数据.py:43 : 采集日期区间2025-08-18_2025-09-17
+2025-09-18 16:38:44 | INFO | extra_reqlog.py:12 : 在<frame at 0x000002D551A5AD90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:10:55 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:10:55 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:10:55 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:10:55 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:10:55 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000223B7076D90, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:13:56 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:13:56 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:13:56 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:13:56 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:13:56 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000176338EABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:13:56 | INFO | database_manager.py:100 : 【pdd_数据中心_服务数据_售后数据】不存在,为您重新创建: (1146, "Table 'rinnai_py.pdd_数据中心_服务数据_售后数据' doesn't exist")
+2025-09-18 17:13:56 | INFO | database_manager.py:164 : 表 `pdd_数据中心_服务数据_售后数据` 创建成功
+2025-09-18 17:13:56 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:13:56 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : 
+************************************************************************************************************************
+2025-09-18 17:15:00 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:15:00 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:15:00 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:15:00 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:15:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001DF3B20ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:15:00 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : pdd_数据中心_服务数据_售后数据2025-09-17数据已入库
+2025-09-18 17:15:00 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:15:00 | INFO | pdd_数据中心_服务数据_售后数据.py:67 : 
+************************************************************************************************************************
+2025-09-18 17:15:18 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:15:18 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:15:18 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:15:18 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:15:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001F09D8FABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:15:18 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : 林内官方旗舰店_2025-09-17数据已入库
+2025-09-18 17:15:18 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:15:18 | INFO | pdd_数据中心_服务数据_售后数据.py:67 : 
+************************************************************************************************************************
+2025-09-18 17:16:22 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:16:22 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:16:22 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:16:22 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内官方旗舰店']
+2025-09-18 17:16:22 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001F0BEF2ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:22 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-17数据已入库
+2025-09-18 17:16:22 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001F0BEF2ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:22 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-16数据已入库
+2025-09-18 17:16:22 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001F0BEF2ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:22 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-15数据已入库
+2025-09-18 17:16:22 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:16:22 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : 
+************************************************************************************************************************
+2025-09-18 17:16:35 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:16:35 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:16:35 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:16:35 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内官方旗舰店']
+2025-09-18 17:16:35 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000022FB35DABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:36 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-17数据已入库
+2025-09-18 17:16:36 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:16:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000022FB35DABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:36 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-16数据已入库
+2025-09-18 17:16:36 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:16:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000022FB35DABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:36 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-15数据已入库
+2025-09-18 17:16:36 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:16:36 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : 
+************************************************************************************************************************
+2025-09-18 17:16:43 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:16:43 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:16:43 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:16:43 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内官方旗舰店']
+2025-09-18 17:16:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001BCFFB5ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:43 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-17数据已入库
+2025-09-18 17:16:43 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:16:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001BCFFB5ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:43 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-16数据已入库
+2025-09-18 17:16:43 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:16:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001BCFFB5ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:16:43 | INFO | pdd_数据中心_服务数据_售后数据.py:64 : 林内官方旗舰店_2025-09-15数据已入库
+2025-09-18 17:16:43 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:16:43 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : 
+************************************************************************************************************************
+2025-09-18 17:20:00 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:20:00 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:20:00 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:20:00 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内官方旗舰店']
+2025-09-18 17:20:00 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021C8011ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:20:01 | INFO | database_manager.py:100 : 【pdd_数据中心_服务数据_售后数据】不存在,为您重新创建: (1146, "Table 'yiyuan_test.pdd_数据中心_服务数据_售后数据' doesn't exist")
+2025-09-18 17:20:01 | INFO | database_manager.py:164 : 表 `pdd_数据中心_服务数据_售后数据` 创建成功
+2025-09-18 17:20:01 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : 林内官方旗舰店_2025-09-17数据已入库
+2025-09-18 17:20:01 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:20:01 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021C8011ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:20:01 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : 林内官方旗舰店_2025-09-16数据已入库
+2025-09-18 17:20:01 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:20:01 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000021C8011ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:20:01 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : 林内官方旗舰店_2025-09-15数据已入库
+2025-09-18 17:20:01 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:20:01 | INFO | pdd_数据中心_服务数据_售后数据.py:67 : 
+************************************************************************************************************************
+2025-09-18 17:20:50 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:20:50 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_服务数据_售后数据
+2025-09-18 17:20:50 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_服务数据_售后数据.py']
+2025-09-18 17:20:50 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内官方旗舰店']
+2025-09-18 17:20:50 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000136CC96ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:20:50 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : 林内官方旗舰店_2025-09-17数据已入库
+2025-09-18 17:20:50 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:20:50 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000136CC96ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:20:50 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : 林内官方旗舰店_2025-09-16数据已入库
+2025-09-18 17:20:50 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:20:50 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000136CC96ABC0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_Pdd\\API_Pdd_Centre.py', line 39, code service_data__after_sales_data>发起了调用,请求成功（status_code:200）
+2025-09-18 17:20:50 | INFO | pdd_数据中心_服务数据_售后数据.py:65 : 林内官方旗舰店_2025-09-15数据已入库
+2025-09-18 17:20:50 | INFO | pdd_数据中心_服务数据_售后数据.py:66 : ----------------------------------------------------------------------------------------------------
+2025-09-18 17:20:50 | INFO | pdd_数据中心_服务数据_售后数据.py:67 : 
+************************************************************************************************************************
+2025-09-18 17:42:38 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:42:38 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:42:38 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:42:38 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内官方旗舰店']
+2025-09-18 17:42:38 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (17344), thread 'MainThread' (27892):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000024CDF5A6CB0>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000024CDF5A5750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:42:38 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (17344), thread 'MainThread' (27892):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-16'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000024CDF5A6CB0>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000024CDF5A5750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:42:38 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (17344), thread 'MainThread' (27892):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-15'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000024CDF5A6CB0>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000024CDF5A5750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000024CDDD4B580>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:43:05 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:43:05 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:43:05 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:43:05 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17', '2025-09-16', '2025-09-15'],采集店铺['林内官方旗舰店']
+2025-09-18 17:43:05 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (34900), thread 'MainThread' (20152):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x000001733811ED40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x000001733811D7E0>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:43:05 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (34900), thread 'MainThread' (20152):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-16'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x000001733811ED40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x000001733811D7E0>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:43:05 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (34900), thread 'MainThread' (20152):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-15'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x000001733811ED40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x000001733811D7E0>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000017338287E80>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:43:46 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:43:46 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:43:46 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:43:46 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:43:46 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (22868), thread 'MainThread' (17568):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000021EF103ED40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000021EF11A7E80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000021EF103D7E0>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000021EF11A7E80>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000021EF11A7E80>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:47:32 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:47:32 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:47:32 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:47:32 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:47:32 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (29524), thread 'MainThread' (10156):
+Traceback (most recent call last):
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 2252, in <module>
+    main()
+    └ <function main at 0x00000183B7898040>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 2234, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              │        │   │                          └ False
+              │        │   └ {'port': 65110, 'vm_type': None, 'client': '127.0.0.1', 'server': False, 'DEBUG_RECORD_SOCKET_READS': False, 'multiproc': Fal...
+              │        └ <function PyDB.run at 0x00000183B7897010>
+              └ <__main__.PyDB object at 0x00000183B7849090>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 1544, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           │    │     │          │               │            │     │        └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │    │     │          │               │            │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │    │     │          │               │            └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+           │    │     │          │               └ None
+           │    │     │          └ ''
+           │    │     └ False
+           │    └ <function PyDB._exec at 0x00000183B78970A0>
+           └ <__main__.PyDB object at 0x00000183B7849090>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 1551, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    │             │        │     │        └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+    │             │        │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+    │             │        └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+    │             └ <function execfile at 0x00000183B5AF1EA0>
+    └ <module '_pydev_bundle.pydev_imports' from 'C:\\other\\PyCharm 2024.1.7\\plugins\\python\\helpers\\pydev\\_pydev_bundle\\pyde...
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+                 │              │              │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+                 │              │              └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+                 │              └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+                 └ '# File: pdd_数据中心_服务数据_售后数据\n\n\nfrom API.API_Pdd.API_Pdd_Centre import PddDataCentre\nfrom extra.data_collector import data_...
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x00000183D867C550>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x00000183B78FFFA0>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x00000183D865AEF0>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x00000183B78FFFA0>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x00000183B78FFFA0>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:47:50 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:47:50 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:47:50 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:47:50 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:48:18 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (32908), thread 'MainThread' (16436):
+Traceback (most recent call last):
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 2252, in <module>
+    main()
+    └ <function main at 0x0000022DE8F38040>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 2234, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              │        │   │                          └ False
+              │        │   └ {'port': 54645, 'vm_type': None, 'client': '127.0.0.1', 'server': False, 'DEBUG_RECORD_SOCKET_READS': False, 'multiproc': Fal...
+              │        └ <function PyDB.run at 0x0000022DE8F37010>
+              └ <__main__.PyDB object at 0x0000022DE8EF9090>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 1544, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           │    │     │          │               │            │     │        └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │    │     │          │               │            │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │    │     │          │               │            └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+           │    │     │          │               └ None
+           │    │     │          └ ''
+           │    │     └ False
+           │    └ <function PyDB._exec at 0x0000022DE8F370A0>
+           └ <__main__.PyDB object at 0x0000022DE8EF9090>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 1551, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    │             │        │     │        └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+    │             │        │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+    │             │        └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+    │             └ <function execfile at 0x0000022DE70B1EA0>
+    └ <module '_pydev_bundle.pydev_imports' from 'C:\\other\\PyCharm 2024.1.7\\plugins\\python\\helpers\\pydev\\_pydev_bundle\\pyde...
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+                 │              │              │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+                 │              │              └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+                 │              └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+                 └ '# File: pdd_数据中心_服务数据_售后数据\n\n\nfrom API.API_Pdd.API_Pdd_Centre import PddDataCentre\nfrom extra.data_collector import data_...
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000022DFECBE680>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000022DFEDFDC30>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000022DFECBD120>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000022DFEDFDC30>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000022DFEDFDC30>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:48:28 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:48:28 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:48:28 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:48:28 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:49:13 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (29320), thread 'MainThread' (35632):
+Traceback (most recent call last):
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 2252, in <module>
+    main()
+    └ <function main at 0x0000018AFBAE8040>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 2234, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              │        │   │                          └ False
+              │        │   └ {'port': 54662, 'vm_type': None, 'client': '127.0.0.1', 'server': False, 'DEBUG_RECORD_SOCKET_READS': False, 'multiproc': Fal...
+              │        └ <function PyDB.run at 0x0000018AFBAE7010>
+              └ <__main__.PyDB object at 0x0000018AFBAA9090>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 1544, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           │    │     │          │               │            │     │        └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │    │     │          │               │            │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │    │     │          │               │            └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+           │    │     │          │               └ None
+           │    │     │          └ ''
+           │    │     └ False
+           │    └ <function PyDB._exec at 0x0000018AFBAE70A0>
+           └ <__main__.PyDB object at 0x0000018AFBAA9090>
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\pydevd.py", line 1551, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    │             │        │     │        └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+    │             │        │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+    │             │        └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+    │             └ <function execfile at 0x0000018AF9C81EA0>
+    └ <module '_pydev_bundle.pydev_imports' from 'C:\\other\\PyCharm 2024.1.7\\plugins\\python\\helpers\\pydev\\_pydev_bundle\\pyde...
+
+  File "C:\other\PyCharm 2024.1.7\plugins\python\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+                 │              │              │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+                 │              │              └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+                 │              └ 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py'
+                 └ '# File: pdd_数据中心_服务数据_售后数据\n\n\nfrom API.API_Pdd.API_Pdd_Centre import PddDataCentre\nfrom extra.data_collector import data_...
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000018AFF82E680>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000018AFBB1BD30>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000018AFF82D120>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000018AFBB1BD30>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000018AFBB1BD30>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:50:00 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:50:00 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:50:00 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:50:00 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:50:00 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (35976), thread 'MainThread' (35972):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000012249956CB0>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000012248137550>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000012249955750>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000012248137550>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000012248137550>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:50:11 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:50:11 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:50:11 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:50:11 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:50:11 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (34288), thread 'MainThread' (36616):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000021A6B66ED40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000021A69E0B4C0>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000021A6B66D7E0>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000021A69E0B4C0>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 36, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000021A69E0B4C0>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:51:35 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:51:35 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:51:35 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:51:35 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:51:36 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (34892), thread 'MainThread' (36484):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x00000226970E6D40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002269723BF10>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x00000226970E57E0>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002269723BF10>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 37, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002269723BF10>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:55:08 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:55:08 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:55:08 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:55:08 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 17:55:08 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (17892), thread 'MainThread' (6572):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x000002281F436D40>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002281F58BEE0>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x000002281F4357E0>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002281F58BEE0>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 37, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x000002281F58BEE0>
+
+AttributeError: 'PddDataCentre' object has no attribute 'context'
+2025-09-18 17:59:16 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 17:59:16 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 17:59:16 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 17:59:16 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:02:30 | INFO | data_collector.py:34 : 
+************************************************************************************************************************
+2025-09-18 18:02:30 | INFO | data_collector.py:35 : 开始采集：pdd_数据中心_交易数据_数据总览
+2025-09-18 18:02:30 | INFO | data_collector.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\拼多多\\pdd_数据中心_交易数据_数据总览.py']
+2025-09-18 18:02:30 | INFO | data_collector.py:67 : 采集日期列表['2025-09-17'],采集店铺['林内官方旗舰店']
+2025-09-18 18:02:30 | ERROR | pdd_数据中心_交易数据_数据总览.py:47 : An error has been caught in function '<module>', process 'MainProcess' (35052), thread 'MainThread' (34172):
+Traceback (most recent call last):
+
+> File "C:\Users\admin\Desktop\yiyuan_spider\执行脚本\拼多多\pdd_数据中心_交易数据_数据总览.py", line 47, in <module>
+    res = Obj.trade_data__data_overview(date)
+          │   │                         └ '2025-09-17'
+          │   └ <function PddDataCentre.trade_data__data_overview at 0x0000026F1D536DD0>
+          └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000026F1D68BF10>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Centre.py", line 58, in trade_data__data_overview
+    "Anti-Content": self.get_anti_content(),
+                    │    └ <function PddBaseApi.get_anti_content at 0x0000026F1D535870>
+                    └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000026F1D68BF10>
+
+  File "C:\Users\admin\Desktop\yiyuan_spider\API\API_Pdd\API_Pdd_Base.py", line 43, in get_anti_content
+    anti_content = self.context.call('get_anti_content')
+                   │    │       └ <function AbstractRuntimeContext.call at 0x0000026F1D4FF910>
+                   │    └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000026F1D6D07C0>
+                   └ <API.API_Pdd.API_Pdd_Centre.PddDataCentre object at 0x0000026F1D68BF10>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 37, in call
+    return self._call(name, *args)
+           │    │     │      └ ()
+           │    │     └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._call at 0x0000026F1D534280>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000026F1D6D07C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 92, in _call
+    return self._eval("{identifier}.apply(this, {args})".format(identifier=identifier, args=args))
+           │    │                                                          │                └ '[]'
+           │    │                                                          └ 'get_anti_content'
+           │    └ <function ExternalRuntime.Context._eval at 0x0000026F1D534160>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000026F1D6D07C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 78, in _eval
+    return self.exec_(code)
+           │    │     └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function AbstractRuntimeContext.exec_ at 0x0000026F1D4FF7F0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000026F1D6D07C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_abstract_runtime_context.py", line 18, in exec_
+    return self._exec_(source)
+           │    │      └ 'return eval(\'(\'+"get_anti_content.apply(this, [])"+\')\')'
+           │    └ <function ExternalRuntime.Context._exec_ at 0x0000026F1D5341F0>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000026F1D6D07C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 88, in _exec_
+    return self._extract_result(output)
+           │    │               └ '["err","SyntaxError: \\u8bed\\u6cd5\\u9519\\u8bef"]\n'
+           │    └ <function ExternalRuntime.Context._extract_result at 0x0000026F1D534550>
+           └ <execjs._external_runtime.ExternalRuntime.Context object at 0x0000026F1D6D07C0>
+
+  File "C:\other\Python\Python310\lib\site-packages\execjs\_external_runtime.py", line 167, in _extract_result
+    raise ProgramError(value)
+          │            └ 'SyntaxError: 语法错误'
+          └ <class 'execjs._exceptions.ProgramError'>
+
+execjs._exceptions.ProgramError: SyntaxError: 语法错误
