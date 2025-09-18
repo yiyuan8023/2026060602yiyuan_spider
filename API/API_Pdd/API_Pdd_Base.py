@@ -1,32 +1,36 @@
 import io
 import json
-import sys
+import os
 
 import ddddocr  # ocr
 import requests
 from PIL import ImageFont, Image, ImageDraw  # 用于处理图像
 
 from retrying import retry  # 重试
-
 import subprocess
 from functools import partial  # 用来固定某个参数的固定值
 from fontTools.ttLib import TTFont
 
 from cookie_manager.extra_cookie import get_ramdom_ua
-from extra.extra_reqlog import req_log
 from extra.logger_ import logger
-import execjs  # PyExecJS
 
 subprocess.Popen = partial(subprocess.Popen, encoding='utf-8')
-
-
 # 解决execjs执行js时产生的乱码报错，需要在导入execjs模块之前，让Popen的encoding参数锁定为utf-8
+
+import execjs  # PyExecJS  # noqa
 
 
 class PddBaseApi(object):
     def __init__(self):
-        with open('anti_content.js', 'r', encoding="utf8") as js_file:
+        # 获取当前Python文件所在的目录
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # 构建anti_content.js的完整路径
+        js_file_path = os.path.join(current_dir, 'anti_content.js')
+        print(js_file_path)
+
+        with open(js_file_path, 'r', encoding="utf8") as js_file:
             self.context = execjs.compile(js_file.read())
+        print("self.context")
 
     def get_anti_content(self):
         """
@@ -48,7 +52,7 @@ class PddBaseApi(object):
         })
 
         res = requests.post(url=api, data=payload, headers={"User-Agent": get_ramdom_ua()})
-        req_log(res)
+        # req_log(res)
         if res.status_code == 200:
             logger.info(json.dumps(res.json(), ensure_ascii=False))
             return {

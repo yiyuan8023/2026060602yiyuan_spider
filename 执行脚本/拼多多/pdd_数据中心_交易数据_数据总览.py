@@ -34,9 +34,9 @@ if __name__ == '__main__':
     db_config = None  # noqa
     # db_config = "rinnai_py"  # noqa
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
-    table_name = "pdd_数据中心_服务数据_售后数据"
+    table_name = "pdd_数据中心_交易数据_数据总览"
     site = '拼多多'
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 3)
+    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
 
     for i in shop_cookies:
         cookie = i[1]
@@ -44,24 +44,24 @@ if __name__ == '__main__':
 
         Obj = PddDataCentre(cookie)
         for date in crawl_day_list:
-            res = Obj.pdd_service__after_sales_data(date)
-            # print( res)
-            items = []
-            item = {}
-            for k, v in dict_str.items():
-                item[v] = res.get("result", {}).get(k, "")
-
-            items.append(item)
-
-            for item in items:
-                item.update({
-                    "店铺名称": shop_name,
-
-                })
-                item["key"] = f"{item['店铺名称']}_{item['统计日期']}"
-            # print(items)
-
-            DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key="key")
-            logger.info(f"{shop_name}_{date}数据已入库")
-            logger.info("-" * 100)
-    logger.info(f"\n{'*' * 120}")
+            res = Obj.trade_data__data_overview(date)
+            print(res)
+    #         items = []
+    #         item = {}
+    #         for k, v in dict_str.items():
+    #             item[v] = res.get("result", {}).get(k, "")
+    #
+    #         items.append(item)
+    #
+    #         for item in items:
+    #             item.update({
+    #                 "店铺名称": shop_name,
+    #
+    #             })
+    #             item["key"] = f"{item['店铺名称']}_{item['统计日期']}"
+    #         # print(items)
+    #
+    #         DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key="key")
+    #         logger.info(f"{shop_name}_{date}数据已入库")
+    #         logger.info("-" * 100)
+    # logger.info(f"\n{'*' * 120}")

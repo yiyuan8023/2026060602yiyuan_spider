@@ -1,5 +1,5 @@
 
-from sys import _getframe
+from sys import _getframe # noqa
 import requests
 from extra.logger_ import logger
 

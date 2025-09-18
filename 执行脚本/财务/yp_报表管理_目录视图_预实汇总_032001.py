@@ -5,6 +5,7 @@ import os
 
 from extra.database_manager import DatabaseManager
 from extra.extra_df_dict import df_to_dict
+from extra.logger_ import logger
 
 
 def process_excel_workbook_no_warning(input_file, output_file):
@@ -108,12 +109,10 @@ def process_excel_workbook_no_warning(input_file, output_file):
                                     keep_mask = pd.Series([False] * len(decision_data), index=decision_data.index)
 
                                     for col in filter_columns:
-                                        # 对每列检查非空且非零
+                                        # 对每列检查非空（但不过滤0）
                                         col_data = decision_data[col]
-                                        # 转换为数值类型
-                                        col_numeric = pd.to_numeric(col_data, errors='coerce')
-                                        # 标记非空且绝对值大于极小值的项
-                                        col_mask = (~col_data.isna()) & (abs(col_numeric.fillna(0)) > 1e-10)
+                                        # 标记非空的项（包括0值）
+                                        col_mask = ~col_data.isna()
                                         keep_mask = keep_mask | col_mask
 
                                     # 应用过滤
@@ -161,18 +160,20 @@ def process_excel_workbook_no_warning(input_file, output_file):
         items = df_to_dict(final_df)
         # print(items)
         for item in items:
+            department = item.get('编制部门', '')
+            item["前后台"] = department.split('[')[-1].split(']')[0] if '[' in department and ']' in department else ""
             item["key"] = f"{item['序号']}_{item['编制部门']}_{item['当前版本']}_{item['年份']}_{item['月份']}_{item['入库日期']}"
-        DatabaseManager(db_config=db_config).upsert_data(items, table_name)
+        DatabaseManager(db_config=db_config).upsert_data(items, table_name,primary_key='key')
 
-        print(f"✅ 数据处理完成!")
-        print(f"📊 总共处理了 {total_data_blocks} 个数据块")
-        print(f"📈 总处理行数: {total_rows_processed}")
-        print(f"🔍 过滤掉的空行数: {filtered_empty_rows}")
-        print(f"💾 最终输出行数: {len(final_df)}")
-        print(f"📄 结果已保存到: {output_file}")
-        print(f"📋 最终数据列数: {len(final_df.columns)}")
+        logger.info(f"✅ 数据处理完成!")
+        logger.info(f"📊 总共处理了 {total_data_blocks} 个数据块")
+        logger.info(f"📈 总处理行数: {total_rows_processed}")
+        logger.info(f"🔍 过滤掉的空行数: {filtered_empty_rows}")
+        logger.info(f"💾 最终输出行数: {len(final_df)}")
+        logger.info(f"📄 结果已保存到: {output_file}")
+        logger.info(f"📋 最终数据列数: {len(final_df.columns)}")
 
-        print("❌ 没有找到可处理的数据")
+        logger.info("❌ 没有找到可处理的数据")
 
 
 # 使用示例
@@ -181,6 +182,7 @@ if __name__ == "__main__":
     input_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接 (202508).xlsx"
     output_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接 (202508)已处理.xlsx"
     table_name = 'yp_报表管理_目录视图_预实汇总_032001'
+    # db_config = None # noqa
     db_config = "caiwu_hzbc" # noqa
 
     # 执行处理

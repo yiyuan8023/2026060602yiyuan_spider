@@ -4,7 +4,7 @@ import sys
 
 from retrying import retry
 
-from settings import table_mapping
+from API.API_Pdd.settings import table_mapping
 
 """
 初始化几个映射文件
