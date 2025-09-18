@@ -1,5 +1,11 @@
-
 from typing import List, Dict, Optional
+
+from fake_useragent import UserAgent
+
+
+def get_ramdom_ua():
+    # 获取一个随机UA
+    return str(UserAgent().random)
 
 
 def cookiejar_to_cookie_str(cookie_jar) -> str:
@@ -114,20 +120,21 @@ def get_new_cookie(cookie_str, _m_h5_tk, _m_h5_tk_enc, exclude_keys=None):
 
 
 if __name__ == '__main__':
-    cookie = {"_samesite_flag_": "true", "cookie2": "1753486807965e06302fb095cdf2d919",# noqa
+    cookie = {"_samesite_flag_": "true", "cookie2": "1753486807965e06302fb095cdf2d919",  # noqa
               "t": "fb8fac7e872c4f2e00ed4c61d78dd674", "_tb_token_": "7e690358b5b76", "3PcFlag": "1754346259963",
-              "xlly_s": "1", "unb": "2212151220659",# noqa
+              "xlly_s": "1", "unb": "2212151220659",  # noqa
               "sn": "%E6%9E%97%E5%86%85%E4%BC%81%E4%B8%9A%E5%BA%97%3A%E4%B8%80%E5%85%83",
               "uc1": "cookie14=UoYbz9iqGl1NIA%3D%3D&cookie21=URm48syIZx9a", "csg": "9cc1a9c0",
               "_cc_": "U%2BGCWk%2F7og%3D%3D", "cancelledSubSites": "empty", "skt": "1b54a68225524832",
-              "sgcookie": "E100JgC9K7HSEIWFT1rUl35BYxie8K6zbkwmP8%2FJIfLJq1Zc1hb9MJiSVSSV28fpvwFwP9Kt33bSTkObmEQpzprX8HddxQwxHe5mWhzTQ9dlXQtkjhQex38mxXrkNN%2BQBPX5",# noqa
+              "sgcookie": "E100JgC9K7HSEIWFT1rUl35BYxie8K6zbkwmP8%2FJIfLJq1Zc1hb9MJiSVSSV28fpvwFwP9Kt33bSTkObmEQpzprX8HddxQwxHe5mWhzTQ9dlXQtkjhQex38mxXrkNN%2BQBPX5",
+              # noqa
               "_m_h5_tk": "237c78352ffa35dad04b61fea1e4c28b_1754354571373",
-              "_m_h5_tk_enc": "d2ee56020db282a5648554356a19e052", "_euacm_ac_l_uid_": "2212151220659", # noqa
-              "2212151220659_euacm_ac_c_uid_": "3830928885", "2212151220659_euacm_ac_rs_uid_": "3830928885",# noqa
-              "_portal_version_": "new", "cc_gray": "1", "XSRF-TOKEN": "9730d74f-e5cc-4e02-838e-f578a495a9fe",# noqa
+              "_m_h5_tk_enc": "d2ee56020db282a5648554356a19e052", "_euacm_ac_l_uid_": "2212151220659",  # noqa
+              "2212151220659_euacm_ac_c_uid_": "3830928885", "2212151220659_euacm_ac_rs_uid_": "3830928885",  # noqa
+              "_portal_version_": "new", "cc_gray": "1", "XSRF-TOKEN": "9730d74f-e5cc-4e02-838e-f578a495a9fe",  # noqa
               "x_one_bi_token": "one-bi-55a0e9dd61994f1b94139127f0b75887-3830928885-2212151220659",
-              "cna": "FCEYIRqZxUoCAXrgmQJHKXHY", "_euacm_ac_rs_sid_": "null",# noqa
+              "cna": "FCEYIRqZxUoCAXrgmQJHKXHY", "_euacm_ac_rs_sid_": "null",  # noqa
               "JSESSIONID": "654673CB30D5058E9F7EFE78B42DDA57",
-              "tfstk": "gSmtHB96sBAMZWnTKA8hnswqetpHCeDN9fk5mSVGlXhKhAngSxN0DjhxM54X_lmx9xlUniYZiXBxOX3glmVmDOoKwijM_FkfDoqXZQxkqA7a0oOo1qX-_5yqdS935NZ0tQqXZQxh-9awsoG0p5NqvvNUHGs_Gj_IdRPQhiNjGWaQF8f_cjGbOywbHN1b1N_COWybcSGbcpHQT-EbGfJWMW6_ii3TIlhQKtefciiLBPTnCWsbLDeTW7MsXisfURUTNANe1RHn1yM4kmWVDyDszjyS11OTcve-EPn9wGVq_mUxxyLVEJujd4ubJdtsplFToDl6qBrtlfoY7VB2UvZsT4Pz5eRUpcmuk7zdOCMnp5a-kfAFc50-dXUox6juAYgLvgPjq0QyS_V8nN9ppZ745J-q9ZysZ0_gvJFkBnQVuyJUp7vppZ745JyLZddOuZzeL"} # noqa
+              "tfstk": "gSmtHB96sBAMZWnTKA8hnswqetpHCeDN9fk5mSVGlXhKhAngSxN0DjhxM54X_lmx9xlUniYZiXBxOX3glmVmDOoKwijM_FkfDoqXZQxkqA7a0oOo1qX-_5yqdS935NZ0tQqXZQxh-9awsoG0p5NqvvNUHGs_Gj_IdRPQhiNjGWaQF8f_cjGbOywbHN1b1N_COWybcSGbcpHQT-EbGfJWMW6_ii3TIlhQKtefciiLBPTnCWsbLDeTW7MsXisfURUTNANe1RHn1yM4kmWVDyDszjyS11OTcve-EPn9wGVq_mUxxyLVEJujd4ubJdtsplFToDl6qBrtlfoY7VB2UvZsT4Pz5eRUpcmuk7zdOCMnp5a-kfAFc50-dXUox6juAYgLvgPjq0QyS_V8nN9ppZ745J-q9ZysZ0_gvJFkBnQVuyJUp7vppZ745JyLZddOuZzeL"}  # noqa
     x = get_multiple_cookie_values(cookie, ['_tb_token_', 'B'])
     print(x)

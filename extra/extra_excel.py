@@ -1,16 +1,14 @@
 import io
 import logging
 import warnings
-import zipfile
 from typing import Literal, Optional
-
 import pandas as pd
-import requests
-import chardet
 
 
 # 忽略 UserWarning
 warnings.filterwarnings("ignore", category=UserWarning)
+
+
 def read_excel_to_dict(excel_content):
     """
     读取excel 转成字典
@@ -20,14 +18,13 @@ def read_excel_to_dict(excel_content):
     # 将二进制数据包装成文件对象
     file_like_object = io.BytesIO(excel_content)
     try:
-        df = pd.read_excel(file_like_object,engine='openpyxl')
+        df = pd.read_excel(file_like_object, engine='openpyxl')
     except:
-        df = pd.read_excel(file_like_object,engine='xlrd')
+        df = pd.read_excel(file_like_object, engine='xlrd')
     df_filled = df.fillna("")
     print(df.columns)
     items = df_filled.to_dict('records')
     return items
-
 
 
 # yiyuan20250730
@@ -55,9 +52,9 @@ def excel_engine(data, sheet_name=None) -> Optional[Literal["xlrd", "openpyxl", 
 
             # 尝试使用该引擎读取文件
             if sheet_name:
-                pd.read_excel( data, nrows=1, sheet_name=sheet_name,  engine=engine)
+                pd.read_excel(data, nrows=1, sheet_name=sheet_name, engine=engine)
             else:
-                pd.read_excel(data, nrows=1, engine=engine )
+                pd.read_excel(data, nrows=1, engine=engine)
 
             return engine
         except Exception as e:
@@ -69,10 +66,18 @@ def excel_engine(data, sheet_name=None) -> Optional[Literal["xlrd", "openpyxl", 
     return None
 
 
+import pandas as pd
+import numpy as np
+
+
+
+
+
+
 
 if __name__ == '__main__':
-
-    read_download_zip("https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/2001530108/2025/04/21/10568864/MAIN?Expires=1745206795&OSSAccessKeyId=TMP.3Kpm9fBsXurQ9ssWvZyqRVXgDXX4b5SEd84Jk2bmW5ccLWX9oYzxXCoBKhqfekjFZehbxuQ1eTgwfyM7drrX7N3QCQ7eXJ&Signature=AkcmnrAXdV6xwr2ZC0noKbRgXB0%3D")
+    read_download_zip(
+        "https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/2001530108/2025/04/21/10568864/MAIN?Expires=1745206795&OSSAccessKeyId=TMP.3Kpm9fBsXurQ9ssWvZyqRVXgDXX4b5SEd84Jk2bmW5ccLWX9oYzxXCoBKhqfekjFZehbxuQ1eTgwfyM7drrX7N3QCQ7eXJ&Signature=AkcmnrAXdV6xwr2ZC0noKbRgXB0%3D")
 
     """
     
