@@ -4,80 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="1.0.0.19">
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/.idea/JDSZ.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/API_Jdsz_Base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/API_Jdsz_Product.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/DB.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/JdSzCustomAPI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/JdSzReportAPI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/JdSzServiceAPI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/Start.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/a.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/cn_en_map.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/extra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/log/runtime_2024-09-18.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/log_.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/settings_pass.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/source/source_map_1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/source/source_map_2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/source/source_map_4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/source/source_map_5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/source/source_map_7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/source/source_map_9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/uuid_.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-19.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-22.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-23.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-24.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-25.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-26.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_交易_交易概况_全部渠道.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_商品_商品明细_sku_202504.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_商品_商品明细_spu_202504.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_商品_类目分析_行业类目.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_商品数据_商品明细_商品明细效果.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_商品数据_商品概况.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_商品数据_商品概况_实时数据.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_流量数据_流量看板_数据总览_202509.py" afterDir="false" />
+    <list default="true" id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="Merge remote-tracking branch 'origin/master'">
+      <change afterPath="$PROJECT_DIR$/API/API_JingDong/source/response_jd_jdsz_客户_关注店铺用户概况_数据概览.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_客户_关注店铺用户概况_数据概览.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_服务_服务分析_售后服务单量.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/API_Pdd_Analyze.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/API_Pdd_Base.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_Pdd/API_Pdd_Base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/API_Pdd_Centre.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_Pdd/API_Pdd_Centre.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/CN_EN_Mapping.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/CN_Table_Field.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/DB.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/Pdd_Backend_Mapping.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/email_.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_JingDong/email_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/extra.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/pdd_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/realtime_main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_Pdd/sql/goods_data__goods_general_situation.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/extra_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/extra_date.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/yiyuan2025-09-18.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/yiyuan2025-09-18.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/并行多次程序.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/并行多次程序.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/pack.py" beforeDir="false" afterPath="$PROJECT_DIR$/tool/pack.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/执行脚本/京东/京东.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/京东/京东.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_交易数据_数据总览.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_交易数据_数据总览.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_服务数据_售后数据.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_服务数据_售后数据.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/执行脚本/拼多多/拼多多.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_Pdd/API_Pdd_Font_Decrypt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/en_to_cn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/JDSZ.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/API_Jdsz_Product.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_JingDong/API_Jdsz_Product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/JdSzCustomAPI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/JdSzServiceAPI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/log/runtime_2024-09-18.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/source/source_map_1" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_JingDong/source/source_map_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/yiyuan2025-09-26.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/yiyuan2025-09-26.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_交易_交易概况_全部渠道.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_交易_交易概况_全部渠道.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +40,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PerforceDirect.Settings">
@@ -154,6 +107,9 @@
     "Python.jd_jdsz_商品_商品明细_sku_202504.executor": "Run",
     "Python.jd_jdsz_商品_商品明细_spu_202504.executor": "Run",
     "Python.jd_jdsz_商品_类目分析_行业类目.executor": "Run",
+    "Python.jd_jdsz_客户_关注店铺用户概况_数据概览.executor": "Run",
+    "Python.jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509.executor": "Run",
+    "Python.jd_jdsz_服务_服务分析_售后服务单量.executor": "Run",
     "Python.live_cookie_manager.executor": "Run",
     "Python.logger_.executor": "Run",
     "Python.login_.executor": "Run",
@@ -248,7 +204,7 @@
       <recent name="C:\Users\admin\Desktop\yiyuan_spider\财务" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.jd_jdsz_交易_交易概况_全部渠道">
+  <component name="RunManager" selected="Python.jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509">
     <configuration name="jd_jdsz_交易_交易概况_全部渠道" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="yiyuan_spider" />
       <option name="ENV_FILES" value="" />
@@ -264,6 +220,75 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_交易_交易概况_全部渠道.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="jd_jdsz_服务_服务分析_售后服务单量" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/京东" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_服务_服务分析_售后服务单量.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="jd_jdsz_客户_关注店铺用户概况_数据概览" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/京东" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_客户_关注店铺用户概况_数据概览.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/京东" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -341,82 +366,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509" />
+        <item itemvalue="Python.jd_jdsz_客户_关注店铺用户概况_数据概览" />
+        <item itemvalue="Python.jd_jdsz_服务_服务分析_售后服务单量" />
         <item itemvalue="Python.jd_jdsz_交易_交易概况_全部渠道" />
         <item itemvalue="Python.jd_jdsz_商品_商品明细_sku_202504" />
-        <item itemvalue="Python.tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509" />
-        <item itemvalue="Python.tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品" />
-        <item itemvalue="Python.tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505" />
       </list>
     </recent_temporary>
   </component>
@@ -456,7 +412,7 @@
       <workItem from="1755676242464" duration="35231000" />
       <workItem from="1756981625383" duration="119554000" />
       <workItem from="1758090017507" duration="31186000" />
-      <workItem from="1758191546717" duration="88375000" />
+      <workItem from="1758191546717" duration="98915000" />
     </task>
     <task id="LOCAL-00001" summary="初版">
       <option name="closed" value="true" />
@@ -738,7 +694,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758190298941</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1758872208088</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1758872208088</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -765,7 +729,8 @@
     <MESSAGE value="1.0.0.17" />
     <MESSAGE value="1.0.0.18" />
     <MESSAGE value="1.0.0.19" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.0.19" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1052,6 +1017,7 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$___1.coverage" NAME="商家工作台_交易_已卖出宝贝_宝贝报表明细1 覆盖结果" MODIFIED="1754629847402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_商家工作台" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$test.coverage" NAME="test 覆盖结果" MODIFIED="1758090097526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$____.coverage" NAME="生参内容_渠道效果_推荐_单条效果_微详情视频 覆盖结果" MODIFIED="1753869890563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$jd_jdsz_____202509.coverage" NAME="jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509 覆盖结果" MODIFIED="1758883361044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/京东" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$xls_to_xlsx.coverage" NAME="xls_to_xlsx 覆盖结果" MODIFIED="1757928843860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/excel" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$get_new_cookie.coverage" NAME="get_new_cookie 覆盖结果" MODIFIED="1754900063964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cookie_manager" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$cookie.coverage" NAME="直播cookie 覆盖结果" MODIFIED="1754909066229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cookie_manager" />
@@ -1064,7 +1030,7 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_____202504.coverage" NAME="tb_商家工作台_交易_已卖出宝贝_宝贝报表明细_202504 覆盖结果" MODIFIED="1757557150947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_商家工作台" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tg____202504__1_.coverage" NAME="tb_tg_万相台无界_基础报表_人群报表_202504 (1) 覆盖结果" MODIFIED="1754027133798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_万相台" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_____202504.coverage" NAME="tb_sycm_流量_商品来源_商品来源流量_新版_202504 覆盖结果" MODIFIED="1754892968150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
-    <SUITE FILE_PATH="coverage/yiyuan_spider$jd_jdsz___.coverage" NAME="jd_jdsz_交易_交易概况_全部渠道 覆盖结果" MODIFIED="1758872105198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/京东" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$jd_jdsz___.coverage" NAME="jd_jdsz_客户_关注店铺用户概况_数据概览 覆盖结果" MODIFIED="1758881671689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/京东" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$_.coverage" NAME="生参商品排行_全部商品 覆盖结果" MODIFIED="1753691817301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$save_to_excel.coverage" NAME="save_to_excel 覆盖结果" MODIFIED="1757580456590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/excel" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_____202504__1_.coverage" NAME="tb_sycm_首页_数据概览_图表_新版_202504 (1) 覆盖结果" MODIFIED="1753866504440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

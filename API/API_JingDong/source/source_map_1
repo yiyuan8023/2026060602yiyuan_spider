@@ -1,230 +1,121 @@
-e.constant("indecatorsMeta", {
-            rate: {
-                name: "较前一",
-                desc: "",
-                pos: "left",
-                minWidth: 100,
-                format: "percent_2_0_1"
-            },
-            UV: {
-                name: "访客数",
-                pos: "left",
-                format: "number_0",
-                desc: "",
-                minWidth: 100
-            },
-            PV: {
-                name: "浏览量",
-                pos: "left",
-                format: "number_0",
-                desc: "",
-                minWidth: 100
-            },
-            AvgDepth: {
-                name: "人均浏览量",
-                format: "number_2",
-                pos: "left",
-                desc: "每个访客平均浏览页面的数量。",
-                minWidth: 100
-            },
-            AvgStayTime: {
-                name: "平均停留时长（秒）",
-                format: "number_2",
-                pos: "left",
-                desc: "每个访客平均浏览店铺页面的时长，单位秒。",
-                minWidth: 100
-            },
-            SkipOut: {
-                name: "跳失率",
-                pos: "left",
-                desc: "仅浏览店铺内页面1次就离开店铺的访客占总访客的比例。",
-                minWidth: 100,
-                format: "percent_2_0_1"
-            },
-            OrderNum: {
-                name: "下单单量",
-                pos: "left",
-                format: "number_0",
-                desc: "",
-                minWidth: 100
-            },
-            OrderNumInd: {
-                name: "同行同级均值",
-                pos: "left",
-                desc: "",
-                minWidth: 100
-            },
-            OrdNum: {
-                name: "成交单量",
-                pos: "left",
-                format: "number_0",
-                desc: "",
-                minWidth: 100
-            },
-            OrdNumInd: {
-                name: "同行同级均值",
-                pos: "left",
-                desc: "",
-                minWidth: 100
-            },
-            OrderCustNum: {
-                name: "下单客户数",
-                pos: "left",
-                format: "number_0",
-                desc: "在店铺内成功下单的客户（去重）的数量，商智统计下单的口径与商家后台有细微的差别，详情请查看帮助中心。",
-                minWidth: 100
-            },
-            OrderCustNumInd: {
-                name: "同行同级均值",
-                format: "number_0",
-                desc: "",
-                minWidth: 100
-            },
-            OrdCustNum: {
-                name: "成交客户数",
-                pos: "left",
-                format: "number_0",
-                desc: "在店铺内成功下单并成交的客户（去重）的数量，商智统计成交的口径与商家后台有细微的差别，详情请查看帮助中心。",
-                minWidth: 100
-            },
-            OrdCustNumInd: {
-                name: "同行同级均值",
-                format: "number_0",
-                desc: "",
-                minWidth: 100
-            },
-            OrderAmt: {
-                name: "下单金额",
-                pos: "left",
-                format: "currency_￥",
-                desc: "",
-                minWidth: 100
-            },
-            OrderAmtInd: {
-                name: "同行同级均值",
-                desc: "",
-                minWidth: 100
-            },
-            OrdAmt: {
-                name: "成交金额",
-                pos: "left",
-                format: "currency_￥",
-                desc: "",
-                minWidth: 100
-            },
-            OrdAmtInd: {
-                name: "同行同级均值",
-                desc: "",
-                minWidth: 100
-            },
-            CustPriceAvg: {
-                name: "客单价",
-                pos: "left",
-                format: "currency_￥",
-                desc: "",
-                minWidth: 100
-            },
-            UnitPriceAvg: {
-                name: "件单价",
-                pos: "left",
-                format: "currency_￥",
-                desc: "成交金额/成交商品件数",
-                minWidth: 100
-            },
-            UnitPriceAvgInd: {
-                name: "同行同级均值",
-                format: "currency_￥",
-                desc: "",
-                minWidth: 100
-            },
-            CustPriceAvgInd: {
-                name: "同行同级均值",
-                format: "currency_￥",
-                desc: "",
-                minWidth: 100
-            },
-            ToOrderRate: {
-                name: "下单转化率",
-                pos: "left",
-                desc: "统计时间内，下单客户数/访客数，即来访客户转化为下单客户的比例。",
-                minWidth: 100,
-                format: "percent_2_0_1"
-            },
-            ToOrderRateInd: {
-                name: "同行同级均值",
-                desc: "",
-                minWidth: 100
-            },
-            DealToOrderRate: {
-                name: "下单成交转化率",
-                pos: "left",
-                desc: "统计时间内，下单且成交的客户数/下单客户数，即统计时间内下单客户中完成支付的比例。",
-                minWidth: 100,
-                format: "percent_2_0_1"
-            },
-            DealToOrderRateInd: {
-                name: "同行同级均值",
-                desc: "",
-                minWidth: 100
-            },
-            ToOrdRate: {
-                name: "成交转化率",
-                pos: "left",
-                desc: "等于成交客户数除以访客数。",
-                minWidth: 100,
-                format: "percent_2_0_1"
-            },
-            ToOrdRateInd: {
-                name: "同行同级均值",
-                desc: "",
-                minWidth: 100
-            },
-            OrderProNum: {
-                name: "下单商品件数",
-                pos: "left",
-                format: "number_0",
-                desc: "客户在店铺内成功下单订单中的商品件数，包含包括赠品在内的所有店内的商品。",
-                minWidth: 100
-            },
-            OrderProNumInd: {
-                name: "同行同级均值",
-                format: "number_0",
-                desc: "",
-                minWidth: 100
-            },
-            OrdProNum: {
-                name: "成交商品件数",
-                pos: "left",
-                format: "number_0",
-                desc: "客户在店铺内成功下单且成交的商品件数，包含包括赠品在内的所有店内的商品。",
-                minWidth: 100
-            },
-            OrdProNumInd: {
-                name: "同行同级均值",
-                format: "number_0",
-                desc: "",
-                minWidth: 100
-            },
-            CancelOrdAmt: {
-                name: "取消及售后退款金额",
-                pos: "left",
-                format: "currency_￥",
-                desc: "包括订单完成前的取消以及订单完成后的售后退款订单统计。取消统计的是当日之前成交，当日取消的订单累计成交金额。售后统计的是当日之前成交，当日售后退款完成的订单累计退款金额。",
-                minWidth: 100
-            },
-            CancelSaleQty: {
-                name: "取消及售后退款件数",
-                pos: "left",
-                format: "number_0",
-                desc: "包括订单完成前的取消以及订单完成后的售后退款订单统计。取消统计的是当日之前成交，当日取消的订单累计成交商品件数。售后统计的是当日之前成交，当日售后退款完成的订单累计退款商品件数。",
-                minWidth: 100
-            },
-            CancelOrdQty: {
-                name: "取消及售后退款单量",
-                pos: "left",
-                format: "number_0",
-                desc: "包括订单完成前的取消以及订单完成后的售后退款订单统计。取消统计的是当日之前成交，当日取消的订单累计成交单量。售后统计的是当日之前成交，当日售后退款完成的订单累计退款单量。",
-                minWidth: 100
-            }
-        });
-        break;
+A = {
+  'body': {
+    'data': [
+      [
+        600902,
+        33,
+        38,
+        5,
+        5,
+        41,
+        52,
+        50313.04,
+        730,
+        7382,
+        3702,
+        7,
+        80,
+        295,
+        1063,
+        617,
+        2243]],
+    'metaData': {
+      'meta': [
+        {
+          'di': 'jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem@date_end&brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem_increase@brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_user_open_member_shop_cnt_shopversion_brandmem@brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_user_invalid_member_shop_cnt_shopversion_brandmem@brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem_client@brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz@brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_deal_ord_ord_dis_qtty_shopversion_brandmem_sz@brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_deal_ord_ord_amt_shopversion_brandmem_sz@brandmem_card',
+          'type': 'double'
+        },
+        {
+          'di': 'jdr_sch_mkt_brow_shop_cnt_shopversion_brandmem_sz@brandmem_card&browse_brand',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_brow_shop_qtty_shopversion_brandmem_sz@brandmem_card&browse_brand',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_brow_sku_qtty_shopversion_brandmem_sz@brandmem_card&browse_brand',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_user_follow_sku_sku_qtty_shopversion_brandmem@brandmem_card&follow_brand',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_brow_shop_cnt_shopversion_brandmem_sz@brandmem_card&add_cart',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_ld30_rebuy_brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_ld30',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_rebuy_90d_brandmem_card',
+          'type': 'long'
+        },
+        {
+          'di': 'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_90d',
+          'type': 'long'
+        }],
+      'metaIndex': {
+        'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_ld30': 14,
+        'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz@brandmem_card': 5,
+        'jdr_sch_mkt_deal_ord_ord_amt_shopversion_brandmem_sz@brandmem_card': 7,
+        'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_90d': 16,
+        'jdr_sch_mkt_brow_shop_cnt_shopversion_brandmem_sz@brandmem_card&browse_brand': 8,
+        'jdr_sch_mkt_brow_shop_qtty_shopversion_brandmem_sz@brandmem_card&browse_brand': 9,
+        'jdr_sch_user_invalid_member_shop_cnt_shopversion_brandmem@brandmem_card': 3,
+        'jdr_sch_user_follow_sku_sku_qtty_shopversion_brandmem@brandmem_card&follow_brand': 11,
+        'jdr_sch_mkt_deal_ord_ord_dis_qtty_shopversion_brandmem_sz@brandmem_card': 6,
+        'jdr_sch_user_open_member_shop_cnt_shopversion_brandmem@brandmem_card': 2,
+        'jdr_sch_mkt_brow_shop_cnt_shopversion_brandmem_sz@brandmem_card&add_cart': 12,
+        'jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem_increase@brandmem_card': 1,
+        'jdr_sch_mkt_brow_sku_qtty_shopversion_brandmem_sz@brandmem_card&browse_brand': 10,
+        'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_rebuy_90d_brandmem_card': 15,
+        'jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem@date_end&brandmem_card': 0,
+        'jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem_client@brandmem_card': 4,
+        'jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_ld30_rebuy_brandmem_card': 13
+      }
+    },
+    'size': 100
+  },
+  'errors': [
+  ],
+  'header': {
+    'code': '200',
+    'desc': '成功',
+    'values': 'CacheDataStableInfo###{"jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_ld30":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz@brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_deal_ord_ord_amt_shopversion_brandmem_sz@brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_90d":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_brow_shop_cnt_shopversion_brandmem_sz@brandmem_card&browse_brand":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_brow_shop_qtty_shopversion_brandmem_sz@brandmem_card&browse_brand":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_user_invalid_member_shop_cnt_shopversion_brandmem@brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_user_follow_sku_sku_qtty_shopversion_brandmem@brandmem_card&follow_brand":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_deal_ord_ord_dis_qtty_shopversion_brandmem_sz@brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_user_open_member_shop_cnt_shopversion_brandmem@brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_brow_shop_cnt_shopversion_brandmem_sz@brandmem_card&add_cart":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem_increase@brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_brow_sku_qtty_shopversion_brandmem_sz@brandmem_card&browse_brand":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_rebuy_90d_brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem@date_end&brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem_client@brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200},"jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_ld30_rebuy_brandmem_card":{"tableList":["app_jdr_sz_shop_brand_mem_num_other_a_s_d_d"],"stableTime":1200}}###StableInfoEnd;'
+  }
+}

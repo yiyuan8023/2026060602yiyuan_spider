@@ -33,7 +33,7 @@ if __name__ == '__main__':
     db_config = None  # noqa
     # db_config = "rinnai_py"  # noqa
     shop_name_list = ['BMW官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
-    table_name = "jd_jdsz_交易_交易概况_全部渠道"
+    table_name = "jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509"
     site = '京东商智'
     shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 7)
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
                 item["key"] = f"{item['店铺名称']}_{item['统计日期']}_{item['日期类型']}"
                 items.append(item)
 
-                DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key="key")
+            DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key="key")
             logger.info(f"{shop_name}_{date}数据已入库")
         logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")
