@@ -55,6 +55,7 @@ class TaoKeCpsApi(TaoKeBaseApi):
             'Host': 'ad.alimama.com',  # noqa
         }
         res = requests.get(url=url, headers=headers, params=params)
+        print(res.json())
         if req_log(res):
             logger.success(f'成功！！！创建任务日期:{self.start_time}_{self.end_time}')
             return res.json()
@@ -77,7 +78,7 @@ class TaoKeCpsApi(TaoKeBaseApi):
             "pageNo": 1,
             "pageSize": 10,
             "bizType": 1,
-            # "status": 3,
+            "status": 3,
             # "timeer": t
         }
 
@@ -91,6 +92,7 @@ class TaoKeCpsApi(TaoKeBaseApi):
         url = api + urlencode(params)
         res = requests.get(url, headers=headers)
         if req_log(res):
+            # print(res.json())
             return res.json()
         else:
             return None
@@ -119,14 +121,7 @@ class TaoKeCpsApi(TaoKeBaseApi):
         if req_log(res):
             file_link = res.json().get("data", {}).get("urlList", [{}])[0].get("url")
             logger.info(file_link)
-            # items = Downloader(api=file_link, cookie=None, params=None, headers=None).download_csv()
-            data = Downloader(api=file_link).download_csv()
-            df = pd.read_csv(data)
-            df_filled = df.fillna("")
-            if df_filled.empty:
-                return {}
-            else:
-                items = df_filled.to_dict('records')
-                return items
+            items = Downloader(api=file_link).download_csv()
+            return items
         else:
             return None

@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 from API.API_ShengCan.ShengCanBase import ShengCanBaseApi
@@ -25,12 +24,8 @@ class Flow(ShengCanBaseApi):
         }
 
         try:
-            data = Downloader(api, self.cookie, params).download_excel()
-            df = pd.read_excel(data, skiprows=5)
-            if df.empty:
-                return {}
-            else:
-                return df.to_dict('records')
+            items = Downloader(api, cookie=self.cookie, params=params).download_excel(skiprows=5)
+            return items
         except Exception as e:
             logger.error(f"店铺来源_流量来源构成: day={day}, error={str(e)}")
             return None
@@ -47,8 +42,8 @@ class Flow(ShengCanBaseApi):
             "needCate": "undefined"
         }
         try:
-            data = Downloader(api, self.cookie, params).download_excel()
-            all_sheets = pd.read_excel(data, sheet_name=None, skiprows=5)
+            data = Downloader(api, cookie=self.cookie, params=params).download_excel_byte()
+            all_sheets = pd.read_excel(data, sheet_name=None, skiprows=5)  # 读取所有的工作表
             items_dict = {}
             for sheet_name, df in all_sheets.items():
                 if not df.empty:
@@ -75,16 +70,9 @@ class Flow(ShengCanBaseApi):
         }
 
         try:
-            data = Downloader(api, self.cookie, params).download_excel()
-            df = pd.read_excel(data, skiprows=5)
-
-            # df.empty 是 pandas DataFrame 的属性
-            # 用于检查 DataFrame 是否为空（没有任何行数据）
-            # to_dict('records')，将 DataFrame 转换为字典格式
-            if df.empty:
-                return {}
-            else:
-                return df.to_dict('records')
+            data = Downloader(api, cookie=self.cookie, params=params).download_excel(skiprows=5)
+            items = pd.read_excel(data, skiprows=5)
+            return items
         except Exception as e:
             logger.error(f"获取商品流量数据失败: item_id={item_id}, day={day}, error={str(e)}")
             return None
@@ -94,7 +82,7 @@ class Flow(ShengCanBaseApi):
 
         api = "https://sycm.taobao.com/flow/excel.do?"
         params = {
-            "_path_": "qzt/item/crowdtype/source/download", # NOQA
+            "_path_": "qzt/item/crowdtype/source/download",  # NOQA
             "dateType": "day",
             "dateRange": f"{day}|{day}",
             "crowdType": "all",
@@ -105,7 +93,7 @@ class Flow(ShengCanBaseApi):
         }
 
         try:
-            data = Downloader(api, self.cookie, params).download_excel()
+            data = Downloader(api, cookie=self.cookie, params=params).download_excel_byte()
             engine = excel_engine(data)
             data.seek(0)
 
@@ -133,10 +121,3 @@ class Flow(ShengCanBaseApi):
             logger.error(f"获取sheet1新版商品流量数据失败 - item_id: {item_id}, day: {day}, error: {str(e)}")
             return None, None
 
-#  """https://sycm.taobao.com/flow/gray/excel.do?_path_=v4/excel/shop/source/summay/v4
-#  &dateType=day
-#  &dateRange=2025-04-11|2025-04-11
-#  &crowdType=all
-#  &needCate=undefined"""
-#
-#

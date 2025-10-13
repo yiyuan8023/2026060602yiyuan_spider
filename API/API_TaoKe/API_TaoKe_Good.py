@@ -166,15 +166,7 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
         res_ = requests.get(url, headers=headers)
         if req_log(res_):
             file_link = res_.json().get("data", {}).get("urlList", [{}])[0].get("url")
-            # logger.info(file_link)
-            # items = Downloader(api=file_link, cookie=None, params=None, headers=None).download_csv()
-            data = Downloader(api=file_link).download_csv()
-            df = pd.read_csv(data)
-            df_filled = df.fillna("")
-            if df_filled.empty:
-                return {}
-            else:
-                items = df_filled.to_dict('records')
-                return items
+            items = Downloader(api=file_link).download_csv()
+            return items
         else:
             return None

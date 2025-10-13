@@ -48,15 +48,9 @@ class Goods(ShengCanBaseApi):
         }
 
         try:
-            data = Downloader(api=api, cookie=self.cookie, params=params).download_excel()
+            items = Downloader(api=api, cookie=self.cookie, params=params).download_excel(skiprows=4, engine='xlrd')
 
-            df = pd.read_excel(data, skiprows=4, engine='xlrd')
-
-            # 所有的NaN值（缺失值）替换为None
-            df.replace({np.nan: None}, inplace=True)
-
-            # 将数据转换为字典列表
-            return [] if df.empty else df.to_dict('records')
+            return items
 
         except Exception as e:
             return handle_request_error(e)
@@ -149,13 +143,8 @@ class Goods(ShengCanBaseApi):
         }
 
         try:
-            data = Downloader(api=api, cookie=self.cookie, params=params).download_excel() # NOQA
-            df = pd.read_excel(data, skiprows=5)
-            # 所有的NaN值（缺失值）替换为None
-            df.replace({np.nan: None}, inplace=True)
-            # 将数据转换为字典列表
-            return [] if df.empty else df.to_dict('records')
-
+            items = Downloader(api=api, cookie=self.cookie, params=params).download_excel(skiprows=5)
+            return items
         except Exception as e:
             logger.warning("请求返回为空或请求日志记录失败")
             return handle_request_error(e)
@@ -172,14 +161,8 @@ class Goods(ShengCanBaseApi):
             "dateRange": f"{day}|{day}"
         }
         try:
-            data = Downloader(api=api, cookie=self.cookie, params=params).download_excel() # NOQA
-            df = pd.read_excel(data, skiprows=5)
-
-            # 所有的NaN值（缺失值）替换为None
-            df.replace({np.nan: None}, inplace=True)
-
-            # 将数据转换为字典列表
-            return [] if df.empty else df.to_dict('records')
+            items = Downloader(api=api, cookie=self.cookie, params=params).download_excel(skiprows=5)
+            return items
 
         except Exception as e:
             return handle_request_error(e)

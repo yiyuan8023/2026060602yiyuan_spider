@@ -114,7 +114,7 @@ class MySellerTradeAPI(MySellerBaseAPI):
 
                     try:
                         # 这里的下载链接，必须传入cookie可以
-                        data = Downloader(url, cookie=self.cookie).download_excel()
+                        data = Downloader(url, cookie=self.cookie).download_excel_byte()
                         df = pd.read_excel(data, skiprows=0, engine='openpyxl')
                         # 所有的NaN值（缺失值）替换为None
                         df.replace({np.nan: None}, inplace=True)

@@ -13,10 +13,11 @@ if __name__ == "__main__":
     db_config = "rinnai_py"  # noqa
 
     shop_name_list = ['林内热水器旗舰店', '林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    # shop_name_list = ['林内热水器旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505"
     site = '淘宝联盟'  # noqa
     name_suffix = "订单结算明细报表"
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 3)
+    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 10)
     min_date, max_date = get_date_min_max(crawl_day_list)  # 获取最小和最大时间
 
     for i in shop_cookies:

@@ -1,5 +1,4 @@
-from API.API_ShengCan import Flow
-
+from API.API_ShengCan.Flow import Flow
 from extra.data_collector import data_collector
 from extra.database_manager import DatabaseManager
 from extra.logger_ import logger
@@ -21,10 +20,10 @@ if __name__ == '__main__':
     for i in shop_cookies:
         cookie = i[1]
         shop_name = i[0]
-        FlowObj = Flow(cookie)
+        Obj = Flow(cookie)
         for day in crawl_day_list:
             logger.info(f"正在采集{shop_name},{day}的数据")
-            items_dict = FlowObj.shop_from__flow_from_build__shop_flow_day(day)
+            items_dict = Obj.shop_from__flow_from_build__shop_flow_day(day)
             for sheet_name, items in items_dict.items():
                 if sheet_name == '分载体流量来源':
                     for item in items:

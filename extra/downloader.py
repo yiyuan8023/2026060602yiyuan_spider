@@ -1,7 +1,8 @@
 import io
 import zipfile
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Union
 
+import numpy as np
 import pandas as pd
 import requests
 from urllib.parse import urlencode
@@ -21,15 +22,23 @@ class Downloader:
 
     def __init__(self,
                  api: str,
+                 method: str = "get",  # 请求方式，支持get和post
                  cookie: Optional[str] = None,
                  params: Optional[Dict[str, Any]] = None,
-                 headers: Optional[Dict[str, str]] = None):
+                 headers: Optional[Dict[str, str]] = None,
+                 data: Optional[Union[Dict, str, bytes]] = None,
+                 json_data: Optional[Dict] = None,
+                 timeout: int = 30):
         self.api = api
+        self.method = method
         self.cookie = cookie
         self.params = params or {}
         self.headers = headers or {}
         self.url = self._build_url()
         self.default_headers = self._prepare_headers()
+        self.timeout = timeout
+        self.json_data = json_data
+        self.data = data or {}
 
     def _build_url(self):
         """
@@ -63,7 +72,7 @@ class Downloader:
             logger.info(f"请求URL: {self.url}")
             logger.info(f"响应状态码: {status_code}")
 
-    def make_request_get(self) -> requests.Response:
+    def _make_request_get(self) -> requests.Response:
         """
         发送HTTP GET请求的通用方法
         Returns: requests.Response: HTTP响应对象
@@ -80,22 +89,38 @@ class Downloader:
             logger.error(f"发送请求时发生未知错误: {e}")
             raise
 
-    def download_excel(self):
+    def _make_request_post(self) -> requests.Response:
         """
-        下载Excel文件并返回BytesIO对象
-        Returns: io.BytesIO: 包含Excel数据的BytesIO对象
+        发送HTTP POST请求的通用方法
+        Returns: requests.Response: HTTP响应对象
         """
         try:
-            res = self.make_request_get()  # 发送请求
-            return io.BytesIO(res.content)  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
+            logger.info(f"POST请求URL: {self.url}")
+            # 根据参数类型选择发送方式
+            if self.json_data is not None:
+                response = requests.post(
+                    self.url,
+                    json=self.json_data,
+                    headers=self.default_headers,
+                    timeout=self.timeout
+                )
+            else:
+                # 发送表单数据或其他数据
+                response = requests.post(
+                    self.url,
+                    data=self.data,
+                    headers=self.default_headers,
+                    timeout=self.timeout
+                )
+            req_log(response)
+            return response
 
         except requests.exceptions.RequestException as e:
-            logger.error(f"下载Excel文件失败: {e}")
-            raise  # 重新抛出异常，让调用方处理
-
+            logger.error(f"POST网络请求失败: {e}")
+            raise
         except Exception as e:
-            logger.error(f"处理Excel文件时发生未知错误: {e}")
-            raise  # 重新抛出异常，让调用方处理
+            logger.error(f"发送POST请求时发生未知错误: {e}")
+            raise
 
     def download_web(self):
         """
@@ -103,7 +128,10 @@ class Downloader:
         Returns: requests.Response: HTTP响应对象
         """
         try:
-            res = self.make_request_get()  # 发送请求
+            if self.method == "post":
+                res = self._make_request_post()
+            else:
+                res = self._make_request_get()  # 发送请求
             return res
 
         except requests.exceptions.RequestException as e:
@@ -116,12 +144,79 @@ class Downloader:
             logger.error(f"下载网页时发生未知错误: {e}")
             raise
 
+    def download_excel(self, sheet_name=0, skiprows=0, engine=None):  # noqa
+        """
+        下载Excel文件并返回BytesIO对象
+        Returns: io.BytesIO: 包含Excel数据的BytesIO对象
+        """
+        try:
+            res = self.download_web()
+            data = io.BytesIO(res.content)  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
+            df_excel = pd.read_excel(data, sheet_name=sheet_name, skiprows=skiprows, engine=engine)
+            # 所有的NaN值（缺失值）替换为None
+            # df_excel.replace({np.nan: None}, inplace=True) # 替代方案
+            df_filled = df_excel.fillna("")
+
+            # df.empty 是 pandas DataFrame 的属性， 用于检查 DataFrame 是否为空（没有任何行数据）
+            if df_filled.empty:
+                return {}
+            else:
+                items = df_filled.to_dict('records')  # to_dict('records')，将 DataFrame 转换为字典格式
+                return items
+
+        except requests.exceptions.RequestException as e:
+            logger.error(f"下载Excel文件失败: {e}")
+            raise  # 重新抛出异常，让调用方处理
+
+        except Exception as e:
+            logger.error(f"处理Excel文件时发生未知错误: {e}")
+            raise  # 重新抛出异常，让调用方处理
+
+    def download_excel_byte(self):
+        """
+        下载Excel文件并返回BytesIO对象
+        Returns: io.BytesIO: 包含Excel数据的BytesIO对象
+        """
+        try:
+            res = self.download_web()
+            return io.BytesIO(res.content)
+
+        except requests.exceptions.RequestException as e:
+            logger.error(f"下载Excel文件失败: {e}")
+            raise  # 重新抛出异常，让调用方处理
+
+        except Exception as e:
+            logger.error(f"处理Excel文件时发生未知错误: {e}")
+            raise  # 重新抛出异常，让调用方处理
+
+    def download_csv(self):
+        # 发送 HTTP 请求下载 csv 文件,返回BytesIO对象
+        try:
+            res = self.download_web()
+            data = io.BytesIO(res.content)  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
+            df_csv = pd.read_csv(data)
+            df_filled = df_csv.fillna("")
+            if df_filled.empty:
+                return {}
+            else:
+                items = df_filled.to_dict('records')
+                return items
+
+        except requests.exceptions.RequestException as e:
+            logger.error(f"下载csv文件失败: {e}")
+            raise  # 重新抛出异常，让调用方处理
+
+        except Exception as e:
+            logger.error(f"处理csv文件时发生未知错误: {e}")
+            raise  # 重新抛出异常，让调用方处理
+
     @staticmethod
     def detect_encoding(file_content):
+        # 是检测文件内容的字符编码格式。
         result = chardet.detect(file_content)
         return result["encoding"]
 
-    def download_zip(self):
+    def download_zip(self, file_type='csv'):
 
         """
         从指定 URL 下载 ZIP 文件并在内存中读取其中的 CSV 数据。
@@ -131,51 +226,27 @@ class Downloader:
         """
         try:
             # 发送 HTTP 请求下载 ZIP 文件
-            res = self.make_request_get()  # 发送请求
+            res = self.download_web()  # 发送请求
+            print(res.content)
 
             # 将 ZIP 文件加载到内存中
             with zipfile.ZipFile(io.BytesIO(res.content)) as zip_file:
 
-                # print(zip_file.namelist())
+                print(zip_file.namelist())
                 # 打开目标 CSV 文件并读取内容
-                with zip_file.open(zip_file.namelist()[0]) as csv_file:
-                    # 使用 Pandas 读取 CSV 数据
-                    file_content = csv_file.read()
-                    de_encoding = self.detect_encoding(file_content)
-                    logger.info(f"检测到的编码: {de_encoding}")
-                    df_data = pd.read_csv(io.BytesIO(file_content), encoding=de_encoding)
+                with zip_file.open(zip_file.namelist()[0]) as file:  # 第一个文件
+                    # 使用 Pandas 读取数据
+                    file_content = file.read()
+                    if file_type == 'csv':
+                        de_encoding = self.detect_encoding(file_content)
+                        logger.info(f"检测到的编码: {de_encoding}")
+                        df_data = pd.read_csv(io.BytesIO(file_content), encoding=de_encoding)
+                    elif file_type == 'excel':
+                        df_data = pd.read_excel(io.BytesIO(file_content))
+                    else:
+                        logger.error(f"不支持的文件类型: {file_type}")
             return df_data
 
         except Exception as e:
             print(f"发生错误: {e}")
             return None
-
-    def download_csv(self):
-        # 发送 HTTP 请求下载 csv 文件
-        data = self.download_excel()
-        return data
-
-
-if __name__ == '__main__':
-    url = (f"https://trade.taobao.com/trade/itemlist/export_by_tfs.do?"
-           f"f_p=oss%2Ftradeorderexport%2ForderExportData%2F24723487011.ossprivate.xlsx"  # NOQA
-           f"-8c91c21d9cb8b176fbb706e0c08c1726-items&amp;apply_time=2025-08-08+09%3A31%3A02&amp;"
-           f"start_time=2025-08-05+00%3A00%3A00&amp;end_time=2025-08-08+00%3A00%3A00&amp;"
-           f"order_status=%C8%AB%B2%BF&amp;export_id=24723487011")
-
-    print("开始下载Excel文件...")
-    downloader = Downloader(api=url)
-    excel_data = downloader.download_excel()
-
-    print(f"文件下载完成，大小: {excel_data.getbuffer().nbytes} 字节")
-
-    # 重置文件指针到开始位置
-    excel_data.seek(0)
-
-    # 尝试使用openpyxl读取
-    df = pd.read_excel(excel_data, engine='openpyxl')
-    print(f"成功读取Excel文件:")
-    print(f"  数据形状: {df.shape}")
-    print(f"  列名: {list(df.columns)}")
-    print("\n前5行数据:")
-    print(df.head())

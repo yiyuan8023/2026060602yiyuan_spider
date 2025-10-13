@@ -5,26 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a6f4c47-deb2-4f6a-a09d-c5fdc5bae925" name="更改" comment="Merge remote-tracking branch 'origin/master'">
-      <change afterPath="$PROJECT_DIR$/API/API_JingDong/source/response_jd_jdsz_客户_关注店铺用户概况_数据概览.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_客户_关注店铺用户概况_数据概览.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_服务_服务分析_售后服务单量.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-28.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-29.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-09-30.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-10-09.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-10-10.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-10-11.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/yiyuan2025-10-13.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_报表_新建报表_店铺_202509.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/JDSZ.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/API_Jdsz_Product.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_JingDong/API_Jdsz_Product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/JdSzCustomAPI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/JdSzServiceAPI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/log/runtime_2024-09-18.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API_JingDong/source/source_map_1" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_JingDong/source/source_map_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/yiyuan2025-09-26.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/yiyuan2025-09-26.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_交易_交易概况_全部渠道.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_交易_交易概况_全部渠道.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/JdSzReportAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_JingDong/API_Jdsz_ReportAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_JingDong/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_JingDong/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_ShengCan/Flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_ShengCan/Flow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_ShengCan/goods.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_ShengCan/goods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_TaoKe/API_TaoKe_Base.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_TaoKe/API_TaoKe_Base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_TaoKe/API_TaoKe_Cps.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_TaoKe/API_TaoKe_Cps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_TaoKe/API_TaoKe_Good.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_TaoKe/API_TaoKe_Good.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API_TiaoMaoMySeller/MysellerTrade.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/API_TiaoMaoMySeller/MysellerTrade.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extra/downloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra/downloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/执行脚本/手工处理/【手工】rinnai_ks_快手小店_售后_售后工作台_售后单_202501.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/手工处理/【手工】rinnai_ks_快手小店_售后_售后工作台_售后单_202501.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/执行脚本/手工处理/【手工】rinnai_ks_快手小店_订单查询_订单列表_202501.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/手工处理/【手工】rinnai_ks_快手小店_订单查询_订单列表_202501.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/执行脚本/淘系_生意参谋/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tool/pdf_to_jpg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/执行脚本/淘系_生意参谋/tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py" beforeDir="false" afterPath="$PROJECT_DIR$/执行脚本/淘系_生意参谋/tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +53,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="无" />
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -65,129 +67,133 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python 测试.Doctest convert_to_timestamp.executor": "Run",
-    "Python 测试.Doctests (extra_date 内).executor": "Run",
-    "Python 测试.Doctests in xls_to_xlsx.executor": "Run",
-    "Python.API_Pdd_Base.executor": "Run",
-    "Python.API_Pdd_Font_Decrypt.executor": "Run",
-    "Python.API_Taoke_DingXiang.executor": "Run",
-    "Python.MySellerBase_1755770042144.executor": "Run",
-    "Python.MySellerBase_1755831306218.executor": "Run",
-    "Python.MysellerTrade.executor": "Run",
-    "Python.TaoKeBaseApi.executor": "Debug",
-    "Python.TaoKeCpsApi.executor": "Run",
-    "Python.TbLiveDataAPI.executor": "Run",
-    "Python.YingDaoBase.executor": "Run",
-    "Python.aa.executor": "Run",
-    "Python.database_manager.executor": "Run",
-    "Python.database_manager_1755859865787.executor": "Run",
-    "Python.db_get_all_table.executor": "Run",
-    "Python.db_table_copy (1).executor": "Run",
-    "Python.db_table_copy.executor": "Run",
-    "Python.dbtable_copy.executor": "Run",
-    "Python.downloader.executor": "Run",
-    "Python.dy_抖店_订单_订单管理_自定义报表_订单维度_202505.executor": "Run",
-    "Python.en_to_cn.executor": "Run",
-    "Python.excel_to_db.executor": "Run",
-    "Python.extra_cookie.executor": "Run",
-    "Python.extra_date.executor": "Run",
-    "Python.extra_excel (1).executor": "Run",
-    "Python.extra_path.executor": "Run",
-    "Python.extra_time.executor": "Run",
-    "Python.get_new_cookie.executor": "Run",
-    "Python.goods.executor": "Run",
-    "Python.html_to_db (1).executor": "Run",
-    "Python.html_to_db.executor": "Run",
-    "Python.html_to_公众号.executor": "Run",
-    "Python.jd_jdsz_交易_交易概况_全部渠道.executor": "Run",
-    "Python.jd_jdsz_商品_商品明细_sku_202504.executor": "Run",
-    "Python.jd_jdsz_商品_商品明细_spu_202504.executor": "Run",
-    "Python.jd_jdsz_商品_类目分析_行业类目.executor": "Run",
-    "Python.jd_jdsz_客户_关注店铺用户概况_数据概览.executor": "Run",
-    "Python.jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509.executor": "Run",
-    "Python.jd_jdsz_服务_服务分析_售后服务单量.executor": "Run",
-    "Python.live_cookie_manager.executor": "Run",
-    "Python.logger_.executor": "Run",
-    "Python.login_.executor": "Run",
-    "Python.pack.executor": "Run",
-    "Python.pdd_数据中心_交易数据_数据总览.executor": "Run",
-    "Python.pdd_数据中心_商品数据_商品明细_商品明细效果.executor": "Run",
-    "Python.pdd_数据中心_商品数据_商品概况.executor": "Run",
-    "Python.pdd_数据中心_商品数据_商品概况_实时数据.executor": "Run",
-    "Python.pdd_数据中心_服务数据_售后数据.executor": "Run",
-    "Python.pdd_数据中心_流量数据_流量看板_数据总览_202509.executor": "Run",
-    "Python.rename_folders.executor": "Run",
-    "Python.rinnai_dy_抖店_售后_售后工作台_退款管理_202411.executor": "Run",
-    "Python.rinnai_ks_快手小店_售后_售后工作台_售后单_202501.executor": "Run",
-    "Python.rinnai_ks_快手小店_订单查询_订单列表_202501.executor": "Run",
-    "Python.save_to_excel.executor": "Run",
-    "Python.scan_system_programs.executor": "Run",
-    "Python.tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507 (1).executor": "Run",
-    "Python.tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.executor": "Run",
-    "Python.tb_sycm_商品_品类360_流量分析_流量来源_202504.executor": "Run",
-    "Python.tb_sycm_商品_商品360_标题优化_搜索词_202504.executor": "Run",
-    "Python.tb_sycm_商品_商品排行_全部商品_202504.executor": "Run",
-    "Python.tb_sycm_流量_商品来源_商品来源流量_新版_202504.executor": "Run",
-    "Python.tb_sycm_流量_商品来源_商品来源流量_旧版_202504.executor": "Run",
-    "Python.tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.executor": "Run",
-    "Python.tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.executor": "Run",
-    "Python.tb_sycm_首页_数据概览_图表_新版_202504 (1).executor": "Run",
-    "Python.tb_sycm_首页_数据概览_图表_新版_202504.executor": "Run",
-    "Python.tb_tg_万相台无界_基础报表_人群报表_202504 (1).executor": "Run",
-    "Python.tb_tg_万相台无界_基础报表_人群报表_202504.executor": "Run",
-    "Python.tb_tg_万相台无界_基础报表_关键词_202504.executor": "Run",
-    "Python.tb_tg_万相台无界_基础报表_宝贝主体_202504.executor": "Run",
-    "Python.tb_tk_淘宝联盟_商品分析_202504.executor": "Run",
-    "Python.tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.executor": "Run",
-    "Python.tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.executor": "Run",
-    "Python.tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.executor": "Run",
-    "Python.tb_zbzkt_数据_直播概览_每日分析_202507.executor": "Run",
-    "Python.tb_商家工作台_交易_已卖出宝贝_宝贝报表明细_202504.executor": "Run",
-    "Python.tempfile_1753421115103.executor": "Run",
-    "Python.tempfile_1754879591454.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.xls_to_xlsx.executor": "Run",
-    "Python.yp_报表管理_目录视图_预实汇总_032001 (1).executor": "Run",
-    "Python.yp_报表管理_目录视图_预实汇总_032001.executor": "Run",
-    "Python.万相台无界_基础报表_人群报表.executor": "Run",
-    "Python.公众号评论获取(from_db).executor": "Run",
-    "Python.公众号评论获取.executor": "Run",
-    "Python.商家工作台_交易_已卖出宝贝_宝贝报表明细.executor": "Run",
-    "Python.商家工作台_交易_已卖出宝贝_宝贝报表明细1.executor": "Debug",
-    "Python.定时执行.executor": "Run",
-    "Python.并行多次程序.executor": "Run",
-    "Python.影刀社区问题收集.executor": "Run",
-    "Python.测试.executor": "Run",
-    "Python.淘宝直播cookie (1).executor": "Run",
-    "Python.生参内容_渠道效果_推荐_单条效果_微详情视频.executor": "Run",
-    "Python.生参商品排行_全部商品.executor": "Debug",
-    "Python.生参首页_数据概览_图表.executor": "Run",
-    "Python.直播cookie.executor": "Run",
-    "Python.财务_预实分析 (1).executor": "Run",
-    "Python.预实分析.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/admin/Desktop/yiyuan_spider/执行脚本/京东",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "C:\\other\\nodejs\\node.exe",
-    "settings.editor.selected.configurable": "settings.nodejs",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python 测试.Doctest convert_to_timestamp.executor&quot;: &quot;Run&quot;,
+    &quot;Python 测试.Doctests (extra_date 内).executor&quot;: &quot;Run&quot;,
+    &quot;Python 测试.Doctests in xls_to_xlsx.executor&quot;: &quot;Run&quot;,
+    &quot;Python.API_Pdd_Base.executor&quot;: &quot;Run&quot;,
+    &quot;Python.API_Pdd_Font_Decrypt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.API_Taoke_DingXiang.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MySellerBase_1755770042144.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MySellerBase_1755831306218.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MysellerTrade.executor&quot;: &quot;Run&quot;,
+    &quot;Python.TaoKeBaseApi.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.TaoKeCpsApi.executor&quot;: &quot;Run&quot;,
+    &quot;Python.TbLiveDataAPI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.YingDaoBase.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aa.executor&quot;: &quot;Run&quot;,
+    &quot;Python.database_manager.executor&quot;: &quot;Run&quot;,
+    &quot;Python.database_manager_1755859865787.executor&quot;: &quot;Run&quot;,
+    &quot;Python.db_get_all_table.executor&quot;: &quot;Run&quot;,
+    &quot;Python.db_table_copy (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.db_table_copy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dbtable_copy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.downloader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dy_抖店_订单_订单管理_自定义报表_订单维度_202505.executor&quot;: &quot;Run&quot;,
+    &quot;Python.en_to_cn.executor&quot;: &quot;Run&quot;,
+    &quot;Python.excel_to_db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extra_cookie.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extra_date.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extra_excel (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.extra_path.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extra_time.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_new_cookie.executor&quot;: &quot;Run&quot;,
+    &quot;Python.goods.executor&quot;: &quot;Run&quot;,
+    &quot;Python.html_to_db (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.html_to_db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.html_to_公众号.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jd_jdsz_交易_交易概况_全部渠道.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jd_jdsz_商品_商品明细_sku_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jd_jdsz_商品_商品明细_spu_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jd_jdsz_商品_类目分析_行业类目.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jd_jdsz_客户_关注店铺用户概况_数据概览.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jd_jdsz_报表_新建报表_店铺_202509.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jd_jdsz_服务_服务分析_售后服务单量.executor&quot;: &quot;Run&quot;,
+    &quot;Python.live_cookie_manager.executor&quot;: &quot;Run&quot;,
+    &quot;Python.logger_.executor&quot;: &quot;Run&quot;,
+    &quot;Python.login_.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pack.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pdd_数据中心_交易数据_数据总览.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pdd_数据中心_商品数据_商品明细_商品明细效果.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pdd_数据中心_商品数据_商品概况.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pdd_数据中心_商品数据_商品概况_实时数据.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pdd_数据中心_服务数据_售后数据.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pdd_数据中心_流量数据_流量看板_数据总览_202509.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pdf_to_jpg.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rename_folders.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rinnai_dy_抖店_售后_售后工作台_退款管理_202411.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rinnai_ks_快手小店_售后_售后工作台_售后单_202501.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rinnai_ks_快手小店_订单查询_订单列表_202501.executor&quot;: &quot;Run&quot;,
+    &quot;Python.save_to_excel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scan_system_programs.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_商品_品类360_流量分析_流量来源_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_商品_商品360_标题优化_搜索词_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_商品_商品排行_全部商品_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_流量_商品来源_商品来源流量_新版_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_流量_商品来源_商品来源流量_旧版_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_流量_店铺来源_流量来源构成_全店流量_新版.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_首页_数据概览_图表_新版_202504 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_sycm_首页_数据概览_图表_新版_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_tg_万相台无界_基础报表_人群报表_202504 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_tg_万相台无界_基础报表_人群报表_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_tg_万相台无界_基础报表_关键词_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_tg_万相台无界_基础报表_宝贝主体_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_tk_淘宝联盟_商品分析_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_zbzkt_数据_直播概览_每日分析_202507.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tb_商家工作台_交易_已卖出宝贝_宝贝报表明细_202504.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tempfile_1753421115103.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tempfile_1754879591454.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.xls_to_xlsx.executor&quot;: &quot;Run&quot;,
+    &quot;Python.yp_报表管理_目录视图_预实汇总_032001 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.yp_报表管理_目录视图_预实汇总_032001.executor&quot;: &quot;Run&quot;,
+    &quot;Python.【手工】rinnai_ks_快手小店_售后_售后工作台_售后单_202501.executor&quot;: &quot;Run&quot;,
+    &quot;Python.【手工】rinnai_ks_快手小店_订单查询_订单列表_202501.executor&quot;: &quot;Run&quot;,
+    &quot;Python.万相台无界_基础报表_人群报表.executor&quot;: &quot;Run&quot;,
+    &quot;Python.公众号评论获取(from_db).executor&quot;: &quot;Run&quot;,
+    &quot;Python.公众号评论获取.executor&quot;: &quot;Run&quot;,
+    &quot;Python.商家工作台_交易_已卖出宝贝_宝贝报表明细.executor&quot;: &quot;Run&quot;,
+    &quot;Python.商家工作台_交易_已卖出宝贝_宝贝报表明细1.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.定时执行.executor&quot;: &quot;Run&quot;,
+    &quot;Python.并行多次程序.executor&quot;: &quot;Run&quot;,
+    &quot;Python.影刀社区问题收集.executor&quot;: &quot;Run&quot;,
+    &quot;Python.测试.executor&quot;: &quot;Run&quot;,
+    &quot;Python.淘宝直播cookie (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.生参内容_渠道效果_推荐_单条效果_微详情视频.executor&quot;: &quot;Run&quot;,
+    &quot;Python.生参商品排行_全部商品.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.生参首页_数据概览_图表.executor&quot;: &quot;Run&quot;,
+    &quot;Python.直播cookie.executor&quot;: &quot;Run&quot;,
+    &quot;Python.财务_预实分析 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.预实分析.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Desktop/yiyuan_spider/执行脚本/京东&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;C:\\other\\nodejs\\node.exe&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\yiyuan_spider\执行脚本\京东" />
@@ -204,122 +210,7 @@
       <recent name="C:\Users\admin\Desktop\yiyuan_spider\财务" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509">
-    <configuration name="jd_jdsz_交易_交易概况_全部渠道" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/京东" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_交易_交易概况_全部渠道.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="jd_jdsz_服务_服务分析_售后服务单量" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/京东" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_服务_服务分析_售后服务单量.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="jd_jdsz_客户_关注店铺用户概况_数据概览" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/京东" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_客户_关注店铺用户概况_数据概览.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/京东" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="jd_jdsz_商品_商品明细_sku_202504" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="yiyuan_spider" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/京东" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/京东/jd_jdsz_商品_商品明细_sku_202504.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品">
     <configuration name="pdd_数据中心_交易数据_数据总览" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="yiyuan_spider" />
       <option name="ENV_FILES" value="" />
@@ -358,6 +249,121 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/拼多多/pdd_数据中心_交易数据_数据总览.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="【手工】rinnai_ks_快手小店_订单查询_订单列表_202501" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/手工处理" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/手工处理/【手工】rinnai_ks_快手小店_订单查询_订单列表_202501.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_tk_淘宝联盟_商品分析_202504" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_商品分析_202504.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yiyuan_spider" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -368,11 +374,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.jd_jdsz_客户_品牌会员_会员概况_开卡会员_202509" />
-        <item itemvalue="Python.jd_jdsz_客户_关注店铺用户概况_数据概览" />
-        <item itemvalue="Python.jd_jdsz_服务_服务分析_售后服务单量" />
-        <item itemvalue="Python.jd_jdsz_交易_交易概况_全部渠道" />
-        <item itemvalue="Python.jd_jdsz_商品_商品明细_sku_202504" />
+        <item itemvalue="Python.tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品" />
+        <item itemvalue="Python.tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509" />
+        <item itemvalue="Python.tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505" />
+        <item itemvalue="Python.tb_tk_淘宝联盟_商品分析_202504" />
+        <item itemvalue="Python.【手工】rinnai_ks_快手小店_订单查询_订单列表_202501" />
       </list>
     </recent_temporary>
   </component>
@@ -412,7 +418,8 @@
       <workItem from="1755676242464" duration="35231000" />
       <workItem from="1756981625383" duration="119554000" />
       <workItem from="1758090017507" duration="31186000" />
-      <workItem from="1758191546717" duration="98915000" />
+      <workItem from="1758191546717" duration="139112000" />
+      <workItem from="1760314365782" duration="627000" />
     </task>
     <task id="LOCAL-00001" summary="初版">
       <option name="closed" value="true" />
@@ -702,7 +709,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758872208088</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1758883526635</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1758883526635</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1758883600856</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1758883600856</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -990,6 +1013,26 @@
           <line>52</line>
           <option name="timeStamp" value="187" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/API/API_TaoKe/API_TaoKe_Base.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/API/API_TaoKe/API_TaoKe_Cps.py</url>
+          <line>56</line>
+          <option name="timeStamp" value="205" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -1006,6 +1049,7 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$.coverage" NAME="并行多次程序 覆盖结果" MODIFIED="1758675702460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$db_get_all_table.coverage" NAME="db_get_all_table 覆盖结果" MODIFIED="1754028941261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$html_to_db__1_.coverage" NAME="html_to_db (1) 覆盖结果" MODIFIED="1755875802713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/公众号" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$pdf_to_jpg.coverage" NAME="pdf_to_jpg 覆盖结果" MODIFIED="1759050888358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$TaoKeCpsApi.coverage" NAME="TaoKeCpsApi 覆盖结果" MODIFIED="1756971003236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TaoBaoLianMengApi" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$yp____032001.coverage" NAME="yp_报表管理_目录视图_预实汇总_032001 覆盖结果" MODIFIED="1758182379975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/财务" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$scan_system_programs.coverage" NAME="scan_system_programs 覆盖结果" MODIFIED="1754882634724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
@@ -1022,7 +1066,7 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$get_new_cookie.coverage" NAME="get_new_cookie 覆盖结果" MODIFIED="1754900063964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cookie_manager" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$cookie.coverage" NAME="直播cookie 覆盖结果" MODIFIED="1754909066229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cookie_manager" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$goods.coverage" NAME="goods 覆盖结果" MODIFIED="1753952271495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ShengCanApi" />
-    <SUITE FILE_PATH="coverage/yiyuan_spider$rinnai_ks____202501.coverage" NAME="rinnai_ks_快手小店_订单查询_订单列表_202501 覆盖结果" MODIFIED="1758018996898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/快手" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$rinnai_ks____202501.coverage" NAME="【手工】rinnai_ks_快手小店_订单查询_订单列表_202501 覆盖结果" MODIFIED="1760065569825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/手工处理" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$db_table_copy__1_.coverage" NAME="db_table_copy (1) 覆盖结果" MODIFIED="1754029076308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$_from_db_.coverage" NAME="公众号评论获取(from_db) 覆盖结果" MODIFIED="1756206370713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/公众号" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$jd_jdsz___sku_202504.coverage" NAME="jd_jdsz_商品_商品明细_sku_202504 覆盖结果" MODIFIED="1758866221720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/京东" />
@@ -1034,10 +1078,10 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$_.coverage" NAME="生参商品排行_全部商品 覆盖结果" MODIFIED="1753691817301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$save_to_excel.coverage" NAME="save_to_excel 覆盖结果" MODIFIED="1757580456590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/excel" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm_____202504__1_.coverage" NAME="tb_sycm_首页_数据概览_图表_新版_202504 (1) 覆盖结果" MODIFIED="1753866504440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tk___cps__202505.coverage" NAME="tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505 覆盖结果" MODIFIED="1758848705141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tk___cps__202505.coverage" NAME="tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505 覆盖结果" MODIFIED="1760314378594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$dbtable_copy.coverage" NAME="dbtable_copy 覆盖结果" MODIFIED="1754025431076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$YingDaoBase.coverage" NAME="YingDaoBase 覆盖结果" MODIFIED="1757574436071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_YingDao" />
-    <SUITE FILE_PATH="coverage/yiyuan_spider$rinnai_ks_____202501.coverage" NAME="rinnai_ks_快手小店_售后_售后工作台_售后单_202501 覆盖结果" MODIFIED="1758019589131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/快手" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$rinnai_ks_____202501.coverage" NAME="【手工】rinnai_ks_快手小店_售后_售后工作台_售后单_202501 覆盖结果" MODIFIED="1760065519551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/手工处理" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tg____202504.coverage" NAME="tb_tg_万相台无界_基础报表_宝贝主体_202504 覆盖结果" MODIFIED="1754636891901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_万相台" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm______202504.coverage" NAME="tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504 覆盖结果" MODIFIED="1754640671956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/生意参谋" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$Doctests__extra_date__.coverage" NAME="Doctests (extra_date 内) 覆盖结果" MODIFIED="1753687572108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -1045,9 +1089,9 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$TaoKeBaseApi.coverage" NAME="TaoKeBaseApi 覆盖结果" MODIFIED="1756973981548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TaoBaoLianMengApi" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$logger_.coverage" NAME="logger_ 覆盖结果" MODIFIED="1753437220692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$API_Pdd_Font_Decrypt.coverage" NAME="API_Pdd_Font_Decrypt 覆盖结果" MODIFIED="1758272493147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API/API_Pdd" />
-    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tk___202504.coverage" NAME="tb_tk_淘宝联盟_商品分析_202504 覆盖结果" MODIFIED="1758848702195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tk___202504.coverage" NAME="tb_tk_淘宝联盟_商品分析_202504 覆盖结果" MODIFIED="1760314375396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$MySellerBase_1755831306218.coverage" NAME="MySellerBase_1755831306218 覆盖结果" MODIFIED="1755831619535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TiaoMaoMySellerApi" />
-    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tk_____202509.coverage" NAME="tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509 覆盖结果" MODIFIED="1758848811779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tk_____202509.coverage" NAME="tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509 覆盖结果" MODIFIED="1760314382318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$___.coverage" NAME="商家工作台_交易_已卖出宝贝_宝贝报表明细 覆盖结果" MODIFIED="1754557866712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_商家工作台" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_sycm____202504.coverage" NAME="tb_sycm_商品_商品排行_全部商品_202504 覆盖结果" MODIFIED="1755674868748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_生意参谋" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$html_to_.coverage" NAME="html_to_公众号 覆盖结果" MODIFIED="1755832143660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
@@ -1059,6 +1103,7 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$aa.coverage" NAME="aa 覆盖结果" MODIFIED="1757152681579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_淘宝联盟" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$excel_to_db.coverage" NAME="excel_to_db 覆盖结果" MODIFIED="1758013716787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/excel" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$login_.coverage" NAME="login_ 覆盖结果" MODIFIED="1754643402702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TiaoMaoMySellerApi" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$jd_jdsz____202509.coverage" NAME="jd_jdsz_报表_新建报表_店铺_202509 覆盖结果" MODIFIED="1759127325825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/京东" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$MysellerTrade.coverage" NAME="MysellerTrade 覆盖结果" MODIFIED="1754551511183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TiaoMaoMySellerApi" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$db_table_copy.coverage" NAME="db_table_copy 覆盖结果" MODIFIED="1754636359686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$en_to_cn.coverage" NAME="en_to_cn 覆盖结果" MODIFIED="1758785392933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/extra" />
@@ -1073,7 +1118,7 @@
     <SUITE FILE_PATH="coverage/yiyuan_spider$extra_time.coverage" NAME="extra_time 覆盖结果" MODIFIED="1753427328110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$tb_zbzkt____202507.coverage" NAME="tb_zbzkt_数据_直播概览_每日分析_202507 覆盖结果" MODIFIED="1755687404431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_直播" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$Doctest_convert_to_timestamp.coverage" NAME="Doctest convert_to_timestamp 覆盖结果" MODIFIED="1753422903846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tk_____.coverage" NAME="tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品 覆盖结果" MODIFIED="1758848710174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
+    <SUITE FILE_PATH="coverage/yiyuan_spider$tb_tk_____.coverage" NAME="tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品 覆盖结果" MODIFIED="1760314385538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/淘系_淘宝联盟" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$yp____032001__1_.coverage" NAME="yp_报表管理_目录视图_预实汇总_032001 (1) 覆盖结果" MODIFIED="1757323778540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/财务" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$dy______202505.coverage" NAME="dy_抖店_订单_订单管理_自定义报表_订单维度_202505 覆盖结果" MODIFIED="1758160518981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/执行脚本/快手" />
     <SUITE FILE_PATH="coverage/yiyuan_spider$__.coverage" NAME="万相台无界_基础报表_人群报表 覆盖结果" MODIFIED="1753957717249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/淘系_万相台" />

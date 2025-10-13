@@ -24,3 +24,4 @@ pillow~=11.3.0
 glcl~=0.2.3
 retrying~=1.4.2
 fonttools~=4.60.0
+pdf2image~=1.17.0

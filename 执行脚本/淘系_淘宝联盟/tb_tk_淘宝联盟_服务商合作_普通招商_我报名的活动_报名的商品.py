@@ -80,6 +80,7 @@ if __name__ == "__main__":
         for page in pages:
             logger.info(f"正常采集第{page}页数据")
             res = Obj.tb_tk_my_enrolled_products(page)
+            # print( res)
             items = extract_items(res)
             print(items)
             for item in items:

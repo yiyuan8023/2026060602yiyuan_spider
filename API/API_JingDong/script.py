@@ -10,7 +10,7 @@ from time import sleep
 from DB import DB
 from JdSzCustomAPI import JdSzCustomAPI
 from API_Jdsz_Product import JdSzProductAPI
-from JdSzReportAPI import JdSzReportAPI
+from API_Jdsz_ReportAPI import JdSzReportAPI
 from JdSzServiceAPI import JdSzServiceAPI
 from cn_en_map import cn_en_map
 from JdSzTradeAPI import JdSzTradeAPI

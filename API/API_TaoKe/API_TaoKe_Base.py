@@ -26,7 +26,7 @@ class TaoKeBaseApi(object):
         result = task_status_list_res.get('data', {}).get('result', [])
         finish_task, un_finish_task = self._process_task_status(result)
 
-        # logger.info(finish_task)
+        logger.info(finish_task)
         return finish_task, un_finish_task
 
     @staticmethod
