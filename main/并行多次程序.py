@@ -124,7 +124,7 @@ def main():
         },
         {
             'name': '我报名的商品',
-            'command': ['python', 'tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py'],
+            'command': ['python', 'tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品_202509.py'],
             'cwd': r'C:\Users\admin\Desktop\yiyuan_spider\执行脚本\淘系_淘宝联盟',
             'timeout': 1800
         },

@@ -2,8 +2,8 @@
 
 from API.API_Pdd.API_Pdd_Centre import PddDataCentre
 from API.API_Pdd.API_Pdd_Font_Decrypt import decrypt_unicode_string, res_decrypt
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 from extra.settings import EMAIL
 
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "pdd_数据中心_商品数据_商品明细_商品明细效果"
     site = '拼多多'
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 1)
 
     for i in shop_cookies:
         cookie = i[1]
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
                 print(items)
 
-                DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key="key")
+                DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key="key")
                 logger.info(f"{shop_name}_{crawl_day_list}数据已入库")
         logger.info("-" * 100)
 logger.info(f"\n{'*' * 120}")

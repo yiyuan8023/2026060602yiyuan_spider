@@ -1,4 +1,3 @@
-
 """
 主要函数列表：
 ensure_datetime：确保输入是 datetime 对象，支持自动检测常见日期格式
@@ -7,7 +6,7 @@ get_time_ago：获取指定日期n个时间单位前的日期字符串
 get_recent_days：获取最近n天的日期列表（不包括今天）
 get_date_range：获取两个日期之间的日期列表，支持多种日期格式
 get_date_List_sorted：获取指定非连续日期列表并排序，支持多种日期格式输入和自定义输出格式
-format_timestamp：将时间戳转换为标准日期格式
+get_format_timestamp：将时间戳转换为标准日期格式
 get_second_timestamp：将时间转换为时间戳（秒级）
 get_millisecond_timestamp：将时间转换为毫秒级时间戳  # noqa
 get_second_timestamp_18oe：将时间转换为毫秒级时间戳（通过秒级转换）
@@ -17,13 +16,18 @@ get_month_first_days_in_range：获取指定日期区间内所有月份的月初
 get_unique_month_first_days：获取非连续日期列表中每个日期所在月份的月初日期
 get_date_min_max：获取日期列表中的最小值和最大值日期
 get_min_max_timestamps：获取日期列表中的最小值和最大值日期对应的时间戳
-spLit_date_range：将日期区间按指定天数间隔分割
+get_spLit_date_range：将日期区间按指定天数间隔分割
+get_df_min_max_date:获取df表中日期列中的最大日期和最小日期
+get_items_min_max_date:获取items表中日期列中的最大日期和最小日期
 """
-
 
 from calendar import monthrange
 from datetime import datetime, timedelta, date
 from typing import Union, List, Tuple
+
+import pandas as pd
+
+from extra.logger_ import logger
 
 
 def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
@@ -200,7 +204,7 @@ def get_date_list_sorted(date_inputs: List[Union[str, datetime]],
     return result
 
 
-def format_timestamp(timestamp):
+def get_format_timestamp(timestamp):
     """
     将时间戳转换为标准日期格式
     Args:       timestamp (int/float): 时间戳（支持秒级或毫秒级）
@@ -439,7 +443,7 @@ def get_min_max_timestamps(date_inputs: List[Union[str, datetime]]) -> Tuple[int
     return min_timestamp, max_timestamp
 
 
-def split_date_range(
+def get_split_date_range(
         start_date: Union[str, datetime],
         end_date: Union[str, datetime],
         interval_days: int = 30,
@@ -457,7 +461,7 @@ def split_date_range(
         List[Tuple[str, str]]: 包含(最小日期, 最大日期)的元组列表
 
     Examples:
-        >>> split_date_range("2025-01-01", "2025-03-15", 30)
+        >>> get_split_date_range("2025-01-01", "2025-03-15", 30)
         [('2025-01-01', '2025-01-30'), ('2025-01-31', '2025-03-01'), ('2025-03-02', '2025-03-15')]
     """
     # 使用现有函数解析日期
@@ -491,16 +495,63 @@ def split_date_range(
     return result
 
 
+def get_df_min_max_date(df, date_column_name="日期"):
+    # DataFrame中将日期列转换为 datetime 类型
+    df[date_column_name] = pd.to_datetime(df[date_column_name])
+
+    # 获取日期区间的最小值和最大值
+    min_date = df["日期"].min()
+    max_date = df["日期"].max()
+    logger.info(f"日期区间: {min_date} - {max_date}")
+    return min_date, max_date
+
+
+def get_items_min_max_date(items, date_column_name="日期"):
+    """ 从items列表中获取最大日期和最小日期
+    Args:
+        items: 包含日期信息的字典列表
+        date_column_name: 日期字段的键名，默认为"日期"
+
+    Returns:
+        tuple: (最小日期, 最大日期) 的元组
+    """
+
+    if not items:
+        return None, None
+
+    # 提取所有日期并转换为datetime对象
+    dates = []
+    for item in items:
+        if date_column_name in item and item[date_column_name]:
+            try:
+                # 使用ensure_datetime函数处理日期格式
+                date_obj = ensure_datetime(item[date_column_name])
+                dates.append(date_obj)
+            except ValueError:
+                continue
+
+    if not dates:
+        return None, None
+
+    # 获取最小值和最大值
+    min_date = min(dates)
+    max_date = max(dates)
+    logger.info(f"日期区间: {min_date} - {max_date}")
+    return min_date.strftime("%Y-%m-%d"), max_date.strftime("%Y-%m-%d")
+
+
 # 使用示例
 if __name__ == "__main__":
-    # 获取最近3天
-    recent_3_days = get_recent_days(3)
-    print(f"最近3天: {recent_3_days}")
+    # # 获取最近3天
+    # recent_3_days = get_recent_days(3)
+    # print(f"最近3天: {recent_3_days}")
+    #
+    # result1 = get_date_range("20250721")
+    # print(f"日期区间: {result1}")
+    #
+    # result_format = get_date_list_sorted(["2025-07-01", "2025-07-21", "2025-07-25"], )
+    # print(f"中文格式: {result_format}")
+    #
+    # print(f"获取最近3个月的月初: {get_recent_months_first_day(3)}")
 
-    result1 = get_date_range("20250721")
-    print(f"日期区间: {result1}")
-
-    result_format = get_date_list_sorted(["2025-07-01", "2025-07-21", "2025-07-25"], )
-    print(f"中文格式: {result_format}")
-
-    print(f"获取最近3个月的月初: {get_recent_months_first_day(3)}")
+    print(f"新增字段，添加时间: {get_date()}")

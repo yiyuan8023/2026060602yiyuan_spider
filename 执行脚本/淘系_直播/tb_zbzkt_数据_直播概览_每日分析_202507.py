@@ -1,7 +1,7 @@
 
 from API.API_TiaoMaoMySeller import TbLiveDataAPI
 
-from extra.data_collector import data_collector
+from extra.select_shop_date import select_shop_date
 from extra.logger_ import logger
 
 
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     db_table_name = "tb_zbzkt_数据_直播概览_每日分析_202507" # noqa
     site = '淘系_直播中控台'
-    shop_cookies, crawl_day_list = data_collector(db_table_name, site, shop_name_list, 1)
+    shop_cookies, crawl_day_list = select_shop_date(db_table_name, site, shop_name_list, 1)
 
     for i in shop_cookies:
         cookie = i[1]

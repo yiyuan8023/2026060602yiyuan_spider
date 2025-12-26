@@ -91,7 +91,7 @@ def main():
     programs = [
         {
             'name': '数据采集脚本',
-            'command': ['python', 'data_collector.py'],
+            'command': ['python', 'select_shop_date.py'],
             'cwd': r'C:\Users\admin\Desktop\yiyuan_spider',
             'timeout': 1800
         },

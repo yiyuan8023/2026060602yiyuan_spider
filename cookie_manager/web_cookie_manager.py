@@ -2,7 +2,7 @@ import json
 from playwright.sync_api import sync_playwright
 
 
-from extra.database_manager import DatabaseManager
+from extra.db_manager import DBManager
 
 
 class WebCookieManager:

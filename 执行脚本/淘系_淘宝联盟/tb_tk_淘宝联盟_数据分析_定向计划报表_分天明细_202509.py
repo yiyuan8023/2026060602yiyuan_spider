@@ -1,7 +1,7 @@
 # File: 淘宝联盟_商品分析
 from API.API_TaoKe.API_Taoke_DingXiang import TaoKeDingXiangApi
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 
 from extra.extra_date import get_date_min_max
 
@@ -12,7 +12,7 @@ if __name__ == "__main__":
     shop_name_list = ['林内热水器旗舰店', '林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509"
     site = '淘宝联盟'
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 30)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 30)
     min_time, max_time = get_date_min_max(crawl_day_list)
 
     for i in shop_cookies:
@@ -31,7 +31,7 @@ if __name__ == "__main__":
             item["key"] = f"{item['店铺名称']}_{item['任务id']}_{item['统计日期']}"
         # print(items)
 
-        DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key="key")
+        DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key="key")
 
         logger.info(f"{shop_name},{crawl_day_list}已入库")
         logger.info("-" * 100)

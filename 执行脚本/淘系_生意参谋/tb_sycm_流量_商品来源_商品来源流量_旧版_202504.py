@@ -1,7 +1,7 @@
 from API.API_ShengCan import Flow
 
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 
 from extra.logger_ import logger
 
@@ -9,7 +9,7 @@ if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_流量_商品来源_商品来源流量_旧版_202504" # NOQA
     site = '淘系_生意参谋'
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 1)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 1)
 
     shop_item_ids = {
         '林内官方旗舰店': ["684257114535", "710970001756", "772238538685"],
@@ -37,7 +37,7 @@ if __name__ == '__main__':
                                        f"{item['一级来源']}_{item['二级来源']}_{item['三级来源']}")
 
                     # print(items)
-                    DatabaseManager().upsert_data(items, table_name, primary_key="key")
+                    DBManager().update_insert_date(items, table_name, primary_key="key")
 
             logger.info(f"{shop_name},{day}的数据已入库")
             logger.info("-" * 100)

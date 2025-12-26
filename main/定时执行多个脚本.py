@@ -76,7 +76,7 @@ def main():
          "淘宝联盟商品分析",
          r'C:\Users\admin\Desktop\yiyuan_spider\淘系_淘宝联盟'),
 
-        (['python', 'tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py'],
+        (['python', 'tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品_202509.py'],
          "14:00",
          "我报名的商品",
          r'C:\Users\admin\Desktop\yiyuan_spider\淘系_淘宝联盟'),

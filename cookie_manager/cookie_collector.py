@@ -1,6 +1,6 @@
 import sys
 
-from extra.database_manager import DatabaseManager
+from extra.db_manager import DBManager
 from extra.extra_parser import parser_main
 from extra.logger_ import logger
 
@@ -32,9 +32,9 @@ def cookie_collector(site: str = '生意参谋',
     if shop_name_list:
         # 格式化店铺名称用于SQL查询
         shop_names = f'''  ('{"','".join(shop_name_list)}') '''
-        shop_cookies = DatabaseManager().select_cookies_shop(site, shop_names)
+        shop_cookies = DBManager().select_cookies_shop(site, shop_names)
     else:
-        shop_cookies = DatabaseManager().select_cookies_all(site)
+        shop_cookies = DBManager().select_cookies_all(site)
 
     # 返回店铺cookies
     return shop_cookies

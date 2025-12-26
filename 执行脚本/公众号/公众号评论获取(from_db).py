@@ -3,7 +3,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import re
 
-from extra.database_manager import DatabaseManager
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 
 
@@ -162,7 +162,7 @@ class HtmlCommentExtractor:
 if __name__ == "__main__":
     table_name = 'gzh_article_comments_202508'
     sql = "select * from `gzh_html_files_202508` where id =1"  # noqa
-    html_files_records = DatabaseManager().execute_sql(sql, fetch=True)
+    html_files_records = DBManager().execute_sql(sql, fetch=True)
 
     for html_files_record in html_files_records:
         file = html_files_record[2]
@@ -173,7 +173,7 @@ if __name__ == "__main__":
             item.update({"file": file})
             item["key"] = f"{item['图像链接']}_{item['昵称']}_{item['时间']}"
 
-        DatabaseManager().upsert_data(items, table_name, primary_key='key', uu_id=True, user=True)
+        DBManager().update_insert_date(items, table_name, primary_key='key', uu_id=True, user=True)
         # logger.info(f"数据已入库")
         logger.info("-" * 100)
 

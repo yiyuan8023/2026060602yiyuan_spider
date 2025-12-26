@@ -2,8 +2,8 @@
 
 
 from API.API_Pdd.API_Pdd_Centre import PddDataCentre
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 from extra.extra_date import get_date_min_max
 from extra.logger_ import logger
 
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "pdd_数据中心_商品数据_商品概况"
     site = '拼多多'
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 30)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 30)
     min_time, max_time = get_date_min_max(crawl_day_list)
 
     for i in shop_cookies:
@@ -71,7 +71,7 @@ if __name__ == '__main__':
             items.append(item)
         print(items)
 
-        DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key="key")
+        DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key="key")
         logger.info(f"{shop_name}_{min_time}-{max_time}数据已入库")
         logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")

@@ -1,9 +1,9 @@
 
 from API.API_ShengCan import Home
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 from extra.logger_ import logger
-from extra.extra_date import format_timestamp
+from extra.extra_date import get_format_timestamp
 
 change_view__all_index_mapping = {
     "支付金额": "payAmt",
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_首页_数据概览_图表_新版_202504" # NOQA
     site = '淘系_生意参谋'
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 3)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 3)
 
     for i in shop_cookies:
         cookie = i[1]
@@ -61,14 +61,14 @@ if __name__ == '__main__':
                 field_value = self_.get(v)  # 获取健是v(英文字段的值)，返回的还是一个dic,如果找不到value 返回None
                 item[k] = field_value.get("value") if isinstance(field_value, dict) else field_value
 
-            time_str = format_timestamp(item["统计日期"])
+            time_str = get_format_timestamp(item["统计日期"])
             item.update({
                 "店铺名称": shop_name,
                 "key": f"{shop_name}_{time_str}",
                 "统计日期": time_str
             })
             # print(item)
-            DatabaseManager().upsert_data([item], table_name, primary_key='key')
+            DBManager().update_insert_date([item], table_name, primary_key='key')
             logger.info("-" * 100)
             logger.info(f"{shop_name},{day}的数据已入库")
     logger.info(f"\n{'*' * 120}")

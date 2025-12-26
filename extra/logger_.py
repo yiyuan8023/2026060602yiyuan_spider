@@ -1,37 +1,19 @@
-# -*- coding: utf-8 -*-
-# @Time : 2025/1/21 11:10
-# @Author : Shao0000
-# @Email : Shao0000@aliyun.com
-# @File : logger_.py
-# @Project : PyCharm
 import sys
 from functools import wraps
 import os
 import datetime
 import loguru
 
-
-# from settings import LOGFILE
-
-# # 初始化一个空列表来存储错误信息
-# error_logs = []
-# error_logs2 = []
-#
-#
-# def collect_error_logger(message):
-#     if "cookie为空或者已失效" in message:
-#         error_logs.append(message)
-#         error_logs2.append(message)
-#     else:
-#         error_logs.append(message)
+from extra.settings import LOGFILE
 
 
 # 单例类的装饰器
 def singleton_class_decorator(cls):
     """
-    装饰器，单例类的装饰器
+    单例模式装饰器，确保类只有一个实例,防止日志类被多次实例化
     """
-    # 在装饰器里定义字典，用来存放类的实例。
+
+    # 在装饰器里定义字典，用来存放类的实例,
     _instance = {}
 
     # 装饰器，被装饰的类
@@ -55,44 +37,77 @@ class Logger:
 
     @staticmethod
     def get_project_path(project_path=None):
+        # 获取项目路径(父路径)
         if project_path is None:
             # 当前项目文件的，绝对真实路径
             # 路径，一个点代表当前目录，两个点代表当前目录的上级目录
+            # C:\Users\admin\Desktop\yiyuan_spider
             project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            # 项目日志目录（新建log文件夹）
+            project_log_dir = os.path.join(project_path, 'log')
         # 返回当前项目路径
-        return project_path
+        return project_log_dir
 
     def get_log_path(self):
+        # 获取项目要保存的日志路径
+
         # 项目目录
-        project_path = self.get_project_path()
-        # 项目日志目录
-        project_log_dir = os.path.join(project_path, './log')
+        project_log_dir = self.get_project_path()
         # 日志文件名
-        project_log_filename = 'yiyuan{}.log'.format(datetime.date.today()) # noqa
+        project_log_filename = f"yiyuan{datetime.date.today()}.log"
+        # 日志文件路径
+        project_log_path = os.path.join(project_log_dir, project_log_filename)
+        # 返回日志路径
+        return project_log_path
+
+    def get_error_log_path(self):
+        # 获取项目要保存的日志路径
+
+        # 项目目录
+        project_log_dir = self.get_project_path()
+        # 日志文件名
+        project_log_filename = f"yiyuan{datetime.date.today()}_error.log"
         # 日志文件路径
         project_log_path = os.path.join(project_log_dir, project_log_filename)
         # 返回日志路径
         return project_log_path
 
     def logger_add(self):
-        logfile = 1
-        if logfile:
+        # 配置日志输出
+        # logfile = 1  # 开关变量，控制日志输出方式
+        if LOGFILE:  # 开关变量，控制日志输出方式，setting中设置
             loguru.logger.add(
+                # 日志文件的保存路径
                 sink=self.get_log_path(),
-                # 日志创建周期
+                # 日志创建周期 - 每天00:00创建新日志文件
                 rotation='00:00',
-                # 保存
+                # 保存策略 - 保留1年的日志文件
                 retention='1 year',
-                # 文件的压缩格式
+                # 文件的压缩格式 - 超过保留期限的日志会压缩为zip格式
                 compression='zip',
                 # 编码格式
                 encoding="utf-8",
-                # 具有使日志记录调用非阻塞的优点
+                # 具有使日志记录调用非阻塞的优点 - 异步写入日志提高性能
                 enqueue=True,
+                # 日志格式 - 包含时间、级别、文件名、行号和消息内容
                 format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}",
+                # 日志级别 - 记录INFO级别及以上的日志
                 level='INFO',
             )
+
+            # 添加专门的错误日志文件
+            loguru.logger.add(
+                sink=self.get_error_log_path(),
+                rotation='00:00',  # 每天轮转
+                retention='1 year',
+                compression='zip',
+                encoding="utf-8",
+                enqueue=True,
+                format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}",
+                level='ERROR',  # 只记录ERROR及以上级别的日志
+            )
         else:
+            # 如果 logfile 为假值，则将日志输出到控制台
             loguru.logger.add(sink=sys.stdout,
                               format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}", level='INFO', )
 
@@ -100,18 +115,33 @@ class Logger:
 
     @property
     def get_logger(self):
+        # 获取日志对象
         return loguru.logger
 
 
-'''
-# 实例化日志类
-'''
+# 初始化一个空列表来存储错误信息
+error_logs = []
+error_cookie_logs = []
 
+
+def collect_error_logger(message):
+    if "cookie为空或者已失效" in message:
+        # 如果错误消息包含"cookie为空或者已失效"，则同时添加到两个列表中
+        error_logs.append(message)
+        error_cookie_logs.append(message)
+    else:
+        # 如果不是cookie相关的错误，则只添加到error_logs列表中
+        error_logs.append(message)
+
+
+# 实例化日志类
 logger = Logger().get_logger
-# logger.add(collect_error_logger, level="ERROR")
+
+# 在模块加载时执行了，所以当你导入时，错误收集功能已经生效。
+logger.add(collect_error_logger, level="ERROR")
 # if __name__ == '__main__':
 #     logger.debug('调试代码')
-#     logger.info('输出信息')
+# #     logger.info('输出信息')
 #     logger.success('输出成功')
 #     logger.warning('错误警告')
 #     logger.error('代码错误')
@@ -124,3 +154,20 @@ logger = Logger().get_logger
 #     然后直接使用logger即可
 #     """
 #     logger.info('----原始测试----')
+
+
+    # 你可以直接使用 logger 来记录日志
+    # logger.error("cookie为空或者已失效")  # 这会被添加到 error_logs 和 error_logs2
+    # logger.error("普通错误")  # 这只会被添加到 error_logs
+    #
+    # # 检查收集到的错误，可以发送邮件或者保存到数据库中
+    # print("所有错误:", error_logs)
+    # print("Cookie相关错误:", error_cookie_logs)
+
+    # if error_logs:
+    #     body = "".join(error_logs)
+    #     send_email(f"京东商智报错信息_{getTimeStr()}", body)
+    # if error_cookie_logs:
+    #     body = "".join(error_logs2)
+    #     h = str_html('“.*”', body)
+    #     send_email(f"京东商智报错信息_{getTimeStr()}", h, ['shuju_python@bi-cheng.cn'], 'html')

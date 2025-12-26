@@ -1,42 +1,20 @@
-# -*- coding: utf-8 -*-
-# Author: Shao0000
-# Date: 2025-04-21
-# Time: 10:40
-# Project: jide
-# File: 万相台无界_基础报表_宝贝主体
 from time import sleep
 
-import pandas as pd
 
-from API.API_WanXiangTai import WanXiangTaiReportApi
-
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from API.API_Wxt.WxtReport import WxtReportApi
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 from extra.downloader import Downloader
-from extra.extra_date import get_time_ago
+from extra.extra_date import get_time_ago,  get_items_min_max_date
 
 from extra.logger_ import logger
-
-
-def delete_history_data(df):
-    # 将日期列转换为 datetime 类型
-
-    df["日期"] = pd.to_datetime(df["日期"])
-
-    # 获取日期区间的最小值和最大值
-    min_date = df["日期"].min()
-    max_date = df["日期"].max()
-    print(min_date, max_date)
-    sql = f"DELETE FROM `{db_table_name}` WHERE `日期` BETWEEN '{min_date}' AND '{max_date}' and `店铺名称`='{shop_name}';"
-    DatabaseManager().execute_sql(sql)
-
 
 if __name__ == '__main__':
 
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     db_table_name = "tb_tg_万相台无界_基础报表_关键词_202504"
-    site = '淘系_生意参谋'
-    shop_cookies, crawl_day_list = data_collector(db_table_name, site, shop_name_list, 1)
+    site = '生意参谋'
+    shop_cookies, crawl_day_list = select_shop_date(db_table_name, site, shop_name_list, 1)
 
     end_data = get_time_ago(0, 'days', crawl_day_list[0])
     start_data = get_time_ago(30, 'days', crawl_day_list[0])
@@ -46,33 +24,24 @@ if __name__ == '__main__':
         cookie = i[1]
 
         shop_name = i[0]
-        Obj = WanXiangTaiReportApi(cookie)
-        task_id = Obj.keyword_report__main_data_details(start_data, end_data)
+        Obj = WxtReportApi(cookie)
+        task_id = Obj.wxt_keyword_report(start_data, end_data)
 
         sleep(60 * 3)
         # task_id = '10568864'
-        download_url = Obj.get_download_url(task_id)
-        if download_url:
-            df = Downloader(download_url).download_zip()  # 下载zip文件,并读取csv文件
-            df["日期"] = pd.to_datetime(df["日期"], errors='coerce')
+        download_url = Obj.get_download_url(task_id) # NOQA
 
-            # 将日期列格式化为字符串
-            df["日期"] = df["日期"].dt.strftime('%Y-%m-%d')
-            df_filled = df.fillna("")
-            if df_filled.empty:
-                items = {}
-            else:
-                items = df_filled.to_dict('records')
+        if download_url:
+            items = Downloader(download_url).download_zip()  # 下载zip文件,并读取csv文件 # NOQA
             for item in items:
                 item.update({
                     "店铺名称": shop_name,
                     "归因周期": 15,
                 })
-            # print(items)
+            min_date, max_date = get_items_min_max_date(items, '日期')
+            # 先删后入,没有key
+            DBManager().insert_delete_insert_data(items, db_table_name, shop_name=shop_name, delete_min_date=min_date,
+                                                  delete_max_date=max_date)
 
-            try:
-                DatabaseManager().upsert_data(items[:2], db_table_name)
-                delete_history_data(df)
-                DatabaseManager().upsert_data(items, db_table_name)
-            except Exception as e:
-                logger.error(e)
+
+

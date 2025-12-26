@@ -4,9 +4,9 @@
 from time import sleep
 
 from API.API_TaoKe.API_TaoKe_Cps import TaoKeCpsApi
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
-from extra.extra_date import get_date_min_max, split_date_range
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
+from extra.extra_date import get_date_min_max, get_split_date_range
 from extra.logger_ import logger
 
 if __name__ == "__main__":
@@ -17,13 +17,13 @@ if __name__ == "__main__":
     table_name = "tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505"
     site = '淘宝联盟'  # noqa
     name_suffix = "订单结算明细报表"
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 10)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 10)
     min_date, max_date = get_date_min_max(crawl_day_list)  # 获取最小和最大时间
 
     for i in shop_cookies:
         cookie = i[1]
         shop_name = i[0]
-        split_date = split_date_range(min_date, max_date)
+        split_date = get_split_date_range(min_date, max_date)
         for date in split_date:
             start_time, end_time = date
 
@@ -38,8 +38,8 @@ if __name__ == "__main__":
 
             # 等待任务生成
             while un_finish_task:
-                logger.info("等待30s")
-                sleep(30)
+                logger.info("等待100s")
+                sleep(100)
 
                 task_status_list_res = Obj.cps_task_status_list()  # 任务状态列表json数据包
                 finish_task, un_finish_task = Obj.get_task_status_list(
@@ -59,7 +59,7 @@ if __name__ == "__main__":
                 })
                 # item["key"] = f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
 
-            DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key='淘宝子订单编号')
+            DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key='淘宝子订单编号')
             #
             logger.info(f"{shop_name},{start_time}_{end_time}已入库")
         logger.info("-" * 100)

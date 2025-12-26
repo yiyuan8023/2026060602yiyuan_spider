@@ -2,7 +2,7 @@ from API.API_ChiTu import ChiTuShopPerformanceAPI
 from API.API_ChiTu import ChituCookies
 from extra_cookie import cookiejar_to_cookie_str
 
-from extra.data_collector import data_collector
+from extra.select_shop_date import select_shop_date
 from extra_time import get_date
 from extra.logger_ import logger
 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504"  # NOQA
     site = '淘系_生意参谋'
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 10)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 10)
 
     crawl_day_list = crawl_day_list[7:]
 

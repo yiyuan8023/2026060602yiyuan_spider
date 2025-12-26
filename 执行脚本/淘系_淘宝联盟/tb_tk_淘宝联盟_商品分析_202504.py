@@ -4,8 +4,8 @@
 from time import sleep
 
 from API.API_TaoKe.API_TaoKe_Good import TaoKeGoodAnalysisApi
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 
 from extra.logger_ import logger
 
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     ]
 
     # 数据采集
-    shop_cookies, crawl_day_list = data_collector(table_name, site, shop_name_list, 3)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 3)
     # crawl_day_list = get_date_range('2025-05-01', '2025-05-31')
 
     for i in shop_cookies:
@@ -72,10 +72,9 @@ if __name__ == "__main__":
                                     "统计日期": remaining_day,
                                     "计划类型": name_suffix
                                 })
-                                item[
-                                    "key"] = f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
+                                item["key"] = f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
 
-                            DatabaseManager(db_config=db_config).upsert_data(items, table_name, primary_key='key')
+                            DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key='key')
                             logger.info(f"{shop_name_list},{remaining_day}已入库")
                             date_finish.append(i)
                     count = count + 1

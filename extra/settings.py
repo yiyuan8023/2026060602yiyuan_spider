@@ -6,6 +6,8 @@ import os
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"  # noqa
 EMAIL = "yiyuan@bi-cheng.cn"
+LOGFILE = False if os.environ.get("LOGFILE", "1") == "0" else True
+MYSQL_DBNAME = os.environ.get("MYSQL_DB") if os.environ.get("MYSQL_DB") else "test"
 
 # 预定义的数据库配置
 DATABASE_CONFIGS = {

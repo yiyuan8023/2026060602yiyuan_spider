@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import os
 from typing import List, Dict, Optional
-from extra.database_manager import DatabaseManager
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 
 # 尝试导入不同的库
@@ -301,7 +301,7 @@ if __name__ == "__main__":
                 "店铺名称": shop_name,
             })
 
-        DatabaseManager().upsert_data(items_, table_name, primary_key='订单号')
+        DBManager().update_insert_date(items_, table_name, primary_key='订单号')
         logger.info("-" * 100)
         logger.info("数据导入完成")
     except Exception as e:

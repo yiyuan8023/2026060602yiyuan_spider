@@ -1,6 +1,6 @@
 from API.API_ShengCan.Flow import Flow
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 
 if __name__ == '__main__':
@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     site = '淘系_生意参谋'
 
-    shop_cookies, crawl_day_list = data_collector(db_table_name, site, shop_name_list, 1)
+    shop_cookies, crawl_day_list = select_shop_date(db_table_name, site, shop_name_list, 1)
 
     for i in shop_cookies:
         cookie = i[1]
@@ -35,7 +35,7 @@ if __name__ == '__main__':
                         })
                         item["key"] = (f"{item['店铺名称']}_{day}_day_{item['流量载体']}_"
                                        f"{item['一级来源']}_{item['二级来源']}_{item['三级来源']}")
-                    DatabaseManager().upsert_data(items, db_table_name[2], primary_key="key")
+                    DBManager().update_insert_date(items, db_table_name[2], primary_key="key")
 
                 if sheet_name == '经营优势来源渠道':
                     for item in items:
@@ -46,7 +46,7 @@ if __name__ == '__main__':
                             "日期类型": "day",
                         })
                         item["key"] = f"{item['店铺名称']}_{day}_day_{item['流量载体']}_{item['来源名称']}"
-                    DatabaseManager().upsert_data(items, db_table_name[1], primary_key="key")
+                    DBManager().update_insert_date(items, db_table_name[1], primary_key="key")
 
                 if sheet_name == '全店流量来源':
                     for item in items:
@@ -58,7 +58,7 @@ if __name__ == '__main__':
                         })
                         item["key"] = (f"{item['店铺名称']}_{day}_day_{item['流量载体']}_"
                                        f"{item['一级来源']}_{item['二级来源']}_{item['三级来源']}")
-                    DatabaseManager().upsert_data(items, db_table_name[0], primary_key="key")
+                    DBManager().update_insert_date(items, db_table_name[0], primary_key="key")
 
             logger.info(f"{shop_name},{day}的数据已入库")
             logger.info("-" * 100)

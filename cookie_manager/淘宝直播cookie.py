@@ -2,7 +2,7 @@ import json
 
 from cookie_manager.cookie_collector import cookie_collector
 from cookie_manager.web_cookie_manager import WebCookieManager
-from extra.database_manager import DatabaseManager
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 
 if __name__ == '__main__':
@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
             items_list = [items]
             # print(items_list)
-            DatabaseManager().upsert_data(items_list, table_name, primary_key='key')
+            DBManager().update_insert_date(items_list, table_name, primary_key='key')
             logger.info(f"{shop_name}获取cookie成功")
         else:
             logger.info(f"{shop_name}获取cookie失败")

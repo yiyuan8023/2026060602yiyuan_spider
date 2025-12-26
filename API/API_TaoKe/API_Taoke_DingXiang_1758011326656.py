@@ -2,7 +2,7 @@
 import pandas as pd
 import os
 from typing import List, Dict, Optional
-from extra.database_manager import DatabaseManager
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 
 
@@ -146,8 +146,8 @@ if __name__ == "__main__":
         # item["key"] = f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
     # print(items)
 
-    # DatabaseManager().upsert_data(items, table_name, primary_key='key')
-    DatabaseManager().upsert_data(items_, table_name, uu_id=True, user=True)
+    # DBManager().update_insert_date(items, table_name, primary_key='key')
+    DBManager().update_insert_date(items_, table_name, uu_id=True, user=True)
     # logger.info(f"{shop_name_list},{crawl_day_list}已入库")
     logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")

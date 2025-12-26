@@ -1,17 +1,29 @@
+"""
+_build_url:构造完整的URL，包括查询参数
+_prepare_Headers:准备HTTP请求头，合并默认和自定义头部
+_make_request_get:发送HTTP GET请求
+_make_request_post:发送HTTP POST请求
+download_web:：下载网页内容并返回响应对象
+download_excel:下载Excel文件并解析为字典列表
+download_excel_byte:下载Excel文件并返回BytesIO对象
+download_csv:下载CSV文件并解析为字典列表
+download_zip:下载ZIP文件并解压读取其中的内容,解析为字典列表,目前只读取第一个文件
+detect_encoding：检测文件内容的字符编码格式
+"""
+
+
 import io
 import zipfile
-from typing import Optional, Dict, Any, Union
-
-import numpy as np
-import pandas as pd
-import requests
-from urllib.parse import urlencode
 import chardet
+import warnings
+import requests
+import pandas as pd
+from urllib.parse import urlencode
+from typing import Optional, Dict, Any, Union
 
 from extra.extra_reqlog import req_log
 from extra.logger_ import logger
 from extra.settings import UA
-import warnings
 
 # 忽略openpyxl的样式警告
 warnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')
@@ -21,14 +33,14 @@ class Downloader:
     # 通用的文件下载器
 
     def __init__(self,
-                 api: str,
+                 api: str,  # 请求的URL
                  method: str = "get",  # 请求方式，支持get和post
-                 cookie: Optional[str] = None,
-                 params: Optional[Dict[str, Any]] = None,
-                 headers: Optional[Dict[str, str]] = None,
-                 data: Optional[Union[Dict, str, bytes]] = None,
-                 json_data: Optional[Dict] = None,
-                 timeout: int = 30):
+                 cookie: Optional[str] = None,  # cookie
+                 params: Optional[Dict[str, Any]] = None,  # GET请求的查询参数
+                 headers: Optional[Dict[str, str]] = None,  # 请求头
+                 data: Optional[Union[Dict, str, bytes]] = None,  # POST请求的表单,data={"name": "value", "age": 25}
+                 json_data: Optional[Dict] = None,  # POST请求的JSON格式,json_data={"user": {"name": "value", "age": 25}}
+                 timeout: int = 30):  # 请求超时时间（秒）
         self.api = api
         self.method = method
         self.cookie = cookie
@@ -227,12 +239,12 @@ class Downloader:
         try:
             # 发送 HTTP 请求下载 ZIP 文件
             res = self.download_web()  # 发送请求
-            print(res.content)
+            # print(res.content)
 
             # 将 ZIP 文件加载到内存中
             with zipfile.ZipFile(io.BytesIO(res.content)) as zip_file:
 
-                print(zip_file.namelist())
+                logger.info(f"文件名称: {zip_file.namelist()}")
                 # 打开目标 CSV 文件并读取内容
                 with zip_file.open(zip_file.namelist()[0]) as file:  # 第一个文件
                     # 使用 Pandas 读取数据
@@ -245,8 +257,13 @@ class Downloader:
                         df_data = pd.read_excel(io.BytesIO(file_content))
                     else:
                         logger.error(f"不支持的文件类型: {file_type}")
-            return df_data
-
+                        df_data = None
+                df_filled = df_data.fillna("")
+                if df_filled.empty:
+                    return {}
+                else:
+                    items = df_filled.to_dict('records')
+                    return items
         except Exception as e:
             print(f"发生错误: {e}")
             return None

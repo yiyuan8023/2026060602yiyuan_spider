@@ -1,5 +1,5 @@
 from excel.excel_to_db import FileToItems
-from extra.database_manager import DatabaseManager
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 
 if __name__ == '__main__':
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         # item["key"] = f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
     # print(items)
 
-    DatabaseManager(db_config=db_config).upsert_data(items_, table_name, primary_key='子订单编号')
+    DBManager(db_config=db_config).update_insert_date(items_, table_name, primary_key='子订单编号')
     # logger.info(f"{shop_name_list},{crawl_day_list}已入库")
     logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")

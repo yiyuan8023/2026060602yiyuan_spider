@@ -1,8 +1,8 @@
 # File: 生参商品_品类360_流量分析_流量来源
 
-from API.API_ShengCan import Goods
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from API.API_ShengCan.goods import Goods
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 from extra.extra_date import get_month_first_and_last_day
 from extra.logger_ import logger
 
@@ -73,7 +73,7 @@ def analyzing_res(res_json):
             item[
                 "key"] = f"{item['店铺名称']}_{item['统计日期']}_{item['日期类型']}_{item['一级流量来源']}_{item['二级流量来源']}_{item['三级流量来源']}"
             items.append(item)
-        DatabaseManager().upsert_data(items, db_table_name, primary_key="key")
+        DBManager().update_insert_date(items, db_table_name, primary_key="key")
 
     else:
         logger.info("数据为空")
@@ -81,7 +81,7 @@ def analyzing_res(res_json):
 
 if __name__ == '__main__':
 
-    db_table_name = 'tb_sycm_商品_品类360_流量分析_流量来源_202504' # noqa
+    db_table_name = 'tb_sycm_商品_品类360_流量分析_流量来源_202504'  # noqa
 
     shop_cate_info = {
         '林内官方旗舰店': [{"50022703": "大家电>热水器>燃气热水器"}],
@@ -89,9 +89,9 @@ if __name__ == '__main__':
         # '林内厨电旗舰店': [{"50022703":"大家电>热水器>燃气热水器"}],
     }
     shop_name_list = shop_cate_info.keys()
-    site = '淘系_生意参谋'
+    site = '生意参谋'
 
-    shop_cookies, crawl_day_list = data_collector(db_table_name, site, shop_name_list, recent_period=3,
+    shop_cookies, crawl_day_list = select_shop_date(db_table_name, site, shop_name_list, recent_period=3,
                                                   period_type='month')
 
     for i in shop_cookies:

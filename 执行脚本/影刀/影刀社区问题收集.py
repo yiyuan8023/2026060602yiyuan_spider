@@ -1,6 +1,6 @@
 from API.API_YingDao import YingDaoApi
 from excel.save_to_excel import SaveToExcel
-from extra.database_manager import DatabaseManager
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 
 if __name__ == '__main__':
@@ -17,7 +17,7 @@ if __name__ == '__main__':
         #     "统计日期": time_str
         # })
         # print(item)
-        DatabaseManager().upsert_data(items, table_name, primary_key='问题id')
+        DBManager().update_insert_date(items, table_name, primary_key='问题id')
         exporter = SaveToExcel(items, table_name)
         file_path = exporter.export_to_excel()
         logger.info("-" * 100)

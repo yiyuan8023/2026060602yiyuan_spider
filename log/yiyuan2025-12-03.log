@@ -1,0 +1,510 @@
+2025-12-03 15:23:36 | INFO | select_shop_date.py:34 :
+************************************************************************************************************************
+2025-12-03 15:23:36 | INFO | select_shop_date.py:35 : 开始采集：tb_tk_淘宝联盟_商品分析_202504
+2025-12-03 15:23:36 | INFO | select_shop_date.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_商品分析_202504.py']
+2025-12-03 15:23:36 | INFO | select_shop_date.py:67 : 采集日期列表['2025-12-02', '2025-12-01', '2025-11-30'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-12-03 15:23:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:36 | INFO | API_TaoKe_Base.py:29 : {'2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:23:36 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动 报告
+2025-12-03 15:23:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:36 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-12-02
+2025-12-03 15:23:36 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771268
+2025-12-03 15:23:36 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动 报告
+2025-12-03 15:23:36 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:36 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-12-01
+2025-12-03 15:23:36 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771269
+2025-12-03 15:23:36 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动 报告
+2025-12-03 15:23:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:37 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-11-30
+2025-12-03 15:23:37 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771270
+2025-12-03 15:23:37 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-11-30的数据
+2025-12-03 15:23:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:37 | INFO | API_TaoKe_Base.py:29 : {'2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:23:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:37 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-11-30
+2025-12-03 15:23:37 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:23:37 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-01的数据
+2025-12-03 15:23:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:37 | INFO | API_TaoKe_Base.py:29 : {'2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:23:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:37 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-12-01
+2025-12-03 15:23:37 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:23:37 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-02的数据
+2025-12-03 15:23:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:37 | INFO | API_TaoKe_Base.py:29 : {'2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:23:37 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:37 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-12-02
+2025-12-03 15:23:37 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:23:38 | INFO | select_shop_date.py:34 :
+************************************************************************************************************************
+2025-12-03 15:23:38 | INFO | select_shop_date.py:35 : 开始采集：tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505
+2025-12-03 15:23:38 | INFO | select_shop_date.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py']
+2025-12-03 15:23:38 | INFO | select_shop_date.py:67 : 采集日期列表['2025-12-02', '2025-12-01', '2025-11-30', '2025-11-29', '2025-11-28', '2025-11-27', '2025-11-26', '2025-11-25', '2025-11-24', '2025-11-23'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-12-03 15:23:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000234189E1120, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 59, code tb_tk_cps_settlement_report>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:38 | SUCCESS | API_TaoKe_Cps.py:60 : 成功！！！创建任务日期:2025-11-23_2025-12-02
+2025-12-03 15:23:38 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023418A24040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 94, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:38 | INFO | API_TaoKe_Base.py:29 : {'2025-11-02 00:00:00~2025-12-01 23:59:59-订单结算明细报表': 252184337, '2025-11-22 00:00:00~2025-12-01 23:59:59-订单结算明细报表': 252152389, '2025-11-01 00:00:00~2025-11-30 23:59:59-订单结算明细报表': 251963626, '2025-11-21 00:00:00~2025-11-30 23:59:59-订单结算明细报表': 251912588, '2025-11-01 00:00:00~2025-11-28 14:10:51-订单结算明细报表': 251562330, '2025-11-17 00:00:00~2025-11-26 23:59:59-订单结算明细报表': 251390729, '2025-08-01 00:00:00~2025-08-31 23:59:59-订单结算明细报表': 251105519, '2025-11-15 00:00:00~2025-11-24 23:59:59-订单结算明细报表': 251144768, '2025-10-26 00:00:00~2025-11-24 23:59:59-订单结算明细报表': 251144527}
+2025-12-03 15:23:38 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:41 : 等待100s
+2025-12-03 15:23:40 | INFO | select_shop_date.py:34 :
+************************************************************************************************************************
+2025-12-03 15:23:40 | INFO | select_shop_date.py:35 : 开始采集：tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509
+2025-12-03 15:23:40 | INFO | select_shop_date.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py']
+2025-12-03 15:23:40 | INFO | select_shop_date.py:67 : 采集日期列表['2025-12-02', '2025-12-01', '2025-11-30', '2025-11-29', '2025-11-28', '2025-11-27', '2025-11-26', '2025-11-25', '2025-11-24', '2025-11-23', '2025-11-22', '2025-11-21', '2025-11-20', '2025-11-19', '2025-11-18', '2025-11-17', '2025-11-16', '2025-11-15', '2025-11-14', '2025-11-13', '2025-11-12', '2025-11-11', '2025-11-10', '2025-11-09', '2025-11-08', '2025-11-07', '2025-11-06', '2025-11-05', '2025-11-04', '2025-11-03'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-12-03 15:23:40 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:22 : 正常采集第【林内官方旗舰店】数据
+2025-12-03 15:23:40 | INFO | downloader.py:81 : https://ad.alimama.com/openapi/param2/1/gateway.unionadv/data.event.taoke.campaign.json?t=1764746620385&_tb_token_=f77173373be65&itemId=&cStep=0&startDate=2025-11-03&endDate=2025-12-02&campaignTemplateId=992&advPageEnum=adv_992&pageNo=1&pageSize=2000
+2025-12-03 15:23:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001A68B664040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001A68A4FF210, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_Taoke_DingXiang.py', line 48, code get_campaign>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:41 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:36 : 林内官方旗舰店,['2025-12-02', '2025-12-01', '2025-11-30', '2025-11-29', '2025-11-28', '2025-11-27', '2025-11-26', '2025-11-25', '2025-11-24', '2025-11-23', '2025-11-22', '2025-11-21', '2025-11-20', '2025-11-19', '2025-11-18', '2025-11-17', '2025-11-16', '2025-11-15', '2025-11-14', '2025-11-13', '2025-11-12', '2025-11-11', '2025-11-10', '2025-11-09', '2025-11-08', '2025-11-07', '2025-11-06', '2025-11-05', '2025-11-04', '2025-11-03']已入库
+2025-12-03 15:23:41 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:37 : ----------------------------------------------------------------------------------------------------
+2025-12-03 15:23:41 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:22 : 正常采集第【林内热水器旗舰店】数据
+2025-12-03 15:23:41 | INFO | downloader.py:81 : https://ad.alimama.com/openapi/param2/1/gateway.unionadv/data.event.taoke.campaign.json?t=1764746621127&_tb_token_=e8356e6e3ed3a&itemId=&cStep=0&startDate=2025-11-03&endDate=2025-12-02&campaignTemplateId=992&advPageEnum=adv_992&pageNo=1&pageSize=2000
+2025-12-03 15:23:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001A68B664040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x000001A68A4FF210, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_Taoke_DingXiang.py', line 48, code get_campaign>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:41 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:36 : 林内热水器旗舰店,['2025-12-02', '2025-12-01', '2025-11-30', '2025-11-29', '2025-11-28', '2025-11-27', '2025-11-26', '2025-11-25', '2025-11-24', '2025-11-23', '2025-11-22', '2025-11-21', '2025-11-20', '2025-11-19', '2025-11-18', '2025-11-17', '2025-11-16', '2025-11-15', '2025-11-14', '2025-11-13', '2025-11-12', '2025-11-11', '2025-11-10', '2025-11-09', '2025-11-08', '2025-11-07', '2025-11-06', '2025-11-05', '2025-11-04', '2025-11-03']已入库
+2025-12-03 15:23:41 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:37 : ----------------------------------------------------------------------------------------------------
+2025-12-03 15:23:41 | INFO | tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509.py:38 : 
+************************************************************************************************************************
+2025-12-03 15:23:42 | INFO | select_shop_date.py:34 :
+************************************************************************************************************************
+2025-12-03 15:23:42 | INFO | select_shop_date.py:35 : 开始采集：tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品_202509
+2025-12-03 15:23:42 | INFO | select_shop_date.py:36 : 接收到的命令行参数: ['C:\\Users\\admin\\Desktop\\yiyuan_spider\\执行脚本\\淘系_淘宝联盟\\tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py']
+2025-12-03 15:23:42 | INFO | select_shop_date.py:67 : 采集日期列表['2025-12-02'],采集店铺['林内热水器旗舰店', '林内官方旗舰店']
+2025-12-03 15:23:42 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:81 : 正常采集第1页数据
+2025-12-03 15:23:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000020CB1EF9440, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_MyProducts.py', line 45, code tb_tk_my_enrolled_products>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:43 | SUCCESS | API_TaoKe_MyProducts.py:46 : 第1获取成功！！！
+2025-12-03 15:23:43 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:97 : ----------------------------------------------------------------------------------------------------
+2025-12-03 15:23:43 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:81 : 正常采集第1页数据
+2025-12-03 15:23:45 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000020CB1EF9440, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_MyProducts.py', line 45, code tb_tk_my_enrolled_products>发起了调用,请求成功（status_code:200）
+2025-12-03 15:23:45 | SUCCESS | API_TaoKe_MyProducts.py:46 : 第1获取成功！！！
+2025-12-03 15:23:45 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:97 : ----------------------------------------------------------------------------------------------------
+2025-12-03 15:23:45 | INFO | tb_tk_淘宝联盟_服务商合作_普通招商_我报名的活动_报名的商品.py:98 : 
+************************************************************************************************************************
+2025-12-03 15:24:07 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-11-30的数据
+2025-12-03 15:24:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:08 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:08 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_8505eae78b5985715a1ec921096a36bd?Expires=1764746658&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=nxeLoDShP%2BZkwiq0JmlbdAlp64w%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-30%2000%253A00%253A00%257E2025-11-30%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:24:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:08 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-11-30已入库
+2025-12-03 15:24:08 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-01的数据
+2025-12-03 15:24:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:08 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:08 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:08 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_3d9ebba121a371482911ac5493851300?Expires=1764746658&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=muxSBNQYFLSXraLKQtEykgubMmQ%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-01%2000%253A00%253A00%257E2025-12-01%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:24:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:09 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-01已入库
+2025-12-03 15:24:09 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-02的数据
+2025-12-03 15:24:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:09 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:09 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_55bf05ad72704fcb38b2cb43fb247091?Expires=1764746659&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=dSXjjoj55tbKRK1DHQ4ziIEyt2U%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-02%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:24:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:09 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-02已入库
+2025-12-03 15:24:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:09 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:09 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动 报告
+2025-12-03 15:24:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:09 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-12-02
+2025-12-03 15:24:09 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771299
+2025-12-03 15:24:09 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动 报告
+2025-12-03 15:24:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:09 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-12-01
+2025-12-03 15:24:09 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771300
+2025-12-03 15:24:09 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动 报告
+2025-12-03 15:24:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:10 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-11-30
+2025-12-03 15:24:10 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771301
+2025-12-03 15:24:10 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-11-30的数据
+2025-12-03 15:24:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:10 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:10 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-11-30
+2025-12-03 15:24:10 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:24:10 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-01的数据
+2025-12-03 15:24:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:10 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:10 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-12-01
+2025-12-03 15:24:10 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:24:10 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-02的数据
+2025-12-03 15:24:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:10 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:10 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:10 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-12-02
+2025-12-03 15:24:10 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:24:40 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-11-30的数据
+2025-12-03 15:24:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:41 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:41 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_f47da306abc2ce797645c89cd3a3c861?Expires=1764746691&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=7dNQZBS3rkJoW%2BJ98Dw4N7xWSYA%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-30%2000%253A00%253A00%257E2025-11-30%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:24:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:41 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-11-30已入库
+2025-12-03 15:24:41 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-01的数据
+2025-12-03 15:24:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:41 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:41 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_46dd46e1fb30330baee0ef34da34b324?Expires=1764746691&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=kCbxxrCC0OVw96VzttP8Ty88ggs%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-01%2000%253A00%253A00%257E2025-12-01%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:24:41 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:41 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-01已入库
+2025-12-03 15:24:41 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-02的数据
+2025-12-03 15:24:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:42 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:42 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_0a73f2b255e2e808ba79376240fa1d36?Expires=1764746692&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=f%2FKXxfNyPfPKbE5%2FQ3ToiS48f9A%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-02%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:24:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:42 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-02已入库
+2025-12-03 15:24:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:42 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:42 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-02 00:00:00~2025-12-02 23:59:59-普通招商/全部活动 报告
+2025-12-03 15:24:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:42 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-12-02
+2025-12-03 15:24:42 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771339
+2025-12-03 15:24:42 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-01 00:00:00~2025-12-01 23:59:59-普通招商/全部活动 报告
+2025-12-03 15:24:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:42 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-12-01
+2025-12-03 15:24:42 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771340
+2025-12-03 15:24:42 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-11-30 00:00:00~2025-11-30 23:59:59-普通招商/全部活动 报告
+2025-12-03 15:24:42 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:42 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-11-30
+2025-12-03 15:24:42 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771343
+2025-12-03 15:24:42 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-11-30的数据
+2025-12-03 15:24:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:43 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:43 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-11-30
+2025-12-03 15:24:43 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:24:43 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-01的数据
+2025-12-03 15:24:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:43 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:43 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-12-01
+2025-12-03 15:24:43 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:24:43 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-02的数据
+2025-12-03 15:24:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:43 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:24:43 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:24:43 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-12-02
+2025-12-03 15:24:43 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:25:13 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-11-30的数据
+2025-12-03 15:25:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:14 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-普通招商/全部活动-商品分析': 692771340, '2025-12-02 00:00:00~2025-12-02 23:59:59-普通招商/全部活动-商品分析': 692771339, '2025-11-30 00:00:00~2025-11-30 23:59:59-普通招商/全部活动-商品分析': 692771343, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:25:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:14 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_84bee37f5b425cc6ddb85315b0333ca1?Expires=1764746724&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=Ir0yD1TZaKtzopC9WTm7uzLejlk%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-30%2000%253A00%253A00%257E2025-11-30%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:25:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:14 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-11-30已入库
+2025-12-03 15:25:14 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-01的数据
+2025-12-03 15:25:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:14 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-普通招商/全部活动-商品分析': 692771340, '2025-12-02 00:00:00~2025-12-02 23:59:59-普通招商/全部活动-商品分析': 692771339, '2025-11-30 00:00:00~2025-11-30 23:59:59-普通招商/全部活动-商品分析': 692771343, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:25:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:14 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_823459f1ec429aec8b94d05260a3093b?Expires=1764746724&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=6CAiY6oIOKiSwc1AmypOqpCdX8k%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-01%2000%253A00%253A00%257E2025-12-01%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:25:14 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:14 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-01已入库
+2025-12-03 15:25:14 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内官方旗舰店，2025-12-02的数据
+2025-12-03 15:25:15 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:15 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-普通招商/全部活动-商品分析': 692771340, '2025-12-02 00:00:00~2025-12-02 23:59:59-普通招商/全部活动-商品分析': 692771339, '2025-11-30 00:00:00~2025-11-30 23:59:59-普通招商/全部活动-商品分析': 692771343, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771300, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771299, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771301, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771269, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771268, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771270, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770400}
+2025-12-03 15:25:15 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:15 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_94dbb68e7d06b1a67e7679959a27ed54?Expires=1764746725&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=2rxO%2BgT4IUQmYKA5UTe6v5qTiWY%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-02%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:25:15 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:15 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-02已入库
+2025-12-03 15:25:15 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:86 : ----------------------------------------------------------------------------------------------------
+2025-12-03 15:25:15 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:15 | INFO | API_TaoKe_Base.py:29 : {'2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:15 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动 报告
+2025-12-03 15:25:15 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:15 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-12-02
+2025-12-03 15:25:15 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771515
+2025-12-03 15:25:15 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动 报告
+2025-12-03 15:25:15 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:15 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-12-01
+2025-12-03 15:25:15 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771517
+2025-12-03 15:25:15 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动 报告
+2025-12-03 15:25:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:16 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-11-30
+2025-12-03 15:25:16 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771518
+2025-12-03 15:25:16 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-11-30的数据
+2025-12-03 15:25:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:16 | INFO | API_TaoKe_Base.py:29 : {'2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:16 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-11-30
+2025-12-03 15:25:16 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:25:16 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-01的数据
+2025-12-03 15:25:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:16 | INFO | API_TaoKe_Base.py:29 : {'2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:16 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-12-01
+2025-12-03 15:25:16 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:25:16 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-02的数据
+2025-12-03 15:25:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:16 | INFO | API_TaoKe_Base.py:29 : {'2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:16 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:16 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级U选/全部活动创建任务日期:2025-12-02
+2025-12-03 15:25:16 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:25:18 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023418A24040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 94, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:18 | INFO | API_TaoKe_Base.py:29 : {'2025-11-23 00:00:00~2025-12-02 23:59:59-订单结算明细报表': 252376097, '2025-11-02 00:00:00~2025-12-01 23:59:59-订单结算明细报表': 252184337, '2025-11-22 00:00:00~2025-12-01 23:59:59-订单结算明细报表': 252152389, '2025-11-01 00:00:00~2025-11-30 23:59:59-订单结算明细报表': 251963626, '2025-11-21 00:00:00~2025-11-30 23:59:59-订单结算明细报表': 251912588, '2025-11-01 00:00:00~2025-11-28 14:10:51-订单结算明细报表': 251562330, '2025-11-17 00:00:00~2025-11-26 23:59:59-订单结算明细报表': 251390729, '2025-08-01 00:00:00~2025-08-31 23:59:59-订单结算明细报表': 251105519, '2025-11-15 00:00:00~2025-11-24 23:59:59-订单结算明细报表': 251144768, '2025-10-26 00:00:00~2025-11-24 23:59:59-订单结算明细报表': 251144527}
+2025-12-03 15:25:18 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:48 : {}
+2025-12-03 15:25:18 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:50 : 
+========================================================================================================================
+开始采集林内官方旗舰店，2025-11-23_2025-12-02的数据
+2025-12-03 15:25:23 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023418A24230, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 121, code fetch_cps_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:23 | INFO | API_TaoKe_Cps.py:123 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_34274104_1_3_1763827200000_1764691199000?Expires=1764746733&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=PrypQrRl4CGxJksfzL7dH59blnM%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-23%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:25:23 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_34274104_1_3_1763827200000_1764691199000?Expires=1764746733&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=PrypQrRl4CGxJksfzL7dH59blnM%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-23%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:25:23 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023418A196C0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:23 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:64 : 林内官方旗舰店,2025-11-23_2025-12-02已入库
+2025-12-03 15:25:23 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:65 : ----------------------------------------------------------------------------------------------------
+2025-12-03 15:25:24 | INFO | extra_reqlog.py:12 : 在<frame at 0x00000234189E1120, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 59, code tb_tk_cps_settlement_report>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:24 | SUCCESS | API_TaoKe_Cps.py:60 : 成功！！！创建任务日期:2025-11-23_2025-12-02
+2025-12-03 15:25:24 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023418A24040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 94, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:24 | INFO | API_TaoKe_Base.py:29 : {'2025-11-21 00:00:00~2025-11-30 23:59:59-订单结算明细报表': 251922059, '2025-10-26 00:00:00~2025-11-24 23:59:59-订单结算明细报表': 251145087, '2025-10-01 00:00:00~2025-10-31 23:59:59-订单结算明细报表': 251110205, '2025-09-01 00:00:00~2025-09-30 23:59:59-订单结算明细报表': 251109954, '2025-08-01 00:00:00~2025-08-31 23:59:59-订单结算明细报表': 251109952, '2025-07-01 00:00:00~2025-07-31 23:59:59-订单结算明细报表': 251109827, '2025-11-14 00:00:00~2025-11-23 23:59:59-订单结算明细报表': 250916520, '2025-11-09 00:00:00~2025-11-18 23:59:59-订单结算明细报表': 250350309, '2025-11-08 00:00:00~2025-11-17 23:59:59-订单结算明细报表': 250229307}
+2025-12-03 15:25:24 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:41 : 等待100s
+2025-12-03 15:25:46 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-11-30的数据
+2025-12-03 15:25:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:47 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:47 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_3028cd7635c008371ee95e764792745d?Expires=1764746757&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=q4FB6XqHkvyrNypr%2BGhxtr35pQA%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-30%2000%253A00%253A00%257E2025-11-30%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:25:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:47 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-11-30已入库
+2025-12-03 15:25:47 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-01的数据
+2025-12-03 15:25:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:47 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:47 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_255a75d5abfbed00050ca376e136ac39?Expires=1764746757&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=cwvNKCHMrtejk9JtGRgS6oSX3Xo%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-01%2000%253A00%253A00%257E2025-12-01%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:25:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:47 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-01已入库
+2025-12-03 15:25:47 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-02的数据
+2025-12-03 15:25:47 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:47 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:48 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_63c40161f7e91ab992b57011d76414e6?Expires=1764746758&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=wNGfTPtXKgw3VxaiQLuzmdbuX9s%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-02%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7U%25E9%2580%2589%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:25:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:48 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-02已入库
+2025-12-03 15:25:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:48 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:48 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动 报告
+2025-12-03 15:25:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:48 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-12-02
+2025-12-03 15:25:48 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771562
+2025-12-03 15:25:48 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动 报告
+2025-12-03 15:25:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:48 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-12-01
+2025-12-03 15:25:48 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771563
+2025-12-03 15:25:48 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动 报告
+2025-12-03 15:25:48 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:48 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-11-30
+2025-12-03 15:25:48 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771564
+2025-12-03 15:25:48 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-11-30的数据
+2025-12-03 15:25:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:49 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:49 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-11-30
+2025-12-03 15:25:49 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:25:49 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-01的数据
+2025-12-03 15:25:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:49 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:49 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-12-01
+2025-12-03 15:25:49 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:25:49 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-02的数据
+2025-12-03 15:25:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:49 | INFO | API_TaoKe_Base.py:29 : {'2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:25:49 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:25:49 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！超级淘客/全部活动创建任务日期:2025-12-02
+2025-12-03 15:25:49 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:26:19 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-11-30的数据
+2025-12-03 15:26:19 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:19 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:19 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:19 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_e26544052b3968ce39b838ceb6f0a978?Expires=1764746789&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=c37tOg9%2Bo4Od9Ibq0XYBfYNy0Lg%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-30%2000%253A00%253A00%257E2025-11-30%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:26:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:20 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-11-30已入库
+2025-12-03 15:26:20 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-01的数据
+2025-12-03 15:26:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:20 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:20 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_3aa4c82c57bb41d67c5fe0af3821eda1?Expires=1764746790&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=4VXtcVUKWaJKCKNVEuBSPfD1340%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-01%2000%253A00%253A00%257E2025-12-01%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:26:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:20 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-01已入库
+2025-12-03 15:26:20 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-02的数据
+2025-12-03 15:26:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:20 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:20 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:20 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_7b1020b3bb7301713f400db537051d70?Expires=1764746790&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=Auq8W0pZlBo%2FgcUAZrFOa1%2FRtBU%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-02%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E8%25B6%2585%25E7%25BA%25A7%25E6%25B7%2598%25E5%25AE%25A2%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:26:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:21 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-02已入库
+2025-12-03 15:26:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:21 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:21 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-02 00:00:00~2025-12-02 23:59:59-普通招商/全部活动 报告
+2025-12-03 15:26:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:21 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-12-02
+2025-12-03 15:26:21 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771614
+2025-12-03 15:26:21 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-12-01 00:00:00~2025-12-01 23:59:59-普通招商/全部活动 报告
+2025-12-03 15:26:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:21 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-12-01
+2025-12-03 15:26:21 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771615
+2025-12-03 15:26:21 | INFO | API_TaoKe_Good.py:78 : 
+------------------------------------------------------------------------------------------------------------------------
+在创建 2025-11-30 00:00:00~2025-11-30 23:59:59-普通招商/全部活动 报告
+2025-12-03 15:26:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:21 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-11-30
+2025-12-03 15:26:21 | INFO | API_TaoKe_Good.py:89 : 任务已创建，692771616
+2025-12-03 15:26:21 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-11-30的数据
+2025-12-03 15:26:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:21 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:21 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:21 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-11-30
+2025-12-03 15:26:21 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:26:21 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-01的数据
+2025-12-03 15:26:22 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:22 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:22 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:22 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-12-01
+2025-12-03 15:26:22 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:26:22 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-02的数据
+2025-12-03 15:26:22 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:22 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:22 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F30E40, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 65, code tb_tk_goods_analysis>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:22 | SUCCESS | API_TaoKe_Good.py:66 : 成功！！！普通招商/全部活动创建任务日期:2025-12-02
+2025-12-03 15:26:22 | INFO | API_TaoKe_Good.py:143 : 任务已经存在
+2025-12-03 15:26:52 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-11-30的数据
+2025-12-03 15:26:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:52 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-普通招商/全部活动-商品分析': 692771614, '2025-11-30 00:00:00~2025-11-30 23:59:59-普通招商/全部活动-商品分析': 692771616, '2025-12-01 00:00:00~2025-12-01 23:59:59-普通招商/全部活动-商品分析': 692771615, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:52 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:52 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_cfb908c238a5c213bbcf54fc84365995?Expires=1764746822&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=%2FqTnTja6AUBCXfArTURO2f4csRE%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-30%2000%253A00%253A00%257E2025-11-30%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:26:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:53 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-11-30已入库
+2025-12-03 15:26:53 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-01的数据
+2025-12-03 15:26:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:53 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-普通招商/全部活动-商品分析': 692771614, '2025-11-30 00:00:00~2025-11-30 23:59:59-普通招商/全部活动-商品分析': 692771616, '2025-12-01 00:00:00~2025-12-01 23:59:59-普通招商/全部活动-商品分析': 692771615, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:53 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_e5266c3840f1203bedfc2e152fbe45f1?Expires=1764746823&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=YBM%2Bd9vlas4tdQxCQpQOgJutg18%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-01%2000%253A00%253A00%257E2025-12-01%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:26:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:53 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-01已入库
+2025-12-03 15:26:53 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:63 : 
+========================================================================================================================
+正在采集林内热水器旗舰店，2025-12-02的数据
+2025-12-03 15:26:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763D911B0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 120, code goods_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:53 | INFO | API_TaoKe_Base.py:29 : {'2025-12-02 00:00:00~2025-12-02 23:59:59-普通招商/全部活动-商品分析': 692771614, '2025-11-30 00:00:00~2025-11-30 23:59:59-普通招商/全部活动-商品分析': 692771616, '2025-12-01 00:00:00~2025-12-01 23:59:59-普通招商/全部活动-商品分析': 692771615, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级淘客/全部活动-商品分析': 692771562, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级淘客/全部活动-商品分析': 692771564, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级淘客/全部活动-商品分析': 692771563, '2025-12-01 00:00:00~2025-12-01 23:59:59-超级U选/全部活动-商品分析': 692771517, '2025-12-02 00:00:00~2025-12-02 23:59:59-超级U选/全部活动-商品分析': 692771515, '2025-11-30 00:00:00~2025-11-30 23:59:59-超级U选/全部活动-商品分析': 692771518, '2025-11-30 00:00:00~2025-11-30 23:59:59-商品分析': 692770968}
+2025-12-03 15:26:53 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F50040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Good.py', line 167, code fetch_goods_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:53 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/online_f2970c753e3a82d7f06cbfb12e09220e?Expires=1764746823&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=sWvg3BO%2BQyQKyyF%2BTeoQh7YlzNc%3D&response-content-disposition=attachment%3B%20filename%3D2025-12-02%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E6%2599%25AE%25E9%2580%259A%25E6%258B%259B%25E5%2595%2586%252F%25E5%2585%25A8%25E9%2583%25A8%25E6%25B4%25BB%25E5%258A%25A8-%25E5%2595%2586%25E5%2593%2581%25E5%2588%2586%25E6%259E%2590.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:26:54 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000013763F3CB80, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:26:54 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:79 : ['林内热水器旗舰店', '林内官方旗舰店'],2025-12-02已入库
+2025-12-03 15:26:54 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:86 : ----------------------------------------------------------------------------------------------------
+2025-12-03 15:26:54 | INFO | tb_tk_淘宝联盟_商品分析_202504.py:87 : 
+************************************************************************************************************************
+2025-12-03 15:27:04 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023418A24040, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 94, code cps_task_status_list>发起了调用,请求成功（status_code:200）
+2025-12-03 15:27:04 | INFO | API_TaoKe_Base.py:29 : {'2025-11-23 00:00:00~2025-12-02 23:59:59-订单结算明细报表': 252377022, '2025-11-21 00:00:00~2025-11-30 23:59:59-订单结算明细报表': 251922059, '2025-10-26 00:00:00~2025-11-24 23:59:59-订单结算明细报表': 251145087, '2025-10-01 00:00:00~2025-10-31 23:59:59-订单结算明细报表': 251110205, '2025-09-01 00:00:00~2025-09-30 23:59:59-订单结算明细报表': 251109954, '2025-08-01 00:00:00~2025-08-31 23:59:59-订单结算明细报表': 251109952, '2025-07-01 00:00:00~2025-07-31 23:59:59-订单结算明细报表': 251109827, '2025-11-14 00:00:00~2025-11-23 23:59:59-订单结算明细报表': 250916520, '2025-11-09 00:00:00~2025-11-18 23:59:59-订单结算明细报表': 250350309, '2025-11-08 00:00:00~2025-11-17 23:59:59-订单结算明细报表': 250229307}
+2025-12-03 15:27:04 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:48 : {}
+2025-12-03 15:27:04 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:50 : 
+========================================================================================================================
+开始采集林内热水器旗舰店，2025-11-23_2025-12-02的数据
+2025-12-03 15:27:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023418A24230, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\API\\API_TaoKe\\API_TaoKe_Cps.py', line 121, code fetch_cps_file_link>发起了调用,请求成功（status_code:200）
+2025-12-03 15:27:09 | INFO | API_TaoKe_Cps.py:123 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_1220600123_1_3_1763827200000_1764691199000?Expires=1764746839&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=mjGRwfpgB2NMbrC%2BzkfLonW5Q2o%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-23%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:27:09 | INFO | downloader.py:81 : https://union-file-center.oss-cn-zhangjiakou.aliyuncs.com/adv_1220600123_1_3_1763827200000_1764691199000?Expires=1764746839&OSSAccessKeyId=LTAI4FmnP9ZhkUeeAQpo4VPC&Signature=mjGRwfpgB2NMbrC%2BzkfLonW5Q2o%3D&response-content-disposition=attachment%3B%20filename%3D2025-11-23%2000%253A00%253A00%257E2025-12-02%2023%253A59%253A59-%25E8%25AE%25A2%25E5%258D%2595%25E7%25BB%2593%25E7%25AE%2597%25E6%2598%258E%25E7%25BB%2586%25E6%258A%25A5%25E8%25A1%25A8.csv&response-content-type=text%2Fplain%3B%20charset%3DUTF-8
+2025-12-03 15:27:09 | INFO | extra_reqlog.py:12 : 在<frame at 0x0000023418A196C0, file 'C:\\Users\\admin\\Desktop\\yiyuan_spider\\extra\\downloader.py', line 83, code _make_request_get>发起了调用,请求成功（status_code:200）
+2025-12-03 15:27:09 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:64 : 林内热水器旗舰店,2025-11-23_2025-12-02已入库
+2025-12-03 15:27:09 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:65 : ----------------------------------------------------------------------------------------------------
+2025-12-03 15:27:09 | INFO | tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505.py:66 : 
+************************************************************************************************************************

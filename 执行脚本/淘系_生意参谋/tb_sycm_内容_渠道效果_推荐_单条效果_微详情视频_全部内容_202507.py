@@ -1,8 +1,8 @@
 
 
 from API.API_ShengCan import Goods
-from extra.data_collector import data_collector
-from extra.database_manager import DatabaseManager
+from extra.select_shop_date import select_shop_date
+from extra.db_manager import DBManager
 from extra.logger_ import logger
 
 if __name__ == '__main__':
@@ -10,7 +10,7 @@ if __name__ == '__main__':
     shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     db_table_name = 'tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507'  # noqa
     site = '淘系_生意参谋'
-    shop_cookies, crawl_day_list = data_collector(db_table_name, site, shop_name_list, 1)
+    shop_cookies, crawl_day_list = select_shop_date(db_table_name, site, shop_name_list, 1)
 
     for i in shop_cookies:
         cookie = i[1]
@@ -29,7 +29,7 @@ if __name__ == '__main__':
                         "统计日期": start_date_,
                     })
                     item["key"] = f"{item['店铺名称']}_{item['统计日期']}_{item['日期类型']}_{item['视频id']}"
-                DatabaseManager().upsert_data(items, db_table_name, primary_key="key")
+                DBManager().update_insert_date(items, db_table_name, primary_key="key")
             logger.info(f"{shop_name},{day}的数据已入库")
         logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")
