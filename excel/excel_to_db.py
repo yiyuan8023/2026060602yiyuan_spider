@@ -6,6 +6,12 @@ from typing import List, Dict, Optional
 from extra.db_manager import DBManager
 from extra.logger_ import logger
 
+# import win32com.client
+# import pythoncom
+# import tempfile
+
+import sys
+
 # 尝试导入不同的库
 try:
     import msoffcrypto
@@ -14,11 +20,6 @@ try:
 except ImportError:
     MSOFFCRYPTO_AVAILABLE = False
     logger.warning("未安装msoffcrypto-tool")
-
-import io
-import tempfile
-import subprocess
-import sys
 
 
 class FileToItems:
@@ -73,7 +74,6 @@ class FileToItems:
             df = pd.read_csv(self.file_path, encoding='utf-8', encoding_errors='replace', skiprows=self.skip_rows)
             return df
 
-
     def _read_excel_with_password(self):
         """
         读取带密码保护的Excel文件
@@ -84,13 +84,13 @@ class FileToItems:
                 try:
                     df = pd.read_excel(self.file_path, skiprows=self.skip_rows)
                     return df
-                except Exception as e:
+                except Exception as exc:
                     # 检查是否是密码保护相关的错误
-                    error_msg = str(e).lower()
+                    error_msg = str(exc).lower()
                     if "password" in error_msg or "encrypted" in error_msg or "workbook" in error_msg:
                         logger.info("检测到文件可能需要密码保护")
                     else:
-                        raise e
+                        raise exc
 
             # 如果提供了密码，使用密码读取
             if self.password is not None:
@@ -101,9 +101,9 @@ class FileToItems:
                 else:
                     raise Exception("所有方法都未能成功读取加密Excel文件")
 
-        except Exception as e:
-            logger.error(f"读取Excel文件失败: {str(e)}")
-            raise e
+        except Exception as exc:
+            logger.error(f"读取Excel文件失败: {str(exc)}")
+            raise exc
 
     def _try_multiple_methods(self):
         """尝试多种方法读取加密Excel文件"""
@@ -115,8 +115,8 @@ class FileToItems:
                 if df is not None:
                     logger.info(f"msoffcrypto读取加密Excel文件方法成功")
                     return df
-            except Exception as e:
-                logger.warning(f"msoffcrypto方法失败: {str(e)}")
+            except Exception as exc:
+                logger.warning(f"msoffcrypto方法失败: {str(exc)}")
 
         # 方法2: 使用临时解密方法
         try:
@@ -124,8 +124,8 @@ class FileToItems:
             if df is not None:
                 logger.info(f"临时读取加密Excel文件方法成功")
                 return df
-        except Exception as e:
-            logger.warning(f"临时解密方法失败: {str(e)}")
+        except Exception as exc:
+            logger.warning(f"临时解密方法失败: {str(exc)}")
 
         # 方法3: 如果是.xlsx文件，尝试使用win32com (Windows only)
         if sys.platform == "win32":
@@ -134,8 +134,8 @@ class FileToItems:
                 if df is not None:
                     logger.info(f"win32com读取加密Excel文件方法成功")
                     return df
-            except Exception as e:
-                logger.warning(f"win32com方法失败: {str(e)}")
+            except Exception as exc:
+                logger.warning(f"win32com方法失败: {str(exc)}")
 
         return None
 
@@ -162,8 +162,8 @@ class FileToItems:
                     if os.path.exists(temp_filename):
                         os.unlink(temp_filename)
 
-        except Exception as e:
-            raise e
+        except Exception as exc:
+            raise exc
 
     def _read_with_temp_decrypt(self):
         """使用临时解密方法"""
@@ -190,19 +190,19 @@ class FileToItems:
                 if os.path.exists(temp_decrypted_path):
                     os.unlink(temp_decrypted_path)
 
-        except Exception as e:
+        except Exception as exc:
             # 清理可能残留的临时文件
             temp_decrypted_path = self.file_path + ".decrypted.xlsx"
             if os.path.exists(temp_decrypted_path):
                 os.unlink(temp_decrypted_path)
-            raise e
+            raise exc
 
     def _read_with_win32com(self):
         """使用win32com读取（仅Windows）"""
         try:
             import win32com.client
             import pythoncom
-            import tempfile
+            import tempfile # noqa
 
             # 初始化COM
             pythoncom.CoInitialize()
@@ -232,7 +232,6 @@ class FileToItems:
                 workbook.SaveAs(temp_path, None, "", "")
                 # 关闭工作簿
                 workbook.Close(SaveChanges=False)
-                workbook = None
 
                 # 读取无密码文件
                 df = pd.read_excel(temp_path, skiprows=self.skip_rows)
@@ -240,7 +239,9 @@ class FileToItems:
 
                 logger.info(f"文件已解密并保存到桌面: {temp_path}")
                 return df
-
+            except Exception as exc:
+                logger.error(f"读取Excel文件时出错: {str(exc)}")
+                raise
 
             finally:
 
@@ -252,18 +253,13 @@ class FileToItems:
                 # 如果需要自动清理，可以取消下面的注释
 
                 # try:
-
                 #     if os.path.exists(temp_path):
-
                 #         os.unlink(temp_path)
-
                 # except Exception as e:
-
                 #     logger.warning(f"清理临时文件失败: {str(e)}")
 
-
-        except Exception as e:
-            raise e
+        except Exception as exc:
+            raise exc
 
     @staticmethod
     def df_to_dict_list(df: pd.DataFrame) -> List[Dict]:

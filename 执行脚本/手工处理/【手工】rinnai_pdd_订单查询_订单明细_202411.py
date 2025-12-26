@@ -8,8 +8,8 @@ if __name__ == '__main__':
 
     logger.info(f"\n{'*' * 120}")
 
-    file_path_ = r'E:\1\854orders_export2025-12-12-09-16-06.csv'  # NOQA
-    file_path_ = r'E:\1\956145070orders_export2025-12-24-08-52-17.csv'  # NOQA
+    # file_path_ = r'E:\1\854orders_export2025-12-12-09-16-06.csv'  # NOQA
+    file_path_ = r'E:\1\956145070orders_export2026-01-06-08-47-56.csv'  # NOQA
     table_name = 'rinnai_pdd_订单查询_订单明细_202411'  # noqa
     # shop_name = '林内官方旗舰店'
     shop_name = '八八电器专营店'
