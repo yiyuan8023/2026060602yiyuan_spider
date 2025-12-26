@@ -45,28 +45,16 @@ class Logger:
             project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             # 项目日志目录（新建log文件夹）
             project_log_dir = os.path.join(project_path, 'log')
-        # 返回当前项目路径
-        return project_log_dir
+            # 返回当前项目路径
+            return project_log_dir
 
-    def get_log_path(self):
+    def get_log_path(self, filename=None):
         # 获取项目要保存的日志路径
 
         # 项目目录
         project_log_dir = self.get_project_path()
         # 日志文件名
-        project_log_filename = f"yiyuan{datetime.date.today()}.log"
-        # 日志文件路径
-        project_log_path = os.path.join(project_log_dir, project_log_filename)
-        # 返回日志路径
-        return project_log_path
-
-    def get_error_log_path(self):
-        # 获取项目要保存的日志路径
-
-        # 项目目录
-        project_log_dir = self.get_project_path()
-        # 日志文件名
-        project_log_filename = f"yiyuan{datetime.date.today()}_error.log"
+        project_log_filename = f"{datetime.date.today()}_{filename}.log"
         # 日志文件路径
         project_log_path = os.path.join(project_log_dir, project_log_filename)
         # 返回日志路径
@@ -78,7 +66,7 @@ class Logger:
         if LOGFILE:  # 开关变量，控制日志输出方式，setting中设置
             loguru.logger.add(
                 # 日志文件的保存路径
-                sink=self.get_log_path(),
+                sink=self.get_log_path("yiyuan"),
                 # 日志创建周期 - 每天00:00创建新日志文件
                 rotation='00:00',
                 # 保存策略 - 保留1年的日志文件
@@ -97,7 +85,7 @@ class Logger:
 
             # 添加专门的错误日志文件
             loguru.logger.add(
-                sink=self.get_error_log_path(),
+                sink=self.get_log_path("yiyuan_error"),
                 rotation='00:00',  # 每天轮转
                 retention='1 year',
                 compression='zip',
@@ -156,18 +144,18 @@ logger.add(collect_error_logger, level="ERROR")
 #     logger.info('----原始测试----')
 
 
-    # 你可以直接使用 logger 来记录日志
-    # logger.error("cookie为空或者已失效")  # 这会被添加到 error_logs 和 error_logs2
-    # logger.error("普通错误")  # 这只会被添加到 error_logs
-    #
-    # # 检查收集到的错误，可以发送邮件或者保存到数据库中
-    # print("所有错误:", error_logs)
-    # print("Cookie相关错误:", error_cookie_logs)
+# 你可以直接使用 logger 来记录日志
+# logger.error("cookie为空或者已失效")  # 这会被添加到 error_logs 和 error_logs2
+# logger.error("普通错误")  # 这只会被添加到 error_logs
+#
+# # 检查收集到的错误，可以发送邮件或者保存到数据库中
+# print("所有错误:", error_logs)
+# print("Cookie相关错误:", error_cookie_logs)
 
-    # if error_logs:
-    #     body = "".join(error_logs)
-    #     send_email(f"京东商智报错信息_{getTimeStr()}", body)
-    # if error_cookie_logs:
-    #     body = "".join(error_logs2)
-    #     h = str_html('“.*”', body)
-    #     send_email(f"京东商智报错信息_{getTimeStr()}", h, ['shuju_python@bi-cheng.cn'], 'html')
+# if error_logs:
+#     body = "".join(error_logs)
+#     send_email(f"京东商智报错信息_{getTimeStr()}", body)
+# if error_cookie_logs:
+#     body = "".join(error_logs2)
+#     h = str_html('“.*”', body)
+#     send_email(f"京东商智报错信息_{getTimeStr()}", h, ['shuju_python@bi-cheng.cn'], 'html')

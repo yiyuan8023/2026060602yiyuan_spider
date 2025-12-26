@@ -16,7 +16,8 @@ import uuid
 import pymysql
 from pymysql.converters import escape_string
 
-from extra.extra_date import get_date
+from extra.extra_date import get_date, get_is_date
+from extra.extra_items import get_long_values
 from extra.settings import *
 from extra.logger_ import logger
 
@@ -157,10 +158,10 @@ class DBManager:
         if not items:
             return
 
-        # 分析第一条数据的字段类型
-        sample_item = items[0]
+        # 获取items中，字段中最长的一条数据，组成新的字段
+        sample_item = get_long_values(items)
         columns = []
-        keys = list(sample_item.keys())  # 获取所有字段名,并添加id字段
+        keys = list(sample_item.keys())  # 获取所有字段名
 
         if primary_key:
             columns.append("`id` INT AUTO_INCREMENT UNIQUE")  # 添加自增ID字段，为唯一键
@@ -172,10 +173,21 @@ class DBManager:
             # 根据值的类型推断字段类型
             value = sample_item[key]
             str_value = str(value) if value is not None else ""
-            if len(str_value) > 1000:
+            is_date = get_is_date(value)
+            if is_date:
+                if len(str_value) <= 10:  # 只有日期部分
+                    column_type = "DATE"
+                else:  # 包含时间部分
+                    column_type = "DATETIME"
+            elif ((isinstance(value, (int, float)) or
+                   (isinstance(value, str) and value.replace('.', '').isdigit())) and len(str_value) < 10):
+                # 长度不大于10，并且是数字
+                # 数值类型使用 DOUBLE
+                column_type = "DOUBLE"
+            elif len(str_value) > 500:
                 column_type = "TEXT"
             else:
-                column_type = f"VARCHAR({min(max(len(str_value) * 2, 255), 1000)})"
+                column_type = f"VARCHAR({min(max(len(str_value) * 2, 50), 1000)})"
 
             # 设置主键
 
@@ -248,7 +260,7 @@ class DBManager:
             if len(str_value) > 1000:
                 column_type = "TEXT"
             else:
-                column_type = f"VARCHAR({min(max(len(str_value) * 2, 255), 1000)})"
+                column_type = f"VARCHAR({min(max(len(str_value) * 2, 50), 1000)})"
             # 添加字段注释，包含添加时间
             comment = f"add_{get_date()}"
             comment_encoded = comment.encode('utf-8').decode('utf-8')
@@ -260,42 +272,25 @@ class DBManager:
         return alter_sql
 
     def _create_triggers(self, table_name):
-        """
-        为指定表创建自动设置用户信息的触发器
-        :param table_name: 表名
-        :return:
-        """
+        # 为指定表创建自动设置用户信息的触发器，主要是记录哪个用户写入的数据
 
-        # 创建INSERT触发器
-        insert_trigger_sql = f"""
-        CREATE TRIGGER `before_insert_{table_name}`  
-        BEFORE INSERT ON `{table_name}` 
-        FOR EACH ROW 
-        BEGIN
-            SET NEW.create_user = USER();
-        END;
-        """
-
-        # 创建UPDATE触发器
-
-        update_trigger_sql = f"""
-        CREATE TRIGGER `before_update_{table_name}`  
-        BEFORE UPDATE ON `{table_name}` 
-        FOR EACH ROW 
-        BEGIN
-            SET NEW.update_user = USER();
-        END;
-        """
+        # 创建INSERT/UPDATE触发器
+        triggers = [
+            (f"CREATE TRIGGER `before_insert_{table_name}` BEFORE INSERT ON `{table_name}` FOR EACH ROW "
+             "BEGIN SET NEW.create_user = USER(); END;"),
+            (f"CREATE TRIGGER `before_update_{table_name}` BEFORE UPDATE ON `{table_name}` FOR EACH ROW "
+             "BEGIN SET NEW.update_user = USER(); END;")
+        ]
 
         # 执行触发器创建语句
-        try:
-            self.cursor.execute(insert_trigger_sql)
-            self.cursor.execute(update_trigger_sql)
-            self.connect.commit()
-            logger.info(f"表 `{table_name}` 创建用户插入和更新触发器成功")
-        except Exception as e:
-            logger.warning(f"表 `{table_name}`创建用户插入和更新触发器失败（可能由于权限问题）: {e}")
-            self.connect.rollback()
+        for trigger_sql in triggers:
+            try:
+                self.cursor.execute(trigger_sql)
+            except Exception as e:
+                logger.warning(f"表 `{table_name}`创建触发器失败（可能由于权限问题）: {e}")
+
+        self.connect.commit()
+        logger.info(f"表 `{table_name}` 创建用户插入和更新触发器成功")
 
     def insert_delete_insert_data(self, items, db_table_name, delete_min_date, delete_max_date, shop_name,
                                   date_column_name='日期', uu_id=None, user=None):

@@ -1,0 +1,1 @@
+2026-01-08 11:22:37 | ERROR | db_manager.py:130 : 执行 SQL 语句时发生错误: (1364, "Field 'key' doesn't have a default value")

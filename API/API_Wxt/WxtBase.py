@@ -58,7 +58,8 @@ class WxtBaseApi:
         api = "https://one.alimama.com/report/createDownLoadTask.json?"
         params = {
             "csrfId": self.csrfId,
-            "bizCode": "universalBP"
+            # "bizCode": "universalBP"
+            "bizCode": "onebpSite"
         }
         url = api + urlencode(params)
         headers = {

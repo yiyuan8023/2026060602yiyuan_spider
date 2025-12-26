@@ -1,18 +1,14 @@
 from urllib.parse import urlencode
-
-import numpy as np
-import pandas as pd
 import requests
 
 from extra.downloader import Downloader
 from extra.extra_error import handle_request_error
 from extra.extra_reqlog import req_log
-from extra.extra_time import convert_to_timestamp
 
 from API.API_ShengCan.ShengCanBase import ShengCanBaseApi
 from extra.logger_ import logger
 from extra.settings import UA
-from extra.extra_date import get_millisecond_timestamp
+from extra.extra_date import get_millisecond_timestamp, get_second_timestamp
 
 
 class Goods(ShengCanBaseApi):
@@ -111,7 +107,7 @@ class Goods(ShengCanBaseApi):
             "device": 0,
             "kwType": "se_keyword",
             "indexCode": "uv,payOrderByrCnt,payConveRate",  # noqa
-            "_": convert_to_timestamp,
+            "_": get_second_timestamp,
             "token": self.token
         }
         url = api + urlencode(params)

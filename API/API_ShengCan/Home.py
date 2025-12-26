@@ -6,7 +6,7 @@ import requests
 from API.API_ShengCan.ShengCanBase import ShengCanBaseApi
 from extra.extra_reqlog import req_log
 
-from extra.extra_time import convert_to_timestamp
+from extra.extra_date import get_second_timestamp
 from extra.settings import UA
 
 
@@ -25,7 +25,7 @@ class Home(ShengCanBaseApi):
             "needCycleCrc": True,
             "dateType": "day",
             "dateRange": f"{day}|{day}",
-            "_": convert_to_timestamp(),
+            "_": get_second_timestamp(),
             "token": self.token
         }
         url = api + urlencode(params)

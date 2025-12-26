@@ -29,7 +29,7 @@ if __name__ == '__main__':
         sleep(60 * 2)
 
         download_url = Obj.get_download_url(task_id) # NOQA
-        # download_url = Obj.get_download_url('19516531')
+        # download_url = Obj.get_download_url('19680799')
 
         if download_url:
             items = Downloader(download_url).download_zip()  # 下载zip文件,并读取csv文件 # NOQA

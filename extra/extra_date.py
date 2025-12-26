@@ -1,6 +1,7 @@
 """
 主要函数列表：
 ensure_datetime：确保输入是 datetime 对象，支持自动检测常见日期格式
+get_is_date:判断是不是日期
 get_date：将指定日期转换为文本日期格式
 get_time_ago：获取指定日期n个时间单位前的日期字符串
 get_recent_days：获取最近n天的日期列表（不包括今天）
@@ -47,6 +48,12 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
             "%Y-%m-%d %H:%M",
             "%Y/%m/%d %H:%M",
             "%Y%m%d",
+            "%Y.%m.%d",
+            "%Y.%m.%d %H:%M:%S",
+            "%m/%d/%Y",
+            "%m/%d/%Y %H:%M:%S",
+            "%d/%m/%Y",
+            "%d/%m/%Y %H:%M:%S"
         ]
 
         # 尝试各种格式
@@ -60,6 +67,26 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
         raise ValueError(f"无法解析日期字符串 '{date_input}'，支持的格式包括: {', '.join(common_formats)}")
     else:
         raise TypeError(f"不支持的日期格式。请提供 datetime 对象或字符串，当前类型: {type(date_input)}")
+
+
+def get_is_date(date_input):
+    """
+    判断字符串是否为日期格式
+    Args:
+        date_input: 待检测的字符串
+    Returns:
+        bool: 如果是日期格式返回True，否则返回False
+    """
+    if not isinstance(date_input, str):
+        return False
+
+    try:
+        # 使用现有的ensure_datetime函数尝试解析日期
+        ensure_datetime(date_input)
+        return True
+    except (ValueError, TypeError):
+        # 如果解析失败，说明不是有效的日期格式
+        return False
 
 
 def get_date(date_input: Union[str, datetime, None] = None,
