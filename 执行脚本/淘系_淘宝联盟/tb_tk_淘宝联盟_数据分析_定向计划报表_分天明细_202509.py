@@ -31,7 +31,7 @@ if __name__ == "__main__":
             item["key"] = f"{item['店铺名称']}_{item['任务id']}_{item['统计日期']}"
         # print(items)
 
-        DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key="key")
+        DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key="key")
 
         logger.info(f"{shop_name},{crawl_day_list}已入库")
         logger.info("-" * 100)

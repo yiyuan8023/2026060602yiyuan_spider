@@ -1,5 +1,5 @@
 
-from API.API_TiaoMaoMySeller import MySellerTradeAPI
+from API.API_TiaoMaoMySeller.MysellerTrade import MySellerTradeAPI
 from extra.select_shop_date import select_shop_date
 from extra.db_manager import DBManager
 from extra.extra_date import get_min_max_timestamps
@@ -23,6 +23,6 @@ if __name__ == '__main__':
                 "店铺名称": shop_name,
             })
 
-        DBManager().update_insert_date(items, table_name, primary_key='子订单编号')
+        DBManager().update_insert_data(items, table_name, primary_key='子订单编号')
         logger.info("-" * 100)
     logger.info("*" * 100)

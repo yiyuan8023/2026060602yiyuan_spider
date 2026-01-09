@@ -82,7 +82,7 @@ class FileToItems:
             # 首先尝试不使用密码读取
             if self.password is None:
                 try:
-                    df = pd.read_excel(self.file_path, skiprows=self.skip_rows)
+                    df = pd.read_excel(self.file_path, skiprows=self.skip_rows, dtype=str)
                     return df
                 except Exception as exc:
                     # 检查是否是密码保护相关的错误
@@ -202,7 +202,7 @@ class FileToItems:
         try:
             import win32com.client
             import pythoncom
-            import tempfile # noqa
+            import tempfile  # noqa
 
             # 初始化COM
             pythoncom.CoInitialize()
@@ -297,7 +297,7 @@ if __name__ == "__main__":
                 "店铺名称": shop_name,
             })
 
-        DBManager().update_insert_date(items_, table_name, primary_key='订单号')
+        DBManager().update_insert_data(items_, table_name, primary_key='订单号')
         logger.info("-" * 100)
         logger.info("数据导入完成")
     except Exception as e:

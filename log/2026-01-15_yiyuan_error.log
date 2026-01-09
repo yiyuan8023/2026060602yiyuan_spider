@@ -1,0 +1,1 @@
+2026-01-15 13:17:16 | ERROR | db_manager.py:131 : 执行 SQL 语句时发生错误: (1265, "Data truncated for column '实付款' at row 1")

@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
             # print(items)
             # print(items[0].keys())
-            DBManager().update_insert_date(items, table_name, primary_key='key')
+            DBManager().update_insert_data(items, table_name, primary_key='key')
             logger.info(f"{shop_name},{day}的数据已入库")
             logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")

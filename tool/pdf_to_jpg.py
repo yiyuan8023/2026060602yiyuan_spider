@@ -4,6 +4,7 @@ import pdf2image
 import os
 from PIL import Image
 
+
 def process_invoice_excel(excel_path, output_dir="./发票图片", dpi=200, poppler_path=None):
     """
     处理Excel文件中的发票PDF链接，转换为JPG图片
@@ -44,7 +45,8 @@ def process_invoice_excel(excel_path, output_dir="./发票图片", dpi=200, popp
             transaction_id = row['交易主单']
 
             # 跳过空链接
-            if not pdf_url or pd.isna(pdf_url) or not (str(pdf_url).startswith('https') or str(pdf_url).startswith('http')):
+            if not pdf_url or pd.isna(pdf_url) or not (
+                    str(pdf_url).startswith('https') or str(pdf_url).startswith('http')):
                 print(f"第{index + 1}行: 发票链接为空或无效，跳过")
                 failed_count += 1
                 failed_items.append({

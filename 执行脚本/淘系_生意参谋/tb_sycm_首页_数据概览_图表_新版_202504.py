@@ -68,7 +68,7 @@ if __name__ == '__main__':
                 "统计日期": time_str
             })
             # print(item)
-            DBManager().update_insert_date([item], table_name, primary_key='key')
+            DBManager().update_insert_data([item], table_name, primary_key='key')
             logger.info("-" * 100)
             logger.info(f"{shop_name},{day}的数据已入库")
     logger.info(f"\n{'*' * 120}")

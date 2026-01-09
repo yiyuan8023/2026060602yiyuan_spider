@@ -43,5 +43,7 @@ if __name__ == '__main__':
             min_date, max_date = get_items_min_max_date(items, '日期')
             # 先删后入,没有key
 
-            DBManager(db_config=db_config).insert_delete_insert_data(items, db_table_name, shop_name=shop_name,
-                                                                     delete_min_date=min_date, delete_max_date=max_date)
+            delete_sql = (f"delete from {db_table_name} where 店铺名称='{shop_name}' " # noqa
+                          f"and `日期` between '{min_date}' and '{max_date}'")  # noqa
+            # 先删后入,没有key
+            DBManager().insert_delete_insert_data(items, db_table_name, delete_sql)

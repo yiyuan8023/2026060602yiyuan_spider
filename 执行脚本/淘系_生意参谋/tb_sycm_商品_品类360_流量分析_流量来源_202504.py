@@ -73,7 +73,7 @@ def analyzing_res(res_json):
             item[
                 "key"] = f"{item['店铺名称']}_{item['统计日期']}_{item['日期类型']}_{item['一级流量来源']}_{item['二级流量来源']}_{item['三级流量来源']}"
             items.append(item)
-        DBManager().update_insert_date(items, db_table_name, primary_key="key")
+        DBManager().update_insert_data(items, db_table_name, primary_key="key")
 
     else:
         logger.info("数据为空")

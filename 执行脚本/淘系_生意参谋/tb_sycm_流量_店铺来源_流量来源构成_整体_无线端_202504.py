@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 item[
                     "key"] = f"无线_{item['店铺名称']}_{day}_{item['日期类型']}_{item['一级来源']}_{item['二级来源']}_{item['三级来源']}"
 
-            DBManager().update_insert_date(items, table_name, primary_key='key')
+            DBManager().update_insert_data(items, table_name, primary_key='key')
             logger.info(f"{shop_name},{day}的数据已入库")
             logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")

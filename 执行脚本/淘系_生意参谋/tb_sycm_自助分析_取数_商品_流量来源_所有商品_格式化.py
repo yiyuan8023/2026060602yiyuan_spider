@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     table_name = "tb_sycm_自助分析_取数_商品_流量来源_所有商品_格式化_202507"  # NOQA
     site = '生意参谋'
-    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 7)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 3)
     # crawl_day_list = get_date_range('2024-04-03', '2025-12-22')
     for i in shop_cookies:
         cookie = i[1]
@@ -52,7 +52,7 @@ if __name__ == '__main__':
                     item["key"] = (f"{item['商品ID']}_{item['店铺名称']}_{item['统计日期']}_"
                                    f"{item['一级流量来源']}_{item['二级流量来源']}_{item['三级流量来源']}")
                 # print(items)
-                DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key='key')
+                DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key='key')
                 logger.info("-" * 100)
                 logger.info(f"{shop_name},{day}的数据已入库")
             logger.info(f"\n{'*' * 120}")

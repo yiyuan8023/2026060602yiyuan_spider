@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
             items_list = [items]
             # print(items_list)
-            DBManager().update_insert_date(items_list, table_name, primary_key='key')
+            DBManager().update_insert_data(items_list, table_name, primary_key='key')
             logger.info(f"{shop_name}获取cookie成功")
         else:
             logger.info(f"{shop_name}获取cookie失败")

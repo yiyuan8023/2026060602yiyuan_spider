@@ -9,6 +9,10 @@ def get_long_values(items):
     if not items:
         return {}
 
+        # 如果数据量超过1000条，只处理前1000条
+    if len(items) > 1000:
+        items = items[:1000]
+
     # 获取所有字典的键（假设所有字典结构相同）
     all_keys = items[0].keys() if items else []
 

@@ -1,11 +1,10 @@
 from time import sleep
 
-
 from API.API_Wxt.WxtReport import WxtReportApi
 from extra.select_shop_date import select_shop_date
 from extra.db_manager import DBManager
 from extra.downloader import Downloader
-from extra.extra_date import get_time_ago,  get_items_min_max_date
+from extra.extra_date import get_time_ago, get_items_min_max_date
 
 from extra.logger_ import logger
 
@@ -29,7 +28,7 @@ if __name__ == '__main__':
 
         sleep(60 * 3)
         # task_id = '10568864'
-        download_url = Obj.get_download_url(task_id) # NOQA
+        download_url = Obj.get_download_url(task_id)  # NOQA
 
         if download_url:
             items = Downloader(download_url).download_zip()  # 下载zip文件,并读取csv文件 # NOQA
@@ -39,9 +38,7 @@ if __name__ == '__main__':
                     "归因周期": 15,
                 })
             min_date, max_date = get_items_min_max_date(items, '日期')
+            delete_sql = (f"delete from {db_table_name} where 店铺名称='{shop_name}' " # noqa
+                          f"and `日期` between '{min_date}' and '{max_date}'")  # noqa
             # 先删后入,没有key
-            DBManager().insert_delete_insert_data(items, db_table_name, shop_name=shop_name, delete_min_date=min_date,
-                                                  delete_max_date=max_date)
-
-
-
+            DBManager().insert_delete_insert_data(items, db_table_name, delete_sql)

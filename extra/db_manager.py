@@ -2,7 +2,7 @@
 execute_sql:执行SQL语句
 select_cookies_shop:根据站点和店铺名称查询cookie信息
 select_cookies_all:根据站点查询所有店铺的cookie信息
-update_insert_date：新增或更新数据，如果表不存在则自动创建
+update_insert_data：新增或更新数据，如果表不存在则自动创建
 insert_delete_insert_data：执行"先测试插入、再删除历史数据、最后批量插入"的数据操作流程
 _create_table：根据数据自动创建表
 _check_and_update_table_structure：检查表结构是否需要更新，并自动添加新字段
@@ -31,6 +31,9 @@ class DBManager:
         else:
             db_params = DATABASE_CONFIGS.get(db_config)
 
+        # # 添加charset参数以确保正确的字符编码
+        # db_params_with_charset = db_params.copy()
+        # db_params_with_charset['charset'] = 'utf8mb4'
         self.connect = pymysql.connect(**db_params)
         self.cursor = self.connect.cursor()
 
@@ -62,7 +65,7 @@ class DBManager:
         sql = f"select `店铺名称`,`cookie_str`,`cookie`  from `cookie` where  `站点`='{site}';"
         return self.execute_sql(sql, fetch=True)
 
-    def update_insert_date(self, items, table_name, primary_key=None, uu_id=None, user=None):
+    def update_insert_data(self, items, table_name, primary_key=None, uu_id=None, user=None):
         """
         新增或更新数据，如果表不存在则自动创建
         :param items: 要插入的数据列表，每个元素是一个字典
@@ -83,9 +86,10 @@ class DBManager:
             self._check_and_update_table_structure(items, table_name)
 
         # 为每个数据项添加UUID（如果不存在）
-        for item in items:
-            if 'uu_id' not in item and uu_id:
-                item['uu_id'] = str(uuid.uuid4())
+        if uu_id:
+            for item in items:
+                if 'uu_id' not in item:
+                    item['uu_id'] = str(uuid.uuid4())
 
         # 获取字段名列表（从第一条记录）
         field_names = list(items[0].keys())
@@ -93,43 +97,77 @@ class DBManager:
         # 构建字段名字符串
         fields_str = ", ".join([f"`{field}`" for field in field_names])
 
-        # 构建所有记录的值字符串
-        values_list = []
-        for item in items:  # 遍历每个数据字典
-            values = []
-            for field in field_names:  # 按照统一的字段顺序处理值
-                value = item.get(field)  # 使用get方法避免KeyError
-
-                # 添加剔除首尾空格和不可见字符的处理
-                if isinstance(value, str):
-                    # 去除首尾空格并移除不可见字符（包括制表符、换行符等）
-                    value = value.strip()
-                    # 使用正则表达式移除所有不可见字符
-                    value = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]', '', value)
-
-                if not value:  # 如果值为空
-                    values.append("NULL")
-                elif isinstance(value, str):  # 如果是字符串类型
-                    values.append(f"'{escape_string(value)}'")  # 转义并加引号
-                else:
-                    values.append(f"{value}")  # 直接添加
-            values_list.append(f"({', '.join(values)})")
-
         # 构建ON DUPLICATE KEY UPDATE部分（排除created_at字段）
         update_fields = [field for field in field_names if field not in ['created_at']]
         duplicate_str = ",".join([f"`{field}`=VALUES(`{field}`)" for field in update_fields])
 
-        # 构建完整的INSERT语句
-        insert_sql = (f"INSERT INTO `{table_name}`({fields_str}) VALUES {','.join(values_list)}"
-                      f" ON DUPLICATE KEY UPDATE {duplicate_str};")
+        # 构建完整的INSERT语句，使用参数化查询
+        placeholders = ', '.join(['%s'] * len(field_names))
+        insert_sql = (f"INSERT INTO `{table_name}`({fields_str}) VALUES ({placeholders}) "
+                      f"ON DUPLICATE KEY UPDATE {duplicate_str};")
 
-        try:
-            self.cursor.execute(insert_sql)
-            self.connect.commit()
-        except Exception as e:
-            self.connect.rollback()
-            logger.error(f"执行 SQL 语句时发生错误: {e}")
-            raise
+        # 分批处理数据，每批1000条
+        batch_size = 500000
+        total_items = len(items)
+        logger.info(f"总共 {total_items} 条数据，开始时间：{get_date(date_format='%Y-%m-%d %H:%M:%S')}")
+
+        for i in range(0, total_items, batch_size):
+            batch_items = items[i:i + batch_size]
+
+            # 构建所有记录的值字符串
+            values_tuples = []
+            logger.info(f"开始时间：{get_date(date_format='%Y-%m-%d %H:%M:%S')}")
+            for item in batch_items:  # 遍历每个数据字典
+                row_values = []
+                for field in field_names:  # 按照统一的字段顺序处理值
+                    value = item.get(field)  # 使用get方法避免KeyError
+
+                    # 剔除首尾空格和不可见字符的处理
+                    if isinstance(value, str):
+                        # 去除首尾空格并移除不可见字符（包括制表符、换行符等）
+                        # value = value.strip()
+                        # # 使用正则表达式移除所有不可见字符
+                        # value = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7Ft\s\']', '', value)
+
+                        # 定义要移除的不可见字符，translate效率更高
+                        invisible_chars = ''.join([chr(i) for i in range(32)]) + chr(127) + "'"  # 包括ASCII控制字符
+                        # 创建翻译表，将不可见字符映射为None（即删除）
+                        trans_table = str.maketrans('', '', invisible_chars)
+                        value = value.translate(trans_table)
+                        # 特殊处理时间戳类型，将其转换为字符串格式
+
+                    if not value:  # 如果值为空
+                        row_values.append(None)
+                    # elif get_is_date(value):  # 检查是否为datetime/timestamp对象
+                    #     value = get_date(value, '%Y-%m-%d %H:%M:%S')  # 转换为字符串格式
+                    #     # row_values.append(f"'{escape_string(value)}'")
+                    #     row_values.append(value)
+                    elif isinstance(value, str):  # 如果是字符串类型
+                        # row_values.append(f"'{escape_string(value)}'")  # 转义并加引号
+                        row_values.append(value)
+                    else:
+                        # row_values.append(f"{value}")  # 直接添加
+                        row_values.append(value)  # 直接添加
+
+                # values_list.append(f"({', '.join(values)})")
+                values_tuples.append(tuple(row_values))
+
+            # 构建完整的INSERT语句
+            # insert_sql = (f"INSERT INTO `{table_name}`({fields_str}) VALUES {','.join(values_list)}"
+            #               f" ON DUPLICATE KEY UPDATE {duplicate_str};")
+
+            try:
+                # self.cursor.execute(insert_sql)
+                self.cursor.executemany(insert_sql, values_tuples)
+                self.connect.commit()
+                logger.info(f"已处理 {min(i + batch_size, total_items)}/{total_items} 条数据")
+
+            except Exception as e:
+                self.connect.rollback()
+                logger.error(f"执行 SQL 语句时发生错误: {e}")
+                raise
+
+    logger.info(f"结束时间：{get_date(date_format='%Y-%m-%d %H:%M:%S')}")
 
     def _table_exists(self, table_name):
         """
@@ -138,7 +176,6 @@ class DBManager:
         :return: bool
         """
         try:
-
             sql = f"SELECT 1 FROM `{table_name}` LIMIT 1;"  # noqa
             self.cursor.execute(sql)
             return True
@@ -250,7 +287,8 @@ class DBManager:
 
     @staticmethod
     def _build_alter_table_sql(table_name, columns_to_add, items):
-        """构建ALTER TABLE SQL语句"""
+        """构建ALTER TABLE语句，添加新字段"""
+
         alter_parts = []
         for column in columns_to_add:
             # 根据值推断字段类型
@@ -262,7 +300,7 @@ class DBManager:
             else:
                 column_type = f"VARCHAR({min(max(len(str_value) * 2, 50), 1000)})"
             # 添加字段注释，包含添加时间
-            comment = f"add_{get_date()}"
+            comment = f"add_{get_date( date_format='%Y-%m-%d %H:%M:%S')}"
             comment_encoded = comment.encode('utf-8').decode('utf-8')
             alter_parts.append(f"ADD COLUMN `{column}` {column_type} COMMENT '{comment_encoded}'")
 
@@ -292,19 +330,15 @@ class DBManager:
         self.connect.commit()
         logger.info(f"表 `{table_name}` 创建用户插入和更新触发器成功")
 
-    def insert_delete_insert_data(self, items, db_table_name, delete_min_date, delete_max_date, shop_name,
-                                  date_column_name='日期', uu_id=None, user=None):
+    def insert_delete_insert_data(self, items, db_table_name, del_sql, uu_id=None, user=None):
 
         """
             先插入2条测试,如果插入成功,则先删除后入
-            不需要指定key
+            不需要指定key，主要解决无法构建key值的表结构
         Args:
             items: 要插入的数据列表
             db_table_name: 目标表名
-            delete_min_date: 删除数据的最小日期
-            delete_max_date: 删除数据的最大日期
-            shop_name: 店铺名称，用于过滤要删除的数据
-            date_column_name: 日期字段名，默认为 "日期"
+            del_sql: 删除sql
             uu_id: 是否为每条记录添加  UUID字段（默认不添加）
             user: 是否添加更新用户触发器
 
@@ -317,25 +351,25 @@ class DBManager:
             return False
 
         try:
-            # 1. 测试插入前2条数据
-            logger.info(f"开始测试插入2条数据到表 {db_table_name}")
-            self.update_insert_date(items[:2], db_table_name, primary_key=None, uu_id=uu_id, user=user)
-            logger.info(f"{db_table_name}测试插入成功")
+            # 检查表是否存在
+            table_exists = self._table_exists(db_table_name)
 
-            # 2. 构建删除SQL语句
-            delete_sql = (f"DELETE FROM `{db_table_name}` "
-                          f"WHERE `{date_column_name}` BETWEEN '{delete_min_date}' AND '{delete_max_date}' "
-                          f"and `店铺名称`='{shop_name}';")
+            # 如果表存在，则先入再删除指定数据
+            if table_exists:
+                # 1. 测试插入前2条数据
+                logger.info(f"开始测试插入2条数据到表 {db_table_name}")
+                self.update_insert_data(items[:2], db_table_name, primary_key=None, uu_id=uu_id, user=user)
+                logger.info(f"{db_table_name}测试插入成功")
 
-            # 3. 执行删除操作
-            logger.info(f"开始删除指定日期范围内的数据")
-            self.execute_sql(delete_sql)
-            logger.info(f"删除成功，已删除【{shop_name}】 {delete_min_date} 到 {delete_max_date} 之间的数据")
+                # 2. 执行删除操作
+                logger.info(f"开始删除指定日期范围内的数据")
+                self.execute_sql(del_sql)
+                logger.info(f"删除成功，已删除【{del_sql} ")
 
-            # 4. 批量插入所有数据
+            # 3. 批量插入所有数据
             logger.info(f"开始批量插入数据")
-            self.update_insert_date(items, db_table_name, primary_key=None, uu_id=uu_id, user=user)
-            logger.info(f"【{shop_name}】 {delete_min_date} 到 {delete_max_date} 批量插入完成")
+            self.update_insert_data(items, db_table_name, primary_key=None, uu_id=uu_id, user=user)
+            logger.info(f"批量插入完成")
             self.close()
             return True
 

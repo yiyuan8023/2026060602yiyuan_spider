@@ -173,7 +173,7 @@ if __name__ == "__main__":
             item.update({"file": file})
             item["key"] = f"{item['图像链接']}_{item['昵称']}_{item['时间']}"
 
-        DBManager().update_insert_date(items, table_name, primary_key='key', uu_id=True, user=True)
+        DBManager().update_insert_data(items, table_name, primary_key='key', uu_id=True, user=True)
         # logger.info(f"数据已入库")
         logger.info("-" * 100)
 

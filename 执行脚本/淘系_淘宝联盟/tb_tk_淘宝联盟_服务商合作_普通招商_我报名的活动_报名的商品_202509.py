@@ -91,7 +91,7 @@ if __name__ == "__main__":
                 # item["key"] = f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
             # print(items)
 
-            DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key="sign_up_record")
+            DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key="sign_up_record")
 
         # logger.info(f"{shop_name_list},{crawl_day_list}已入库")
         logger.info("-" * 100)

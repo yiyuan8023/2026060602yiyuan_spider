@@ -71,14 +71,12 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
 
 def get_is_date(date_input):
     """
-    判断字符串是否为日期格式
-    Args:
-        date_input: 待检测的字符串
-    Returns:
-        bool: 如果是日期格式返回True，否则返回False
+    判断输入是否为日期格式（支持字符串、datetime对象）
+    date_input: 待检测的字符串
+    bool: 如果是日期格式返回True，否则返回False
     """
-    if not isinstance(date_input, str):
-        return False
+    # if not isinstance(date_input, str):
+    #     return False
 
     try:
         # 使用现有的ensure_datetime函数尝试解析日期

@@ -36,7 +36,7 @@ if __name__ == "__main__":
                         })
                         item[
                             "key"] = f"{item['统计日期']}_{item['商品ID']}_{item['日期类型']}_{item['店铺名称']}_{item['搜索词']}"
-                    DBManager().update_insert_date(items, table_name, "key")
+                    DBManager().update_insert_data(items, table_name, "key")
                     logger.info(f"{shop_name},item_id：{item_id},{day}的数据已入库")
                     logger.info("-" * 100)
         logger.info(f"\n{'*' * 120}")

@@ -52,7 +52,7 @@ def read_html_to_mysql(folder_path, table_name):
                             'file_size': file_size}
                     items.append(item)
         print(items)
-        DBManager().update_insert_date(items, table_name, primary_key='file', uu_id=True, user=True)
+        DBManager().update_insert_data(items, table_name, primary_key='file', uu_id=True, user=True)
         logger.info(f"{folder_path}的数据已入库")
         logger.info(f"成功处理文件数: {processed_count}")
         logger.info(f"出错文件数: {error_count}")

@@ -6,6 +6,7 @@
 """
 import requests
 from urllib3 import disable_warnings
+
 disable_warnings()
 
 
@@ -20,13 +21,12 @@ class MyIp(object):
     @staticmethod
     def get_ip():
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36'}
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36'} # noqa
         res = requests.get(url='https://myip.ipip.net/', headers=headers, verify=False)
         return res.text
 
     def print_ip(self):
         print(self.ip)
-
 
 
 if __name__ == '__main__':

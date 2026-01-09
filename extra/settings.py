@@ -50,4 +50,12 @@ DATABASE_CONFIGS = {
             "password": "yy123456",
             "port": 3306
         },
+    "hb":  # noqa
+        {
+            "host": "223.5.242.173",
+            "db": "hb",  # noqa
+            "user": "bc_yiyuan",  # noqa
+            "password": "yy123456",
+            "port": 3306
+        },
 }

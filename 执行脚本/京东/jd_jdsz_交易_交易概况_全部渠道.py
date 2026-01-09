@@ -64,7 +64,7 @@ if __name__ == '__main__':
                 item["key"] = f"{item['店铺名称']}_{item['统计日期']}_{item['日期类型']}"
                 items.append(item)
 
-            DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key="key")
+            DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key="key")
             logger.info(f"{shop_name}_{date}数据已入库")
         logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")

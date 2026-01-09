@@ -42,7 +42,7 @@ class Flow(ShengCanBaseApi):
             "needCate": "undefined"
         }
         try:
-            data = Downloader(api, cookie=self.cookie, params=params).download_excel_byte()
+            data = Downloader(api, cookie=self.cookie, params=params).download_file_to_byte()
             all_sheets = pd.read_excel(data, sheet_name=None, skiprows=5)  # 读取所有的工作表
             items_dict = {}
             for sheet_name, df in all_sheets.items():
@@ -70,8 +70,7 @@ class Flow(ShengCanBaseApi):
         }
 
         try:
-            data = Downloader(api, cookie=self.cookie, params=params).download_excel(skiprows=5)
-            items = pd.read_excel(data, skiprows=5)
+            items = Downloader(api, cookie=self.cookie, params=params).download_excel(skiprows=5)
             return items
         except Exception as e:
             logger.error(f"获取商品流量数据失败: item_id={item_id}, day={day}, error={str(e)}")
@@ -93,7 +92,7 @@ class Flow(ShengCanBaseApi):
         }
 
         try:
-            data = Downloader(api, cookie=self.cookie, params=params).download_excel_byte()
+            data = Downloader(api, cookie=self.cookie, params=params).download_file_to_byte()
             engine = excel_engine(data)
             data.seek(0)
 

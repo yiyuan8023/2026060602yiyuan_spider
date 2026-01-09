@@ -28,7 +28,7 @@ if __name__ == '__main__':
         #     # item["key"] = f"{item['日期']}_{item['门店ID']}_{item['商品ID']}"
         # print(items)
 
-        DBManager(db_config=db_config).update_insert_date(items_, table_name, primary_key='唯一ID')
+        DBManager(db_config=db_config).update_insert_data(items_, table_name, primary_key='唯一ID')
         # logger.info(f"{shop_name_list},{crawl_day_list}已入库")
     logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")

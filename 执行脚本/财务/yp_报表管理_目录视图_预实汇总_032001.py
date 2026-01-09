@@ -162,7 +162,7 @@ def process_excel_workbook_no_warning(input_file, output_file):
             department = item.get('编制部门', '')
             item["前后台"] = department.split('[')[-1].split(']')[0] if '[' in department and ']' in department else ""
             item["key"] = f"{item['序号']}_{item['编制部门']}_{item['当前版本']}_{item['年份']}_{item['月份']}_{item['入库日期']}"
-        DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key='key')
+        DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key='key')
 
         logger.info(f"✅ 数据处理完成!")
         logger.info(f"📊 总共处理了 {total_data_blocks} 个数据块")
@@ -178,8 +178,8 @@ def process_excel_workbook_no_warning(input_file, output_file):
 # 使用示例
 if __name__ == "__main__":
     # 设置输入和输出文件路径
-    input_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接 (202511).xlsx"
-    output_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接 (202511)已处理.xlsx"
+    input_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接(202512).xlsx"
+    output_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接(202512)已处理.xlsx"
 
     table_name = 'yp_报表管理_目录视图_预实汇总_032001'
     # db_config = None # noqa

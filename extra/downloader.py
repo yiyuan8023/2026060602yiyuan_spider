@@ -4,13 +4,13 @@ _prepare_Headers:准备HTTP请求头，合并默认和自定义头部
 _make_request_get:发送HTTP GET请求
 _make_request_post:发送HTTP POST请求
 download_web:：下载网页内容并返回响应对象
+download_file_to_byte:下载Excel文件并返回BytesIO对象
 download_excel:下载Excel文件并解析为字典列表
-download_excel_byte:下载Excel文件并返回BytesIO对象
 download_csv:下载CSV文件并解析为字典列表
 download_zip:下载ZIP文件并解压读取其中的内容,解析为字典列表,目前只读取第一个文件
-detect_encoding：检测文件内容的字符编码格式
+file_encoding：检测文件内容的字符编码格式
+_df_to_dict:df转换为字典列表
 """
-
 
 import io
 import zipfile
@@ -18,6 +18,7 @@ import chardet
 import warnings
 import requests
 import pandas as pd
+import fnmatch
 from urllib.parse import urlencode
 from typing import Optional, Dict, Any, Union
 
@@ -156,7 +157,60 @@ class Downloader:
             logger.error(f"下载网页时发生未知错误: {e}")
             raise
 
-    def download_excel(self, sheet_name=0, skiprows=0, engine=None):  # noqa
+    def download_excel(self, sheet_name=0, skiprows=0, engine=None):  # NOQA
+        """
+        下载Excel文件，解析数据，返回items 字典格式的数据
+        sheet_name: str,  # 工作表名称，支持通配符
+        """
+        try:
+            data = self.download_file_to_byte()
+            # 检查sheet_name是否包含通配符
+            if isinstance(sheet_name, str) and ('*' in sheet_name or '?' in sheet_name):
+                # 读取所有工作表名称
+
+                xl_file = pd.ExcelFile(data)
+                all_sheet_names = xl_file.sheet_names
+
+                # 根据通配符模式找到匹配的工作表
+                matched_sheets = [name for name in all_sheet_names if fnmatch.fnmatch(name, sheet_name)]
+
+                if not matched_sheets:
+                    raise ValueError(f"找不到匹配模式 '{sheet_name}' 的工作表")
+
+                # 读取所有匹配的工作表并合并
+                dfs = []
+                for sheet in matched_sheets:
+                    df_temp = pd.read_excel(data, sheet_name=sheet, skiprows=skiprows, engine=engine)
+                    df_temp['__SheetName__'] = sheet  # 添加工作表名称列
+                    dfs.append(df_temp)
+                # 合并所有匹配的工作表
+                df_excel = pd.concat(dfs, ignore_index=True)
+            else:
+                # 如果不使用通配符，按正常方式读取
+                df_excel = pd.read_excel(data, sheet_name=sheet_name, skiprows=skiprows, engine=engine)
+
+            items = self._df_to_dict(df_excel)
+            return items
+
+        except Exception as e:
+            logger.error(f"处理Excel文件时发生未知错误: {e}")
+            raise  # 重新抛出异常，让调用方处理
+
+    @staticmethod
+    def _df_to_dict(df):
+
+        # 所有的NaN值（缺失值）替换为None
+        # df_excel.replace({np.nan: None}, inplace=True) # 替代方案
+        df_filled = df.fillna("")
+
+        # df.empty 是 pandas DataFrame 的属性， 用于检查 DataFrame 是否为空（没有任何行数据）
+        if df_filled.empty:
+            return {}
+        else:
+            items = df_filled.to_dict('records')  # to_dict('records')，将 DataFrame 转换为字典格式
+            return items
+
+    def download_file_to_byte(self):
         """
         下载Excel文件并返回BytesIO对象
         Returns: io.BytesIO: 包含Excel数据的BytesIO对象
@@ -164,72 +218,35 @@ class Downloader:
         try:
             res = self.download_web()
             data = io.BytesIO(res.content)  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
-            df_excel = pd.read_excel(data, sheet_name=sheet_name, skiprows=skiprows, engine=engine)
-            # 所有的NaN值（缺失值）替换为None
-            # df_excel.replace({np.nan: None}, inplace=True) # 替代方案
-            df_filled = df_excel.fillna("")
-
-            # df.empty 是 pandas DataFrame 的属性， 用于检查 DataFrame 是否为空（没有任何行数据）
-            if df_filled.empty:
-                return {}
-            else:
-                items = df_filled.to_dict('records')  # to_dict('records')，将 DataFrame 转换为字典格式
-                return items
+            return data
 
         except requests.exceptions.RequestException as e:
-            logger.error(f"下载Excel文件失败: {e}")
+            logger.error(f"下载Excel/csv文件失败: {e}")
             raise  # 重新抛出异常，让调用方处理
 
         except Exception as e:
-            logger.error(f"处理Excel文件时发生未知错误: {e}")
-            raise  # 重新抛出异常，让调用方处理
-
-    def download_excel_byte(self):
-        """
-        下载Excel文件并返回BytesIO对象
-        Returns: io.BytesIO: 包含Excel数据的BytesIO对象
-        """
-        try:
-            res = self.download_web()
-            return io.BytesIO(res.content)
-
-        except requests.exceptions.RequestException as e:
-            logger.error(f"下载Excel文件失败: {e}")
-            raise  # 重新抛出异常，让调用方处理
-
-        except Exception as e:
-            logger.error(f"处理Excel文件时发生未知错误: {e}")
+            logger.error(f"处理Excel/csv文件时发生未知错误: {e}")
             raise  # 重新抛出异常，让调用方处理
 
     def download_csv(self):
         # 发送 HTTP 请求下载 csv 文件,返回BytesIO对象
         try:
-            res = self.download_web()
-            data = io.BytesIO(res.content)  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
+            data = self.download_file_to_byte()  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
             df_csv = pd.read_csv(data)
-            df_filled = df_csv.fillna("")
-            if df_filled.empty:
-                return {}
-            else:
-                items = df_filled.to_dict('records')
-                return items
-
-        except requests.exceptions.RequestException as e:
-            logger.error(f"下载csv文件失败: {e}")
-            raise  # 重新抛出异常，让调用方处理
+            items = self._df_to_dict(df_csv)
+            return items
 
         except Exception as e:
             logger.error(f"处理csv文件时发生未知错误: {e}")
             raise  # 重新抛出异常，让调用方处理
 
     @staticmethod
-    def detect_encoding(file_content):
+    def file_encoding(file_content):
         # 是检测文件内容的字符编码格式。
         result = chardet.detect(file_content)
         return result["encoding"]
 
     def download_zip(self, file_type='csv'):
-
         """
         从指定 URL 下载 ZIP 文件并在内存中读取其中的 CSV 数据。
         参数:
@@ -243,14 +260,13 @@ class Downloader:
 
             # 将 ZIP 文件加载到内存中
             with zipfile.ZipFile(io.BytesIO(res.content)) as zip_file:
-
                 logger.info(f"文件名称: {zip_file.namelist()}")
                 # 打开目标 CSV 文件并读取内容
                 with zip_file.open(zip_file.namelist()[0]) as file:  # 第一个文件
                     # 使用 Pandas 读取数据
                     file_content = file.read()
                     if file_type == 'csv':
-                        de_encoding = self.detect_encoding(file_content)
+                        de_encoding = self.file_encoding(file_content)
                         logger.info(f"检测到的编码: {de_encoding}")
                         df_data = pd.read_csv(io.BytesIO(file_content), encoding=de_encoding)
                     elif file_type == 'excel':

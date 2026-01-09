@@ -59,7 +59,7 @@ if __name__ == '__main__':
                 items.append(item)
             # print(items)
 
-            DBManager(db_config=db_config).update_insert_date(items, table_name, primary_key="key")
+            DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key="key")
             logger.info(f"{shop_name}_{date}数据已入库")
     logger.info("-" * 100)
 logger.info(f"\n{'*' * 120}")
