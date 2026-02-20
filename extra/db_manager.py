@@ -80,6 +80,7 @@ class DBManager:
 
         # 检查表是否存在，如果不存在则创建
         if not self._table_exists(table_name):
+            logger.info(f"表 {table_name} 不存在，开始创建表...")
             self._create_table(items, table_name, primary_key, uu_id, user)
         else:
             # 检查并更新表结构
@@ -180,7 +181,7 @@ class DBManager:
             self.cursor.execute(sql)
             return True
         except Exception as e:
-            logger.info(f"【{table_name}】不存在,为您重新创建: {e}")
+            logger.warning(f"【{table_name}】不存在: {e}")
             return False
 
     def _create_table(self, items, table_name, primary_key=None, uu_id=None, user=None):
@@ -353,7 +354,7 @@ class DBManager:
         try:
             # 检查表是否存在
             table_exists = self._table_exists(db_table_name)
-
+            logger.info(f"表 {db_table_name} {'存在,测试写入数据' if table_exists else '不存在,跳过先删后人操作,直接创建表'}")
             # 如果表存在，则先入再删除指定数据
             if table_exists:
                 # 1. 测试插入前2条数据
@@ -362,12 +363,12 @@ class DBManager:
                 logger.info(f"{db_table_name}测试插入成功")
 
                 # 2. 执行删除操作
-                logger.info(f"开始删除指定日期范围内的数据")
+                logger.info(f"开始删除指定条件的数据")
                 self.execute_sql(del_sql)
                 logger.info(f"删除成功，已删除【{del_sql} ")
 
             # 3. 批量插入所有数据
-            logger.info(f"开始批量插入数据")
+            logger.info(f"准备批量写入数据")
             self.update_insert_data(items, db_table_name, primary_key=None, uu_id=uu_id, user=user)
             logger.info(f"批量插入完成")
             self.close()

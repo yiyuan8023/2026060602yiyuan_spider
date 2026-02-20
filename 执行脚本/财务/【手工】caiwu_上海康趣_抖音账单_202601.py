@@ -11,10 +11,10 @@ if __name__ == '__main__':
     db_config = 'caiwu_hzbc'  # noqa
     logger.info(f"\n{'*' * 120}")
 
-    table_name = 'caiwu_上海康趣_抖音账单_202601'  # noqa
+    table_name = 'caiwu_上海康趣账单_抖音_202601'  # noqa
 
     # list_file_path = list_file_path(r"C:\Users\admin\Desktop\财务账单一元\入库数据",  file_extension="csv")
-    list_file_path = list_file_path(r"C:\Users\admin\Desktop\财务账单_其他平台\抖音账单\3")
+    list_file_path = list_file_path(r"C:\Users\admin\Desktop\20260127上海康趣财务数据整合\账单\财务账单_其他平台\抖音账单")
 
     # list_file_path = [r'C:\Users\admin\Desktop\财务账单_其他平台\抖音账单\【抖音】COLMO净水旗舰店_1887205531853902_销售账单2022年9月（含推广）.xlsx']
     # print(list_file_path)
@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
         #     # item["key"] = f"{item['日期']}_{item['门店ID']}_{item['商品ID']}"
         # print(items)
-        delete_sql = f"delete from {table_name} where `文件名称`='{file_path}'"   # NOQA
+        delete_sql = f"delete from {table_name} where `文件名称`='{file_name}'"   # NOQA
         db = DBManager(db_config=db_config)
         db.insert_delete_insert_data(items_, table_name, delete_sql)
         # logger.info(f"{shop_name_list},{crawl_day_list}已入库")

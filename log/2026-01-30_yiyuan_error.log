@@ -1,0 +1,2 @@
+2026-01-30 14:37:01 | ERROR | db_manager.py:168 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '备注' at row 45")
+2026-01-30 14:39:32 | ERROR | excel_to_db.py:106 : 读取Excel文件失败: [Errno 13] Permission denied: 'C:\\Users\\admin\\Desktop\\20260127上海康趣财务数据整合\\20-25年品牌采购数据\\20260130新增\\~$2021-2025上海橙祈美云销-对账-采购往来明细.xlsx'

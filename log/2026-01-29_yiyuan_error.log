@@ -1,0 +1,8 @@
+2026-01-29 07:53:29 | ERROR | db_manager.py:168 : 执行 SQL 语句时发生错误: (1265, "Data truncated for column '平台折扣（元）' at row 1179")
+2026-01-29 07:53:29 | ERROR | db_manager.py:379 : 数据更新失败: (1265, "Data truncated for column '平台折扣（元）' at row 1179")
+2026-01-29 07:54:27 | ERROR | db_manager.py:168 : 执行 SQL 语句时发生错误: (1265, "Data truncated for column '订单实付（元）' at row 1179")
+2026-01-29 07:54:27 | ERROR | db_manager.py:379 : 数据更新失败: (1265, "Data truncated for column '订单实付（元）' at row 1179")
+2026-01-29 07:55:05 | ERROR | db_manager.py:168 : 执行 SQL 语句时发生错误: (1265, "Data truncated for column '销售收入（元）' at row 1179")
+2026-01-29 07:55:05 | ERROR | db_manager.py:379 : 数据更新失败: (1265, "Data truncated for column '销售收入（元）' at row 1179")
+2026-01-29 07:55:28 | ERROR | db_manager.py:168 : 执行 SQL 语句时发生错误: (1265, "Data truncated for column '分账金额（元）' at row 1979")
+2026-01-29 07:55:28 | ERROR | db_manager.py:379 : 数据更新失败: (1265, "Data truncated for column '分账金额（元）' at row 1979")

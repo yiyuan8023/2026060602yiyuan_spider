@@ -25,7 +25,7 @@ except ImportError:
 class FileToItems:
 
     # 读取xlsx或csv文件并存入数据库
-    def __init__(self, file_path: str, skip_rows: int = 0, password: Optional[str] = None):
+    def __init__(self, file_path: str, skip_rows: int = 0, sheet_name=0, password: Optional[str] = None):
         """
         Args:
             file_path: 文件路径
@@ -35,6 +35,7 @@ class FileToItems:
         self.file_path = file_path
         self.skip_rows = skip_rows
         self.password = password
+        self.sheet_name = sheet_name
 
     def read_file(self):
         # 读取xlsx或csv文件
@@ -82,7 +83,7 @@ class FileToItems:
             # 首先尝试不使用密码读取
             if self.password is None:
                 try:
-                    df = pd.read_excel(self.file_path, skiprows=self.skip_rows, dtype=str)
+                    df = pd.read_excel(self.file_path, skiprows=self.skip_rows, sheet_name=self.sheet_name, dtype=str)
                     return df
                 except Exception as exc:
                     # 检查是否是密码保护相关的错误
@@ -155,7 +156,7 @@ class FileToItems:
 
                 try:
                     office_file.save(temp_filename)
-                    df = pd.read_excel(temp_filename, skiprows=self.skip_rows)
+                    df = pd.read_excel(temp_filename, skiprows=self.skip_rows, dtype=str, sheet_name=self.sheet_name)
                     return df
                 finally:
                     # 清理临时文件
@@ -183,7 +184,7 @@ class FileToItems:
 
             try:
                 # 读取解密后的文件
-                df = pd.read_excel(temp_decrypted_path, skiprows=self.skip_rows)
+                df = pd.read_excel(temp_decrypted_path, skiprows=self.skip_rows, dtype=str, sheet_name=self.sheet_name)
                 return df
             finally:
                 # 清理临时文件
@@ -234,7 +235,7 @@ class FileToItems:
                 workbook.Close(SaveChanges=False)
 
                 # 读取无密码文件
-                df = pd.read_excel(temp_path, skiprows=self.skip_rows)
+                df = pd.read_excel(temp_path, skiprows=self.skip_rows, dtype=str, sheet_name=self.sheet_name)
                 logger.info(df)
 
                 logger.info(f"文件已解密并保存到桌面: {temp_path}")

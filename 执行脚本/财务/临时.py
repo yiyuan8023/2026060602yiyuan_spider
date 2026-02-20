@@ -84,7 +84,7 @@ def save_analysis_results(results: List[Dict[str, Any]], output_path: str):
 
 def main():
     # 指定要分析的文件夹路径
-    folder_path = r"C:\Users\admin\Desktop\财务账单_其他平台\抖音账单"
+    folder_path = r"C:\Users\admin\Desktop\20260127上海康趣财务数据整合\账单\财务账单_其他平台\抖音账单"
 
     # 检查文件夹是否存在
     if not os.path.exists(folder_path):

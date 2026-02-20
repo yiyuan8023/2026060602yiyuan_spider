@@ -28,7 +28,7 @@ if __name__ == "__main__":
     ]
 
     # 数据采集
-    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 3)
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 7)
     # crawl_day_list = get_date_range('2025-05-01', '2025-05-31')
 
     for i in shop_cookies:

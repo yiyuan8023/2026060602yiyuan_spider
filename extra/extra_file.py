@@ -48,6 +48,9 @@ def list_file_path(folder_path: str, include_subfolders: bool = True,
 
                 files.append(abs_path)
 
+    # 按文件修改时间升序排列
+    files.sort(key=lambda x: os.path.getmtime(x))
+
     return files
 
 
