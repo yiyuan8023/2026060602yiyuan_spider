@@ -16,15 +16,9 @@ class YingDaoApi:
         获取影刀社区问题
         """
 
-        api = 'https://api.yingdao.com/api/noauth/v1/sns/forum/question/query'
-        params = {
-            "page": "1",
-            "size": "20",
-            "tags": "问答",
-            "sort": "createTime"
-        }
+        api = "https://api.yingdao.com/api/noauth/v1/sns/forum/question/query"
+        params = {"page": "1", "size": "20", "tags": "问答", "sort": "createTime"}
         headers = {
-
             "Referer": "https://www.yingdao.com/",
             "User-Agent": self.ua,
         }
@@ -51,5 +45,5 @@ class YingDaoApi:
         return items
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     yd = YingDaoApi().get_yd_question()

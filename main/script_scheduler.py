@@ -32,7 +32,7 @@ class ScriptScheduler:
         if script_name not in self.script_cache:
             current_dir = os.path.dirname(os.path.abspath(__file__))
             # 假设脚本在项目根目录下
-            script_path = os.path.join(current_dir, '..', script_name)
+            script_path = os.path.join(current_dir, "..", script_name)
             self.script_cache[script_name] = os.path.abspath(script_path)
         return self.script_cache[script_name]
 
@@ -47,18 +47,18 @@ class ScriptScheduler:
 
             # 准备环境
             env = os.environ.copy()
-            env['PYTHONIOENCODING'] = 'utf-8'  # NOQA
+            env["PYTHONIOENCODING"] = "utf-8"  # NOQA
 
             logger.info(f"开始执行脚本: {script_name}")
 
             # 执行脚本
             result = subprocess.run(
-                ['python', script_path],
+                ["python", script_path],
                 capture_output=True,
                 text=True,
                 timeout=3600,
-                encoding='utf-8',
-                env=env
+                encoding="utf-8",
+                env=env,
             )
 
             if result.returncode == 0:
@@ -132,12 +132,15 @@ class ScriptScheduler:
 
             if current_running < self.max_workers:
                 # 直接执行
-                logger.info(f"当前运行任务数 {current_running} < {self.max_workers}，直接执行脚本: {script_name}")
+                logger.info(
+                    f"当前运行任务数 {current_running} < {self.max_workers}，直接执行脚本: {script_name}"
+                )
                 self.executor.submit(self._worker, script_name)
             else:
                 # 加入队列
                 logger.info(
-                    f"当前运行任务数 {current_running} >= {self.max_workers}，将脚本添加到待执行队列: {script_name}")
+                    f"当前运行任务数 {current_running} >= {self.max_workers}，将脚本添加到待执行队列: {script_name}"
+                )
                 self.pending_queue.put(script_name)
 
     def start_timer_scheduler(self):
@@ -150,19 +153,30 @@ class ScriptScheduler:
             if "cron" in config:
                 # Cron表达式调度
                 trigger = CronTrigger.from_crontab(config["cron"])
-                scheduler_.add_job(self.schedule_script, trigger, args=[script_name], id=script_name)
+                scheduler_.add_job(
+                    self.schedule_script, trigger, args=[script_name], id=script_name
+                )
             elif "time" in config:
                 # 每天固定时间执行
                 time_parts = config["time"].split(":")
                 hour = int(time_parts[0])
                 minute = int(time_parts[1])
                 scheduler_.add_job(
-                    self.schedule_script, 'cron', hour=hour, minute=minute, args=[script_name], id=script_name
+                    self.schedule_script,
+                    "cron",
+                    hour=hour,
+                    minute=minute,
+                    args=[script_name],
+                    id=script_name,
                 )
             elif "date" in config:
                 # 特定日期时间执行
                 scheduler_.add_job(
-                    self.schedule_script, 'date', run_date=config["date"], args=[script_name], id=script_name
+                    self.schedule_script,
+                    "date",
+                    run_date=config["date"],
+                    args=[script_name],
+                    id=script_name,
                 )
 
         logger.info("定时任务已启动，等待执行...")
@@ -189,11 +203,13 @@ if __name__ == "__main__":
     now = (datetime.now() + timedelta(seconds=60)).strftime("%H:%M")
     print(now)
     SCRIPT_SCHEDULES = [
-        {"time": now, "script": "执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_商品分析_202504.py"},
+        {
+            "time": now,
+            "script": "执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_商品分析_202504.py",
+        },
         # {"script": "执行脚本/淘系_淘宝联盟/tb_tk_淘宝联盟_商品分析_202504.py"},
     ]
 
     scheduler = ScriptScheduler(max_workers=5, task_list=SCRIPT_SCHEDULES)
     # scheduler_.start_timer_scheduler()
     scheduler.run_all_scripts()
-

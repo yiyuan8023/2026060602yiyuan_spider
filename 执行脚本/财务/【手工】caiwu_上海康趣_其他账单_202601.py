@@ -5,19 +5,21 @@ from extra.db_manager import DBManager
 from extra.logger_ import logger
 from extra.extra_file import list_file_path
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 林内优品赠品的发放，需要剔除样机后，再统计
     # 手动统计
-    db_config = 'caiwu_hzbc'  # noqa
+    db_config = "caiwu_hzbc"  # noqa
     logger.info(f"\n{'*' * 120}")
 
-    table_name = 'caiwu_上海康趣账单_抖音自营_202601'  # noqa
+    table_name = "caiwu_上海康趣账单_抖音自营_202601"  # noqa
     # table_name = 'caiwu_上海康趣账单_得物_退货订单_202601'  # noqa
 
     # list_file_path = list_file_path(r"C:\Users\admin\Desktop\财务账单一元\入库数据",  file_extension="csv")
     # list_file_path = list_file_path(r"C:\Users\admin\Desktop\财务账单一元\入库数据")
     # list_file_path = [r'C:\Users\admin\Desktop\20-25年品牌采购数据\美云销\2025年10-12月美云销.xlsx']
-    list_file_path = [r'C:\Users\admin\Desktop\20260127上海康趣财务数据整合\账单\20260129入库\抖音自营轻账单.xlsx']
+    list_file_path = [
+        r"C:\Users\admin\Desktop\20260127上海康趣财务数据整合\账单\20260129入库\抖音自营轻账单.xlsx"
+    ]
     # print(list_file_path)
     for file_path in list_file_path:
         logger.info(file_path)
@@ -28,9 +30,11 @@ if __name__ == '__main__':
         logger.info(f"{file_path}开始入库")
         for item in items_:
             # print(item)
-            item.update({
-                "文件名称": file_name,
-            })
+            item.update(
+                {
+                    "文件名称": file_name,
+                }
+            )
 
         #     # item["key"] = f"{item['日期']}_{item['门店ID']}_{item['商品ID']}"
         # print(items)

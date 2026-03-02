@@ -2,7 +2,7 @@ aiohttp==3.12.15
 chardet==5.2.0
 db==0.1.1
 defusedxml==0.7.1
-loguru==0.7.3
+loguru~=0.7.2
 lxml==6.0.0
 mysql_connector_repackaged==0.3.1
 numpy~=2.2.6

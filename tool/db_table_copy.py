@@ -4,12 +4,12 @@ import mysql.connector
 
 
 def copy_mysql_tables_structure_safe(
-        source_config: Dict[str, Any],
-        target_config: Dict[str, Any],
-        table_names: Union[str, List[str]],
-        source_database: str,
-        target_database: str,
-        drop_if_exists: bool = False
+    source_config: Dict[str, Any],
+    target_config: Dict[str, Any],
+    table_names: Union[str, List[str]],
+    source_database: str,
+    target_database: str,
+    drop_if_exists: bool = False,
 ) -> bool:
     """
     安全地从源MySQL数据库复制一个或多个表结构到目标MySQL数据库
@@ -46,17 +46,24 @@ def copy_mysql_tables_structure_safe(
         table_structures = {}
         for table_name in table_names:
             try:
-                source_cursor.execute(f"SHOW CREATE TABLE `{source_database}`.`{table_name}`")
+                source_cursor.execute(
+                    f"SHOW CREATE TABLE `{source_database}`.`{table_name}`"
+                )
                 result = source_cursor.fetchone()
 
                 if not result:
-                    print(f"警告: 表 '{table_name}' 在源数据库 '{source_database}' 中不存在，跳过")
+                    print(
+                        f"警告: 表 '{table_name}' 在源数据库 '{source_database}' 中不存在，跳过"
+                    )
                     continue
 
                 create_table_sql = result[1]
                 # 移除可能的数据库名前缀
                 import re
-                create_table_sql = re.sub(rf'`{source_database}`\.', '', create_table_sql)
+
+                create_table_sql = re.sub(
+                    rf"`{source_database}`\.", "", create_table_sql
+                )
                 table_structures[table_name] = create_table_sql
 
             except mysql.connector.Error as e:
@@ -107,7 +114,9 @@ def copy_mysql_tables_structure_safe(
         target_conn.close()
 
         print(f"成功复制 {success_count}/{len(table_names)} 个表结构")
-        return success_count == len(table_names) or (success_count > 0 and len(table_names) > 0)
+        return success_count == len(table_names) or (
+            success_count > 0 and len(table_names) > 0
+        )
 
     except mysql.connector.Error as e:
         print(f"MySQL错误: {e}")
@@ -127,17 +136,17 @@ def copy_mysql_tables_structure_safe(
 if __name__ == "__main__":
     # 数据库连接配置
     source_db_config = {
-        'host': '10.20.3.122',
-        'user': 'root',
-        'password': 'jide2025',
-        'port': 3306
+        "host": "10.20.3.122",
+        "user": "root",
+        "password": "jide2025",
+        "port": 3306,
     }
 
     target_db_config = {
-        'host': '223.5.242.173',
-        'user': 'bc_yiyuan_test',
-        'password': 'yiyuan12345678',
-        'port': 3306
+        "host": "223.5.242.173",
+        "user": "bc_yiyuan_test",
+        "password": "yiyuan12345678",
+        "port": 3306,
     }
 
     table_name_list = [
@@ -146,7 +155,7 @@ if __name__ == "__main__":
         # 'tb_tg_万相台无界_基础报表_关键词_202504',
         #   'tb_sycm_商品_商品排行_全部商品_202504',
         #   'tb_tk_淘宝联盟_商品分析_202504',
-        'tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507',  # noqa
+        "tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507",  # noqa
     ]
 
     # 复制多个表结构
@@ -154,9 +163,9 @@ if __name__ == "__main__":
         source_config=source_db_config,
         target_config=target_db_config,
         table_names=table_name_list,  # 多个表
-        source_database='project',
-        target_database='yiyuan_test',
-        drop_if_exists=False
+        source_database="project",
+        target_database="yiyuan_test",
+        drop_if_exists=False,
     )
 
     if success:

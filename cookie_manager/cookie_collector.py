@@ -5,9 +5,10 @@ from extra.extra_parser import parser_main
 from extra.logger_ import logger
 
 
-def cookie_collector(site: str = '生意参谋',
-                     shop_name_list=None,
-                     ):
+def cookie_collector(
+    site: str = "生意参谋",
+    shop_name_list=None,
+):
     # 记录开始采集日志
     if shop_name_list is None:
         shop_name_list = []
@@ -31,7 +32,7 @@ def cookie_collector(site: str = '生意参谋',
     # 如果店铺列表不为空，获取该站点指定店铺的cookies，如果为None则获取所有店铺cookies，即采集所有店铺
     if shop_name_list:
         # 格式化店铺名称用于SQL查询
-        shop_names = f'''  ('{"','".join(shop_name_list)}') '''
+        shop_names = f"""  ('{"','".join(shop_name_list)}') """
         shop_cookies = DBManager().select_cookies_shop(site, shop_names)
     else:
         shop_cookies = DBManager().select_cookies_all(site)

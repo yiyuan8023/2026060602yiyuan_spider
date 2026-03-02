@@ -1,0 +1,4 @@
+2026-02-24 14:02:19 | ERROR | 合并pdf_1771912680004.py:132 : 图片水印加载失败：source pixmap has no alpha
+2026-02-24 14:13:01 | ERROR | 合并pdf_1771912680004.py:132 : 图片水印加载失败：source pixmap has no alpha
+2026-02-24 14:16:23 | ERROR | 合并pdf_1771912680004.py:127 : 图片水印加载失败：module 'fitz' has no attribute 'csRGBA'
+2026-02-24 15:53:26 | ERROR | 合并pdf_1771919296470.py:231 : 添加书签失败：'Document' object has no attribute 'set_bookmarks'

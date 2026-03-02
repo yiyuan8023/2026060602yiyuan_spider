@@ -3,8 +3,12 @@ import fnmatch
 from typing import List
 
 
-def list_file_path(folder_path: str, include_subfolders: bool = True,
-                   file_pattern: str = "*", file_extension: str = None) -> List[str]:
+def list_file_path(
+    folder_path: str,
+    include_subfolders: bool = True,
+    file_pattern: str = "*",
+    file_extension: str = None,
+) -> List[str]:
     """
     列出文件夹中的所有文件
     :param folder_path: 目标文件夹路径
@@ -27,7 +31,9 @@ def list_file_path(folder_path: str, include_subfolders: bool = True,
                     continue
 
                 # 检查文件扩展名
-                if file_extension and not filename.lower().endswith(file_extension.lower()):
+                if file_extension and not filename.lower().endswith(
+                    file_extension.lower()
+                ):
                     continue
 
                 files.append(abs_path)

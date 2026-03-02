@@ -1,4 +1,3 @@
-
 import re
 import requests
 
@@ -22,12 +21,12 @@ class ShengCanBaseApi:
         """
         try:
             session = requests.Session()
-            url = 'https://sycm.taobao.com/portal/home.htm'
+            url = "https://sycm.taobao.com/portal/home.htm"
             headers = {
-                'User-Agent': self.ua,
-                'cookie': self.cookie,
-                'referer': 'https://havanalogin.taobao.com/',
-                'Host': 'sycm.taobao.com'
+                "User-Agent": self.ua,
+                "cookie": self.cookie,
+                "referer": "https://havanalogin.taobao.com/",
+                "Host": "sycm.taobao.com",
             }
 
             # 只发送一次请求获取必要信息
@@ -39,8 +38,12 @@ class ShengCanBaseApi:
             userid_match = re.findall(r"mainUserId=(.*?);", response.text)
 
             if token_match and userid_match:
-                logger.success(f"SycmAPI初始化成功，token={token_match[0]},userId={userid_match[0]}")
-                print(f"token={token_match[0]},userId={userid_match[0]},session = {session}")
+                logger.success(
+                    f"SycmAPI初始化成功，token={token_match[0]},userId={userid_match[0]}"
+                )
+                print(
+                    f"token={token_match[0]},userId={userid_match[0]},session = {session}"
+                )
                 return token_match[0], userid_match[0], session
             else:
                 logger.error("未能提取到token或userid,cookie可能已过期")
@@ -52,4 +55,3 @@ class ShengCanBaseApi:
         except Exception as e:
             logger.error(f"获取token时发生未知错误: {e}")
             return None, None, None
-

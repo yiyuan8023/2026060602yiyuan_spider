@@ -36,20 +36,17 @@ class DingTalkSheetConnector:
         """
         url = f"{self._BASE_URL}/v1.0/oauth2/accessToken"
         headers = {"Content-Type": "application/json"}
-        data = {
-            "appKey": self.app_key,
-            "appSecret": self.app_secret
-        }
+        data = {"appKey": self.app_key, "appSecret": self.app_secret}
 
         response = requests.post(url, headers=headers, json=data)
         result = response.json()
 
-        if 'accessToken' in result:
-            self.access_token = result['accessToken']
+        if "accessToken" in result:
+            self.access_token = result["accessToken"]
             print(f"✓ Access Token 获取成功: {self.access_token[:20]}...")
             return self.access_token
         else:
-            error_msg = result.get('message', '未知错误')
+            error_msg = result.get("message", "未知错误")
             raise Exception(f"获取Access Token失败: {error_msg}")
 
     def create_connection(self):
@@ -69,7 +66,7 @@ class DingTalkSheetConnector:
                 "workbook_id": self.workbook_id,
                 "access_token": token,  # 核心凭证
                 "base_url": self._BASE_URL,
-                "_connector_instance": self  # 保留实例以供扩展
+                "_connector_instance": self,  # 保留实例以供扩展
             }
             print("✓ 钉钉表格连接已成功建立")
             return connection
@@ -84,7 +81,7 @@ CONFIG = {
     "app_key": "ding64jr7pwm9xm8fmrw",  # 替换为你的AppKey
     "app_secret": "MHqrsMVwl2X66hvzUwdyg_5w0L8y2QLSQ23bBtUecvkvHU6cIgY6LKv3dzqE9EZz",  # 替换为你的AppSecret
     "user_id": "0225664713639811",  # 替换为你的用户ID
-    "workbook_id": "a2QnV4jyPJkYJO4X"  # 替换为你的表格ID
+    "workbook_id": "a2QnV4jyPJkYJO4X",  # 替换为你的表格ID
 }
 
 # 2. 创建连接器实例并建立连接

@@ -2,7 +2,7 @@ def pdd_font_decrypt_api(res_data, font_dict):
     """
     数据替换，加密字符替换为真实数字
     :param res_data:
-    :return: 中英文的items    """
+    :return: 中英文的items"""
 
     for i in res_data:
         en_item = {}
@@ -31,7 +31,7 @@ def decrypt_unicode_string(encrypted_str, font_dict):
     for unicode_escape, digit in font_dict.items():
         try:
             # 将 "\\ueade" 格式的字符串转换为实际的unicode字符
-            actual_char = unicode_escape.encode().decode('unicode_escape')
+            actual_char = unicode_escape.encode().decode("unicode_escape")
             char_to_digit[actual_char] = digit
         except UnicodeDecodeError:
             continue
@@ -68,11 +68,21 @@ def res_decrypt(res_data_list, font_dict, dict_str):
     return items
 
 
-if __name__ == '__main__':
-    encrypted_string = '\uefb4\ue5c0\ue4d6.3'
+if __name__ == "__main__":
+    encrypted_string = "\uefb4\ue5c0\ue4d6.3"
     # encrypted_string = '我是商品'
-    decrypt_dictionary = {"\\ue6ad": "5", "\\ueb37": "8", "\\ue581": "3", "\\ue5c0": "1", "\\ueba3": "0",
-                          "\\uec4a": "2", "\\ue72e": "6", "\\uefb5": "7", "\\ue4d6": "9", "\\ue858": "4"}
+    decrypt_dictionary = {
+        "\\ue6ad": "5",
+        "\\ueb37": "8",
+        "\\ue581": "3",
+        "\\ue5c0": "1",
+        "\\ueba3": "0",
+        "\\uec4a": "2",
+        "\\ue72e": "6",
+        "\\uefb5": "7",
+        "\\ue4d6": "9",
+        "\\ue858": "4",
+    }
 
     decrypted_result = decrypt_unicode_string(encrypted_string, decrypt_dictionary)
     print(f"解密结果: {decrypted_result}")

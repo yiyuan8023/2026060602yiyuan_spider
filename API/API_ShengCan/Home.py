@@ -1,4 +1,3 @@
-
 from urllib.parse import urlencode
 
 import requests
@@ -26,12 +25,10 @@ class Home(ShengCanBaseApi):
             "dateType": "day",
             "dateRange": f"{day}|{day}",
             "_": get_second_timestamp(),
-            "token": self.token
+            "token": self.token,
         }
         url = api + urlencode(params)
         print(url)
-        res = requests.get(url, headers={
-            "User-Agent": UA,
-            "cookie": self.cookie})
+        res = requests.get(url, headers={"User-Agent": UA, "cookie": self.cookie})
         req_log(res)
         return res.json()

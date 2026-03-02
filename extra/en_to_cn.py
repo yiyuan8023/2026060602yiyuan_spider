@@ -11,7 +11,7 @@ def en_to_cn(date_list, dict_str):
     return items
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _dict_str = {
         "OrdAmt": "成交金额",
         "PV": "浏览量",
@@ -51,7 +51,7 @@ if __name__ == '__main__':
             "GuideDealCustRate_HB": None,
             "ThirdName": "保养服务",
             "CategoryName": "保养服务",
-            "GuideDealCustRate": 0
+            "GuideDealCustRate": 0,
         },
     ]
 

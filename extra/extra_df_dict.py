@@ -42,7 +42,7 @@ def df_to_dict(df):
         df_clean = df_clean.rename(columns=clean_columns)
 
         # 转换为字典
-        dict_list = df_clean.to_dict('records')
+        dict_list = df_clean.to_dict("records")
 
         # 清理每个字典项的值
         cleaned_dict_list = []

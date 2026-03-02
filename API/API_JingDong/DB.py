@@ -5,7 +5,7 @@ from log_ import logger
 from settings_pass import *
 
 
-class DB():
+class DB:
     def __init__(self):
         adbparams = dict(
             host=MYSQL_HOST,
@@ -17,7 +17,7 @@ class DB():
         self.connect = pymysql.connect(**adbparams)
         self.cursor = self.connect.cursor()
 
-    def do_insert(self, items,table_name):
+    def do_insert(self, items, table_name):
         """
         新增语句
         :param cn_en_items:
@@ -31,16 +31,18 @@ class DB():
                 for k, v in items.items():
                     k_str += "`{}`,".format(k)
                     # u_str += "`{}` = values(`{}`),".format(k,k)
-                    if not v and v!=0:
+                    if not v and v != 0:
                         v_str += "Null,"
                     elif isinstance(v, str):
                         v_str += "'{}',".format(escape_string(v))
                     else:
                         v_str += "{},".format(v)
-                duplicate_str = ",".join(["`{}`=values(`{}`)".format(i, i) for i in items.keys()])
+                duplicate_str = ",".join(
+                    ["`{}`=values(`{}`)".format(i, i) for i in items.keys()]
+                )
                 insert_sql = """insert into `{}`({}) VALUES({}) ON duplicate KEY UPDATE {};""".format(
-                    table_name, k_str[0:-1],
-                    v_str[0:-1], duplicate_str)
+                    table_name, k_str[0:-1], v_str[0:-1], duplicate_str
+                )
                 # print(insert_sql)
                 self.cursor.execute(insert_sql)
                 self.connect.commit()
@@ -61,11 +63,12 @@ class DB():
                         else:
                             v_str += "{},".format(v)
                     v_list.append(f"({v_str[0:-1]})")
-                duplicate_str = ",".join(["`{}`=values(`{}`)".format(i, i) for i in items[0].keys()])
+                duplicate_str = ",".join(
+                    ["`{}`=values(`{}`)".format(i, i) for i in items[0].keys()]
+                )
                 insert_sql = """insert into `{}`({}) VALUES {} ON duplicate KEY UPDATE {};""".format(
-                    table_name,
-                    k_str[0:-1],
-                    ",".join(v_list), duplicate_str)
+                    table_name, k_str[0:-1], ",".join(v_list), duplicate_str
+                )
                 # print(insert_sql)
                 self.cursor.execute(insert_sql)
                 self.connect.commit()
@@ -90,12 +93,16 @@ class DB():
         self.connect.commit()
         res = self.cursor.fetchall()
         return res
-    def do_select_stats(self,stats_date):
-        sql = "select `shop_name`,`info`,`num`,`remarks` from `crawl_data_stats` where  `stats_date`='{}'and (`num`=0 or `remarks` like '%0%');".format(stats_date)
+
+    def do_select_stats(self, stats_date):
+        sql = "select `shop_name`,`info`,`num`,`remarks` from `crawl_data_stats` where  `stats_date`='{}'and (`num`=0 or `remarks` like '%0%');".format(
+            stats_date
+        )
         self.cursor.execute(sql)
         self.connect.commit()
         res = self.cursor.fetchall()
         return res
+
     def close(self):
         """
         关游标，关连接

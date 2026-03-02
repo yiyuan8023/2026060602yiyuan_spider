@@ -20,7 +20,7 @@ class TaoKeMyProductApi(TaoKeBaseApi):
         url = "https://ad.alimama.com/openapi/param2/1/gateway.unionadv/mkt.merchants.signup.item.list.json"
         params = {
             "t": get_millisecond_timestamp(),
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "campaignId": "",
             "phaseType": "31",
             "creatorId": "",
@@ -28,7 +28,7 @@ class TaoKeMyProductApi(TaoKeBaseApi):
             "orderByClause": "create_time",
             "orderType": "DESC",
             "pageNo": page_no,
-            "pageSize": "40"
+            "pageSize": "40",
         }
 
         # data = json.dumps(data, separators=(',', ':'))
@@ -37,16 +37,15 @@ class TaoKeMyProductApi(TaoKeBaseApi):
             "Cookie": self.cookie,
             "user-agent": self.ua,
             "referer": "https://ad.alimama.com/portal/v2/pages/zhaoshang/normal/detail.htm",
-            "priority": "u=1, i"
-
+            "priority": "u=1, i",
         }
 
         res = requests.get(url=url, headers=headers, params=params)
         if req_log(res):
-            logger.success(f'第{page_no}获取成功！！！')
+            logger.success(f"第{page_no}获取成功！！！")
             return res.json()
         else:
-            logger.error(f'第{page_no}获取失败！！！')
+            logger.error(f"第{page_no}获取失败！！！")
             return None
 
     def tb_tk_cps_settlement_report(self, start_time, end_time):
@@ -56,12 +55,11 @@ class TaoKeMyProductApi(TaoKeBaseApi):
         url = "https://ad.alimama.com/openapi/param2/1/gateway.unionadv/shopkeeper.rpt.taskstart.json"
         params = {
             "t": get_millisecond_timestamp(),
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "startTime": f"{start_time} 00:00:00",
             "endTime": f"{end_time} 23:59:59",
             "bizType": 1,
             "status": 3,
-
         }
         # data = json.dumps(data, separators=(',', ':'))
         headers = {
@@ -70,12 +68,12 @@ class TaoKeMyProductApi(TaoKeBaseApi):
             "user-agent": self.ua,
             "referer": "https://ad.alimama.com/report/overview/orders.htm",
             "origin": "https://ad.alimama.com",
-            'Host': 'ad.alimama.com',  # noqa
+            "Host": "ad.alimama.com",  # noqa
         }
         res = requests.get(url=url, headers=headers, params=params)
         if req_log(res):
-            logger.success(f'成功！！！创建任务日期:{start_time}')
+            logger.success(f"成功！！！创建任务日期:{start_time}")
             return res.json()
         else:
-            logger.error(f'失败！！！创建任务日期:{start_time}')
+            logger.error(f"失败！！！创建任务日期:{start_time}")
             return None

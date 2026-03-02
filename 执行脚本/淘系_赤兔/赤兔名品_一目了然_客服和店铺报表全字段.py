@@ -63,7 +63,7 @@ def chitu_clear_a_glance():
         fetch_shop_it(from_=i[0], to_=i[1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     CHITU_PASSWORD = {"小吉旗舰店": "xiaoji123"}
     logger.info("*" * 100)
     logger.info("开始采集：tb_赤兔名品_一目了然_客服和店铺报表全字段")
@@ -79,13 +79,15 @@ if __name__ == '__main__':
     # table_name = "tb_赤兔名品_一目了然_客服报表全字段_202504"
     for i in cookies_:
         shop_name = i[0]
-        ChituCookies_obj = ChituCookies(shop_name, f'{i[1]}')
+        ChituCookies_obj = ChituCookies(shop_name, f"{i[1]}")
         cookie_res = ChituCookies_obj.main()
 
         if cookie_res["status"] == 1:
             cookie_str = cookiejar_to_cookie_str(cookie_res["content"])
             # 一目了然，初始化
-            ChiTuClearAGlance = ChiTuClearAGlanceAPI(cookie_str, CHITU_PASSWORD[shop_name])
+            ChiTuClearAGlance = ChiTuClearAGlanceAPI(
+                cookie_str, CHITU_PASSWORD[shop_name]
+            )
             chitu_clear_a_glance()
         else:
             logger.error("赤兔的cookie生成失败")

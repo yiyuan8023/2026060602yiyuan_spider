@@ -4,12 +4,13 @@ import pandas as pd
 from io import BytesIO
 from typing import Optional
 
+
 def read_dingtalk_doc_excel(
     doc_id: str,
     app_key: str,
     app_secret: str,
     sheet_name: Optional[str] = None,
-    dtype: Optional[dict] = None
+    dtype: Optional[dict] = None,
 ) -> pd.DataFrame:
     """
     ✅ 官方 API 封装：读取钉钉「云文档」中的 Excel 文件（.xlsx）内容
@@ -34,10 +35,9 @@ def read_dingtalk_doc_excel(
     """
     # Step 1: 获取 access_token
     token_url = "https://oapi.dingtalk.com/gettoken"
-    token_resp = requests.get(token_url, params={
-        "appkey": app_key,
-        "appsecret": app_secret
-    }, timeout=10)
+    token_resp = requests.get(
+        token_url, params={"appkey": app_key, "appsecret": app_secret}, timeout=10
+    )
     token_resp.raise_for_status()
     token_data = token_resp.json()
     if "access_token" not in token_data:
@@ -65,10 +65,14 @@ def read_dingtalk_doc_excel(
 # ✅ 示例调用（取消注释并填入你的参数即可运行）
 if __name__ == "__main__":
     # 🔑 替换为你自己的值（3 个必填项）
-    DOC_ID = "YQBnd5ExVEwxonQdtAyp1k1w8yeZqMmz"           # ← 云文档链接中的 doc_id（必须是 d 开头！）
-    DOC_ID = "YQBnd5ExVEwxonQdtAyp1k1w8yeZqMmz"           # ← 云文档链接中的 doc_id（必须是 d 开头！）
+    DOC_ID = (
+        "YQBnd5ExVEwxonQdtAyp1k1w8yeZqMmz"  # ← 云文档链接中的 doc_id（必须是 d 开头！）
+    )
+    DOC_ID = (
+        "YQBnd5ExVEwxonQdtAyp1k1w8yeZqMmz"  # ← 云文档链接中的 doc_id（必须是 d 开头！）
+    )
 
-    APP_KEY = "ding64jr7pwm9xm8fmrw"    # ← 你的 AppKey
+    APP_KEY = "ding64jr7pwm9xm8fmrw"  # ← 你的 AppKey
     APP_SECRET = "MHqrsMVwl2X66hvzUwdyg_5w0L8y2QLSQ23bBtUecvkvHU6cIgY6LKv3dzqE9EZz"  # ← 你的 AppSecret
 
     # 0225664713639811

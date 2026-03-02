@@ -27,21 +27,27 @@ from extra.logger_ import logger
 from extra.settings import UA
 
 # 忽略openpyxl的样式警告
-warnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')
+warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
 
 class Downloader:
     # 通用的文件下载器
 
-    def __init__(self,
-                 api: str,  # 请求的URL
-                 method: str = "get",  # 请求方式，支持get和post
-                 cookie: Optional[str] = None,  # cookie
-                 params: Optional[Dict[str, Any]] = None,  # GET请求的查询参数
-                 headers: Optional[Dict[str, str]] = None,  # 请求头
-                 data: Optional[Union[Dict, str, bytes]] = None,  # POST请求的表单,data={"name": "value", "age": 25}
-                 json_data: Optional[Dict] = None,  # POST请求的JSON格式,json_data={"user": {"name": "value", "age": 25}}
-                 timeout: int = 30):  # 请求超时时间（秒）
+    def __init__(
+        self,
+        api: str,  # 请求的URL
+        method: str = "get",  # 请求方式，支持get和post
+        cookie: Optional[str] = None,  # cookie
+        params: Optional[Dict[str, Any]] = None,  # GET请求的查询参数
+        headers: Optional[Dict[str, str]] = None,  # 请求头
+        data: Optional[
+            Union[Dict, str, bytes]
+        ] = None,  # POST请求的表单,data={"name": "value", "age": 25}
+        json_data: Optional[
+            Dict
+        ] = None,  # POST请求的JSON格式,json_data={"user": {"name": "value", "age": 25}}
+        timeout: int = 30,
+    ):  # 请求超时时间（秒）
         self.api = api
         self.method = method
         self.cookie = cookie
@@ -58,17 +64,14 @@ class Downloader:
         构造完整的URL
         """
         if self.params:
-            separator = '&' if '?' in self.api else '?'
+            separator = "&" if "?" in self.api else "?"
             return f"{self.api}{separator}{urlencode(self.params)}"
         return self.api
 
     def _prepare_headers(self):
         # 合并请求头,设置默认请求头
 
-        default_headers = {
-            "User-Agent": UA,
-            "cookie": self.cookie
-        }
+        default_headers = {"User-Agent": UA, "cookie": self.cookie}
         # 合并自定义请求头
         if self.headers:
             default_headers.update(self.headers)
@@ -115,7 +118,7 @@ class Downloader:
                     self.url,
                     json=self.json_data,
                     headers=self.default_headers,
-                    timeout=self.timeout
+                    timeout=self.timeout,
                 )
             else:
                 # 发送表单数据或其他数据
@@ -123,7 +126,7 @@ class Downloader:
                     self.url,
                     data=self.data,
                     headers=self.default_headers,
-                    timeout=self.timeout
+                    timeout=self.timeout,
                 )
             req_log(response)
             return response
@@ -165,14 +168,18 @@ class Downloader:
         try:
             data = self.download_file_to_byte()
             # 检查sheet_name是否包含通配符
-            if isinstance(sheet_name, str) and ('*' in sheet_name or '?' in sheet_name):
+            if isinstance(sheet_name, str) and ("*" in sheet_name or "?" in sheet_name):
                 # 读取所有工作表名称
 
                 xl_file = pd.ExcelFile(data)
                 all_sheet_names = xl_file.sheet_names
 
                 # 根据通配符模式找到匹配的工作表
-                matched_sheets = [name for name in all_sheet_names if fnmatch.fnmatch(name, sheet_name)]
+                matched_sheets = [
+                    name
+                    for name in all_sheet_names
+                    if fnmatch.fnmatch(name, sheet_name)
+                ]
 
                 if not matched_sheets:
                     raise ValueError(f"找不到匹配模式 '{sheet_name}' 的工作表")
@@ -180,14 +187,18 @@ class Downloader:
                 # 读取所有匹配的工作表并合并
                 dfs = []
                 for sheet in matched_sheets:
-                    df_temp = pd.read_excel(data, sheet_name=sheet, skiprows=skiprows, engine=engine)
-                    df_temp['__SheetName__'] = sheet  # 添加工作表名称列
+                    df_temp = pd.read_excel(
+                        data, sheet_name=sheet, skiprows=skiprows, engine=engine
+                    )
+                    df_temp["__SheetName__"] = sheet  # 添加工作表名称列
                     dfs.append(df_temp)
                 # 合并所有匹配的工作表
                 df_excel = pd.concat(dfs, ignore_index=True)
             else:
                 # 如果不使用通配符，按正常方式读取
-                df_excel = pd.read_excel(data, sheet_name=sheet_name, skiprows=skiprows, engine=engine)
+                df_excel = pd.read_excel(
+                    data, sheet_name=sheet_name, skiprows=skiprows, engine=engine
+                )
 
             items = self._df_to_dict(df_excel)
             return items
@@ -207,7 +218,9 @@ class Downloader:
         if df_filled.empty:
             return {}
         else:
-            items = df_filled.to_dict('records')  # to_dict('records')，将 DataFrame 转换为字典格式
+            items = df_filled.to_dict(
+                "records"
+            )  # to_dict('records')，将 DataFrame 转换为字典格式
             return items
 
     def download_file_to_byte(self):
@@ -217,7 +230,9 @@ class Downloader:
         """
         try:
             res = self.download_web()
-            data = io.BytesIO(res.content)  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
+            data = io.BytesIO(
+                res.content
+            )  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
             return data
 
         except requests.exceptions.RequestException as e:
@@ -231,7 +246,9 @@ class Downloader:
     def download_csv(self):
         # 发送 HTTP 请求下载 csv 文件,返回BytesIO对象
         try:
-            data = self.download_file_to_byte()  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
+            data = (
+                self.download_file_to_byte()
+            )  # 将HTTP响应的二进制内容转换为内存中的文件对象(BytesIO对象)
             df_csv = pd.read_csv(data)
             items = self._df_to_dict(df_csv)
             return items
@@ -246,7 +263,7 @@ class Downloader:
         result = chardet.detect(file_content)
         return result["encoding"]
 
-    def download_zip(self, file_type='csv'):
+    def download_zip(self, file_type="csv"):
         """
         从指定 URL 下载 ZIP 文件并在内存中读取其中的 CSV 数据。
         参数:
@@ -265,11 +282,13 @@ class Downloader:
                 with zip_file.open(zip_file.namelist()[0]) as file:  # 第一个文件
                     # 使用 Pandas 读取数据
                     file_content = file.read()
-                    if file_type == 'csv':
+                    if file_type == "csv":
                         de_encoding = self.file_encoding(file_content)
                         logger.info(f"检测到的编码: {de_encoding}")
-                        df_data = pd.read_csv(io.BytesIO(file_content), encoding=de_encoding)
-                    elif file_type == 'excel':
+                        df_data = pd.read_csv(
+                            io.BytesIO(file_content), encoding=de_encoding
+                        )
+                    elif file_type == "excel":
                         df_data = pd.read_excel(io.BytesIO(file_content))
                     else:
                         logger.error(f"不支持的文件类型: {file_type}")
@@ -278,7 +297,7 @@ class Downloader:
                 if df_filled.empty:
                     return {}
                 else:
-                    items = df_filled.to_dict('records')
+                    items = df_filled.to_dict("records")
                     return items
         except Exception as e:
             print(f"发生错误: {e}")

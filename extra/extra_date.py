@@ -53,7 +53,7 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
             "%m/%d/%Y",
             "%m/%d/%Y %H:%M:%S",
             "%d/%m/%Y",
-            "%d/%m/%Y %H:%M:%S"
+            "%d/%m/%Y %H:%M:%S",
         ]
 
         # 尝试各种格式
@@ -64,9 +64,13 @@ def ensure_datetime(date_input: Union[str, datetime]) -> datetime:
                 continue
 
         # 如果所有格式都失败，抛出错误
-        raise ValueError(f"无法解析日期字符串 '{date_input}'，支持的格式包括: {', '.join(common_formats)}")
+        raise ValueError(
+            f"无法解析日期字符串 '{date_input}'，支持的格式包括: {', '.join(common_formats)}"
+        )
     else:
-        raise TypeError(f"不支持的日期格式。请提供 datetime 对象或字符串，当前类型: {type(date_input)}")
+        raise TypeError(
+            f"不支持的日期格式。请提供 datetime 对象或字符串，当前类型: {type(date_input)}"
+        )
 
 
 def get_is_date(date_input):
@@ -87,8 +91,9 @@ def get_is_date(date_input):
         return False
 
 
-def get_date(date_input: Union[str, datetime, None] = None,
-             date_format: str = "%Y-%m-%d") -> str:
+def get_date(
+    date_input: Union[str, datetime, None] = None, date_format: str = "%Y-%m-%d"
+) -> str:
     """
     将指定日期转换为文本日期格式
     """
@@ -104,10 +109,12 @@ def get_date(date_input: Union[str, datetime, None] = None,
     return dt.strftime(date_format)
 
 
-def get_time_ago(n: int = 1,
-                 unit: str = "days",
-                 base_date: Union[str, datetime, None] = None,
-                 date_format: str = "%Y-%m-%d") -> str:
+def get_time_ago(
+    n: int = 1,
+    unit: str = "days",
+    base_date: Union[str, datetime, None] = None,
+    date_format: str = "%Y-%m-%d",
+) -> str:
     """
     获取指定日期n个时间单位前的日期字符串
 
@@ -139,7 +146,9 @@ def get_time_ago(n: int = 1,
     elif unit == "weeks":
         result_date = target_date - timedelta(weeks=n)
     else:
-        raise ValueError(f"不支持的时间单位: {unit}，支持的单位: days, hours, minutes, seconds, weeks")
+        raise ValueError(
+            f"不支持的时间单位: {unit}，支持的单位: days, hours, minutes, seconds, weeks"
+        )
 
     # 返回格式化的日期字符串
     return result_date.strftime(date_format)
@@ -157,14 +166,16 @@ def get_recent_days(n: int = 3) -> List[str]:
     # 从最早的日期到今天的顺序添加
     for i in range(n):
         date_ = today - timedelta(days=i + 1)
-        date_list.append(date_.strftime('%Y-%m-%d'))
+        date_list.append(date_.strftime("%Y-%m-%d"))
 
     return date_list
 
 
-def get_date_range(start_date: Union[str, datetime],
-                   end_date: Union[str, datetime, None] = None,
-                   date_format: str = "%Y-%m-%d") -> List[str]:
+def get_date_range(
+    start_date: Union[str, datetime],
+    end_date: Union[str, datetime, None] = None,
+    date_format: str = "%Y-%m-%d",
+) -> List[str]:
     """
     获取两个日期之间的日期列表，支持多种日期格式
     如果解说日期为None,只返回开始日期一天数据
@@ -202,9 +213,11 @@ def get_date_range(start_date: Union[str, datetime],
     return date_list
 
 
-def get_date_list_sorted(date_inputs: List[Union[str, datetime]],
-                         date_format: str = "%Y-%m-%d",
-                         reverse: bool = False) -> List[str]:
+def get_date_list_sorted(
+    date_inputs: List[Union[str, datetime]],
+    date_format: str = "%Y-%m-%d",
+    reverse: bool = False,
+) -> List[str]:
     """
     获取指定非连续日期列表并排序，支持多种日期格式输入和自定义输出格式
     Args:
@@ -287,7 +300,9 @@ def get_second_timestamp_1000(time_input: Union[str, datetime, None] = None) -> 
     return second_timestamp * 1000  # 转换为毫秒级时间戳
 
 
-def get_month_first_and_last_day(date_input: Union[str, datetime, None] = None) -> Tuple[str, str]:
+def get_month_first_and_last_day(
+    date_input: Union[str, datetime, None] = None,
+) -> Tuple[str, str]:
     """
     获取指定日期所在月份的第一天和最后一天日期字符串。
     """
@@ -336,13 +351,14 @@ def get_recent_months_first_day(n=3) -> List[str]:
 
         # 构造每月第一天的日期
         first_day = date(target_year, target_month, 1)
-        date_list.append(first_day.strftime('%Y-%m-%d'))
+        date_list.append(first_day.strftime("%Y-%m-%d"))
 
     return date_list
 
 
-def get_month_first_days_in_range(start_date: Union[str, datetime],
-                                  end_date: Union[str, datetime, None] = None) -> List[str]:
+def get_month_first_days_in_range(
+    start_date: Union[str, datetime], end_date: Union[str, datetime, None] = None
+) -> List[str]:
     """
     获取指定日期区间内所有月份的月初日期列表，自动去重并按时间顺序排列
     Args:
@@ -423,8 +439,9 @@ def get_unique_month_first_days(date_inputs: List[Union[str, datetime]]) -> List
     return result
 
 
-def get_date_min_max(date_inputs: List[Union[str, datetime]],
-                     date_format: str = "%Y-%m-%d") -> Tuple[str, str]:
+def get_date_min_max(
+    date_inputs: List[Union[str, datetime]], date_format: str = "%Y-%m-%d"
+) -> Tuple[str, str]:
     """
     获取日期列表中的最小值和最大值日期
     Examples:
@@ -459,7 +476,9 @@ def get_min_max_timestamps(date_inputs: List[Union[str, datetime]]) -> Tuple[int
     # 使用已有的函数获取最小值和最大值
     min_date, max_date = get_date_min_max(date_inputs)
 
-    max_date = get_time_ago(-1, 'days', max_date)  # 获取后一天日期，也就是指定到00:00:00
+    max_date = get_time_ago(
+        -1, "days", max_date
+    )  # 获取后一天日期，也就是指定到00:00:00
 
     # 转换为时间戳
     min_timestamp = get_millisecond_timestamp(min_date)
@@ -469,10 +488,11 @@ def get_min_max_timestamps(date_inputs: List[Union[str, datetime]]) -> Tuple[int
 
 
 def get_split_date_range(
-        start_date: Union[str, datetime],
-        end_date: Union[str, datetime],
-        interval_days: int = 30,
-        date_format: str = "%Y-%m-%d") -> List[Tuple[str, str]]:
+    start_date: Union[str, datetime],
+    end_date: Union[str, datetime],
+    interval_days: int = 30,
+    date_format: str = "%Y-%m-%d",
+) -> List[Tuple[str, str]]:
     """
     将日期区间按指定天数间隔分割，返回包含最小日期和最大日期的列表
 
@@ -532,7 +552,7 @@ def get_df_min_max_date(df, date_column_name="日期"):
 
 
 def get_items_min_max_date(items, date_column_name="日期"):
-    """ 从items列表中获取最大日期和最小日期
+    """从items列表中获取最大日期和最小日期
     Args:
         items: 包含日期信息的字典列表
         date_column_name: 日期字段的键名，默认为"日期"

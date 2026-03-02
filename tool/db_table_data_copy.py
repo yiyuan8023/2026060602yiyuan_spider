@@ -1,6 +1,7 @@
 import mysql.connector
 from typing import Dict, Any, List, Union
 
+
 def copy_mysql_tables_complete(
     source_config: Dict[str, Any],
     target_config: Dict[str, Any],
@@ -8,7 +9,7 @@ def copy_mysql_tables_complete(
     source_database: str,
     target_database: str,
     drop_if_exists: bool = False,
-    batch_size: int = 1000
+    batch_size: int = 1000,
 ) -> bool:
     """
     从源MySQL数据库复制一个或多个表（包括结构和数据）到目标MySQL数据库
@@ -47,27 +48,36 @@ def copy_mysql_tables_complete(
         for table_name in table_names:
             try:
                 # 获取表的创建语句
-                source_cursor.execute(f"SHOW CREATE TABLE `{source_database}`.`{table_name}`")
+                source_cursor.execute(
+                    f"SHOW CREATE TABLE `{source_database}`.`{table_name}`"
+                )
                 result = source_cursor.fetchone()
 
                 if not result:
-                    print(f"警告: 表 '{table_name}' 在源数据库 '{source_database}' 中不存在，跳过")
+                    print(
+                        f"警告: 表 '{table_name}' 在源数据库 '{source_database}' 中不存在，跳过"
+                    )
                     continue
 
                 create_table_sql = result[1]
                 # 移除可能的数据库名前缀
                 import re
-                create_table_sql = re.sub(rf'`{source_database}`\.', '', create_table_sql)
-                
+
+                create_table_sql = re.sub(
+                    rf"`{source_database}`\.", "", create_table_sql
+                )
+
                 # 获取表的数据总量
-                source_cursor.execute(f"SELECT COUNT(*) FROM `{source_database}`.`{table_name}`")
+                source_cursor.execute(
+                    f"SELECT COUNT(*) FROM `{source_database}`.`{table_name}`"
+                )
                 total_rows = source_cursor.fetchone()[0]
-                
+
                 table_info[table_name] = {
-                    'create_sql': create_table_sql,
-                    'total_rows': total_rows
+                    "create_sql": create_table_sql,
+                    "total_rows": total_rows,
                 }
-                
+
                 print(f"准备复制表 '{table_name}' (共 {total_rows} 条数据)")
 
             except mysql.connector.Error as e:
@@ -91,9 +101,9 @@ def copy_mysql_tables_complete(
         # 处理每个表
         for table_name, info in table_info.items():
             try:
-                create_table_sql = info['create_sql']
-                total_rows = info['total_rows']
-                
+                create_table_sql = info["create_sql"]
+                total_rows = info["total_rows"]
+
                 # 检查目标表是否存在
                 target_cursor.execute(f"SHOW TABLES LIKE '{table_name}'")
                 table_exists = target_cursor.fetchone() is not None
@@ -116,46 +126,50 @@ def copy_mysql_tables_complete(
                     print(f"开始拷贝表 '{table_name}' 的数据...")
                     copied_rows = 0
                     offset = 0
-                    
+
                     while offset < total_rows:
                         # 重新连接源数据库以读取数据
                         source_conn = mysql.connector.connect(**source_config)
                         source_cursor = source_conn.cursor()
-                        
+
                         # 从源表读取一批数据
                         source_cursor.execute(
                             f"SELECT * FROM `{source_database}`.`{table_name}` LIMIT {batch_size} OFFSET {offset}"
                         )
                         rows = source_cursor.fetchall()
-                        
+
                         source_cursor.close()
                         source_conn.close()
-                        
+
                         if not rows:
                             break
-                        
+
                         # 获取列信息
                         source_conn = mysql.connector.connect(**source_config)
                         source_cursor = source_conn.cursor()
-                        source_cursor.execute(f"SELECT * FROM `{source_database}`.`{table_name}` LIMIT 1")
+                        source_cursor.execute(
+                            f"SELECT * FROM `{source_database}`.`{table_name}` LIMIT 1"
+                        )
                         column_names = [desc[0] for desc in source_cursor.description]
                         source_cursor.close()
                         source_conn.close()
-                        
-                        placeholders = ', '.join(['%s'] * len(column_names))
-                        columns_str = ', '.join([f'`{col}`' for col in column_names])
-                        
+
+                        placeholders = ", ".join(["%s"] * len(column_names))
+                        columns_str = ", ".join([f"`{col}`" for col in column_names])
+
                         # 构建插入语句
                         insert_sql = f"INSERT INTO `{table_name}` ({columns_str}) VALUES ({placeholders})"
-                        
+
                         # 插入到目标表
                         target_cursor.executemany(insert_sql, rows)
-                        
+
                         copied_rows += len(rows)
                         offset += batch_size
-                        
-                        print(f"表 '{table_name}': 已拷贝 {copied_rows}/{total_rows} 条数据 ({copied_rows/total_rows*100:.1f}%)")
-                
+
+                        print(
+                            f"表 '{table_name}': 已拷贝 {copied_rows}/{total_rows} 条数据 ({copied_rows/total_rows*100:.1f}%)"
+                        )
+
                 success_count += 1
                 print(f"成功复制表 '{table_name}' (结构+数据)")
 
@@ -168,7 +182,9 @@ def copy_mysql_tables_complete(
         target_conn.close()
 
         print(f"成功复制 {success_count}/{len(table_info)} 个表 (结构+数据)")
-        return success_count == len(table_info) or (success_count > 0 and len(table_info) > 0)
+        return success_count == len(table_info) or (
+            success_count > 0 and len(table_info) > 0
+        )
 
     except mysql.connector.Error as e:
         print(f"MySQL错误: {e}")
@@ -187,38 +203,41 @@ def copy_mysql_tables_complete(
         if target_conn and target_conn.is_connected():
             target_conn.close()
 
+
 # 使用示例
 if __name__ == "__main__":
     # 数据库连接配置
     source_db_config = {
-        'host': '10.20.3.122',
-        'user': 'root',
-        'password': 'jide2025',
-        'port': 3306
+        "host": "10.20.3.122",
+        "user": "root",
+        "password": "jide2025",
+        "port": 3306,
     }
 
     target_db_config = {
-        'host': '223.5.242.173',
-        'user': 'bc_yiyuan_test',
-        'password': 'yiyuan12345678',
-        'port': 3306
+        "host": "223.5.242.173",
+        "user": "bc_yiyuan_test",
+        "password": "yiyuan12345678",
+        "port": 3306,
     }
 
-    table_name_list = ['tb_tg_万相台无界_基础报表_人群报表_202504',
-                       'tb_tg_万相台无界_基础报表_宝贝主体_202504',
-                       'tb_tg_万相台无界_基础报表_关键词_202504']
+    table_name_list = [
+        "tb_tg_万相台无界_基础报表_人群报表_202504",
+        "tb_tg_万相台无界_基础报表_宝贝主体_202504",
+        "tb_tg_万相台无界_基础报表_关键词_202504",
+    ]
 
     # 复制多个表（包括结构和数据）
     success = copy_mysql_tables_complete(
         source_config=source_db_config,
         target_config=target_db_config,
         table_names=table_name_list,
-        source_database='project',
-        target_database='yiyuan_test',
+        source_database="project",
+        target_database="yiyuan_test",
         drop_if_exists=True,  # 如果目标表存在则删除重建
-        batch_size=500  # 每批处理500条数据
+        batch_size=500,  # 每批处理500条数据
     )
-    
+
     if success:
         print("表复制成功")
     else:

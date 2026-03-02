@@ -28,7 +28,6 @@ cn_en_map = {
         "取消及售后退款金额": ("CancelOrdAmt", "value"),
         "取消及售后退款件数": ("CancelSaleQty", "value"),
         "取消及售后退款单量": ("CancelOrdQty", "value"),
-
     },
     "jd1_1_09_jdsz": {
         "行业类目": ("SecondName", "ThirdName"),
@@ -39,8 +38,7 @@ cn_en_map = {
         "加购商品件数": "AddBuyGoodsNum",
         "成交客户数": "DealCustNum",
         "成交金额": "OrdAmt",
-        "成交转化率": "DealCustRate"
-
+        "成交转化率": "DealCustRate",
     },
     "jd1_1_07_jdsz": {
         "退货量": ("NumTH", "value"),
@@ -52,7 +50,6 @@ cn_en_map = {
         "订单48H揽件率": ("CollectRatio", "value"),
         "售后服务时长": ("Duration", "value"),
         "交易纠纷率": ("OrdDisRatio", "value"),
-
     },
     "jd1_1_02_jdsz": {
         "访客数": "goodsVisitorNum",
@@ -82,8 +79,7 @@ cn_en_map = {
         "PV现货率": "PvRate",
         "客单价": "CustPriceAvg",
         "件单价": "UnitPriceAvg",
-        "商品名称": "proName"
-
+        "商品名称": "proName",
     },
     "jd1_1_06_jdsz": {
         "访客数": "goodsVisitorNum",
@@ -95,7 +91,7 @@ cn_en_map = {
         "成交单量": "ordNum",
         "成交商品件数": "ordGoodsPieceNum",
         "成交金额": "ordAmt",
-        "成交转化率": "goodsConverRate", # noqa
+        "成交转化率": "goodsConverRate",  # noqa
         "UV价值": "uvValue",
         "最近上架时间": "shelvesDate",
         "skuID": "spuId",
@@ -113,8 +109,7 @@ cn_en_map = {
         "PV现货率": "PvRate",
         "客单价": "CustPriceAvg",
         "件单价": "UnitPriceAvg",
-        "商品名称": "proName"
-
+        "商品名称": "proName",
     },
     "jd1_1_04_jdsz": {
         "有效粉丝总数": ("FansMember", "VCustNum", "value"),
@@ -131,7 +126,6 @@ cn_en_map = {
         "粉丝成交转化率": ("FansDeal", "ToOrdRate", "value"),
         "粉丝30天复购率": ("FansDeal", "The30RepBuyRate", "value"),
         "粉丝90天复购率": ("FansDeal", "The90RepBuyRate", "value"),
-
     },
     "jd1_1_05_jdsz": {
         "有效会员总数": "jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem@date_end&brandmem_card",
@@ -146,15 +140,30 @@ cn_en_map = {
         "会员成交客户数": "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz@brandmem_card",
         "会员成交单量": "jdr_sch_mkt_deal_ord_ord_dis_qtty_shopversion_brandmem_sz@brandmem_card",
         "会员成交金额": "jdr_sch_mkt_deal_ord_ord_amt_shopversion_brandmem_sz@brandmem_card",
-        "会员成交客单价": ["jdr_sch_mkt_deal_ord_ord_amt_shopversion_brandmem_sz@brandmem_card", "/","jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz@brandmem_card"],
-        "会员成交转化率": ["jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz@brandmem_card", "/","jdr_sch_mkt_brow_shop_cnt_shopversion_brandmem_sz@brandmem_card&browse_brand"],
-        "会员30天复购率": ["jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_ld30_rebuy_brandmem_card", "/","jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_ld30"],
-        "会员90天复购率": ["jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_rebuy_90d_brandmem_card", "/","jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_90d"],
+        "会员成交客单价": [
+            "jdr_sch_mkt_deal_ord_ord_amt_shopversion_brandmem_sz@brandmem_card",
+            "/",
+            "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz@brandmem_card",
+        ],
+        "会员成交转化率": [
+            "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz@brandmem_card",
+            "/",
+            "jdr_sch_mkt_brow_shop_cnt_shopversion_brandmem_sz@brandmem_card&browse_brand",
+        ],
+        "会员30天复购率": [
+            "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_ld30_rebuy_brandmem_card",
+            "/",
+            "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_ld30",
+        ],
+        "会员90天复购率": [
+            "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_rebuy_90d_brandmem_card",
+            "/",
+            "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_90d",
+        ],
         "30天复购会员数": "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_ld30_rebuy_brandmem_card",
         "30天成交客户": "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_ld30",
         "90天复购会员数": "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_rebuy_90d_brandmem_card",
         "90天成交客户数": "jdr_sch_mkt_deal_ord_ord_cnt_shopversion_brandmem_sz_brandmem_card_90d",
-        "沉寂会员数":"jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem_client@brandmem_card"
-
-    }
+        "沉寂会员数": "jdr_sch_user_authentication_member_shop_cnt_shopversion_brandmem_client@brandmem_card",
+    },
 }

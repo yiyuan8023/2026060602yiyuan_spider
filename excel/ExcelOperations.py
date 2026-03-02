@@ -94,8 +94,13 @@ class ExcelOperations:
         last_col = self.active_sheet.max_column
         return last_col
 
-    def copy_excel_content(self, start_row: int = 1, start_col: int = 1,
-                           end_row: int = None, end_col: int = None) -> List[List]:
+    def copy_excel_content(
+        self,
+        start_row: int = 1,
+        start_col: int = 1,
+        end_row: int = None,
+        end_col: int = None,
+    ) -> List[List]:
         """
         拷贝Excel内容
 
@@ -127,7 +132,9 @@ class ExcelOperations:
 
         return content
 
-    def paste_excel_content(self, data: List[List], start_row: int = 1, start_col: int = 1):
+    def paste_excel_content(
+        self, data: List[List], start_row: int = 1, start_col: int = 1
+    ):
         """
         粘贴Excel内容
 
@@ -142,8 +149,7 @@ class ExcelOperations:
         for i, row_data in enumerate(data):
             for j, cell_value in enumerate(row_data):
                 self.active_sheet.cell(
-                    row=start_row + i,
-                    column=start_col + j
+                    row=start_row + i, column=start_col + j
                 ).value = cell_value
 
     def get_first_available_row(self, col_index: int = 1) -> int:
@@ -224,8 +230,13 @@ class ExcelOperations:
 
         return 0
 
-    def clear_excel_content(self, start_row: int = 1, start_col: int = 1,
-                            end_row: int = None, end_col: int = None):
+    def clear_excel_content(
+        self,
+        start_row: int = 1,
+        start_col: int = 1,
+        end_row: int = None,
+        end_col: int = None,
+    ):
         """
         清空Excel内容
 
@@ -274,7 +285,9 @@ class ExcelOperations:
         df = pd.read_excel(self.file_path)
 
         if columns:
-            df.drop_duplicates(subset=[df.columns[i - 1] for i in columns], inplace=True)
+            df.drop_duplicates(
+                subset=[df.columns[i - 1] for i in columns], inplace=True
+            )
         else:
             df.drop_duplicates(inplace=True)
 
@@ -352,7 +365,9 @@ class ExcelOperations:
 
         return area
 
-    def get_selected_area(self, start_row: int, start_col: int, end_row: int, end_col: int):
+    def get_selected_area(
+        self, start_row: int, start_col: int, end_row: int, end_col: int
+    ):
         """
         获取选中区域的内容
 
@@ -378,7 +393,9 @@ class ExcelOperations:
         if not self.active_sheet:
             return
 
-        self.active_sheet.column_dimensions[openpyxl.utils.get_column_letter(col_index)].hidden = hidden
+        self.active_sheet.column_dimensions[
+            openpyxl.utils.get_column_letter(col_index)
+        ].hidden = hidden
 
     def set_row_hidden(self, row_index: int, hidden: bool = True):
         """

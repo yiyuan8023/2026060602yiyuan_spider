@@ -8,9 +8,6 @@
 # pipreqs C:\Users\admin\Desktop\yiyuan_spider --encoding=utf8 --debug --force
 
 
-
-
-
 # 使用 pip 从文件安装
 # pip install -r C:\Users\admin\Desktop\yiyuan_spider\\\requirements.txt
 

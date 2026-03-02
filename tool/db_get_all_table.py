@@ -1,11 +1,11 @@
 def get_all_table_structures(connection_config: dict, database_name: str) -> dict:
     """
     获取指定数据库中所有表的创建SQL语句
-    
+
     Args:
         connection_config (dict): 数据库连接配置
         database_name (str): 数据库名称
-    
+
     Returns:
         dict: 表名和对应创建SQL语句的字典
     """
@@ -40,7 +40,9 @@ def get_all_table_structures(connection_config: dict, database_name: str) -> dic
                     # result[1] 包含创建表的SQL语句
                     create_table_sql = result[1]
                     # 移除数据库名前缀
-                    create_table_sql = re.sub(rf'`{database_name}`\.', '', create_table_sql)
+                    create_table_sql = re.sub(
+                        rf"`{database_name}`\.", "", create_table_sql
+                    )
                     table_structures[table_name] = create_table_sql
                     print(f"成功获取表 '{table_name}' 的结构")
                 else:
@@ -68,13 +70,13 @@ def get_all_table_structures(connection_config: dict, database_name: str) -> dic
 if __name__ == "__main__":
     # 数据库连接配置
     db_config = {
-        'host': '10.20.3.122',
-        'user': 'root',
-        'password': 'jide2025',
-        'port': 3306
+        "host": "10.20.3.122",
+        "user": "root",
+        "password": "jide2025",
+        "port": 3306,
     }
 
-    db_name = 'project'
+    db_name = "project"
     # 获取数据库中所有表的结构
     table_structures = get_all_table_structures(db_config, db_name)
 

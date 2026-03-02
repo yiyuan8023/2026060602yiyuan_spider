@@ -9,6 +9,7 @@
 TODO:原打算先删除全部任务，然后再创建，但是在测试过程中，无法通过，所以放弃
 
 """
+
 import json
 from urllib.parse import urlencode
 
@@ -42,15 +43,15 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
             "level3Dim": self.level3_dim,
             "orderMetric": "alipayAmt",
             "orderType": "desc",
-            "planName": self.name_suffix
+            "planName": self.name_suffix,
         }
         params = {
             "t": get_millisecond_timestamp(),
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "startTime": f"{start_time} 00:00:00",
             "endTime": f"{end_time} 23:59:59",
             "bizType": 126,
-            "ext": json.dumps(ext_data, separators=(',', ':'))
+            "ext": json.dumps(ext_data, separators=(",", ":")),
         }
 
         headers = {
@@ -59,14 +60,14 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
             "user-agent": self.ua,
             "referer": "https://ad.alimama.com/portal/v2/report/item/list.htm",
             "origin": "https://ad.alimama.com",
-            'Host': 'ad.alimama.com',  # noqa
+            "Host": "ad.alimama.com",  # noqa
         }
         res = requests.get(url=url, headers=headers, params=params)
         if req_log(res):
-            logger.success(f'成功！！！{self.name_suffix}创建任务日期:{start_time}')
+            logger.success(f"成功！！！{self.name_suffix}创建任务日期:{start_time}")
             return res.json()
         else:
-            logger.error(f'失败！！！{self.name_suffix}创建任务日期:{start_time}')
+            logger.error(f"失败！！！{self.name_suffix}创建任务日期:{start_time}")
             return None
 
     def create_goods_analysis_task(self, start_time, end_time, finish_task):
@@ -75,8 +76,12 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
             检查该时间段的报表是否已经存在且已完成，如果存在则直接返回任务ID；如果不存在则调用API
         创建新的报表任务。
         """
-        logger.info(f"\n{'-' * 120}\n在创建 {start_time} 00:00:00~{end_time} 23:59:59-{self.name_suffix} 报告")
-        file_name = f"{start_time} 00:00:00~{end_time} 23:59:59-{self.name_suffix}-商品分析"
+        logger.info(
+            f"\n{'-' * 120}\n在创建 {start_time} 00:00:00~{end_time} 23:59:59-{self.name_suffix} 报告"
+        )
+        file_name = (
+            f"{start_time} 00:00:00~{end_time} 23:59:59-{self.name_suffix}-商品分析"
+        )
         if file_name in finish_task.keys():
             logger.info(f"报告已存在，且完成{file_name}")
             return finish_task[file_name]
@@ -84,8 +89,8 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
         else:
             res_json = self.tb_tk_goods_analysis(start_time, end_time)
             # print(res_json)
-            if res_json and res_json.get('data'):
-                id_list = res_json.get('data').get('idList')
+            if res_json and res_json.get("data"):
+                id_list = res_json.get("data").get("idList")
                 logger.info(f"任务已创建，{id_list}")
             else:
                 logger.info("任务已经存在")
@@ -101,18 +106,18 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
         t = get_millisecond_timestamp()
         params = {
             "t": t,
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "pageNo": page,
             "pageSize": 400,
             "bizType": 126,
-            "timeer": t
+            "timeer": t,
         }
 
         headers = {
             "cookie": self.cookie,
             "user-agent": self.ua,
             "referer": "https://ad.alimama.com/portal/v2/report/item/list.htm",
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         }
 
         url = api + urlencode(params)
@@ -126,17 +131,19 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
 
         task_status_list_res = self.goods_task_status_list()  # 任务状态列表json数据包
         _finish_task, _un_finish_task = self.get_task_status_list(
-            task_status_list_res=task_status_list_res)  # 解析数据包, 获取任务状态id
+            task_status_list_res=task_status_list_res
+        )  # 解析数据包, 获取任务状态id
 
-
-        file_name = f"{start_time} 00:00:00~{end_time} 23:59:59-{self.name_suffix}-商品分析"
+        file_name = (
+            f"{start_time} 00:00:00~{end_time} 23:59:59-{self.name_suffix}-商品分析"
+        )
         if file_name in _finish_task.keys():
             return _finish_task[file_name]
 
         else:
             res_json = self.tb_tk_goods_analysis(start_time, end_time)
-            if res_json and res_json.get('data'):
-                id_list = res_json.get('data').get('idList')
+            if res_json and res_json.get("data"):
+                id_list = res_json.get("data").get("idList")
                 logger.info(f"任务已创建，{id_list}")
                 return None
             else:
@@ -152,15 +159,15 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
         api = "https://ad.alimama.com/openapi/param2/1/gateway.unionadv/shopkeeper.rpt.filelink.json?"
         params = {
             "t": get_millisecond_timestamp(),
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "idList": id_list,
-            "bizType": 126
+            "bizType": 126,
         }
         headers = {
             "cookie": self.cookie,
             "user-agent": self.ua,
             "referer": "https://ad.alimama.com/portal/v2/report/item/list.htm",
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         }
         url = api + urlencode(params)
         res_ = requests.get(url, headers=headers)

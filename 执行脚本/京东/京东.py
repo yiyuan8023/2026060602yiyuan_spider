@@ -10,6 +10,7 @@ def create_data_mapping(title_index, values):
             result[title] = None  # 如果索引超出范围，设为None
     return result
 
+
 # 标题对应的索引
 title_index = {
     "goodsVisitorNumPre": 34,
@@ -111,7 +112,7 @@ title_index = {
     "UnitPriceAvgPre": 60,
     "IndThiCatName": 32,
     "ordAmt": 9,
-    "ordAmtPre": 42
+    "ordAmtPre": 42,
 }
 
 # 索引对应的值
@@ -215,7 +216,7 @@ values = [
     0.0,
     None,
     None,
-    "0"
+    "0",
 ]
 
 # 创建关联映射

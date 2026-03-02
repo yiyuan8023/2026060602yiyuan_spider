@@ -20,11 +20,13 @@ class Flow(ShengCanBaseApi):
             "device": 2,
             "dateType": "day",
             "dateRange": f"{day}|{day}",
-            "belong": "all"
+            "belong": "all",
         }
 
         try:
-            items = Downloader(api, cookie=self.cookie, params=params).download_excel(skiprows=5)
+            items = Downloader(api, cookie=self.cookie, params=params).download_excel(
+                skiprows=5
+            )
             return items
         except Exception as e:
             logger.error(f"店铺来源_流量来源构成: day={day}, error={str(e)}")
@@ -39,15 +41,19 @@ class Flow(ShengCanBaseApi):
             "dateType": "day",
             "dateRange": f"{day}|{day}",
             "crowdType": "all",
-            "needCate": "undefined"
+            "needCate": "undefined",
         }
         try:
-            data = Downloader(api, cookie=self.cookie, params=params).download_file_to_byte()
-            all_sheets = pd.read_excel(data, sheet_name=None, skiprows=5)  # 读取所有的工作表
+            data = Downloader(
+                api, cookie=self.cookie, params=params
+            ).download_file_to_byte()
+            all_sheets = pd.read_excel(
+                data, sheet_name=None, skiprows=5
+            )  # 读取所有的工作表
             items_dict = {}
             for sheet_name, df in all_sheets.items():
                 if not df.empty:
-                    items_dict[sheet_name] = df.to_dict('records')
+                    items_dict[sheet_name] = df.to_dict("records")
             return items_dict
         except Exception as e:
             logger.error(f"获取店铺来源流量数据失败: day={day}, error={str(e)}")
@@ -70,10 +76,14 @@ class Flow(ShengCanBaseApi):
         }
 
         try:
-            items = Downloader(api, cookie=self.cookie, params=params).download_excel(skiprows=5)
+            items = Downloader(api, cookie=self.cookie, params=params).download_excel(
+                skiprows=5
+            )
             return items
         except Exception as e:
-            logger.error(f"获取商品流量数据失败: item_id={item_id}, day={day}, error={str(e)}")
+            logger.error(
+                f"获取商品流量数据失败: item_id={item_id}, day={day}, error={str(e)}"
+            )
             return None
 
     def goods_from__listen_good_flow_day_new(self, item_id, day):
@@ -88,35 +98,44 @@ class Flow(ShengCanBaseApi):
             "itemId": item_id,
             "order": "desc",
             "orderBy": "uv",
-            "flowBizType": "classic"
+            "flowBizType": "classic",
         }
 
         try:
-            data = Downloader(api, cookie=self.cookie, params=params).download_file_to_byte()
+            data = Downloader(
+                api, cookie=self.cookie, params=params
+            ).download_file_to_byte()
             engine = excel_engine(data)
             data.seek(0)
 
-            df = pd.read_excel(data, sheet_name="无线流量来源", skiprows=5, engine=engine)
+            df = pd.read_excel(
+                data, sheet_name="无线流量来源", skiprows=5, engine=engine
+            )
             if df is None or df.empty:
                 return None, None
-            items = df.to_dict('records')
+            items = df.to_dict("records")
 
             try:
                 data.seek(0)
-                df2 = pd.read_excel(data, sheet_name="经营优势来源渠道", skiprows=5, engine=engine)
+                df2 = pd.read_excel(
+                    data, sheet_name="经营优势来源渠道", skiprows=5, engine=engine
+                )
 
                 if df2 is not None:
-                    df2 = df2.rename(columns={'渠道名称': '三级来源'})
+                    df2 = df2.rename(columns={"渠道名称": "三级来源"})
                     df2["一级来源"] = "经营优势"
                     df2["二级来源"] = "经营优势"
-                    items2 = df2.to_dict('records')
+                    items2 = df2.to_dict("records")
                     return items, items2
                 else:
                     return items, None
             except Exception as e:
-                logger.warning(f"读取经营优势来源渠道工作表失败: item_id={item_id}, day={day}, error={str(e)}")
+                logger.warning(
+                    f"读取经营优势来源渠道工作表失败: item_id={item_id}, day={day}, error={str(e)}"
+                )
                 return items, None
         except Exception as e:
-            logger.error(f"获取sheet1新版商品流量数据失败 - item_id: {item_id}, day: {day}, error: {str(e)}")
+            logger.error(
+                f"获取sheet1新版商品流量数据失败 - item_id: {item_id}, day: {day}, error: {str(e)}"
+            )
             return None, None
-

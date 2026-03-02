@@ -37,14 +37,16 @@ class Goods(ShengCanBaseApi):
             "cateId": "",
             "cateLevel": "",
             "indexCode": f"payAmt, sucRefundAmt, payItmCnt, payByrCnt, payRate, newPayByrCnt, "
-                         f"payOldByrCnt, olderPayAmt, juPayAmt, mtdPayAmt, mtdPayItmCnt, ytdPayAmt, "
-                         f"itemStatus, itemCartCnt, itemCartByrCnt, itemCltByrCnt, visitCartRate, visitCltRate, "
-                         f"itmUv, itmPv, itmStayTime, itmBounceRate, seGuideUv, seGuidePayByrCnt, seGuidePayRate, "
-                         f"uvAvgValue, starLevel001, itemUnitPrice1"
+            f"payOldByrCnt, olderPayAmt, juPayAmt, mtdPayAmt, mtdPayItmCnt, ytdPayAmt, "
+            f"itemStatus, itemCartCnt, itemCartByrCnt, itemCltByrCnt, visitCartRate, visitCltRate, "
+            f"itmUv, itmPv, itmStayTime, itmBounceRate, seGuideUv, seGuidePayByrCnt, seGuidePayRate, "
+            f"uvAvgValue, starLevel001, itemUnitPrice1",
         }
 
         try:
-            items = Downloader(api=api, cookie=self.cookie, params=params).download_excel(skiprows=4, engine='xlrd')
+            items = Downloader(
+                api=api, cookie=self.cookie, params=params
+            ).download_excel(skiprows=4, engine="xlrd")
 
             return items
 
@@ -53,7 +55,7 @@ class Goods(ShengCanBaseApi):
 
     def category_360__flow_from(self, daterange, cate_id):
         """
-        tb_sycm_商品_品类360_流量分析_流量来源_202504 
+        tb_sycm_商品_品类360_流量分析_流量来源_202504
         :param daterange:
         :param cate_id: 品类ID
         :return:接口返回的JSON数据或None
@@ -71,16 +73,18 @@ class Goods(ShengCanBaseApi):
             "cateId": cate_id,
             "indexCode": "itmUv, itemCartByrCnt, itemCltByrCnt, payByrCnt",
             "_": get_millisecond_timestamp(),
-            "token": self.token
+            "token": self.token,
         }
 
         headers = {
             "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cate_id}"
-                       f"&dateRange={daterange}&dateType=month"
+            f"&dateRange={daterange}&dateType=month"
         }
 
         try:
-            res = Downloader(api=api, cookie=self.cookie, params=params, headers=headers).download_web()
+            res = Downloader(
+                api=api, cookie=self.cookie, params=params, headers=headers
+            ).download_web()
             if req_log(res):
                 return res.json()
             else:
@@ -108,7 +112,7 @@ class Goods(ShengCanBaseApi):
             "kwType": "se_keyword",
             "indexCode": "uv,payOrderByrCnt,payConveRate",  # noqa
             "_": get_second_timestamp,
-            "token": self.token
+            "token": self.token,
         }
         url = api + urlencode(params)
         headers = {
@@ -135,11 +139,13 @@ class Goods(ShengCanBaseApi):
             "device": 0,
             "kwType": "se_keyword",
             "dateType": "day",
-            "dateRange": daterange
+            "dateRange": daterange,
         }
 
         try:
-            items = Downloader(api=api, cookie=self.cookie, params=params).download_excel(skiprows=5)
+            items = Downloader(
+                api=api, cookie=self.cookie, params=params
+            ).download_excel(skiprows=5)
             return items
         except Exception as e:
             logger.warning("请求返回为空或请求日志记录失败")
@@ -148,16 +154,20 @@ class Goods(ShengCanBaseApi):
     def recommend_analysis_single_excel(self, day):
         # tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507 # noqa
 
-        api = r"https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"
+        api = (
+            r"https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"
+        )
         params = {
             "contentSource": "all",
             "keyword": "",
             "contentType": "minidetail",  # noqa
             "dateType": "day",
-            "dateRange": f"{day}|{day}"
+            "dateRange": f"{day}|{day}",
         }
         try:
-            items = Downloader(api=api, cookie=self.cookie, params=params).download_excel(skiprows=5)
+            items = Downloader(
+                api=api, cookie=self.cookie, params=params
+            ).download_excel(skiprows=5)
             return items
 
         except Exception as e:

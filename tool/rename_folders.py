@@ -6,7 +6,7 @@ from pathlib import Path
 def rename_folders_from_excel(excel_path, target_directory):
     """
     根据Excel表格中的映射关系重命名目标目录下的文件夹
-    
+
     Args:
         excel_path (str): Excel文件路径，第一列是原始名称，第二列是新名称
         target_directory (str): 需要重命名文件夹的目标目录路径
@@ -52,7 +52,11 @@ def rename_folders_from_excel(excel_path, target_directory):
     # 遍历Excel中的每一行
     for index, row in df.iterrows():
         # 获取原始名称和新名称
-        original_name = str(row[original_name_col]).strip() if pd.notna(row[original_name_col]) else ""
+        original_name = (
+            str(row[original_name_col]).strip()
+            if pd.notna(row[original_name_col])
+            else ""
+        )
         new_name = str(row[new_name_col]).strip() if pd.notna(row[new_name_col]) else ""
 
         # 跳过空行
@@ -82,14 +86,16 @@ def rename_folders_from_excel(excel_path, target_directory):
             print(f"成功重命名: {original_name} -> {new_name}")
         except Exception as e:
             fail_count += 1
-            failed_operations.append(f"重命名失败 {original_name} -> {new_name}: {str(e)}")
+            failed_operations.append(
+                f"重命名失败 {original_name} -> {new_name}: {str(e)}"
+            )
 
     # 返回统计结果
     result = {
         "success_count": success_count,
         "fail_count": fail_count,
         "failed_operations": failed_operations,
-        "total_processed": success_count + fail_count
+        "total_processed": success_count + fail_count,
     }
 
     return result
@@ -112,9 +118,9 @@ if __name__ == "__main__":
         print(f"总计: {result['total_processed']} 个")
 
         # 打印失败的操作详情
-        if result['failed_operations']:
+        if result["failed_operations"]:
             print(f"\n失败的操作详情:")
-            for operation in result['failed_operations']:
+            for operation in result["failed_operations"]:
                 print(f"  - {operation}")
 
     except Exception as e:

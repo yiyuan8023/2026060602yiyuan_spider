@@ -4,15 +4,21 @@ from typing import Union, List
 from extra.db_manager import DBManager
 from extra.extra_parser import parser_main
 from extra.logger_ import logger
-from extra.extra_date import get_date_range, get_recent_days, get_recent_months_first_day, get_unique_month_first_days
+from extra.extra_date import (
+    get_date_range,
+    get_recent_days,
+    get_recent_months_first_day,
+    get_unique_month_first_days,
+)
 
 
-def select_shop_date(db_table_name: Union[str, List[str]],
-                     site: str = '淘系_生意参谋',
-                     shop_name_list=None,
-                     recent_period: int = 3,
-                     period_type: str = 'day'
-                     ):
+def select_shop_date(
+    db_table_name: Union[str, List[str]],
+    site: str = "淘系_生意参谋",
+    shop_name_list=None,
+    recent_period: int = 3,
+    period_type: str = "day",
+):
     """
     数据采集器函数，用户获取要采集的店铺和采集日期
     Args:
@@ -43,7 +49,7 @@ def select_shop_date(db_table_name: Union[str, List[str]],
     if start_date:
         # 如果命令行指定了日期，则使用指定的日期范围
         date_range = get_date_range(start_date, end_data)
-        if period_type == 'month':
+        if period_type == "month":
             # 对于月份类型，获取日期范围内的所有月初日期并去重
             crawl_day_list = get_unique_month_first_days(date_range)
         else:
@@ -51,7 +57,7 @@ def select_shop_date(db_table_name: Union[str, List[str]],
             crawl_day_list = date_range
     else:
         # 如果没有指定日期，则根据period_type使用默认的近期日期
-        if period_type == 'month':
+        if period_type == "month":
             crawl_day_list = get_recent_months_first_day(recent_period)
         else:
             crawl_day_list = get_recent_days(recent_period)
@@ -63,7 +69,7 @@ def select_shop_date(db_table_name: Union[str, List[str]],
         shop_name_list = shop_name_list
 
     # 格式化店铺名称用于SQL查询
-    shop_names = f'''  ('{"','".join(shop_name_list)}') '''
+    shop_names = f"""  ('{"','".join(shop_name_list)}') """
     logger.info(f"采集日期列表{crawl_day_list},采集店铺{shop_name_list}")
 
     # 如果店铺列表不为空，获取该站点指定店铺的cookies，如果为None则获取所有店铺cookies，即采集所有店铺
@@ -76,10 +82,12 @@ def select_shop_date(db_table_name: Union[str, List[str]],
     return shop_cookies, crawl_day_list
 
 
-if __name__ == '__main__':
-    _shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+if __name__ == "__main__":
+    _shop_name_list = ["林内官方旗舰店"]  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_自助分析_取数_商品_流量来源_所有商品_格式化_202507"  # NOQA
-    _site = '生意参谋'
+    _site = "生意参谋"
 
-    shop_cookiesA, crawl_day_listA = select_shop_date(table_name, _site, _shop_name_list, 3)
+    shop_cookiesA, crawl_day_listA = select_shop_date(
+        table_name, _site, _shop_name_list, 3
+    )
     # print(shop_cookiesA)

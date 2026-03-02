@@ -18,11 +18,11 @@ class TaoKeDingXiangApi:
         获取影刀社区问题
         """
 
-        api = 'https://ad.alimama.com/openapi/param2/1/gateway.unionadv/data.event.taoke.campaign.json'
+        api = "https://ad.alimama.com/openapi/param2/1/gateway.unionadv/data.event.taoke.campaign.json"
         t = get_millisecond_timestamp()
         params = {
             "t": t,
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "itemId": "",
             "cStep": "0",
             "startDate": start_time,
@@ -30,16 +30,14 @@ class TaoKeDingXiangApi:
             "campaignTemplateId": "992",
             "advPageEnum": "adv_992",
             "pageNo": "1",
-            "pageSize": "2000"
+            "pageSize": "2000",
         }
         headers = {
-
             "Referer": f"https://ad.alimama.com/portal/v2/pages/plan/directed/report.htm?tabType=plan&campaignId=&startDate={start_time}&endDate={end_time}",
             "User-Agent": self.ua,
             # "priority": "u=1, i",
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
             "cookie": self.cookie,
-
         }
 
         res = Downloader(api, params=params, headers=headers).download_web()

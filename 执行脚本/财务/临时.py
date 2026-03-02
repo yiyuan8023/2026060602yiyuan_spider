@@ -12,7 +12,7 @@ def analyze_excel_files(folder_path: str) -> List[Dict[str, Any]]:
     results = []
 
     # 支持的Excel文件扩展名
-    excel_extensions = {'.xlsx', '.xls', '.xlsm'}
+    excel_extensions = {".xlsx", ".xls", ".xlsm"}
 
     # 遍历文件夹中的所有文件
     for root, dirs, files in os.walk(folder_path):
@@ -30,35 +30,47 @@ def analyze_excel_files(folder_path: str) -> List[Dict[str, Any]]:
                     for sheet_name in excel_file.sheet_names:
                         try:
                             # 读取工作表的第一行（标题行），但不设置为列标题
-                            df = pd.read_excel(file_path, sheet_name=sheet_name, header=None, nrows=1)
+                            df = pd.read_excel(
+                                file_path, sheet_name=sheet_name, header=None, nrows=1
+                            )
 
                             if not df.empty and len(df) > 0:
                                 # 获取第一行的所有标题
                                 headers = df.iloc[0].tolist()
 
                                 # 过滤掉空标题
-                                headers = [header for header in headers if pd.notna(header)]
+                                headers = [
+                                    header for header in headers if pd.notna(header)
+                                ]
 
                                 # 添加结果
-                                results.append({
-                                    '文件名称': file,
-                                    '完整路径': file_path,
-                                    '工作表名称': sheet_name,
-                                    '标题数量': len(headers),
-                                    '标题名称': ', '.join(str(header) for header in headers)
-                                })
+                                results.append(
+                                    {
+                                        "文件名称": file,
+                                        "完整路径": file_path,
+                                        "工作表名称": sheet_name,
+                                        "标题数量": len(headers),
+                                        "标题名称": ", ".join(
+                                            str(header) for header in headers
+                                        ),
+                                    }
+                                )
                             else:
                                 # 如果工作表为空
-                                results.append({
-                                    '文件名称': file,
-                                    '完整路径': file_path,
-                                    '工作表名称': sheet_name,
-                                    '标题数量': 0,
-                                    '标题名称': ''
-                                })
+                                results.append(
+                                    {
+                                        "文件名称": file,
+                                        "完整路径": file_path,
+                                        "工作表名称": sheet_name,
+                                        "标题数量": 0,
+                                        "标题名称": "",
+                                    }
+                                )
 
                         except Exception as e:
-                            print(f"处理工作表 {sheet_name} 时出错 ({file_path}): {str(e)}")
+                            print(
+                                f"处理工作表 {sheet_name} 时出错 ({file_path}): {str(e)}"
+                            )
                             continue
 
                 except Exception as e:
@@ -77,7 +89,7 @@ def save_analysis_results(results: List[Dict[str, Any]], output_path: str):
         return
 
     df = pd.DataFrame(results)
-    df.to_excel(output_path, index=False, engine='openpyxl')
+    df.to_excel(output_path, index=False, engine="openpyxl")
     print(f"分析结果已保存到: {output_path}")
     print(f"共处理了 {len(results)} 个工作表")
 
@@ -99,7 +111,7 @@ def main():
     # 生成输出文件名
     output_file = os.path.join(
         os.path.dirname(folder_path),
-        f"抖音账单工作表标题分析_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+        f"抖音账单工作表标题分析_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.xlsx",
     )
 
     # 保存结果
@@ -110,10 +122,10 @@ def main():
     print(f"- 总共找到 {len(results)} 个工作表")
 
     if results:
-        unique_files = set(result['文件名称'] for result in results)
+        unique_files = set(result["文件名称"] for result in results)
         print(f"- 来自 {len(unique_files)} 个不同的Excel文件")
 
-        total_headers = sum(result['标题数量'] for result in results)
+        total_headers = sum(result["标题数量"] for result in results)
         print(f"- 总共找到 {total_headers} 个标题字段")
 
 

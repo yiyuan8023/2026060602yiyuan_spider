@@ -12,12 +12,17 @@ from extra.logger_ import logger
 if __name__ == "__main__":
     db_config = "rinnai_py"  # noqa
 
-    shop_name_list = ['林内热水器旗舰店', '林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list = [
+        "林内热水器旗舰店",
+        "林内官方旗舰店",
+    ]  # 默认采集店铺,如果为[],则采集所有店铺
     # shop_name_list = ['林内热水器旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_tk_淘宝联盟_数据分析_cps订单明细_订单结算明细报表_202505"
-    site = '淘宝联盟'  # noqa
+    site = "淘宝联盟"  # noqa
     name_suffix = "订单结算明细报表"
-    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 10)
+    shop_cookies, crawl_day_list = select_shop_date(
+        table_name, site, shop_name_list, 10
+    )
     min_date, max_date = get_date_min_max(crawl_day_list)  # 获取最小和最大时间
 
     for i in shop_cookies:
@@ -34,32 +39,42 @@ if __name__ == "__main__":
             task_status_list_res = Obj.cps_task_status_list()  # 任务状态列表json数据包
 
             finish_task, un_finish_task = Obj.get_task_status_list(
-                task_status_list_res=task_status_list_res)  # 解析数据包, 获取任务状态id
+                task_status_list_res=task_status_list_res
+            )  # 解析数据包, 获取任务状态id
 
             # 等待任务生成
             while un_finish_task:
                 logger.info("等待100s")
                 sleep(100)
 
-                task_status_list_res = Obj.cps_task_status_list()  # 任务状态列表json数据包
+                task_status_list_res = (
+                    Obj.cps_task_status_list()
+                )  # 任务状态列表json数据包
                 finish_task, un_finish_task = Obj.get_task_status_list(
-                    task_status_list_res=task_status_list_res)  # 解析数据包, 获取任务状态id
+                    task_status_list_res=task_status_list_res
+                )  # 解析数据包, 获取任务状态id
 
                 logger.info(un_finish_task)
 
-            logger.info(f"\n{'=' * 120}\n开始采集{shop_name}，{start_time}_{end_time}的数据")
+            logger.info(
+                f"\n{'=' * 120}\n开始采集{shop_name}，{start_time}_{end_time}的数据"
+            )
             report_name = f"{start_time} 00:00:00~{end_time} 23:59:59-{name_suffix}"
             report_id = finish_task.get(report_name)  # 获取报名名称对应的id
             sleep(5)
             items = Obj.fetch_cps_file_link(report_id)
 
             for item in items:
-                item.update({
-                    "店铺名称": shop_name,
-                })
+                item.update(
+                    {
+                        "店铺名称": shop_name,
+                    }
+                )
                 # item["key"] = f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
 
-            DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key='淘宝子订单编号')
+            DBManager(db_config=db_config).update_insert_data(
+                items, table_name, primary_key="淘宝子订单编号"
+            )
             #
             logger.info(f"{shop_name},{start_time}_{end_time}已入库")
         logger.info("-" * 100)

@@ -5,9 +5,9 @@ import warnings
 import xlrd
 
 
-def convert_xls_to_xlsx(input_path: Union[str, List[str]],
-                        output_path: str = None,
-                        overwrite: bool = False) -> dict:
+def convert_xls_to_xlsx(
+    input_path: Union[str, List[str]], output_path: str = None, overwrite: bool = False
+) -> dict:
     """
     将XLS格式文件另存为XLSX格式
     Args:
@@ -20,12 +20,9 @@ def convert_xls_to_xlsx(input_path: Union[str, List[str]],
     """
 
     # 忽略pandas警告
-    warnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')
+    warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
-    result = {
-        'success': [],  # 成功转换的文件
-        'failed': []  # 转换失败的文件
-    }
+    result = {"success": [], "failed": []}  # 成功转换的文件  # 转换失败的文件
 
     # 获取所有需要转换的文件列表
     file_list = _get_file_list(input_path)
@@ -35,38 +32,38 @@ def convert_xls_to_xlsx(input_path: Union[str, List[str]],
             # 检查文件是否存在
             if not os.path.exists(file_path):
                 print(f"⚠️ 文件不存在: {file_path}")
-                result['failed'].append(file_path)
+                result["failed"].append(file_path)
                 continue
 
             # 检查是否为XLS文件
-            if not file_path.lower().endswith('.xls'):
+            if not file_path.lower().endswith(".xls"):
                 print(f"⚠️ 文件不是XLS格式: {file_path}")
-                result['failed'].append(file_path)
+                result["failed"].append(file_path)
                 continue
 
             # 确定输出文件路径
             output_file_path = _get_output_path(file_path, output_path, overwrite)
 
             if output_file_path is None:
-                result['failed'].append(file_path)
+                result["failed"].append(file_path)
                 continue
 
             # 执行转换
             if _convert_single_file_pandas(file_path, output_file_path):
-                result['success'].append(output_file_path)
+                result["success"].append(output_file_path)
                 print(f"✅ 转换成功: {file_path} -> {output_file_path}")
             else:
                 # 如果pandas方法失败，尝试xlrd方法
                 if _convert_single_file_xlrd(file_path, output_file_path):
-                    result['success'].append(output_file_path)
+                    result["success"].append(output_file_path)
                     print(f"✅ 转换成功 (xlrd方法): {file_path} -> {output_file_path}")
                 else:
-                    result['failed'].append(file_path)
+                    result["failed"].append(file_path)
                     print(f"❌ 转换失败: {file_path}")
 
         except Exception as e:
             print(f"❌ 转换文件 {file_path} 时出错: {str(e)}")
-            result['failed'].append(file_path)
+            result["failed"].append(file_path)
             continue
 
     print(f"\n📊 转换完成!")
@@ -95,14 +92,16 @@ def _get_file_list(input_path: Union[str, List[str]]) -> List[str]:
         file_list = []
         for root, dirs, files in os.walk(input_path):
             for file in files:
-                if file.lower().endswith('.xls') and not file.lower().endswith('.xlsx'):
+                if file.lower().endswith(".xls") and not file.lower().endswith(".xlsx"):
                     file_list.append(os.path.join(root, file))
         return file_list
     else:
         raise ValueError(f"无效的输入路径: {input_path}")
 
 
-def _get_output_path(input_file: str, output_path: str = None, overwrite: bool = False) -> Union[str, None]:
+def _get_output_path(
+    input_file: str, output_path: str = None, overwrite: bool = False
+) -> Union[str, None]:
     """
     确定输出文件路径
 
@@ -116,7 +115,7 @@ def _get_output_path(input_file: str, output_path: str = None, overwrite: bool =
     """
     # 生成输出文件名（将.xls替换为.xlsx）
     base_name = os.path.basename(input_file)
-    output_name = base_name.rsplit('.', 1)[0] + '.xlsx'
+    output_name = base_name.rsplit(".", 1)[0] + ".xlsx"
 
     # 确定输出目录
     if output_path is None:
@@ -154,13 +153,13 @@ def _convert_single_file_pandas(input_file: str, output_file: str) -> bool:
         # 尝试不同的xlrd版本参数
         try:
             # 新版本xlrd可能需要特定参数
-            df = pd.read_excel(input_file, engine='xlrd')
+            df = pd.read_excel(input_file, engine="xlrd")
         except Exception:
             # 如果失败，尝试不指定engine
             df = pd.read_excel(input_file)
 
         # 保存为XLSX文件
-        df.to_excel(output_file, index=False, engine='openpyxl')
+        df.to_excel(output_file, index=False, engine="openpyxl")
         return True
 
     except Exception as e:
@@ -184,7 +183,7 @@ def _convert_single_file_xlrd(input_file: str, output_file: str) -> bool:
         from openpyxl import Workbook
 
         # 打开XLS文件
-        workbook = xlrd.open_workbook(input_file, encoding_override='utf-8')
+        workbook = xlrd.open_workbook(input_file, encoding_override="utf-8")
 
         # 创建新的XLSX工作簿
         new_workbook = Workbook()
@@ -199,7 +198,9 @@ def _convert_single_file_xlrd(input_file: str, output_file: str) -> bool:
                 sheet = workbook.sheet_by_name(sheet_name)
 
                 # 创建新的工作表（限制名称长度）
-                safe_sheet_name = sheet_name[:31] if len(sheet_name) > 31 else sheet_name
+                safe_sheet_name = (
+                    sheet_name[:31] if len(sheet_name) > 31 else sheet_name
+                )
                 new_sheet = new_workbook.create_sheet(title=safe_sheet_name)
 
                 # 复制数据
@@ -211,7 +212,9 @@ def _convert_single_file_xlrd(input_file: str, output_file: str) -> bool:
                         if isinstance(cell_value, float) and cell_value > 1000:
                             try:
                                 # 尝试转换为日期
-                                date_tuple = xlrd.xldate_as_tuple(cell_value, workbook.datemode)
+                                date_tuple = xlrd.xldate_as_tuple(
+                                    cell_value, workbook.datemode
+                                )
                                 cell_value = f"{date_tuple[0]}-{date_tuple[1]:02d}-{date_tuple[2]:02d}"
                             except:
                                 pass
@@ -231,9 +234,9 @@ def _convert_single_file_xlrd(input_file: str, output_file: str) -> bool:
         return False
 
 
-def batch_convert_xls_to_xlsx(input_folder: str,
-                              output_folder: str = None,
-                              overwrite: bool = False) -> dict:
+def batch_convert_xls_to_xlsx(
+    input_folder: str, output_folder: str = None, overwrite: bool = False
+) -> dict:
     """
     批量转换文件夹中的XLS文件为XLSX格式（简化接口）
 
@@ -254,11 +257,11 @@ if __name__ == "__main__":
     result = convert_xls_to_xlsx(
         "C:/Users/admin/Desktop/AA",
         "C:/Users/admin/Desktop/AA_converted",
-        overwrite=False
+        overwrite=False,
     )
 
     # 显示失败的文件
-    if result['failed']:
+    if result["failed"]:
         print("\n失败文件列表:")
-        for file in result['failed']:
+        for file in result["failed"]:
             print(f"  - {file}")

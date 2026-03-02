@@ -11,6 +11,7 @@ _create_triggers:为指定表创建自动设置用户信息的触发器
 
 close:关闭数据库连接和游标
 """
+
 import re
 import uuid
 import pymysql
@@ -27,7 +28,7 @@ from extra.logger_ import logger
 class DBManager:
     def __init__(self, db_config=None):
         if db_config is None:
-            db_params = DATABASE_CONFIGS.get('test')
+            db_params = DATABASE_CONFIGS.get("test")
         else:
             db_params = DATABASE_CONFIGS.get(db_config)
 
@@ -65,7 +66,9 @@ class DBManager:
         sql = f"select `店铺名称`,`cookie_str`,`cookie`  from `cookie` where  `站点`='{site}';"
         return self.execute_sql(sql, fetch=True)
 
-    def update_insert_data(self, items, table_name, primary_key=None, uu_id=None, user=None):
+    def update_insert_data(
+        self, items, table_name, primary_key=None, uu_id=None, user=None
+    ):
         """
         新增或更新数据，如果表不存在则自动创建
         :param items: 要插入的数据列表，每个元素是一个字典
@@ -89,8 +92,8 @@ class DBManager:
         # 为每个数据项添加UUID（如果不存在）
         if uu_id:
             for item in items:
-                if 'uu_id' not in item:
-                    item['uu_id'] = str(uuid.uuid4())
+                if "uu_id" not in item:
+                    item["uu_id"] = str(uuid.uuid4())
 
         # 获取字段名列表（从第一条记录）
         field_names = list(items[0].keys())
@@ -99,21 +102,27 @@ class DBManager:
         fields_str = ", ".join([f"`{field}`" for field in field_names])
 
         # 构建ON DUPLICATE KEY UPDATE部分（排除created_at字段）
-        update_fields = [field for field in field_names if field not in ['created_at']]
-        duplicate_str = ",".join([f"`{field}`=VALUES(`{field}`)" for field in update_fields])
+        update_fields = [field for field in field_names if field not in ["created_at"]]
+        duplicate_str = ",".join(
+            [f"`{field}`=VALUES(`{field}`)" for field in update_fields]
+        )
 
         # 构建完整的INSERT语句，使用参数化查询
-        placeholders = ', '.join(['%s'] * len(field_names))
-        insert_sql = (f"INSERT INTO `{table_name}`({fields_str}) VALUES ({placeholders}) "
-                      f"ON DUPLICATE KEY UPDATE {duplicate_str};")
+        placeholders = ", ".join(["%s"] * len(field_names))
+        insert_sql = (
+            f"INSERT INTO `{table_name}`({fields_str}) VALUES ({placeholders}) "
+            f"ON DUPLICATE KEY UPDATE {duplicate_str};"
+        )
 
         # 分批处理数据，每批1000条
         batch_size = 500000
         total_items = len(items)
-        logger.info(f"总共 {total_items} 条数据，开始时间：{get_date(date_format='%Y-%m-%d %H:%M:%S')}")
+        logger.info(
+            f"总共 {total_items} 条数据，开始时间：{get_date(date_format='%Y-%m-%d %H:%M:%S')}"
+        )
 
         for i in range(0, total_items, batch_size):
-            batch_items = items[i:i + batch_size]
+            batch_items = items[i : i + batch_size]
 
             # 构建所有记录的值字符串
             values_tuples = []
@@ -131,9 +140,11 @@ class DBManager:
                         # value = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7Ft\s\']', '', value)
 
                         # 定义要移除的不可见字符，translate效率更高
-                        invisible_chars = ''.join([chr(i) for i in range(32)]) + chr(127) + "'"  # 包括ASCII控制字符
+                        invisible_chars = (
+                            "".join([chr(i) for i in range(32)]) + chr(127) + "'"
+                        )  # 包括ASCII控制字符
                         # 创建翻译表，将不可见字符映射为None（即删除）
-                        trans_table = str.maketrans('', '', invisible_chars)
+                        trans_table = str.maketrans("", "", invisible_chars)
                         value = value.translate(trans_table)
                         # 特殊处理时间戳类型，将其转换为字符串格式
 
@@ -161,7 +172,9 @@ class DBManager:
                 # self.cursor.execute(insert_sql)
                 self.cursor.executemany(insert_sql, values_tuples)
                 self.connect.commit()
-                logger.info(f"已处理 {min(i + batch_size, total_items)}/{total_items} 条数据")
+                logger.info(
+                    f"已处理 {min(i + batch_size, total_items)}/{total_items} 条数据"
+                )
 
             except Exception as e:
                 self.connect.rollback()
@@ -204,7 +217,9 @@ class DBManager:
         if primary_key:
             columns.append("`id` INT AUTO_INCREMENT UNIQUE")  # 添加自增ID字段，为唯一键
         else:
-            columns.append("`id` INT AUTO_INCREMENT PRIMARY KEY")  # 添加自增ID字段,作为主键
+            columns.append(
+                "`id` INT AUTO_INCREMENT PRIMARY KEY"
+            )  # 添加自增ID字段,作为主键
 
         # 判断字段类型并添加主键字段
         for key in keys:
@@ -217,8 +232,10 @@ class DBManager:
                     column_type = "DATE"
                 else:  # 包含时间部分
                     column_type = "DATETIME"
-            elif ((isinstance(value, (int, float)) or
-                   (isinstance(value, str) and value.replace('.', '').isdigit())) and len(str_value) < 10):
+            elif (
+                isinstance(value, (int, float))
+                or (isinstance(value, str) and value.replace(".", "").isdigit())
+            ) and len(str_value) < 10:
                 # 长度不大于10，并且是数字
                 # 数值类型使用 DOUBLE
                 column_type = "DOUBLE"
@@ -240,7 +257,9 @@ class DBManager:
 
         # 添加创建时间和更新时间字段
         columns.append("`create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-        columns.append("`update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+        columns.append(
+            "`update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        )
 
         # 添加创建用户和更新用户字段
         if user:
@@ -302,8 +321,10 @@ class DBManager:
                 column_type = f"VARCHAR({min(max(len(str_value) * 2, 50), 1000)})"
             # 添加字段注释，包含添加时间
             comment = f"add_{get_date( date_format='%Y-%m-%d %H:%M:%S')}"
-            comment_encoded = comment.encode('utf-8').decode('utf-8')
-            alter_parts.append(f"ADD COLUMN `{column}` {column_type} COMMENT '{comment_encoded}'")
+            comment_encoded = comment.encode("utf-8").decode("utf-8")
+            alter_parts.append(
+                f"ADD COLUMN `{column}` {column_type} COMMENT '{comment_encoded}'"
+            )
 
         alter_sql = f"ALTER TABLE `{table_name}` {' ,'.join(alter_parts)};"
         logger.info(alter_sql)
@@ -315,10 +336,14 @@ class DBManager:
 
         # 创建INSERT/UPDATE触发器
         triggers = [
-            (f"CREATE TRIGGER `before_insert_{table_name}` BEFORE INSERT ON `{table_name}` FOR EACH ROW "
-             "BEGIN SET NEW.create_user = USER(); END;"),
-            (f"CREATE TRIGGER `before_update_{table_name}` BEFORE UPDATE ON `{table_name}` FOR EACH ROW "
-             "BEGIN SET NEW.update_user = USER(); END;")
+            (
+                f"CREATE TRIGGER `before_insert_{table_name}` BEFORE INSERT ON `{table_name}` FOR EACH ROW "
+                "BEGIN SET NEW.create_user = USER(); END;"
+            ),
+            (
+                f"CREATE TRIGGER `before_update_{table_name}` BEFORE UPDATE ON `{table_name}` FOR EACH ROW "
+                "BEGIN SET NEW.update_user = USER(); END;"
+            ),
         ]
 
         # 执行触发器创建语句
@@ -326,13 +351,16 @@ class DBManager:
             try:
                 self.cursor.execute(trigger_sql)
             except Exception as e:
-                logger.warning(f"表 `{table_name}`创建触发器失败（可能由于权限问题）: {e}")
+                logger.warning(
+                    f"表 `{table_name}`创建触发器失败（可能由于权限问题）: {e}"
+                )
 
         self.connect.commit()
         logger.info(f"表 `{table_name}` 创建用户插入和更新触发器成功")
 
-    def insert_delete_insert_data(self, items, db_table_name, del_sql, uu_id=None, user=None):
-
+    def insert_delete_insert_data(
+        self, items, db_table_name, del_sql, uu_id=None, user=None
+    ):
         """
             先插入2条测试,如果插入成功,则先删除后入
             不需要指定key，主要解决无法构建key值的表结构
@@ -345,7 +373,7 @@ class DBManager:
 
         Returns:
             bool: 操作是否成功
-       """
+        """
 
         if not items:
             logger.warning("没有需要插入的数据")
@@ -354,12 +382,16 @@ class DBManager:
         try:
             # 检查表是否存在
             table_exists = self._table_exists(db_table_name)
-            logger.info(f"表 {db_table_name} {'存在,测试写入数据' if table_exists else '不存在,跳过先删后人操作,直接创建表'}")
+            logger.info(
+                f"表 {db_table_name} {'存在,测试写入数据' if table_exists else '不存在,跳过先删后人操作,直接创建表'}"
+            )
             # 如果表存在，则先入再删除指定数据
             if table_exists:
                 # 1. 测试插入前2条数据
                 logger.info(f"开始测试插入2条数据到表 {db_table_name}")
-                self.update_insert_data(items[:2], db_table_name, primary_key=None, uu_id=uu_id, user=user)
+                self.update_insert_data(
+                    items[:2], db_table_name, primary_key=None, uu_id=uu_id, user=user
+                )
                 logger.info(f"{db_table_name}测试插入成功")
 
                 # 2. 执行删除操作
@@ -369,7 +401,9 @@ class DBManager:
 
             # 3. 批量插入所有数据
             logger.info(f"准备批量写入数据")
-            self.update_insert_data(items, db_table_name, primary_key=None, uu_id=uu_id, user=user)
+            self.update_insert_data(
+                items, db_table_name, primary_key=None, uu_id=uu_id, user=user
+            )
             logger.info(f"批量插入完成")
             self.close()
             return True
@@ -385,5 +419,5 @@ class DBManager:
         self.connect.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     db = DBManager()

@@ -23,7 +23,7 @@ class InitException(Exception):
 
 
 class ChiTuABasePI(object):
-    def __init__(self, cookie=None, shop_name=None,password=None):
+    def __init__(self, cookie=None, shop_name=None, password=None):
         """
         初始
         :param cookie:
@@ -92,29 +92,28 @@ class ChiTuABasePI(object):
         headers = {
             "User-Agent": self.ramdom_ua(),
             "cookie": self.cookie,
-            "content-type": "application/json"
+            "content-type": "application/json",
         }
         res = requests.post(url=api, data=json.dumps(data), headers=headers)
         self.req_log(res)
         res_json = res.json()
         taskids = res_json["id"]
         logger.success(f"正在生成报表，taskids={taskids}")
-        export_status=False
+        export_status = False
         try:
-            export_status=self.export_task_status(taskids)
+            export_status = self.export_task_status(taskids)
         except Exception as e:
-            export_status=False
+            export_status = False
         finally:
-            return export_status,taskids
+            return export_status, taskids
+
     @retry(stop_max_attempt_number=5, wait_fixed=5000)
     def export_task_status(self, taskIds):
         """
         查看报表状态
         """
         api = "https://kf.topchitu.com/api/export/?"
-        params = {
-            "taskIds": taskIds
-        }
+        params = {"taskIds": taskIds}
         headers = {
             "User-Agent": self.ramdom_ua(),
             "cookie": self.cookie,
@@ -125,17 +124,14 @@ class ChiTuABasePI(object):
         res_json = res.json()
         exportStatus = res_json[0]["exportStatus"]
         logger.success(f"报表(taskids={taskIds}),状态：{exportStatus}")
-        if exportStatus=="OK":
+        if exportStatus == "OK":
             return True
         else:
             raise Exception(f"{exportStatus}")
 
-    def export_download(self,taskIds):
-        api="https://kf.topchitu.com/api/export/download?"
-        params={
-            "taskIds": taskIds,
-            "_version": 21
-        }
+    def export_download(self, taskIds):
+        api = "https://kf.topchitu.com/api/export/download?"
+        params = {"taskIds": taskIds, "_version": 21}
         headers = {
             "User-Agent": self.ramdom_ua(),
             "cookie": self.cookie,
@@ -150,13 +146,11 @@ class ChiTuABasePI(object):
         密码验证
         """
         api = "https://kf.topchitu.com/api/export-verify/verify-password"
-        data = {
-            "password": self.password
-        }
+        data = {"password": self.password}
         headers = {
             "User-Agent": self.ramdom_ua(),
             "cookie": self.cookie,
-            "content-type": "application/json"
+            "content-type": "application/json",
         }
         res = requests.post(url=api, data=json.dumps(data), headers=headers)
         if res.status_code == 200 and not res.text:
@@ -182,6 +176,7 @@ class ChiTuABasePI(object):
             return verify_status
         else:
             return self.verify_password()
+
 
 # a=ChiTuAPI("a")
 # print(a.cookie)

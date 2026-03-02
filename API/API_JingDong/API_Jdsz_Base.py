@@ -16,8 +16,8 @@ from extra.settings import UA
 
 # 获取当前执行脚本的绝对路径
 current_path = os.path.dirname(os.path.abspath(__file__))
-js_path = os.path.join(current_path, 'uuid_.js')
-js_file = open(js_path, 'r', encoding="utf8")
+js_path = os.path.join(current_path, "uuid_.js")
+js_file = open(js_path, "r", encoding="utf8")
 context = execjs.compile(js_file.read())
 
 
@@ -70,7 +70,7 @@ class JdszBaseAPI:
             "cookie": self.cookie,
             "User-Mnp": user_mnp_mup["User-Mnp"],
             "User-Mup": str(user_mnp_mup["User-Mup"]),
-            "Uuid": user_mnp_mup["Uuid"]
+            "Uuid": user_mnp_mup["Uuid"],
         }
         return common_headers
 
@@ -80,9 +80,11 @@ class JdszBaseAPI:
         """
         user_mup = int(round(time.time() * 1000))  # 生成当前时间的毫秒级时间戳
 
-        uuid = context.call('n', api, host, ua, self.cookie)  # 调用js函数 n 来生成UUID
+        uuid = context.call("n", api, host, ua, self.cookie)  # 调用js函数 n 来生成UUID
         aa = api + uuid + str(user_mup) + "372ad2c2b6"  # 生成User-Mnp的参数
-        user_mnp = context.call('createHash', aa)  # 调用js函数 createHash 来生成User-Mnp
+        user_mnp = context.call(
+            "createHash", aa
+        )  # 调用js函数 createHash 来生成User-Mnp
         return {
             "User-Mnp": user_mnp,
             "User-Mup": user_mup,
@@ -112,7 +114,7 @@ class JdszBaseAPI:
         :param res:
         :return:返回zip里面的文件第一个吃的bytes
         """
-        with zipfile.ZipFile(io.BytesIO(res.content), 'r') as zip_ref:
+        with zipfile.ZipFile(io.BytesIO(res.content), "r") as zip_ref:
             # 获取 ZIP 文件中的所有文件名
             filenames = zip_ref.namelist()
             # 只处理第一个文件
@@ -132,5 +134,5 @@ class JdszBaseAPI:
                     result[title] = value[index]
                 else:
                     result[title] = None  # 如果索引超出范围，设为None
-            items.append( result)
+            items.append(result)
         return items

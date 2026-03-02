@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from html.parser import HTMLParser
 
+
 class WeChatHTMLConverter(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -19,98 +20,122 @@ class WeChatHTMLConverter(HTMLParser):
     def handle_starttag(self, tag, attrs):
         attrs_dict = dict(attrs)
 
-        if tag in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+        if tag in ["h1", "h2", "h3", "h4", "h5", "h6"]:
             level = int(tag[1])
             # 微信公众号推荐的标题样式
             if level == 1:
-                self.result.append('<p style="font-size:22px;font-weight:bold;color:#333;margin:20px 0 10px 0;text-align:center;">')
+                self.result.append(
+                    '<p style="font-size:22px;font-weight:bold;color:#333;margin:20px 0 10px 0;text-align:center;">'
+                )
             elif level == 2:
-                self.result.append('<p style="font-size:20px;font-weight:bold;color:#333;margin:18px 0 8px 0;border-left:4px solid #576b95;padding-left:10px;">')
+                self.result.append(
+                    '<p style="font-size:20px;font-weight:bold;color:#333;margin:18px 0 8px 0;border-left:4px solid #576b95;padding-left:10px;">'
+                )
             else:
-                self.result.append('<p style="font-size:18px;font-weight:bold;color:#333;margin:15px 0 5px 0;">')
+                self.result.append(
+                    '<p style="font-size:18px;font-weight:bold;color:#333;margin:15px 0 5px 0;">'
+                )
 
-        elif tag == 'p':
-            self.result.append('<p style="font-size:16px;color:#333;margin:10px 0;line-height:1.75;">')
+        elif tag == "p":
+            self.result.append(
+                '<p style="font-size:16px;color:#333;margin:10px 0;line-height:1.75;">'
+            )
 
-        elif tag == 'br':
-            self.result.append('<br>')
+        elif tag == "br":
+            self.result.append("<br>")
 
-        elif tag in ['strong', 'b']:
+        elif tag in ["strong", "b"]:
             self.result.append('<strong style="color:#333;">')
 
-        elif tag in ['em', 'i']:
+        elif tag in ["em", "i"]:
             self.result.append('<em style="color:#333;">')
 
-        elif tag in ['del', 's']:
+        elif tag in ["del", "s"]:
             self.result.append('<del style="color:#999;">')
 
-        elif tag == 'code' and not self.in_pre:
-            self.result.append('<code style="background-color:#f6f8fa;color:#24292e;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:14px;padding:2px 4px;border-radius:3px;">')
+        elif tag == "code" and not self.in_pre:
+            self.result.append(
+                '<code style="background-color:#f6f8fa;color:#24292e;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:14px;padding:2px 4px;border-radius:3px;">'
+            )
 
-        elif tag == 'pre':
+        elif tag == "pre":
             self.in_pre = True
-            self.result.append('<pre style="background-color:#f6f8fa;color:#24292e;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:14px;padding:12px;border-radius:6px;overflow:auto;margin:15px 0;line-height:1.4;">')
+            self.result.append(
+                '<pre style="background-color:#f6f8fa;color:#24292e;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:14px;padding:12px;border-radius:6px;overflow:auto;margin:15px 0;line-height:1.4;">'
+            )
 
-        elif tag == 'a':
+        elif tag == "a":
             self.in_link = True
-            self.link_href = attrs_dict.get('href', '')
-            self.result.append(f'<a href="{self.link_href}" style="color:#576b95;text-decoration:none;border-bottom:1px solid #576b95;">')
+            self.link_href = attrs_dict.get("href", "")
+            self.result.append(
+                f'<a href="{self.link_href}" style="color:#576b95;text-decoration:none;border-bottom:1px solid #576b95;">'
+            )
 
-        elif tag == 'img':
-            src = attrs_dict.get('src', '')
-            alt = attrs_dict.get('alt', '')
-            self.result.append(f'<p style="text-align:center;margin:15px 0;"><img src="{src}" alt="{alt}" style="max-width:100%;height:auto;border-radius:6px;box-shadow:0 2px 12px 0 rgba(0,0,0,0.1);"></p>')
+        elif tag == "img":
+            src = attrs_dict.get("src", "")
+            alt = attrs_dict.get("alt", "")
+            self.result.append(
+                f'<p style="text-align:center;margin:15px 0;"><img src="{src}" alt="{alt}" style="max-width:100%;height:auto;border-radius:6px;box-shadow:0 2px 12px 0 rgba(0,0,0,0.1);"></p>'
+            )
 
-        elif tag == 'blockquote':
-            self.result.append('<blockquote style="border-left:4px solid #576b95;margin:15px 0;padding:10px 20px;background-color:#fafbfc;color:#666;font-style:italic;">')
+        elif tag == "blockquote":
+            self.result.append(
+                '<blockquote style="border-left:4px solid #576b95;margin:15px 0;padding:10px 20px;background-color:#fafbfc;color:#666;font-style:italic;">'
+            )
 
-        elif tag in ['ul', 'ol']:
+        elif tag in ["ul", "ol"]:
             self.lists.append(tag)
-            self.list_counters.append(0 if tag == 'ul' else 1)
+            self.list_counters.append(0 if tag == "ul" else 1)
             self.result.append('<div style="margin:10px 0;">')
 
-        elif tag == 'li':
+        elif tag == "li":
             if self.lists:
                 list_type = self.lists[-1]
-                if list_type == 'ul':
-                    self.result.append('<p style="margin:8px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;top:0;">•</span>')
+                if list_type == "ul":
+                    self.result.append(
+                        '<p style="margin:8px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;top:0;">•</span>'
+                    )
                 else:
                     counter = self.list_counters[-1]
-                    self.result.append(f'<p style="margin:8px 0;padding-left:25px;position:relative;"><span style="position:absolute;left:0;top:0;">{counter}.</span>')
+                    self.result.append(
+                        f'<p style="margin:8px 0;padding-left:25px;position:relative;"><span style="position:absolute;left:0;top:0;">{counter}.</span>'
+                    )
                     self.list_counters[-1] += 1
 
-        elif tag == 'hr':
-            self.result.append('<div style="text-align:center;margin:25px 0;"><hr style="border:0;height:1px;background-color:#e1e4e8;width:80%;margin:0 auto;"></div>')
+        elif tag == "hr":
+            self.result.append(
+                '<div style="text-align:center;margin:25px 0;"><hr style="border:0;height:1px;background-color:#e1e4e8;width:80%;margin:0 auto;"></div>'
+            )
 
     def handle_endtag(self, tag):
-        if tag in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
-            self.result.append('</p>')
-        elif tag == 'p':
-            self.result.append('</p>')
-        elif tag in ['strong', 'b']:
-            self.result.append('</strong>')
-        elif tag in ['em', 'i']:
-            self.result.append('</em>')
-        elif tag in ['del', 's']:
-            self.result.append('</del>')
-        elif tag == 'code' and not self.in_pre:
-            self.result.append('</code>')
-        elif tag == 'pre':
+        if tag in ["h1", "h2", "h3", "h4", "h5", "h6"]:
+            self.result.append("</p>")
+        elif tag == "p":
+            self.result.append("</p>")
+        elif tag in ["strong", "b"]:
+            self.result.append("</strong>")
+        elif tag in ["em", "i"]:
+            self.result.append("</em>")
+        elif tag in ["del", "s"]:
+            self.result.append("</del>")
+        elif tag == "code" and not self.in_pre:
+            self.result.append("</code>")
+        elif tag == "pre":
             self.in_pre = False
-            self.result.append('</pre>')
-        elif tag == 'a':
-            self.result.append('</a>')
+            self.result.append("</pre>")
+        elif tag == "a":
+            self.result.append("</a>")
             self.in_link = False
             self.link_href = ""
-        elif tag == 'blockquote':
-            self.result.append('</blockquote>')
-        elif tag in ['ul', 'ol']:
+        elif tag == "blockquote":
+            self.result.append("</blockquote>")
+        elif tag in ["ul", "ol"]:
             if self.lists:
                 self.lists.pop()
                 self.list_counters.pop()
-            self.result.append('</div>')
-        elif tag == 'li':
-            self.result.append('</p>')
+            self.result.append("</div>")
+        elif tag == "li":
+            self.result.append("</p>")
 
     def handle_data(self, data):
         if not data.strip() and not self.in_pre:
@@ -118,15 +143,15 @@ class WeChatHTMLConverter(HTMLParser):
 
         # 转义HTML特殊字符
         if not self.in_pre:
-            data = data.replace('&', '&amp;')
-            data = data.replace('<', '&lt;')
-            data = data.replace('>', '&gt;')
+            data = data.replace("&", "&amp;")
+            data = data.replace("<", "&lt;")
+            data = data.replace(">", "&gt;")
 
         self.result.append(data)
 
     def get_wechat_html(self):
-        content = ''.join(self.result)
-        wechat_html = f'''<!DOCTYPE html>
+        content = "".join(self.result)
+        wechat_html = f"""<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -137,8 +162,9 @@ class WeChatHTMLConverter(HTMLParser):
 {content}
 </div>
 </body>
-</html>'''
+</html>"""
         return wechat_html
+
 
 def convert_html_to_wechat_format(html_content):
     """
@@ -147,6 +173,7 @@ def convert_html_to_wechat_format(html_content):
     converter = WeChatHTMLConverter()
     converter.feed(html_content)
     return converter.get_wechat_html()
+
 
 def batch_convert_html_files(source_folder, target_folder):
     """
@@ -166,18 +193,18 @@ def batch_convert_html_files(source_folder, target_folder):
     for root, dirs, files in os.walk(source_folder):
         for file in files:
             # 检查是否为HTML文件
-            if file.lower().endswith(('.html', '.htm')):
+            if file.lower().endswith((".html", ".htm")):
                 # 构建源文件路径
                 source_file_path = os.path.join(root, file)
 
                 # 读取HTML文件
                 try:
-                    with open(source_file_path, 'r', encoding='utf-8') as f:
+                    with open(source_file_path, "r", encoding="utf-8") as f:
                         html_content = f.read()
                 except UnicodeDecodeError:
                     # 如果UTF-8解码失败，尝试其他编码
                     try:
-                        with open(source_file_path, 'r', encoding='gbk') as f:
+                        with open(source_file_path, "r", encoding="gbk") as f:
                             html_content = f.read()
                     except UnicodeDecodeError:
                         print(f"无法解码文件: {source_file_path}")
@@ -190,8 +217,7 @@ def batch_convert_html_files(source_folder, target_folder):
                 relative_path = os.path.relpath(source_file_path, source_folder)
                 # 生成目标文件路径，保持目录结构
                 target_file_path = os.path.join(
-                    target_folder,
-                    os.path.splitext(relative_path)[0] + '_wechat.html'
+                    target_folder, os.path.splitext(relative_path)[0] + "_wechat.html"
                 )
 
                 # 创建目标文件的目录（如果不存在）
@@ -199,7 +225,7 @@ def batch_convert_html_files(source_folder, target_folder):
                 Path(target_file_dir).mkdir(parents=True, exist_ok=True)
 
                 # 写入转换后的HTML文件
-                with open(target_file_path, 'w', encoding='utf-8') as f:
+                with open(target_file_path, "w", encoding="utf-8") as f:
                     f.write(wechat_html_content)
 
                 print(f"已转换: {source_file_path} -> {target_file_path}")
@@ -208,6 +234,7 @@ def batch_convert_html_files(source_folder, target_folder):
     print(f"\n转换完成! 共转换 {converted_count} 个文件。")
     print(f"源文件夹: {source_folder}")
     print(f"目标文件夹: {target_folder}")
+
 
 # 执行批量转换
 if __name__ == "__main__":

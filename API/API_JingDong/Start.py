@@ -15,7 +15,12 @@ from script import *
 from extra import get_bihome_requirements, getTimeStr
 import argparse
 from log_ import logger, error_logs, error_logs2
-from settings_pass import SCRIPT_SET, JDSZ_API_SCRIPT_MAP, START_DATE_DAYS, END_DATE_DAYS
+from settings_pass import (
+    SCRIPT_SET,
+    JDSZ_API_SCRIPT_MAP,
+    START_DATE_DAYS,
+    END_DATE_DAYS,
+)
 
 # 获取登记的所有要执行的店铺及脚本
 valid_shop_names, plan_execute_list = get_bihome_requirements()
@@ -69,10 +74,13 @@ def filter_execute_list(execute_list, shop_name, program):
                         if set(req_list) != set(program):
                             if islogger:
                                 logger.error(
-                                    f"【{i.get('shop_name')}】的BIHome执行清单内没有脚本：{list(set(program) - set(req_list))}")
+                                    f"【{i.get('shop_name')}】的BIHome执行清单内没有脚本：{list(set(program) - set(req_list))}"
+                                )
                     else:
                         if islogger:
-                            logger.error(f"【{i.get('shop_name')}】的BIHome执行清单内没有脚本：{program}")
+                            logger.error(
+                                f"【{i.get('shop_name')}】的BIHome执行清单内没有脚本：{program}"
+                            )
 
     return result
 
@@ -92,21 +100,52 @@ def valid_program(program):
     return program
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     # 解析命令行参数
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-s', '--shop_name', help='店铺名称(多个店铺用空格隔开)', required=False, type=valid_shop_name,
-                        choices=valid_shop_names, nargs='+')
-    parser.add_argument('-p', '--program', help='脚本名称(多个脚本用空格隔开)', required=False, type=valid_program,
-                        choices=valid_programs, nargs='+')
-    parser.add_argument('-start', '--start_date', help="开始时间（xxxx-xx-xx）", required=False, type=str,
-                        default=getTimeStr(START_DATE_DAYS))
-    parser.add_argument('-end', '--end_date', help="开始时间（xxxx-xx-xx）", required=False, type=str,
-                        default=getTimeStr(END_DATE_DAYS))
-    parser.add_argument('-date', '--date', help="某一天时间（xxxx-xx-xx），且这个时间参数的优先级最高", required=False,
-                        type=str)
+    parser.add_argument(
+        "-s",
+        "--shop_name",
+        help="店铺名称(多个店铺用空格隔开)",
+        required=False,
+        type=valid_shop_name,
+        choices=valid_shop_names,
+        nargs="+",
+    )
+    parser.add_argument(
+        "-p",
+        "--program",
+        help="脚本名称(多个脚本用空格隔开)",
+        required=False,
+        type=valid_program,
+        choices=valid_programs,
+        nargs="+",
+    )
+    parser.add_argument(
+        "-start",
+        "--start_date",
+        help="开始时间（xxxx-xx-xx）",
+        required=False,
+        type=str,
+        default=getTimeStr(START_DATE_DAYS),
+    )
+    parser.add_argument(
+        "-end",
+        "--end_date",
+        help="开始时间（xxxx-xx-xx）",
+        required=False,
+        type=str,
+        default=getTimeStr(END_DATE_DAYS),
+    )
+    parser.add_argument(
+        "-date",
+        "--date",
+        help="某一天时间（xxxx-xx-xx），且这个时间参数的优先级最高",
+        required=False,
+        type=str,
+    )
     args = parser.parse_args()
     date_ = args.date
     if date_:
@@ -119,16 +158,15 @@ if __name__ == '__main__':
     execute_list = filter_execute_list(plan_execute_list, args.shop_name, args.program)
     print(execute_list)
     for i in execute_list:
-        requirement_names=i["requirement_names"]
+        requirement_names = i["requirement_names"]
         print(f"#{i['shop_name']}#{requirement_names}")
-        k={
-            "shop_name":i["shop_name"],
-            "cookie":i["cookie"],
-            "startDate":startDate,
-            "endDate":endDate,
+        k = {
+            "shop_name": i["shop_name"],
+            "cookie": i["cookie"],
+            "startDate": startDate,
+            "endDate": endDate,
             # "date_":date_,
-            "account_name":i["account_name"]
-
+            "account_name": i["account_name"],
         }
         for requirement_name in requirement_names:
 
@@ -178,5 +216,7 @@ if __name__ == '__main__':
         send_email(f"京东商智报错信息_{getTimeStr()}", body)
     if error_logs2:
         body = "".join(error_logs2)
-        h = str_html('“.*”', body)
-        send_email(f"京东商智报错信息_{getTimeStr()}", h, ['shuju_python@bi-cheng.cn'], 'html')
+        h = str_html("“.*”", body)
+        send_email(
+            f"京东商智报错信息_{getTimeStr()}", h, ["shuju_python@bi-cheng.cn"], "html"
+        )

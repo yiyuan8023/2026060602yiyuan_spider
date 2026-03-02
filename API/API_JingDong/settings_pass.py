@@ -11,7 +11,7 @@ MYSQL_USER = "IT_jishubu"
 MYSQL_PASSWORD = "lujun58586@...."
 MYSQL_DBNAME = os.environ.get("MYSQL_DB") if os.environ.get("MYSQL_DB") else "bc"
 MYSQL_PORT = 3306
-CHARSET = 'utf8mb4'
+CHARSET = "utf8mb4"
 LOGFILE = False if os.environ.get("LOGFILE", "1") == "0" else True
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
@@ -24,7 +24,7 @@ JDSZ_API_SCRIPT_MAP = {
     "jd1_1_06_jdsz": ("JdSzProductAPI", "fetch_product_analysis__product_detail"),
     "jd1_1_08_jdsz": ("JdSzReportAPI", "fetch_report_analysis__my_report__excel"),
     "jd1_1_04_jdsz": ("JdSzCustomAPI", "fetch_fans_summary__data_summary"),
-    "jd1_1_05_jdsz": ("JdSzCustomAPI", "fetch_vip_summary__data_summary")
+    "jd1_1_05_jdsz": ("JdSzCustomAPI", "fetch_vip_summary__data_summary"),
 }
 
 SCRIPT_SET = list(JDSZ_API_SCRIPT_MAP.keys())

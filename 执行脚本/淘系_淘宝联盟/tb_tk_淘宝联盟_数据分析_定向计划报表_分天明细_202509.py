@@ -9,10 +9,15 @@ from extra.logger_ import logger
 
 if __name__ == "__main__":
     db_config = "rinnai_py"  # noqa
-    shop_name_list = ['林内热水器旗舰店', '林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list = [
+        "林内热水器旗舰店",
+        "林内官方旗舰店",
+    ]  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_tk_淘宝联盟_数据分析_定向计划报表_分天明细_202509"
-    site = '淘宝联盟'
-    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 30)
+    site = "淘宝联盟"
+    shop_cookies, crawl_day_list = select_shop_date(
+        table_name, site, shop_name_list, 30
+    )
     min_time, max_time = get_date_min_max(crawl_day_list)
 
     for i in shop_cookies:
@@ -24,14 +29,17 @@ if __name__ == "__main__":
 
         # print(items)
         for item in items:
-            item.update({
-                "店铺名称": shop_name,
-
-            })
+            item.update(
+                {
+                    "店铺名称": shop_name,
+                }
+            )
             item["key"] = f"{item['店铺名称']}_{item['任务id']}_{item['统计日期']}"
         # print(items)
 
-        DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key="key")
+        DBManager(db_config=db_config).update_insert_data(
+            items, table_name, primary_key="key"
+        )
 
         logger.info(f"{shop_name},{crawl_day_list}已入库")
         logger.info("-" * 100)

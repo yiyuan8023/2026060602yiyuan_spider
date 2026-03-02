@@ -41,20 +41,22 @@ def product_consultation_analysis(from_, to_):
         db_obj.do_insert(items, "tb_赤兔名品_店铺绩效_商品咨询分析_202504")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     CHITU_PASSWORD = {"小吉旗舰店": "xiaoji123"}
 
-    shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list = ["林内官方旗舰店"]  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504"  # NOQA
-    site = '淘系_生意参谋'
-    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 10)
+    site = "淘系_生意参谋"
+    shop_cookies, crawl_day_list = select_shop_date(
+        table_name, site, shop_name_list, 10
+    )
 
     crawl_day_list = crawl_day_list[7:]
 
     table_name = "tb_赤兔名品_店铺绩效_商品咨询分析_202504"
     for i in shop_cookies:
         shop_name = i[0]
-        ChituCookies_obj = ChituCookies(shop_name, f'{i[1]}')
+        ChituCookies_obj = ChituCookies(shop_name, f"{i[1]}")
         cookie_res = ChituCookies_obj.main()
 
         if cookie_res["status"] == 1:
@@ -63,7 +65,6 @@ if __name__ == '__main__':
             ChiTuObj = ChiTuShopPerformanceAPI(cookie_str, CHITU_PASSWORD[shop_name])
 
             chitu_shop_performance()
-
 
         else:
             logger.error("赤兔的cookie生成失败")

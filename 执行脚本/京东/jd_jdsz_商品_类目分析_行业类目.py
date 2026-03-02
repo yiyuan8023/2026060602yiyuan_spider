@@ -23,12 +23,12 @@ dict_str = {
     "ThirdName": "三级类目",
 }
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     db_config = None  # noqa
     # db_config = "rinnai_py"  # noqa
-    shop_name_list = ['BMW官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list = ["BMW官方旗舰店"]  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "jd_jdsz_商品_类目分析_行业类目"
-    site = '京东商智'
+    site = "京东商智"
     shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 1)
 
     for i in shop_cookies:
@@ -48,19 +48,27 @@ if __name__ == '__main__':
                 data_list2 = en_to_cn(children_results, dict_str)  # 二层中英文转换
                 data_list.append(data_list2)
 
-            data_list_open = list(itertools.chain.from_iterable(data_list))  # 使用itertools.chain展平嵌套列表
+            data_list_open = list(
+                itertools.chain.from_iterable(data_list)
+            )  # 使用itertools.chain展平嵌套列表
 
             items = []
             for item in data_list_open:
-                item.update({
-                    "店铺名称": shop_name,
-                    "统计日期": date,
-                })
-                item["key"] = f"{item['店铺名称']}_{item['二级类目']}_{item['三级类目']}_{item['统计日期']}"
+                item.update(
+                    {
+                        "店铺名称": shop_name,
+                        "统计日期": date,
+                    }
+                )
+                item["key"] = (
+                    f"{item['店铺名称']}_{item['二级类目']}_{item['三级类目']}_{item['统计日期']}"
+                )
                 items.append(item)
             print(items)
 
-            DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key="key")
+            DBManager(db_config=db_config).update_insert_data(
+                items, table_name, primary_key="key"
+            )
             logger.info(f"{shop_name}_{date}数据已入库")
         logger.info("-" * 100)
     logger.info(f"\n{'*' * 120}")

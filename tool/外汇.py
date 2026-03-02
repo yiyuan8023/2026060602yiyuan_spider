@@ -9,9 +9,11 @@ class ForeignExchangeDataCollector:
     def __init__(self):
         self.base_url = "https://www.safe.gov.cn/AppStructured/hlw/RMBQuery.do"
         self.session = requests.Session()
-        self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        })
+        self.session.headers.update(
+            {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+            }
+        )
 
     def get_data(self, start_date="2021-01-01", end_date=None):
         """
@@ -22,14 +24,10 @@ class ForeignExchangeDataCollector:
         end_date: End date (format: YYYY-MM-DD), default is today
         """
         if end_date is None:
-            end_date = datetime.now().strftime('%Y-%m-%d')
+            end_date = datetime.now().strftime("%Y-%m-%d")
 
         # Set parameters
-        params = {
-            "startDate": start_date,
-            "endDate": end_date,
-            "queryYN": "true"
-        }
+        params = {"startDate": start_date, "endDate": end_date, "queryYN": "true"}
 
         try:
             print(f"Fetching foreign exchange data from {start_date} to {end_date}...")
@@ -39,16 +37,16 @@ class ForeignExchangeDataCollector:
             response.raise_for_status()
 
             # Parse HTML
-            soup = BeautifulSoup(response.text, 'html.parser')
+            soup = BeautifulSoup(response.text, "html.parser")
             time.sleep(1)
-            tables = soup.find_all('table')
+            tables = soup.find_all("table")
 
             if len(tables) >= 5:
                 # Get the 5th table (index 4)
                 target_table = tables[4]
 
                 # Get all rows
-                rows = target_table.find_all('tr')
+                rows = target_table.find_all("tr")
 
                 if len(rows) == 0:
                     print("No data found in table")
@@ -56,7 +54,10 @@ class ForeignExchangeDataCollector:
 
                 # Extract headers
                 header_row = rows[0]
-                headers = [cell.get_text(strip=True) for cell in header_row.find_all(['td', 'th'])]
+                headers = [
+                    cell.get_text(strip=True)
+                    for cell in header_row.find_all(["td", "th"])
+                ]
 
                 # Add sequence column
                 headers.insert(0, "Sequence")
@@ -64,7 +65,7 @@ class ForeignExchangeDataCollector:
                 # Extract data rows
                 data = []
                 for i, row in enumerate(rows[1:], start=1):  # Skip header
-                    cells = row.find_all(['td', 'th'])
+                    cells = row.find_all(["td", "th"])
                     row_data = [cell.get_text(strip=True) for cell in cells]
                     row_data.insert(0, str(i))  # Add sequence number
                     data.append(row_data)
@@ -93,7 +94,9 @@ class ForeignExchangeDataCollector:
             return False
 
         if filename is None:
-            filename = f"foreign_exchange_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+            filename = (
+                f"foreign_exchange_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+            )
 
         try:
             df.to_excel(filename, index=False)
@@ -109,8 +112,8 @@ class ForeignExchangeDataCollector:
         start_date = end_date - timedelta(days=30)
 
         return self.get_data(
-            start_date=start_date.strftime('%Y-%m-%d'),
-            end_date=end_date.strftime('%Y-%m-%d')
+            start_date=start_date.strftime("%Y-%m-%d"),
+            end_date=end_date.strftime("%Y-%m-%d"),
         )
 
 

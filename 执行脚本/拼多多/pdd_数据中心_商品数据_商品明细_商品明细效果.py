@@ -8,28 +8,29 @@ from extra.logger_ import logger
 from extra.settings import EMAIL
 
 # noqa: E501
-dict_str = {'statDate': '统计日期',
-            'goodsId': '商品id',
-            'goodsName': '商品标题',
-            'goodsFavCnt': '商品收藏用户数',
-            'goodsUv': '商品访客数',
-            'goodsPv': '商品浏览量',
-            'payOrdrCnt': '成交件数',
-            'goodsVcr': '成交转化率',
-            'ordrVstrRto': '下单率',  # noqa
-            'payOrdrGoodsQty': '成交订单数',
-            'payOrdrUsrCnt': '成交买家数',
-            'payOrdrAmt': '成交金额',
-            'imprUsrCnt': '流量损失指数',  # noqa
-            }
+dict_str = {
+    "statDate": "统计日期",
+    "goodsId": "商品id",
+    "goodsName": "商品标题",
+    "goodsFavCnt": "商品收藏用户数",
+    "goodsUv": "商品访客数",
+    "goodsPv": "商品浏览量",
+    "payOrdrCnt": "成交件数",
+    "goodsVcr": "成交转化率",
+    "ordrVstrRto": "下单率",  # noqa
+    "payOrdrGoodsQty": "成交订单数",
+    "payOrdrUsrCnt": "成交买家数",
+    "payOrdrAmt": "成交金额",
+    "imprUsrCnt": "流量损失指数",  # noqa
+}
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     db_config = None  # noqa
     cc_email = EMAIL
     # db_config = "rinnai_py"  # noqa
-    shop_name_list = ['林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list = ["林内官方旗舰店"]  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "pdd_数据中心_商品数据_商品明细_商品明细效果"
-    site = '拼多多'
+    site = "拼多多"
     shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 1)
 
     for i in shop_cookies:
@@ -47,19 +48,29 @@ if __name__ == '__main__':
                 # pdd.cookie = None
             else:
 
-                res_data_list = res.get("result", {}).get("goodsDetailList", [])  # 原始数据
-                res_items = res_decrypt(res_data_list, font_dict, dict_str)  # 数据解密,修改中文字段，同步进行
+                res_data_list = res.get("result", {}).get(
+                    "goodsDetailList", []
+                )  # 原始数据
+                res_items = res_decrypt(
+                    res_data_list, font_dict, dict_str
+                )  # 数据解密,修改中文字段，同步进行
 
                 for item in res_items:
-                    item.update({
-                        "店铺名称": shop_name,
-                    })
-                    item["key"] = f"{item['店铺名称']}_{item['商品id']}_{item['统计日期']}"  #
+                    item.update(
+                        {
+                            "店铺名称": shop_name,
+                        }
+                    )
+                    item["key"] = (
+                        f"{item['店铺名称']}_{item['商品id']}_{item['统计日期']}"  #
+                    )
                     items.append(item)
 
                 print(items)
 
-                DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key="key")
+                DBManager(db_config=db_config).update_insert_data(
+                    items, table_name, primary_key="key"
+                )
                 logger.info(f"{shop_name}_{crawl_day_list}数据已入库")
         logger.info("-" * 100)
 logger.info(f"\n{'*' * 120}")

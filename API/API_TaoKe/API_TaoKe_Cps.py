@@ -8,6 +8,7 @@
 TODO:原打算先删除全部任务，然后再创建，但是在测试过程中，无法通过，所以放弃
 
 """
+
 from urllib.parse import urlencode
 
 import pandas as pd
@@ -38,12 +39,11 @@ class TaoKeCpsApi(TaoKeBaseApi):
         url = "https://ad.alimama.com/openapi/param2/1/gateway.unionadv/shopkeeper.rpt.taskstart.json"
         params = {
             "t": get_millisecond_timestamp(),
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "startTime": f"{self.start_time} 00:00:00",
             "endTime": f"{self.end_time} 23:59:59",
             "bizType": 1,
             "status": 3,
-
         }
         # data = json.dumps(data, separators=(',', ':'))
         headers = {
@@ -52,15 +52,15 @@ class TaoKeCpsApi(TaoKeBaseApi):
             "user-agent": self.ua,
             "referer": "https://ad.alimama.com/report/overview/orders.htm",
             "origin": "https://ad.alimama.com",
-            'Host': 'ad.alimama.com',  # noqa
+            "Host": "ad.alimama.com",  # noqa
         }
         res = requests.get(url=url, headers=headers, params=params)
         print(res.json())
         if req_log(res):
-            logger.success(f'成功！！！创建任务日期:{self.start_time}_{self.end_time}')
+            logger.success(f"成功！！！创建任务日期:{self.start_time}_{self.end_time}")
             return res.json()
         else:
-            logger.error(f'失败！！！创建任务日期:{self.start_time}_{self.end_time}')
+            logger.error(f"失败！！！创建任务日期:{self.start_time}_{self.end_time}")
             return None
 
     def cps_task_status_list(self):
@@ -74,7 +74,7 @@ class TaoKeCpsApi(TaoKeBaseApi):
         t = get_millisecond_timestamp()
         params = {
             "t": t,
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "pageNo": 1,
             "pageSize": 10,
             "bizType": 1,
@@ -86,7 +86,7 @@ class TaoKeCpsApi(TaoKeBaseApi):
             "cookie": self.cookie,
             "user-agent": self.ua,
             "referer": "https://ad.alimama.com/report/overview/orders.htm",
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         }
 
         url = api + urlencode(params)
@@ -106,15 +106,15 @@ class TaoKeCpsApi(TaoKeBaseApi):
         api = "https://ad.alimama.com/openapi/param2/1/gateway.unionadv/shopkeeper.rpt.filelink.json?"
         params = {
             "t": get_millisecond_timestamp(),
-            "_tb_token_": get_cookie_value(self.cookie, '_tb_token_'),
+            "_tb_token_": get_cookie_value(self.cookie, "_tb_token_"),
             "idList": id_list,
-            "bizType": 1
+            "bizType": 1,
         }
         headers = {
             "cookie": self.cookie,
             "user-agent": self.ua,
             "referer": "https://ad.alimama.com/report/overview/orders.htm",
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         }
         url = api + urlencode(params)
         res = requests.get(url, headers=headers)

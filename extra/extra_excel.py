@@ -4,7 +4,6 @@ import warnings
 from typing import Literal, Optional
 import pandas as pd
 
-
 # 忽略 UserWarning
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -18,17 +17,19 @@ def read_excel_to_dict(excel_content):
     # 将二进制数据包装成文件对象
     file_like_object = io.BytesIO(excel_content)
     try:
-        df = pd.read_excel(file_like_object, engine='openpyxl')
+        df = pd.read_excel(file_like_object, engine="openpyxl")
     except:
-        df = pd.read_excel(file_like_object, engine='xlrd')
+        df = pd.read_excel(file_like_object, engine="xlrd")
     df_filled = df.fillna("")
     print(df.columns)
-    items = df_filled.to_dict('records')
+    items = df_filled.to_dict("records")
     return items
 
 
 # yiyuan20250730
-def excel_engine(data, sheet_name=None) -> Optional[Literal["xlrd", "openpyxl", "odf", "pyxlsb", "calamine"]]:
+def excel_engine(
+    data, sheet_name=None
+) -> Optional[Literal["xlrd", "openpyxl", "odf", "pyxlsb", "calamine"]]:
     """
     自动确定Excel文件的打开引擎
     Args:
@@ -37,17 +38,20 @@ def excel_engine(data, sheet_name=None) -> Optional[Literal["xlrd", "openpyxl", 
     Returns:
         str: 推荐的engine名称 ('openpyxl', 'xlrd', 或 None)
     """
-    engines: list[Literal["xlrd", "openpyxl", "odf", "pyxlsb", "calamine"]] = ['openpyxl', 'xlrd']
+    engines: list[Literal["xlrd", "openpyxl", "odf", "pyxlsb", "calamine"]] = [
+        "openpyxl",
+        "xlrd",
+    ]
 
     # 保存当前文件指针位置（如果是BytesIO对象）
     current_position = 0
-    if hasattr(data, 'tell'):
+    if hasattr(data, "tell"):
         current_position = data.tell()
 
     for engine in engines:
         try:
             # 重置文件指针位置
-            if hasattr(data, 'seek'):
+            if hasattr(data, "seek"):
                 data.seek(current_position)
 
             # 尝试使用该引擎读取文件
@@ -69,15 +73,10 @@ def excel_engine(data, sheet_name=None) -> Optional[Literal["xlrd", "openpyxl", 
 import pandas as pd
 import numpy as np
 
-
-
-
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     read_download_zip(
-        "https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/2001530108/2025/04/21/10568864/MAIN?Expires=1745206795&OSSAccessKeyId=TMP.3Kpm9fBsXurQ9ssWvZyqRVXgDXX4b5SEd84Jk2bmW5ccLWX9oYzxXCoBKhqfekjFZehbxuQ1eTgwfyM7drrX7N3QCQ7eXJ&Signature=AkcmnrAXdV6xwr2ZC0noKbRgXB0%3D")
+        "https://ad-report-async-download-files.oss-accelerate.aliyuncs.com/universalBP/2001530108/2025/04/21/10568864/MAIN?Expires=1745206795&OSSAccessKeyId=TMP.3Kpm9fBsXurQ9ssWvZyqRVXgDXX4b5SEd84Jk2bmW5ccLWX9oYzxXCoBKhqfekjFZehbxuQ1eTgwfyM7drrX7N3QCQ7eXJ&Signature=AkcmnrAXdV6xwr2ZC0noKbRgXB0%3D"
+    )
 
     """
     

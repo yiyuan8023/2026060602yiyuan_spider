@@ -4,11 +4,13 @@ import shutil  # shutil 可以实现文件的移动拷贝等操作
 from extra.logger_ import logger
 
 # 创建path对象
-root = Path(r'C:\Users\admin\Documents\Navicat\MySQL\Servers\223.5.242.173')
-destination_folder = Path(r'Z:\数据库备份')
+root = Path(r"C:\Users\admin\Documents\Navicat\MySQL\Servers\223.5.242.173")
+destination_folder = Path(r"Z:\数据库备份")
 
 
-for p in root.rglob('*.nb3'):  # 递归遍历所有文件,root.rglob返回文件夹下所有满足条件的文件
+for p in root.rglob(
+    "*.nb3"
+):  # 递归遍历所有文件,root.rglob返回文件夹下所有满足条件的文件
 
     # print(f'{p.stem}{p.parent.name}{p.suffix}') #文件名称+文件夹名称+后缀
 
@@ -19,7 +21,7 @@ for p in root.rglob('*.nb3'):  # 递归遍历所有文件,root.rglob返回文件
     f.mkdir(exist_ok=True)
 
     # 构建文件储存路径，主要目的是文件改名字，如果无需更名，直接使用f即可
-    a = f / f'{p.stem}{p.parent.name}{p.suffix}'  #
+    a = f / f"{p.stem}{p.parent.name}{p.suffix}"  #
     print(a)
 
     # 复制文件

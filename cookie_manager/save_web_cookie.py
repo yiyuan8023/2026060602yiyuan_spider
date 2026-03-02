@@ -7,6 +7,7 @@ import pymysql
 from datetime import datetime
 import os
 
+
 class WebCookieManager:
     """
     网页Cookie管理器 - 支持获取Chrome浏览器Cookie并保存到MySQL数据库
@@ -21,12 +22,12 @@ class WebCookieManager:
         """
         # 默认数据库配置
         default_config = {
-            'host': 'localhost',
-            'port': 3306,
-            'user': 'root',
-            'password': 'your_password',
-            'database': 'web_cookies',
-            'charset': 'utf8mb4'
+            "host": "localhost",
+            "port": 3306,
+            "user": "root",
+            "password": "your_password",
+            "database": "web_cookies",
+            "charset": "utf8mb4",
         }
 
         self.db_config = db_config or default_config
@@ -38,13 +39,15 @@ class WebCookieManager:
         try:
             # 先连接到MySQL服务器（不指定数据库）
             temp_config = self.db_config.copy()
-            database_name = temp_config.pop('database')
+            database_name = temp_config.pop("database")
 
             connection = pymysql.connect(**temp_config)
             cursor = connection.cursor()
 
             # 创建数据库（如果不存在）
-            cursor.execute(f"CREATE DATABASE IF NOT EXISTS `{database_name}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
+            cursor.execute(
+                f"CREATE DATABASE IF NOT EXISTS `{database_name}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci"
+            )
             connection.commit()
             cursor.close()
             connection.close()
@@ -54,7 +57,7 @@ class WebCookieManager:
             cursor = connection.cursor()
 
             # 创建cookies表
-            cursor.execute('''
+            cursor.execute("""
                 CREATE TABLE IF NOT EXISTS cookies (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     website VARCHAR(500) NOT NULL,
@@ -69,10 +72,10 @@ class WebCookieManager:
                     INDEX idx_website (website),
                     INDEX idx_name (name)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-            ''')
+            """)
 
             # 创建websites表
-            cursor.execute('''
+            cursor.execute("""
                 CREATE TABLE IF NOT EXISTS websites (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     url VARCHAR(500) UNIQUE NOT NULL,
@@ -80,7 +83,7 @@ class WebCookieManager:
                     last_visited TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                     INDEX idx_url (url)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-            ''')
+            """)
 
             connection.commit()
             cursor.close()
@@ -103,7 +106,9 @@ class WebCookieManager:
         try:
             # 配置Chrome选项以连接到现有浏览器
             chrome_options = Options()
-            chrome_options.add_experimental_option("debuggerAddress", f"127.0.0.1:{debug_port}")
+            chrome_options.add_experimental_option(
+                "debuggerAddress", f"127.0.0.1:{debug_port}"
+            )
 
             # 连接到Chrome浏览器
             self.driver = webdriver.Chrome(options=chrome_options)
@@ -116,7 +121,9 @@ class WebCookieManager:
             print("   1. 关闭所有Chrome浏览器")
             print("   2. 以调试模式启动Chrome:")
             print("      Windows: chrome.exe --remote-debugging-port=9222")
-            print("      Mac: /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --remote-debugging-port=9222")
+            print(
+                "      Mac: /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --remote-debugging-port=9222"
+            )
             print("      Linux: google-chrome --remote-debugging-port=9222")
             return False
 
@@ -214,7 +221,9 @@ class WebCookieManager:
             print(f"❌ 获取Cookie失败: {str(e)}")
             return []
 
-    def save_cookies_to_db(self, cookies: List[Dict], website: str, website_title: str = None) -> bool:
+    def save_cookies_to_db(
+        self, cookies: List[Dict], website: str, website_title: str = None
+    ) -> bool:
         """
         保存Cookie到MySQL数据库
 
@@ -231,36 +240,44 @@ class WebCookieManager:
             cursor = connection.cursor()
 
             # 保存网站信息
-            cursor.execute('''
+            cursor.execute(
+                """
                 INSERT INTO websites (url, title, last_visited)
                 VALUES (%s, %s, %s)
                 ON DUPLICATE KEY UPDATE 
                 title = VALUES(title), 
                 last_visited = VALUES(last_visited)
-            ''', (website, website_title, datetime.now()))
+            """,
+                (website, website_title, datetime.now()),
+            )
 
             # 删除该网站的旧Cookie
-            cursor.execute('DELETE FROM cookies WHERE website = %s', (website,))
+            cursor.execute("DELETE FROM cookies WHERE website = %s", (website,))
 
             # 保存新的Cookie
             cookie_data = []
             for cookie in cookies:
-                cookie_data.append((
-                    website,
-                    cookie.get('name'),
-                    cookie.get('value'),
-                    cookie.get('domain'),
-                    cookie.get('path'),
-                    cookie.get('expiry'),
-                    int(cookie.get('secure', False)),
-                    int(cookie.get('httpOnly', False))
-                ))
+                cookie_data.append(
+                    (
+                        website,
+                        cookie.get("name"),
+                        cookie.get("value"),
+                        cookie.get("domain"),
+                        cookie.get("path"),
+                        cookie.get("expiry"),
+                        int(cookie.get("secure", False)),
+                        int(cookie.get("httpOnly", False)),
+                    )
+                )
 
-            cursor.executemany('''
+            cursor.executemany(
+                """
                 INSERT INTO cookies 
                 (website, name, value, domain, path, expires, secure, httponly)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-            ''', cookie_data)
+            """,
+                cookie_data,
+            )
 
             connection.commit()
             cursor.close()
@@ -287,19 +304,19 @@ class WebCookieManager:
             connection = pymysql.connect(**self.db_config)
             cursor = connection.cursor(pymysql.cursors.DictCursor)
 
-            cursor.execute('SELECT * FROM cookies WHERE website = %s', (website,))
+            cursor.execute("SELECT * FROM cookies WHERE website = %s", (website,))
             rows = cursor.fetchall()
 
             cookies = []
             for row in rows:
                 cookie = {
-                    'name': row['name'],
-                    'value': row['value'],
-                    'domain': row['domain'],
-                    'path': row['path'],
-                    'expiry': row['expires'] if row['expires'] else None,
-                    'secure': bool(row['secure']),
-                    'httpOnly': bool(row['httponly'])
+                    "name": row["name"],
+                    "value": row["value"],
+                    "domain": row["domain"],
+                    "path": row["path"],
+                    "expiry": row["expires"] if row["expires"] else None,
+                    "secure": bool(row["secure"]),
+                    "httpOnly": bool(row["httponly"]),
                 }
                 cookies.append(cookie)
 
@@ -326,12 +343,15 @@ class WebCookieManager:
             connection = pymysql.connect(**self.db_config)
             cursor = connection.cursor(pymysql.cursors.DictCursor)
 
-            cursor.execute('''
+            cursor.execute(
+                """
                 SELECT url, title, last_visited 
                 FROM websites 
                 ORDER BY last_visited DESC 
                 LIMIT %s
-            ''', (limit,))
+            """,
+                (limit,),
+            )
             websites = cursor.fetchall()
 
             cursor.close()
@@ -356,11 +376,14 @@ class WebCookieManager:
             connection = pymysql.connect(**self.db_config)
             cursor = connection.cursor(pymysql.cursors.DictCursor)
 
-            cursor.execute('''
+            cursor.execute(
+                """
                 SELECT * FROM cookies 
                 WHERE name LIKE %s OR value LIKE %s OR website LIKE %s
                 ORDER BY created_at DESC
-            ''', (f'%{keyword}%', f'%{keyword}%', f'%{keyword}%'))
+            """,
+                (f"%{keyword}%", f"%{keyword}%", f"%{keyword}%"),
+            )
             cookies = cursor.fetchall()
 
             cursor.close()
@@ -378,17 +401,18 @@ class WebCookieManager:
             self.driver.quit()
             print("✅ 浏览器连接已关闭")
 
+
 def main():
     """主函数 - 使用示例"""
 
     # MySQL数据库配置
     db_config = {
-        'host': 'localhost',
-        'port': 3306,
-        'user': 'root',
-        'password': 'your_password',  # 请修改为你的MySQL密码
-        'database': 'web_cookies',
-        'charset': 'utf8mb4'
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": "your_password",  # 请修改为你的MySQL密码
+        "database": "web_cookies",
+        "charset": "utf8mb4",
     }
 
     # 创建Cookie管理器
@@ -425,7 +449,9 @@ def main():
             if cookies:
                 # 保存Cookie到数据库
                 website_title = cookie_manager.get_current_title()
-                if cookie_manager.save_cookies_to_db(cookies, target_url, website_title):
+                if cookie_manager.save_cookies_to_db(
+                    cookies, target_url, website_title
+                ):
                     print("✅ Cookie保存成功")
                 else:
                     print("❌ Cookie保存失败")
@@ -450,6 +476,7 @@ def main():
     finally:
         # 关闭浏览器连接
         cookie_manager.close()
+
 
 def quick_get_cookies(url: str = None, db_config: Dict = None):
     """
@@ -496,6 +523,7 @@ def quick_get_cookies(url: str = None, db_config: Dict = None):
 
     finally:
         cookie_manager.close()
+
 
 # 使用示例
 if __name__ == "__main__":

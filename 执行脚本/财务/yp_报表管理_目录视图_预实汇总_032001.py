@@ -24,8 +24,24 @@ def process_excel_workbook_no_warning(input_file, output_file):
     all_processed_data = []
 
     # 标准列名（添加新字段）
-    standard_columns = ['序号', '项目', '类别', '明细科目', '标准', '决算', '预算', '上年',
-                        'sheet名称', '月份', '编制部门', '当前版本', '对应金蝶部门', '文件名称', '入库日期', '年份']
+    standard_columns = [
+        "序号",
+        "项目",
+        "类别",
+        "明细科目",
+        "标准",
+        "决算",
+        "预算",
+        "上年",
+        "sheet名称",
+        "月份",
+        "编制部门",
+        "当前版本",
+        "对应金蝶部门",
+        "文件名称",
+        "入库日期",
+        "年份",
+    ]
 
     print(f"开始处理 {len(sheet_names) - 1} 个工作表...")
 
@@ -38,10 +54,10 @@ def process_excel_workbook_no_warning(input_file, output_file):
     file_name = os.path.splitext(os.path.basename(input_file))[0]
 
     # 获取当前系统日期
-    current_date = datetime.now().strftime('%Y-%m-%d')
+    current_date = datetime.now().strftime("%Y-%m-%d")
 
     # 固定年份
-    year = '2026'
+    year = "2026"
 
     # 跳过第一个sheet，处理后续所有sheet
     for idx, sheet_name in enumerate(sheet_names[1:], 1):
@@ -65,30 +81,46 @@ def process_excel_workbook_no_warning(input_file, output_file):
                         if len(df) > 7:
                             # 提取固定列（前5列）和动态列（3列）
                             fixed_data = df.iloc[7:, :5].reset_index(drop=True)
-                            dynamic_data = df.iloc[7:, start_col:end_col].reset_index(drop=True)
+                            dynamic_data = df.iloc[7:, start_col:end_col].reset_index(
+                                drop=True
+                            )
 
                             # 合并数据
                             merged_data = pd.concat([fixed_data, dynamic_data], axis=1)
 
                             # 设置列名
                             if merged_data.shape[1] == 8:  # 确保列数正确
-                                merged_data.columns = ['序号', '项目', '类别', '明细科目', '标准', '决算', '预算',
-                                                       '上年']
+                                merged_data.columns = [
+                                    "序号",
+                                    "项目",
+                                    "类别",
+                                    "明细科目",
+                                    "标准",
+                                    "决算",
+                                    "预算",
+                                    "上年",
+                                ]
 
                                 # 添加额外列
-                                merged_data['月份'] = f"{cycle + 1}"
-                                merged_data['sheet名称'] = sheet_name
+                                merged_data["月份"] = f"{cycle + 1}"
+                                merged_data["sheet名称"] = sheet_name
 
                                 # 添加新的字段列
                                 # B3单元格 (索引: 行2, 列1)
-                                merged_data['编制部门'] = df.iloc[2, 1] if not pd.isna(df.iloc[2, 1]) else ""
+                                merged_data["编制部门"] = (
+                                    df.iloc[2, 1] if not pd.isna(df.iloc[2, 1]) else ""
+                                )
                                 # B4单元格 (索引: 行3, 列1)
-                                merged_data['当前版本'] = df.iloc[3, 1] if not pd.isna(df.iloc[3, 1]) else ""
+                                merged_data["当前版本"] = (
+                                    df.iloc[3, 1] if not pd.isna(df.iloc[3, 1]) else ""
+                                )
                                 # D4单元格 (索引: 行3, 列3)
-                                merged_data['对应金蝶部门'] = df.iloc[3, 3] if not pd.isna(df.iloc[3, 3]) else ""
-                                merged_data['文件名称'] = file_name
-                                merged_data['入库日期'] = current_date
-                                merged_data['年份'] = year
+                                merged_data["对应金蝶部门"] = (
+                                    df.iloc[3, 3] if not pd.isna(df.iloc[3, 3]) else ""
+                                )
+                                merged_data["文件名称"] = file_name
+                                merged_data["入库日期"] = current_date
+                                merged_data["年份"] = year
 
                                 # merged_data[
                                 #     'key'] = (
@@ -96,16 +128,21 @@ def process_excel_workbook_no_warning(input_file, output_file):
                                 #     f"{merged_data['月份']}_{merged_data['入库日期']}")
 
                                 # 过滤掉决算、预算、上年三列都为空或为0的行
-                                filter_columns = ['决算', '预算', '上年']
+                                filter_columns = ["决算", "预算", "上年"]
 
                                 # 确保这些列存在
-                                if all(col in merged_data.columns for col in filter_columns):
+                                if all(
+                                    col in merged_data.columns for col in filter_columns
+                                ):
                                     # 完全避免警告的方法：直接使用布尔逻辑进行过滤
                                     decision_data = merged_data[filter_columns]
 
                                     # 创建布尔掩码，检查每行是否应该保留
                                     # 保留条件：至少有一列非空且非零
-                                    keep_mask = pd.Series([False] * len(decision_data), index=decision_data.index)
+                                    keep_mask = pd.Series(
+                                        [False] * len(decision_data),
+                                        index=decision_data.index,
+                                    )
 
                                     for col in filter_columns:
                                         # 对每列检查非空（但不过滤0）
@@ -118,7 +155,9 @@ def process_excel_workbook_no_warning(input_file, output_file):
                                     filtered_data = merged_data[keep_mask]
 
                                     # 统计被过滤的行数
-                                    filtered_count = len(merged_data) - len(filtered_data)
+                                    filtered_count = len(merged_data) - len(
+                                        filtered_data
+                                    )
                                     filtered_empty_rows += filtered_count
 
                                     # 如果过滤后还有数据，则添加到结果中
@@ -159,10 +198,18 @@ def process_excel_workbook_no_warning(input_file, output_file):
         items = df_to_dict(final_df)
         # print(items)
         for item in items:
-            department = item.get('编制部门', '')
-            item["前后台"] = department.split('[')[-1].split(']')[0] if '[' in department and ']' in department else ""
-            item["key"] = f"{item['序号']}_{item['编制部门']}_{item['当前版本']}_{item['年份']}_{item['月份']}_{item['入库日期']}"
-        DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key='key')
+            department = item.get("编制部门", "")
+            item["前后台"] = (
+                department.split("[")[-1].split("]")[0]
+                if "[" in department and "]" in department
+                else ""
+            )
+            item["key"] = (
+                f"{item['序号']}_{item['编制部门']}_{item['当前版本']}_{item['年份']}_{item['月份']}_{item['入库日期']}"
+            )
+        DBManager(db_config=db_config).update_insert_data(
+            items, table_name, primary_key="key"
+        )
 
         logger.info(f"✅ 数据处理完成!")
         logger.info(f"📊 总共处理了 {total_data_blocks} 个数据块")
@@ -181,7 +228,7 @@ if __name__ == "__main__":
     input_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接(26年预算).xlsx"
     output_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接(26年预算)已处理.xlsx"
 
-    table_name = 'yp_报表管理_目录视图_预实汇总_032001'
+    table_name = "yp_报表管理_目录视图_预实汇总_032001"
     # db_config = None # noqa
     db_config = "caiwu_hzbc"  # noqa
 

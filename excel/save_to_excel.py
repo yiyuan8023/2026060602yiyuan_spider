@@ -13,7 +13,13 @@ class SaveToExcel:
     导出数据到excel
     """
 
-    def __init__(self, items: List[Dict[str, Any]], filename: str = None, path: str = None, sheet_name: str = "Sheet1"):
+    def __init__(
+        self,
+        items: List[Dict[str, Any]],
+        filename: str = None,
+        path: str = None,
+        sheet_name: str = "Sheet1",
+    ):
         """
         初始化Excel导出器
         Args:
@@ -57,11 +63,13 @@ class SaveToExcel:
             # 文件名，默认为"文件导出+时间戳"
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"文件导出_{timestamp}.xlsx"
-        elif not filename.endswith(('.xlsx', '.xls')):
+        elif not filename.endswith((".xlsx", ".xls")):
             filename = f"{filename}.xlsx"
         return filename
 
-    def export_to_excel(self, ) -> str:
+    def export_to_excel(
+        self,
+    ) -> str:
         """
         将列表字典导出到Excel文件
         """
@@ -72,7 +80,9 @@ class SaveToExcel:
                 self._append_to_existing_file()
             else:
                 # 如果文件不存在，创建新文件
-                self.df.to_excel(self.file_path, sheet_name=self.sheet_name, index=False)
+                self.df.to_excel(
+                    self.file_path, sheet_name=self.sheet_name, index=False
+                )
 
             logger.info(f"✅ 数据已成功导出到: {self.file_path}")
             logger.info(f"📊 导出记录数: {len(self.items)}")
@@ -128,18 +138,8 @@ if __name__ == "__main__":
 
     # 示例数据
     sample_data = [
-        {
-            "姓名": "张三",
-            "年龄": 25,
-            "部门": "技术部",
-            "薪资": 8000
-        },
-        {
-            "姓名": "李四",
-            "年龄": 30,
-            "部门": "销售部",
-            "薪资": 9000
-        },
+        {"姓名": "张三", "年龄": 25, "部门": "技术部", "薪资": 8000},
+        {"姓名": "李四", "年龄": 30, "部门": "销售部", "薪资": 9000},
     ]
     exporter = SaveToExcel(sample_data, "员工信息表")
 

@@ -21,10 +21,10 @@ def convert_xls_to_xlsx(input_folder, output_folder=None):
 
     # 遍历输入文件夹中的所有文件
     for filename in os.listdir(input_folder):
-        if filename.endswith('.xls') and not filename.startswith('~$'):
+        if filename.endswith(".xls") and not filename.startswith("~$"):
             # 构建完整的文件路径
             xls_path = os.path.join(input_folder, filename)
-            xlsx_filename = filename.replace('.xls', '.xlsx')
+            xlsx_filename = filename.replace(".xls", ".xlsx")
             xlsx_path = os.path.join(output_folder, xlsx_filename)
 
             try:

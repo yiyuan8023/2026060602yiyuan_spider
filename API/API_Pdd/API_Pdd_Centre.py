@@ -23,14 +23,11 @@ class PddDataCentre(PddBaseApi):
         # pdd_数据中心_服务数据_售后数据
 
         api = "https://mms.pinduoduo.com/sydney/api/saleQuality/querySaleQualityDetailInfo"
-        payload = json.dumps({
-            "queryDate": date,
-            "crawlerInfo": ""
-        })
+        payload = json.dumps({"queryDate": date, "crawlerInfo": ""})
         headers = {
             "User-Agent": UA,
             "Content-Type": "application/json",
-            "Cookie": self.cookie
+            "Cookie": self.cookie,
         }
 
         res = requests.post(url=api, data=payload, headers=headers)
@@ -45,20 +42,21 @@ class PddDataCentre(PddBaseApi):
         # pdd_数据中心_交易数据_数据总览
         res_rule_ttf = self.get_web_spider_rule()
         api = "https://mms.pinduoduo.com/sydney/api/mallTrade/queryMallTradeList"
-        payload = json.dumps({
-            "queryType": 7,  # 7 代表的是自定义日期
-            "queryDate": end_date,
-            "startDate": start_date,
-            "endDate": end_date,
-        })
+        payload = json.dumps(
+            {
+                "queryType": 7,  # 7 代表的是自定义日期
+                "queryDate": end_date,
+                "startDate": start_date,
+                "endDate": end_date,
+            }
+        )
         headers = {
             "User-Agent": UA,
             "Content-Type": "application/json",
             "Cookie": self.cookie,
             "Anti-Content": self.get_anti_content(),
-            "Webspiderrule": res_rule_ttf["web_spider_rule"]  # noqa 字体
+            "Webspiderrule": res_rule_ttf["web_spider_rule"],  # noqa 字体
         }
-
 
         ttf_url = res_rule_ttf["ttf_url"]
         font_dict = self.get_font_mapping(ttf_url)
@@ -72,20 +70,18 @@ class PddDataCentre(PddBaseApi):
     @logger.catch
     def pdd_flow_data__flow_board(self, begin_date, end_data):
         """
-        pdd_数据中心_流量数据_流量看板_数据总览_202509
-       :return:
-       """
+         pdd_数据中心_流量数据_流量看板_数据总览_202509
+        :return:
+        """
         api = "https://mms.pinduoduo.com/sydney/api/mallFlow/queryMallFlowOverView"
-        payload = json.dumps({
-            "beginDate": begin_date,
-            "crawlerInfo": "",
-            "endDate": end_data
-        })
+        payload = json.dumps(
+            {"beginDate": begin_date, "crawlerInfo": "", "endDate": end_data}
+        )
 
         headers = {
             "User-Agent": UA,
             "Content-Type": "application/json",
-            "Cookie": self.cookie
+            "Cookie": self.cookie,
         }
 
         res = requests.post(url=api, data=payload, headers=headers)
@@ -102,23 +98,25 @@ class PddDataCentre(PddBaseApi):
         res_rule_ttf = self.get_web_spider_rule()
         api = "https://mms.pinduoduo.com/sydney/api/goodsDataShow/queryGoodsDetailVOListForMMS"
         payload = json.dumps(
-            {"goodsId": "",
-             "startDate": start_date,
-             "endDate": end_date,
-             "queryType": 0,
-             "sortCol": 0,
-             "sortType": 1,
-             "pageNum": page_num,
-             "pageSize": 50,
-             "actVs": 1,
-             "crawlerInfo": ""
-             })
+            {
+                "goodsId": "",
+                "startDate": start_date,
+                "endDate": end_date,
+                "queryType": 0,
+                "sortCol": 0,
+                "sortType": 1,
+                "pageNum": page_num,
+                "pageSize": 50,
+                "actVs": 1,
+                "crawlerInfo": "",
+            }
+        )
         headers = {
             "User-Agent": UA,
             "Content-Type": "application/json",
             "Cookie": self.cookie,
             "Anti-Content": self.get_anti_content(),
-            "Webspiderrule": res_rule_ttf["web_spider_rule"] # noqa 字体
+            "Webspiderrule": res_rule_ttf["web_spider_rule"],  # noqa 字体
         }
 
         ttf_url = res_rule_ttf["ttf_url"]
@@ -135,18 +133,20 @@ class PddDataCentre(PddBaseApi):
         # pdd_数据中心_商品数据_商品概况
         res_rule_ttf = self.get_web_spider_rule()
         api = "https://mms.pinduoduo.com/sydney/api/goodsDataShow/queryGoodsPagePlnOstListByDate"
-        payload = json.dumps({
-            "queryType": 7,  # 7 代表的是自定义日期
-            "queryDate": end_date,
-            "startDate": start_date,
-            "endDate": end_date,
-        })
+        payload = json.dumps(
+            {
+                "queryType": 7,  # 7 代表的是自定义日期
+                "queryDate": end_date,
+                "startDate": start_date,
+                "endDate": end_date,
+            }
+        )
         headers = {
             "User-Agent": UA,
             "Content-Type": "application/json",
             "Cookie": self.cookie,
             "Anti-Content": self.get_anti_content(),
-            "Webspiderrule": res_rule_ttf["web_spider_rule"]
+            "Webspiderrule": res_rule_ttf["web_spider_rule"],
         }
 
         ttf_url = res_rule_ttf["ttf_url"]

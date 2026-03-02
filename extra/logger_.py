@@ -44,7 +44,7 @@ class Logger:
             # C:\Users\admin\Desktop\yiyuan_spider
             project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             # 项目日志目录（新建log文件夹）
-            project_log_dir = os.path.join(project_path, 'log')
+            project_log_dir = os.path.join(project_path, "log")
             # 返回当前项目路径
             return project_log_dir
 
@@ -68,11 +68,11 @@ class Logger:
                 # 日志文件的保存路径
                 sink=self.get_log_path("yiyuan"),
                 # 日志创建周期 - 每天00:00创建新日志文件
-                rotation='00:00',
+                rotation="00:00",
                 # 保存策略 - 保留1年的日志文件
-                retention='1 year',
+                retention="1 year",
                 # 文件的压缩格式 - 超过保留期限的日志会压缩为zip格式
-                compression='zip',
+                compression="zip",
                 # 编码格式
                 encoding="utf-8",
                 # 具有使日志记录调用非阻塞的优点 - 异步写入日志提高性能
@@ -80,24 +80,27 @@ class Logger:
                 # 日志格式 - 包含时间、级别、文件名、行号和消息内容
                 format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}",
                 # 日志级别 - 记录INFO级别及以上的日志
-                level='INFO',
+                level="INFO",
             )
 
             # 添加专门的错误日志文件
             loguru.logger.add(
                 sink=self.get_log_path("yiyuan_error"),
-                rotation='00:00',  # 每天轮转
-                retention='1 year',
-                compression='zip',
+                rotation="00:00",  # 每天轮转
+                retention="1 year",
+                compression="zip",
                 encoding="utf-8",
                 enqueue=True,
                 format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}",
-                level='ERROR',  # 只记录ERROR及以上级别的日志
+                level="ERROR",  # 只记录ERROR及以上级别的日志
             )
         else:
             # 如果 logfile 为假值，则将日志输出到控制台
-            loguru.logger.add(sink=sys.stdout,
-                              format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}", level='INFO', )
+            loguru.logger.add(
+                sink=sys.stdout,
+                format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {file}:{line} : {message}",
+                level="INFO",
+            )
 
         # 加了@property后，可以用调用属性的形式来调用方法,后面不需要加（）。
 

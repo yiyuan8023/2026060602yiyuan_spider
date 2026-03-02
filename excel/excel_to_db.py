@@ -25,7 +25,13 @@ except ImportError:
 class FileToItems:
 
     # 读取xlsx或csv文件并存入数据库
-    def __init__(self, file_path: str, skip_rows: int = 0, sheet_name=0, password: Optional[str] = None):
+    def __init__(
+        self,
+        file_path: str,
+        skip_rows: int = 0,
+        sheet_name=0,
+        password: Optional[str] = None,
+    ):
         """
         Args:
             file_path: 文件路径
@@ -46,10 +52,10 @@ class FileToItems:
         # 根据文件扩展名选择读取方法
         file_extension = os.path.splitext(self.file_path)[1].lower()
 
-        if file_extension in ['.xlsx', '.xls']:
+        if file_extension in [".xlsx", ".xls"]:
             df = self._read_excel_with_password()
 
-        elif file_extension in ['.csv', '.txt']:
+        elif file_extension in [".csv", ".txt"]:
             # 尝试不同的编码
             df = self._read_csv()
         else:
@@ -61,18 +67,25 @@ class FileToItems:
 
     def _read_csv(self):
         # 尝试不同的编码
-        encodings = ['utf-8', 'gbk', 'gb2312', 'latin1']
+        encodings = ["utf-8", "gbk", "gb2312", "latin1"]
         df = None
         for encoding_ in encodings:
             try:
-                df = pd.read_csv(self.file_path, encoding=encoding_, skiprows=self.skip_rows)
+                df = pd.read_csv(
+                    self.file_path, encoding=encoding_, skiprows=self.skip_rows
+                )
                 return df
             except (UnicodeDecodeError, UnicodeError):
                 continue
 
         if df is None:
             # 如果所有编码都失败，使用错误处理方式
-            df = pd.read_csv(self.file_path, encoding='utf-8', encoding_errors='replace', skiprows=self.skip_rows)
+            df = pd.read_csv(
+                self.file_path,
+                encoding="utf-8",
+                encoding_errors="replace",
+                skiprows=self.skip_rows,
+            )
             return df
 
     def _read_excel_with_password(self):
@@ -83,12 +96,21 @@ class FileToItems:
             # 首先尝试不使用密码读取
             if self.password is None:
                 try:
-                    df = pd.read_excel(self.file_path, skiprows=self.skip_rows, sheet_name=self.sheet_name, dtype=str)
+                    df = pd.read_excel(
+                        self.file_path,
+                        skiprows=self.skip_rows,
+                        sheet_name=self.sheet_name,
+                        dtype=str,
+                    )
                     return df
                 except Exception as exc:
                     # 检查是否是密码保护相关的错误
                     error_msg = str(exc).lower()
-                    if "password" in error_msg or "encrypted" in error_msg or "workbook" in error_msg:
+                    if (
+                        "password" in error_msg
+                        or "encrypted" in error_msg
+                        or "workbook" in error_msg
+                    ):
                         logger.info("检测到文件可能需要密码保护")
                     else:
                         raise exc
@@ -146,17 +168,24 @@ class FileToItems:
             import msoffcrypto
 
             # 确保文件被正确关闭
-            with open(self.file_path, 'rb') as f:
+            with open(self.file_path, "rb") as f:
                 office_file = msoffcrypto.OfficeFile(f)
                 office_file.load_key(password=self.password)
 
                 # 使用临时文件
-                with tempfile.NamedTemporaryFile(suffix='.xlsx', delete=False) as tmp_file:
+                with tempfile.NamedTemporaryFile(
+                    suffix=".xlsx", delete=False
+                ) as tmp_file:
                     temp_filename = tmp_file.name
 
                 try:
                     office_file.save(temp_filename)
-                    df = pd.read_excel(temp_filename, skiprows=self.skip_rows, dtype=str, sheet_name=self.sheet_name)
+                    df = pd.read_excel(
+                        temp_filename,
+                        skiprows=self.skip_rows,
+                        dtype=str,
+                        sheet_name=self.sheet_name,
+                    )
                     return df
                 finally:
                     # 清理临时文件
@@ -175,16 +204,21 @@ class FileToItems:
             temp_decrypted_path = self.file_path + ".decrypted.xlsx"
 
             # 确保文件被正确关闭
-            with open(self.file_path, 'rb') as f:
+            with open(self.file_path, "rb") as f:
                 office_file = msoffcrypto.OfficeFile(f)
                 office_file.load_key(password=self.password)
 
-                with open(temp_decrypted_path, 'wb') as temp_f:
+                with open(temp_decrypted_path, "wb") as temp_f:
                     office_file.save(temp_f)
 
             try:
                 # 读取解密后的文件
-                df = pd.read_excel(temp_decrypted_path, skiprows=self.skip_rows, dtype=str, sheet_name=self.sheet_name)
+                df = pd.read_excel(
+                    temp_decrypted_path,
+                    skiprows=self.skip_rows,
+                    dtype=str,
+                    sheet_name=self.sheet_name,
+                )
                 return df
             finally:
                 # 清理临时文件
@@ -226,7 +260,7 @@ class FileToItems:
                     True,  # ReadOnly
                     None,  # Format
                     self.password,  # Password
-                    self.password  # WriteResPassword
+                    self.password,  # WriteResPassword
                 )
 
                 # 另存为无密码文件到桌面
@@ -235,7 +269,12 @@ class FileToItems:
                 workbook.Close(SaveChanges=False)
 
                 # 读取无密码文件
-                df = pd.read_excel(temp_path, skiprows=self.skip_rows, dtype=str, sheet_name=self.sheet_name)
+                df = pd.read_excel(
+                    temp_path,
+                    skiprows=self.skip_rows,
+                    dtype=str,
+                    sheet_name=self.sheet_name,
+                )
                 logger.info(df)
 
                 logger.info(f"文件已解密并保存到桌面: {temp_path}")
@@ -272,16 +311,16 @@ class FileToItems:
         df.replace({np.nan: None}, inplace=True)
 
         # 转换为字典列表
-        dict_list = df.to_dict('records')
+        dict_list = df.to_dict("records")
         return dict_list
 
 
 # 使用示例
 if __name__ == "__main__":
     logger.info(f"\n{'*' * 120}")
-    file_path_ = r'E:\1\快手小店批量导出-2025-09-16+16_20.xlsx'  # NOQA
-    table_name = 'rinnai_ks_快手小店_订单查询_订单列表_202501'  # noqa
-    shop_name = '林内官方旗舰店'
+    file_path_ = r"E:\1\快手小店批量导出-2025-09-16+16_20.xlsx"  # NOQA
+    table_name = "rinnai_ks_快手小店_订单查询_订单列表_202501"  # noqa
+    shop_name = "林内官方旗舰店"
 
     # 创建实例 - 需要密码
     try:
@@ -294,11 +333,13 @@ if __name__ == "__main__":
             logger.info(f"第一行数据示例: {items_[0]}")
 
         for item in items_:
-            item.update({
-                "店铺名称": shop_name,
-            })
+            item.update(
+                {
+                    "店铺名称": shop_name,
+                }
+            )
 
-        DBManager().update_insert_data(items_, table_name, primary_key='订单号')
+        DBManager().update_insert_data(items_, table_name, primary_key="订单号")
         logger.info("-" * 100)
         logger.info("数据导入完成")
     except Exception as e:

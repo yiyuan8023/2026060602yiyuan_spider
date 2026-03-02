@@ -13,49 +13,48 @@ MYSQL_DBNAME = os.environ.get("MYSQL_DB") if os.environ.get("MYSQL_DB") else "te
 DATABASE_CONFIGS = {
     "test": {
         "host": "223.5.242.173",
-        "db": os.environ.get("MYSQL_DBNAME") if os.environ.get("MYSQL_DBNAME") else "yiyuan_test",  # noqa,
-        "user": "bc_yiyuan_test", # noqa,
-        "password": "yiyuan12345678", # noqa,
-        "port": 3306
+        "db": (
+            os.environ.get("MYSQL_DBNAME")
+            if os.environ.get("MYSQL_DBNAME")
+            else "yiyuan_test"
+        ),  # noqa,
+        "user": "bc_yiyuan_test",  # noqa,
+        "password": "yiyuan12345678",  # noqa,
+        "port": 3306,
     },
-    "rinnai_py":  # noqa
-        {
+    "rinnai_py": {  # noqa
         "host": "223.5.242.173",
-        "db": "rinnai_py", # noqa
-        "user": "bc_yiyuan", # noqa
+        "db": "rinnai_py",  # noqa
+        "user": "bc_yiyuan",  # noqa
         "password": "yy123456",
-        "port": 3306
-        },
-    "caiwu_hzbc":  # noqa
-        {
-            "host": "223.5.242.173",
-            "db": "caiwu_hzbc",  # noqa
-            "user": "bc_yiyuan",  # noqa
-            "password": "yy123456",
-            "port": 3306
-        },
-    "rinnai":  # noqa
-        {
-            "host": "223.5.242.173",
-            "db": "rinnai",  # noqa
-            "user": "bc_yiyuan",  # noqa
-            "password": "yy123456",
-            "port": 3306
-        },
-    "bc":  # noqa
-        {
-            "host": "223.5.242.173",
-            "db": "bc",  # noqa
-            "user": "bc_yiyuan",  # noqa
-            "password": "yy123456",
-            "port": 3306
-        },
-    "hb":  # noqa
-        {
-            "host": "223.5.242.173",
-            "db": "hb",  # noqa
-            "user": "bc_yiyuan",  # noqa
-            "password": "yy123456",
-            "port": 3306
-        },
+        "port": 3306,
+    },
+    "caiwu_hzbc": {  # noqa
+        "host": "223.5.242.173",
+        "db": "caiwu_hzbc",  # noqa
+        "user": "bc_yiyuan",  # noqa
+        "password": "yy123456",
+        "port": 3306,
+    },
+    "rinnai": {  # noqa
+        "host": "223.5.242.173",
+        "db": "rinnai",  # noqa
+        "user": "bc_yiyuan",  # noqa
+        "password": "yy123456",
+        "port": 3306,
+    },
+    "bc": {  # noqa
+        "host": "223.5.242.173",
+        "db": "bc",  # noqa
+        "user": "bc_yiyuan",  # noqa
+        "password": "yy123456",
+        "port": 3306,
+    },
+    "hb": {  # noqa
+        "host": "223.5.242.173",
+        "db": "hb",  # noqa
+        "user": "bc_yiyuan",  # noqa
+        "password": "yy123456",
+        "port": 3306,
+    },
 }

@@ -12,9 +12,12 @@ from extra.logger_ import logger
 if __name__ == "__main__":
     # 参数
     db_config = "rinnai_py"  # NOQA
-    shop_name_list = ['林内热水器旗舰店', '林内官方旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
+    shop_name_list = [
+        "林内热水器旗舰店",
+        "林内官方旗舰店",
+    ]  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_tk_淘宝联盟_商品分析_202504"
-    site = '淘宝联盟'  # noqa
+    site = "淘宝联盟"  # noqa
     # name_suffix = "商品分析"
     level3Dims = [
         # {"全部推广类型": None, },
@@ -36,14 +39,21 @@ if __name__ == "__main__":
         shop_name = i[0]
         for level in level3Dims:
             name_suffix, level3_dim = next(iter(level.items()))
-            Obj = TaoKeGoodAnalysisApi(cookie, name_suffix=name_suffix, level3_dim=level3_dim)
-            task_status_list_res = Obj.goods_task_status_list()  # 任务状态列表json数据包
+            Obj = TaoKeGoodAnalysisApi(
+                cookie, name_suffix=name_suffix, level3_dim=level3_dim
+            )
+            task_status_list_res = (
+                Obj.goods_task_status_list()
+            )  # 任务状态列表json数据包
             finish_task, un_finish_task = Obj.get_task_status_list(
-                task_status_list_res=task_status_list_res)  # 解析数据包, 获取任务状态id
+                task_status_list_res=task_status_list_res
+            )  # 解析数据包, 获取任务状态id
 
             for day in crawl_day_list:
                 # 调用create_goods_analysis_task(函数创建,下载任务
-                Obj.create_goods_analysis_task(start_time=day, end_time=day, finish_task=finish_task)
+                Obj.create_goods_analysis_task(
+                    start_time=day, end_time=day, finish_task=finish_task
+                )
                 # sleep(10)
 
             date_finish = []  # 已完成的日期列表
@@ -60,21 +70,31 @@ if __name__ == "__main__":
 
                     # logger.info(f"待采集{remaining_days}{name_suffix}")
                     for remaining_day in remaining_days:
-                        logger.info(f"\n{'=' * 120}\n正在采集{shop_name}，{remaining_day}的数据")
-                        finish_id = Obj.get_finish_id(start_time=remaining_day, end_time=remaining_day)
+                        logger.info(
+                            f"\n{'=' * 120}\n正在采集{shop_name}，{remaining_day}的数据"
+                        )
+                        finish_id = Obj.get_finish_id(
+                            start_time=remaining_day, end_time=remaining_day
+                        )
                         if finish_id:
                             # 获取报表下载链接
                             items = Obj.fetch_goods_file_link(finish_id)
 
                             for item in items:
-                                item.update({
-                                    "店铺名称": shop_name,
-                                    "统计日期": remaining_day,
-                                    "计划类型": name_suffix
-                                })
-                                item["key"] = f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
+                                item.update(
+                                    {
+                                        "店铺名称": shop_name,
+                                        "统计日期": remaining_day,
+                                        "计划类型": name_suffix,
+                                    }
+                                )
+                                item["key"] = (
+                                    f"{item['商品ID']}_{item['店铺名称']}_{item['计划类型']}_{item['统计日期']}"
+                                )
 
-                            DBManager(db_config=db_config).update_insert_data(items, table_name, primary_key='key')
+                            DBManager(db_config=db_config).update_insert_data(
+                                items, table_name, primary_key="key"
+                            )
                             logger.info(f"{shop_name_list},{remaining_day}已入库")
                             date_finish.append(i)
                     count = count + 1

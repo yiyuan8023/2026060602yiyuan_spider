@@ -12,7 +12,7 @@ class TaoKeBaseApi(object):
 
     def get_task_status_list(self, task_status_list_res):
         """
-           获取淘宝联盟任务状态列表,通用
+        获取淘宝联盟任务状态列表,通用
         """
         # 调用API获取任务状态列表
         # logger.info(task_status_list_res)
@@ -23,7 +23,7 @@ class TaoKeBaseApi(object):
         if task_status_list_res.get("code") == 601:
             raise "cookie过期"
 
-        result = task_status_list_res.get('data', {}).get('result', [])
+        result = task_status_list_res.get("data", {}).get("result", [])
         finish_task, un_finish_task = self._process_task_status(result)
 
         logger.info(finish_task)
@@ -40,10 +40,10 @@ class TaoKeBaseApi(object):
         un_finish_task = {}  # {文件名: 任务ID}
 
         for task in result:
-            if task.get('process') == "100" and task.get('status') == 1:
+            if task.get("process") == "100" and task.get("status") == 1:
                 finish_task[task["fileName"]] = task["id"]
-            elif task.get('process') == "0":
+            elif task.get("process") == "0":
                 un_finish_task[task["fileName"]] = task["id"]
-            elif task.get('errorMessage') == "超时停止调度":
+            elif task.get("errorMessage") == "超时停止调度":
                 un_finish_task[task["fileName"]] = task["id"]
         return finish_task, un_finish_task

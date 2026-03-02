@@ -36,7 +36,9 @@ class ChiTuClearAGlanceAPI(ChiTuABasePI):
         self.verify_status = self.verify_info()
         self.report_map = self.fetch_report_list()
         logger.info(f"ChiTuClearAGlanceAPI 初始化,导出报表状态:{self.verify_status}")
-        logger.info(f"{self.shop_name} 赤兔一目了然自定义报表映射关系 {self.report_map}")
+        logger.info(
+            f"{self.shop_name} 赤兔一目了然自定义报表映射关系 {self.report_map}"
+        )
 
     def fetch_report_list(self):
         """
@@ -46,17 +48,14 @@ class ChiTuClearAGlanceAPI(ChiTuABasePI):
         headers = {
             "User-Agent": self.ramdom_ua(),
             "referer": "https://kf.topchitu.com/web/homepage/team",
-            "cookie": self.cookie
+            "cookie": self.cookie,
         }
         res = requests.get(api, headers=headers)
         # print(res.json())
         self.req_log(res)
         report_map = {}
         for i in res.json():
-            report_map[i["name"]] = {
-                "id": i["id"],
-                "shopKpi": i["shopKpi"]
-            }
+            report_map[i["name"]] = {"id": i["id"], "shopKpi": i["shopKpi"]}
         return report_map
 
     # def verify_password(self):
@@ -137,8 +136,8 @@ class ChiTuClearAGlanceAPI(ChiTuABasePI):
             try:
                 data = io.BytesIO(res.content)
                 df = pd.read_excel(data)
-                df.replace({np.nan: ''}, inplace=True)
-                items = df.to_dict('records')
+                df.replace({np.nan: ""}, inplace=True)
+                items = df.to_dict("records")
                 return items
             except Exception as e:
                 logger.error(f"{res.text},错误信息：{e}")
