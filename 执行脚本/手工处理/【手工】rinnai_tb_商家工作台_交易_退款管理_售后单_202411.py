@@ -12,7 +12,7 @@ if __name__ == "__main__":
         {
             "db_config": "rinnai",
             "shop_name": "林内官方旗舰店",
-            "file_path": r"E:\1\1087143051_1770684525334_443.xlsx",
+            "file_path": r"E:\1\1087143051_1776215532302_444.xlsx",
         },  # noqa
         # {"db_config": 'rinnai', "shop_name": "林内热水器旗舰店", "file_path": r"E:\1\2208107135654_1769733326322_927.xlsx"}, # noqa
         # {"db_config": 'rinnai', "shop_name": "林内厨电旗舰店", "file_path": r"E:\1\2212375622312_1769734184426_284.xlsx"}, # noqa

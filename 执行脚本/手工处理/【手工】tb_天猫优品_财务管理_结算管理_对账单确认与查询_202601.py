@@ -11,7 +11,7 @@ if __name__ == "__main__":
     table_name = "tb_天猫优品_财务管理_结算管理_对账单确认与查询_202601"  # noqa
     shop_name = "林内优品"
     list_file_path = list_file_path(
-        r"E:\1\优品账单1", file_pattern="S202*", file_extension="xlsx"
+        r"E:\1\优品账单20260424", file_pattern="S202*", file_extension="xlsx"
     )
     # list_file_path = [r'C:\Users\admin\Desktop\林内优品账单-截至2026.1.1.xlsx']
     # print(list_file_path)

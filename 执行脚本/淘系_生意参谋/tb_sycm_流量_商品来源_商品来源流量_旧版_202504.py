@@ -11,9 +11,9 @@ if __name__ == "__main__":
     table_name = "tb_sycm_流量_商品来源_商品来源流量_旧版_202504"  # NOQA
     site = "生意参谋"
     shop_cookies, crawl_day_list = select_shop_date(
-        table_name, site, shop_name_list, 18
+        table_name, site, shop_name_list, 7
     )
-    crawl_day_list = ["2026-01-01", "2026-01-02", "2026-01-03", "2026-01-04"]
+    # crawl_day_list = ["2026-01-01", "2026-01-02", "2026-01-03", "2026-01-04"]
     shop_item_ids = {
         "林内热水器旗舰店": [
             "732897762742",

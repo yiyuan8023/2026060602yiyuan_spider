@@ -1,9 +1,0 @@
-2026-01-19 14:42:14 | ERROR | Flow.py:77 : 获取商品流量数据失败: item_id=732897762742, day=2026-01-18, error=Invalid file path or buffer object type: <class 'list'>
-2026-01-19 14:42:14 | ERROR | Flow.py:77 : 获取商品流量数据失败: item_id=793864718809, day=2026-01-18, error=Invalid file path or buffer object type: <class 'list'>
-2026-01-19 14:42:15 | ERROR | Flow.py:77 : 获取商品流量数据失败: item_id=763629523250, day=2026-01-18, error=Invalid file path or buffer object type: <class 'list'>
-2026-01-19 14:42:15 | ERROR | Flow.py:77 : 获取商品流量数据失败: item_id=763629523250, day=2026-01-18, error=Invalid file path or buffer object type: <class 'list'>
-2026-01-19 14:42:16 | ERROR | Flow.py:77 : 获取商品流量数据失败: item_id=1003352210602, day=2026-01-18, error=Invalid file path or buffer object type: <class 'list'>
-2026-01-19 15:18:34 | ERROR | db_manager.py:131 : 执行 SQL 语句时发生错误: (1265, "Data truncated for column '浏览量' at row 1")
-2026-01-19 21:15:03 | ERROR | db_manager.py:131 : 执行 SQL 语句时发生错误: (1292, "Incorrect date value: '合计' for column '日期' at row 18119")
-2026-01-19 21:24:09 | ERROR | db_manager.py:131 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '订单单号' at row 14620")
-2026-01-19 22:10:20 | ERROR | db_manager.py:223 : 创建表 `caiwu_销售发货单_202601` 失败: (2013, 'Lost connection to MySQL server during query ([WinError 10054] 远程主机强迫关闭了一个现有的连接。)')

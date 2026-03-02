@@ -1,7 +1,0 @@
-2026-01-09 13:33:17 | ERROR | db_manager.py:130 : 执行 SQL 语句时发生错误: (1364, "Field '业务子单据编码' doesn't have a default value")
-2026-01-09 16:36:45 | ERROR | db_manager.py:211 : 创建表 `tb_天猫优品_返利管理_订单补差_202601` 失败: (1118, 'Row size too large. The maximum row size for the used table type, not counting BLOBs, is 65535. This includes storage overhead, check the manual. You have to change some columns to TEXT or BLOBs')
-2026-01-09 16:40:38 | ERROR | db_manager.py:130 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '货品名称' at row 2")
-2026-01-09 16:41:59 | ERROR | db_manager.py:130 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '活动链接' at row 2")
-2026-01-09 16:58:28 | ERROR | db_manager.py:130 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '货品名称' at row 5")
-2026-01-09 17:13:14 | ERROR | db_manager.py:130 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '货品名称' at row 5")
-2026-01-09 17:21:39 | ERROR | db_manager.py:130 : 执行 SQL 语句时发生错误: (1406, "Data too long for column '货品名称' at row 5")

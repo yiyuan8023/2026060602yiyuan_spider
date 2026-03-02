@@ -9,24 +9,29 @@ if __name__ == "__main__":
     table_name = "rinnai_tb_商家工作台_交易_已卖出宝贝_宝贝报表明细_202411"  # noqa
 
     shops = [
-        # {"db_config": 'rinnai', "shop_name": "林内官方旗舰店", "file_path": r"E:\1\ExportOrderList26026812395.xlsx"}, # noqa
+        {
+        "db_config": 'rinnai',
+        "shop_name": "林内官方旗舰店",
+        "file_path": r"E:\1\ExportOrderList26334396597.xlsx"
+         }, # noqa
+
         # {"db_config": 'rinnai', "shop_name": "林内热水器旗舰店", "file_path": r"E:\1\ExportOrderList25954471453.xlsx"}, # noqa
-        {
-            "db_config": "rinnai",
-            "shop_name": "林内厨电旗舰店",
-            "file_path": r"E:\1\ExportOrderList25954993239.xlsx",
-        },  # noqa
-        {
-            "db_config": "rinnai",
-            "shop_name": "林内品牌折扣店",
-            "file_path": r"E:\1\ExportOrderList25955497160.xlsx",
-        },  # noqa
-        {
-            "db_config": "rinnai",
-            "shop_name": "智慧家电直销店",
-            "file_path": r"E:\1\ExportOrderList25954921258.xlsx",
-        },  # noqa
-    ]
+        #     {
+        #         "db_config": "rinnai",
+        #         "shop_name": "林内厨电旗舰店",
+        #         "file_path": r"E:\1\ExportOrderList25954993239.xlsx",
+        #     },  # noqa
+        #     {
+        #         "db_config": "rinnai",
+        #         "shop_name": "林内品牌折扣店",
+        #         "file_path": r"E:\1\ExportOrderList25955497160.xlsx",
+        #     },  # noqa
+        #     {
+        #         "db_config": "rinnai",
+        #         "shop_name": "智慧家电直销店",
+        #         "file_path": r"E:\1\ExportOrderList25954921258.xlsx",
+        #     },  # noqa
+        ]
 
     for shop in shops:
         file_path_ = shop["file_path"]
@@ -53,4 +58,4 @@ if __name__ == "__main__":
         )
         # logger.info(f"{shop_name_list},{crawl_day_list}已入库")
         logger.info("-" * 100)
-    logger.info(f"\n{'*' * 120}")
+        logger.info(f"\n{'*' * 120}")

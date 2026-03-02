@@ -7,8 +7,8 @@ if __name__ == "__main__":
     # db_config = None
 
     logger.info(f"\n{'*' * 120}")
-    file_path_ = r"E:\1\2026-01-13 (4).xls"  # NOQA
-    table_name = "hb_tb_商家工作台_交易_退款管理_售后单_202411"  # noqa
+    file_path_ = r"E:\1\2210041977161_1772410167937_907.xlsx"  # NOQA
+    table_name = "hb_tb_商家工作台_交易_退款管理_售后单_202601"  # noqa
     shop_name = "HollandBarrett保健品海外旗舰店"
 
     # 创建实例

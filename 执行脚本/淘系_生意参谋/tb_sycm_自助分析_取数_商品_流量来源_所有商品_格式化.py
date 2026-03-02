@@ -1,12 +1,15 @@
 import io
 import random
 from time import sleep
+
+import requests
+
 from API.API_ShengCan.SelfAnalysis import SelfAnalysis
 
 from extra.select_shop_date import select_shop_date
 from extra.db_manager import DBManager
 from extra.downloader import Downloader
-from extra.extra_date import get_date
+from extra.extra_date import get_date, get_date_range
 from extra.logger_ import logger
 
 if __name__ == "__main__":
@@ -21,7 +24,7 @@ if __name__ == "__main__":
     table_name = "tb_sycm_自助分析_取数_商品_流量来源_所有商品_格式化_202507"  # NOQA
     site = "生意参谋"
     shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 3)
-    # crawl_day_list = get_date_range('2024-04-03', '2025-12-22')
+    # crawl_day_list = get_date_range('2026-03-26', '2026-03-26')
     for i in shop_cookies:
         cookie = i[1]
         shop_name = i[0]
@@ -60,5 +63,6 @@ if __name__ == "__main__":
                 logger.info("-" * 100)
                 logger.info(f"{shop_name},{day}的数据已入库")
             logger.info(f"\n{'*' * 120}")
+    # requests.get("https://bi.bi-cheng.cn/public-api/data-source/t1972c38bbd0f4192a5fff8f/refresh?token=e4571cce418f946158c065bf")
 #
 # python tb_sycm_自助分析_取数_商品_流量来源_所有商品_格式化.py --start-date=2024-07-20 --end-date=2025-07-31

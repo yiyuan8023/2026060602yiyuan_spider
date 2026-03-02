@@ -68,6 +68,7 @@ class SelfAnalysis(ShengCanBaseApi):
             "dims": {"own_principle": ["all"]},
             "startDate": start_date,
             "endDate": end_date,
+            # "id": "4430230"
         }
         headers = {"content-type": "application/json;charset=UTF-8"}
 

@@ -258,42 +258,45 @@ class MySellerTradeAPI(MySellerBaseAPI):
                         ):
                             for schema_item in params["schemaContent"]:
                                 if schema_item["type"] == "PriceComposition":
+                                    print(schema_item)
                                     consumer_detail = schema_item["params"]["compose"]
+                                    # print(consumer_detail)
                                     break
                             break
 
                 # 将提取的信息整理成字典
-                # print(consumer_detail)
+                print(consumer_detail)
                 result_dict = {}
 
                 if consumer_detail:
                     for item in consumer_detail:
-                        label = item["label"]
-                        value = (
-                            item["value"]
-                            .replace("￥", "")
-                            .replace("HKD", "")
-                            .replace("MOP", "")
-                        )
+                        if 'value' in item:
+                            label = item["label"]
+                            value = (
+                                item["value"]
+                                .replace("￥", "")
+                                .replace("HKD", "")
+                                .replace("MOP", "")
+                            )
+    
+                            # 处理红包（使用满3000减300消费券）的特殊情况
+                            if label == "红包(使用满3000减300消费券)":
+                                # 添加主红包项
+                                result_dict[label] = value
 
-                        # 处理红包（使用满3000减300消费券）的特殊情况
-                        if label == "红包(使用满3000减300消费券)":
-                            # 添加主红包项
-                            result_dict[label] = value
-
-                            # 添加子项（家电消费券）
-                            if "subItems" in item:
-                                for sub_item in item["subItems"]:
-                                    sub_label = sub_item["label"]
-                                    sub_value = (
-                                        sub_item["value"]
-                                        .replace("￥", "")
-                                        .replace("HKD", "")
-                                        .replace("MOP", "")
-                                    )
-                                    result_dict[sub_label] = sub_value
-                        else:
-                            result_dict[label] = value
+                                # 添加子项（家电消费券）
+                                if "subItems" in item:
+                                    for sub_item in item["subItems"]:
+                                        sub_label = sub_item["label"]
+                                        sub_value = (
+                                            sub_item["value"]
+                                            .replace("￥", "")
+                                            .replace("HKD", "")
+                                            .replace("MOP", "")
+                                        )
+                                        result_dict[sub_label] = sub_value
+                            else:
+                                result_dict[label] = value
 
                 result_dict["json_data"] = json_data
                 if "HKD" in json_data:

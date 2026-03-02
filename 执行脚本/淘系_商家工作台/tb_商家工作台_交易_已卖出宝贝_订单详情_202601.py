@@ -35,6 +35,8 @@ if __name__ == "__main__":
         Obj = MySellerTradeAPI(cookie)  # 创建对象
         for order_id in order_list:
             items = Obj.taobao_order_discount_details(order_id[0])
+            # items = Obj.taobao_order_discount_details('4502302851182011202')
+            # items = Obj.taobao_order_discount_details('2701810092232010291')  # 预售订单测试
             # print(order_id[0])
             for item in items:
                 item.update({"店铺名称": shop_name, "主订单编号": order_id[0]})
