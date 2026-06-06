@@ -1,3 +1,0 @@
-2026-04-06 07:15:05 | ERROR | extra_error.py:23 : 请求网络失败: Expecting value: line 2 column 1 (char 2)
-2026-04-06 09:15:02 | ERROR | ShengCanBase.py:49 : 未能提取到token或userid,cookie可能已过期
-2026-04-06 10:04:01 | ERROR | ShengCanBase.py:49 : 未能提取到token或userid,cookie可能已过期

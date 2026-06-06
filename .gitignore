@@ -33,6 +33,8 @@ dist/
 *.pkg
 *.pyz
 *.upx
+*.exe
+*_version_info.txt
 
 # Test and tooling cache
 .pytest_cache/
@@ -60,4 +62,3 @@ desktop.ini
 *.swp
 *.swo
 ~$*
-
