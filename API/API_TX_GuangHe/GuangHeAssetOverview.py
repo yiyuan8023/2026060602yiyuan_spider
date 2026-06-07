@@ -1,94 +1,24 @@
-import hashlib
 import io
 import json
-import time
-from http.cookies import SimpleCookie
 from pathlib import Path
 
 import pandas as pd
 import requests
 
+from API.API_TX_GuangHe.GuangHeBase import GuangHeBaseApi
 from extra.extra_error import handle_request_error
 from extra.logger_ import logger
 from extra.settings import UA
 
 
 PAGE_URL = "https://creator.guanghe.taobao.com/page/unify/asset-overview?tab=productAnalysis"
-APP_KEY = "12574478"
 
 
-class GuangHeAssetOverviewApi:
+class GuangHeAssetOverviewApi(GuangHeBaseApi):
     """光合平台资产总览 API，负责 mtop 导出任务和 Excel 数据解析。"""
 
     def __init__(self, cookie):
-        self.cookie = cookie
-        self.session = requests.Session()
-        self._load_cookie(cookie)
-
-    def _load_cookie(self, cookie):
-        """将数据库里取出的 Cookie 字符串灌入 session，供 mtop 请求复用。"""
-        simple_cookie = SimpleCookie()
-        simple_cookie.load(cookie)
-        for name, morsel in simple_cookie.items():
-            self.session.cookies.set(name, morsel.value, domain=".taobao.com", path="/")
-
-    def _token(self):
-        """mtop 签名使用 _m_h5_tk 中下划线前面的 token。"""
-        token_value = (
-            self.session.cookies.get("_m_h5_tk", domain=".taobao.com")
-            or self.session.cookies.get("_m_h5_tk")
-            or ""
-        )
-        return token_value.split("_")[0]
-
-    def _mtop_request(self, api, data, version="1.0"):
-        """统一发起 mtop 请求，自动处理 token 过期后的 Cookie 刷新重试。"""
-        last_response = None
-        for _ in range(3):
-            timestamp = str(int(time.time() * 1000))
-            data_text = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-            # mtop h5 签名公式：md5(token&t&appKey&data)。
-            sign_text = f"{self._token()}&{timestamp}&{APP_KEY}&{data_text}"
-            sign = hashlib.md5(sign_text.encode("utf-8")).hexdigest()
-            params = {
-                "jsv": "2.6.1",
-                "appKey": APP_KEY,
-                "t": timestamp,
-                "sign": sign,
-                "api": api,
-                "v": version,
-                "dataType": "json",
-                "type": "json",
-                "syncCookieMode": "true",
-                "preventFallback": "true",
-                "data": data_text,
-            }
-            headers = {
-                "User-Agent": UA,
-                "referer": PAGE_URL,
-            }
-            response = self.session.get(
-                f"https://h5api.m.taobao.com/h5/{api}/{version}/",
-                params=params,
-                headers=headers,
-                timeout=30,
-            )
-            response.raise_for_status()
-            response_json = response.json()
-            last_response = response_json
-            ret_text = "|".join(response_json.get("ret", []))
-            # token 过期时平台会刷新 _m_h5_tk，下一轮重新签名即可。
-            if "TOKEN" in ret_text.upper() or "令牌" in ret_text:
-                continue
-            if not any(item.startswith("SUCCESS") for item in response_json.get("ret", [])):
-                raise RuntimeError(ret_text)
-            return response_json
-
-        raise RuntimeError(f"mtop请求失败: {last_response}")
-
-    @staticmethod
-    def _format_day(day):
-        return str(day).replace("-", "")
+        super().__init__(cookie=cookie, referer=PAGE_URL)
 
     def _get_content_consume_indicator_fields(self):
         """从 meta 接口取全量指标字段，避免导出文件缺列。"""

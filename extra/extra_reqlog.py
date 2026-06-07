@@ -1,19 +1,46 @@
 from sys import _getframe  # noqa
+from typing import Optional
+
 import requests
 from extra.logger_ import logger
 
 
-def req_log(res: requests.models.Response):
-    """
-    针对request请求的response对象的日志，通配"""
+def _caller_text():
+    frame = _getframe(2)
+    return f"{frame.f_code.co_filename}:{frame.f_code.co_name}:{frame.f_lineno}"
 
-    if res.status_code == 200:
+
+def req_log(
+    res: requests.models.Response,
+    context: Optional[str] = None,
+    raise_error: bool = False,
+):
+    """
+    针对 requests 响应统一打日志。
+    raise_error=True 时在非 2xx 响应上抛 HTTPError。
+    """
+
+    caller = _caller_text()
+    context_text = f"{context}，" if context else ""
+
+    if res is None:
+        message = f"{context_text}在{caller}发起了调用，请求响应为空"
+        logger.error(message)
+        if raise_error:
+            raise requests.HTTPError(message)
+        return False
+
+    if 200 <= res.status_code < 300:
         logger.info(
-            f"在{_getframe(1)}发起了调用,请求成功（status_code:{res.status_code}）"
+            f"{context_text}在{caller}发起了调用，请求成功（status_code:{res.status_code}）"
         )
         return True
-    else:
-        logger.error(
-            f"在{_getframe(1)}发起了调用,请求失败（status_code:{res.status_code}）"
-        )
-        raise requests.HTTPError(f"HTTP请求失败，状态码: {res.status_code}")
+
+    message = (
+        f"{context_text}在{caller}发起了调用，请求失败"
+        f"（status_code:{res.status_code}）"
+    )
+    logger.error(message)
+    if raise_error:
+        raise requests.HTTPError(message, response=res)
+    return False

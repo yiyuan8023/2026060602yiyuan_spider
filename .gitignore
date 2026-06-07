@@ -52,7 +52,8 @@ blob-report/
 .DS_Store
 Thumbs.db
 desktop.ini
-.idea/workspace.xml
+.idea/
+idea/
 .vscode/
 
 # Temporary files
