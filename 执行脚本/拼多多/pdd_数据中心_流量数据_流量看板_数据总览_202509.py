@@ -3,7 +3,7 @@
 
 from API.API_Pdd.API_Pdd_Centre import PddDataCentre
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 
 # noqa: E501

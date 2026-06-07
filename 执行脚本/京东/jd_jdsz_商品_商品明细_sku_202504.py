@@ -1,6 +1,6 @@
 from API.API_JingDong.API_Jdsz_Product import JdSzProductAPI
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.en_to_cn import en_to_cn
 from extra.logger_ import logger
 

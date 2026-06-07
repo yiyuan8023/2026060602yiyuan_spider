@@ -1,7 +1,7 @@
 # File: 淘宝联盟_商品分析
 from API.API_TaoKe.API_TaoKe_MyProducts import TaoKeMyProductApi
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 
 from extra.logger_ import logger
 

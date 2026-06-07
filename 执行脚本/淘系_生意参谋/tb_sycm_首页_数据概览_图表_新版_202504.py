@@ -1,6 +1,6 @@
 from API.API_ShengCan import Home
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 from extra.extra_date import get_format_timestamp
 

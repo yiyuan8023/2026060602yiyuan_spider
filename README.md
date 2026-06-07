@@ -115,7 +115,6 @@ API 层主要负责：
 |---|---|
 | `settings.py` | 全局配置入口，包含 UA、日志开关、数据库配置引用 |
 | `logger_.py` | loguru 日志封装 |
-| `db_manager.py` | MySQL 连接、建表、插入、更新、批量写入 |
 | `select_shop_date.py` | 获取采集店铺 Cookie 和采集日期 |
 | `extra_date.py` | 日期区间、近期日期、月份周期等日期工具 |
 | `extra_parser.py` | 命令行参数解析 |
@@ -293,7 +292,7 @@ log/
 
 ## 数据库
 
-数据库能力由 `extra/db_manager.py` 提供。
+数据库能力由 `database/` 包提供，旧入口 `extra/db_manager.py` 仅保留兼容导入。
 
 主要功能：
 

@@ -3,7 +3,7 @@
 from API.API_Pdd.API_Pdd_Centre import PddDataCentre
 from API.API_Pdd.API_Pdd_Font_Decrypt import decrypt_unicode_string, res_decrypt
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 from extra.settings import EMAIL
 

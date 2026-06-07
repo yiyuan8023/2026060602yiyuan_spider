@@ -2,7 +2,7 @@
 import pandas as pd
 import os
 from typing import List, Dict, Optional
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 
 

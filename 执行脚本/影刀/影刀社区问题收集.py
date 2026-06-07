@@ -1,6 +1,6 @@
 from API.API_YingDao import YingDaoApi
 from excel.save_to_excel import SaveToExcel
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 
 if __name__ == "__main__":

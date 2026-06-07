@@ -1,7 +1,7 @@
 # File: 淘宝联盟_商品分析
 from API.API_TaoKe.API_Taoke_DingXiang import TaoKeDingXiangApi
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 
 from extra.extra_date import get_date_min_max
 

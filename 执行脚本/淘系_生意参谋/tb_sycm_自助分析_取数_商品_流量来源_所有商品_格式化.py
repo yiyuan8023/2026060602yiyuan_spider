@@ -7,7 +7,7 @@ import requests
 from API.API_ShengCan.SelfAnalysis import SelfAnalysis
 
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.downloader import Downloader
 from extra.extra_date import get_date, get_date_range
 from extra.logger_ import logger

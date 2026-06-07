@@ -5,7 +5,7 @@ from time import sleep
 
 from API.API_TaoKe.API_TaoKe_Good import TaoKeGoodAnalysisApi
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 
 from extra.logger_ import logger
 

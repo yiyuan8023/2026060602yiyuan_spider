@@ -1,6 +1,6 @@
 from API.API_ShengCan import Flow
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 
 if __name__ == "__main__":

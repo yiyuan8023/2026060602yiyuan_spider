@@ -2,7 +2,7 @@ from time import sleep
 
 from API.API_Wxt.WxtReport import WxtReportApi
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.downloader import Downloader
 from extra.extra_date import get_time_ago, get_items_min_max_date
 

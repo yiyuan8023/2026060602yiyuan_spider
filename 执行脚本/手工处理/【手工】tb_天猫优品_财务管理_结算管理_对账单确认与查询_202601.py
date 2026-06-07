@@ -1,5 +1,5 @@
 from excel.excel_to_db import FileToItems
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 from extra.extra_file import list_file_path
 

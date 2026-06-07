@@ -2,7 +2,7 @@ import json
 
 from cookie_manager.cookie_collector import cookie_collector
 from cookie_manager.web_cookie_manager import WebCookieManager
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 
 if __name__ == "__main__":

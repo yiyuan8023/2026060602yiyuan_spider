@@ -1,5 +1,5 @@
 from API.API_ShengCan import Goods
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.logger_ import logger
 from extra.select_shop_date import select_shop_date
 

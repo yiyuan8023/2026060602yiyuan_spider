@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 import os
 
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.extra_df_dict import df_to_dict
 from extra.logger_ import logger
 

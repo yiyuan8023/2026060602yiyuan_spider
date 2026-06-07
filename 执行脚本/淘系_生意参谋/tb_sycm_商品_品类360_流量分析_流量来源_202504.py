@@ -2,7 +2,7 @@
 
 from API.API_ShengCan.goods import Goods
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.extra_date import get_month_first_and_last_day
 from extra.logger_ import logger
 

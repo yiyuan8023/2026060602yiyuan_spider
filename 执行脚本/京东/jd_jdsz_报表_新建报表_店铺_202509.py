@@ -1,5 +1,5 @@
 from API.API_JingDong.API_Jdsz_ReportAPI import JdszReportAPI
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.extra_date import get_date_min_max
 from extra.logger_ import logger
 from extra.select_shop_date import select_shop_date

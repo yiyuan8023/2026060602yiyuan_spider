@@ -5,7 +5,7 @@ from time import sleep
 
 from API.API_TaoKe.API_TaoKe_Cps import TaoKeCpsApi
 from extra.select_shop_date import select_shop_date
-from extra.db_manager import DBManager
+from database import DBManager
 from extra.extra_date import get_date_min_max, get_split_date_range
 from extra.logger_ import logger
 
