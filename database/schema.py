@@ -5,6 +5,8 @@ from database.utils import get_longest_values, get_ordered_keys, quote_identifie
 
 
 class TableSchemaMixin:
+    """表结构维护能力：自动建表、补字段和按字段值推断列类型。"""
+
     def _table_exists(self, table_name):
         try:
             sql = f"SELECT 1 FROM {quote_identifier(table_name)} LIMIT 1;"
@@ -15,9 +17,11 @@ class TableSchemaMixin:
             return False
 
     def _create_table(self, items, table_name, primary_key=None, uu_id=None, user=None):
+        """按采集记录自动建表，字段类型用样本最长值保护宽度。"""
         if not items:
             return
 
+        # 不只看第一行，避免后续更长 id、订单号、编码被建成过窄字段。
         sample_item = get_longest_values(items)
         columns = []
         keys = get_ordered_keys([sample_item])
@@ -66,6 +70,7 @@ class TableSchemaMixin:
         columns_to_add = [column for column in get_ordered_keys(items) if column not in existing_columns]
 
         if columns_to_add:
+            # 平台字段经常增减，采集前自动补缺失字段，避免整批写入失败。
             alter_sql = self._build_alter_table_sql(table_name, columns_to_add, items)
             self.execute_sql(alter_sql)
             logger.info(f"表 {table_name} 已成功添加新字段: {columns_to_add}")
@@ -87,10 +92,11 @@ class TableSchemaMixin:
 
         alter_sql = f"ALTER TABLE {quote_identifier(table_name)} {' ,'.join(alter_parts)};"
         logger.info(alter_sql)
-        return sql
+        return alter_sql
 
     @staticmethod
     def _infer_column_type(key, value):
+        """按字段名和值推断数据库类型，优先保护 id、key、订单号等文本标识。"""
         str_value = str(value) if value is not None else ""
         lower_key = str(key).lower()
 
@@ -109,6 +115,7 @@ class TableSchemaMixin:
         return f"VARCHAR({min(max(len(str_value) * 2, 50), 1000)})"
 
     def _create_triggers(self, table_name):
+        """为需要用户追踪的表创建插入/更新触发器，权限不足时不中断建表。"""
         quoted_table = quote_identifier(table_name)
         triggers = [
             (

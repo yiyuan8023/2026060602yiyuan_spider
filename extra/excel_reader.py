@@ -19,6 +19,7 @@ def _reset_position(data, position=0):
 
 
 def _emit_warning_notes(warning_records):
+    """保留原始 warning 输出，再补充平台导出 Excel 的业务说明。"""
     for warning_record in warning_records:
         warnings.showwarning(
             warning_record.message,
@@ -53,6 +54,7 @@ def read_excel_to_dict(excel_content, **kwargs):
     if "engine" in read_kwargs:
         df = read_excel_dataframe(data, **read_kwargs)
     else:
+        # 默认先试 openpyxl，失败后回退 xlrd，兼顾新 xlsx 和历史 xls 导出。
         start_position = data.tell() if hasattr(data, "tell") else 0
         try:
             df = read_excel_dataframe(data, engine="openpyxl", **read_kwargs)

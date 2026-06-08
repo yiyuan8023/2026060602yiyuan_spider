@@ -17,7 +17,7 @@ def _reset_position(data, position=0):
 
 
 def dataframe_to_records(df: pd.DataFrame):
-    """DataFrame 转字典列表，空表沿用项目旧约定返回空字典。"""
+    """DataFrame 转字典列表，空表返回空字典。"""
     df_filled = df.fillna("")
     if df_filled.empty:
         return {}
@@ -39,6 +39,7 @@ def read_excel_records(data, sheet_name=0, skiprows=0, engine=None):
     start_position = data.tell() if hasattr(data, "tell") else 0
 
     if isinstance(sheet_name, str) and ("*" in sheet_name or "?" in sheet_name):
+        # 平台导出可能按店铺或渠道拆多个 sheet，通配符用于合并匹配工作表。
         excel_kwargs = {}
         if engine:
             excel_kwargs["engine"] = engine
@@ -93,6 +94,7 @@ def read_zip_records(zip_content: bytes, file_type: str = "csv"):
         if not file_names:
             raise ValueError("ZIP 文件为空")
 
+        # 当前平台导出约定读取压缩包内第一个业务文件；多文件 ZIP 后续再扩展。
         with zip_file.open(file_names[0]) as file:
             file_content = file.read()
 

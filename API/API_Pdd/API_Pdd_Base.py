@@ -21,12 +21,13 @@ import execjs  # PyExecJS  # noqa
 
 
 class PddBaseApi(object):
+    """拼多多基础能力，负责 anti_content 和字体反爬映射。"""
+
     def __init__(self):
-        # 获取当前Python文件所在的目录
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        # 构建anti_content.js的完整路径
+        # anti_content.js 与当前模块同目录，避免执行脚本依赖工作目录。
         js_file_path = os.path.join(current_dir, "anti_content.js")
-        print(js_file_path)
+        logger.info(f"加载拼多多 anti_content 脚本: {js_file_path}")
 
         with open(js_file_path, "r", encoding="utf8") as js_file:
             self.context = execjs.compile(js_file.read())
@@ -79,7 +80,7 @@ class PddBaseApi(object):
         char_k_list = []
         io_.seek(0)
         font = ImageFont.truetype(io_, 40)
-        # 将10个uni字符画到im，进而使用ocr识别获得对应数字
+        # 平台用自定义字体混淆数字，这里把 glyph 渲染成图片后交给 OCR 识别。
         for uchar in uni_list:
             unknown_char = f"\\u{uchar[3:]}".encode("utf8").decode("unicode_escape")
             im = Image.new(mode="RGB", size=(42, 40), color="white")

@@ -18,7 +18,7 @@ def req_log(
     log_success: bool = True,
 ):
     """
-    针对 requests 响应统一打日志，默认返回 bool 以兼容旧调用。
+    针对 requests 响应统一打日志，默认返回 bool 供调用方判断是否继续解析。
 
     Args:
         res: requests 返回的 Response 对象。
@@ -27,6 +27,7 @@ def req_log(
         log_success: False 时不记录成功日志，只记录失败日志。
     """
 
+    # 自动带上调用位置，排查失败请求时能直接反查业务模块。
     caller = _caller_text()
     context_text = f"{context}，" if context else ""
 

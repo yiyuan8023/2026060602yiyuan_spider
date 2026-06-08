@@ -17,6 +17,8 @@ from extra.logger_ import logger
 
 
 class MySellerTradeAPI(MySellerBaseAPI):
+    """天猫商家工作台交易报表，负责创建导出、解析报表与订单明细。"""
+
     def __init__(self, cookie):
         super().__init__(cookie)
         self.cookie = cookie
@@ -28,8 +30,7 @@ class MySellerTradeAPI(MySellerBaseAPI):
         """
         # 获取报表下载时间
         report_date = get_date(None, "%Y-%m-%d %H:%M")
-        # print(report_date)
-        # logger.info(f"正在导出{start_timestamp}-{end_timestamp}明细数据")
+        logger.info(f"正在导出{start_timestamp}-{end_timestamp}明细数据")
 
         api = "https://trade.taobao.com/trade/itemlist/list_export_order.htm"
         params = {
@@ -239,7 +240,6 @@ class MySellerTradeAPI(MySellerBaseAPI):
                     return [{"备注": "无消费者视角优惠明细标签"}]  # 可能是兑换券
 
                 data = res.json()
-                # print(data)
                 json_data = json.dumps(
                     data, ensure_ascii=False
                 )  # 将JSON数据转换为字符串  # 数据全量保存，防止后期解析出问题
@@ -258,14 +258,12 @@ class MySellerTradeAPI(MySellerBaseAPI):
                         ):
                             for schema_item in params["schemaContent"]:
                                 if schema_item["type"] == "PriceComposition":
-                                    print(schema_item)
                                     consumer_detail = schema_item["params"]["compose"]
-                                    # print(consumer_detail)
                                     break
                             break
 
                 # 将提取的信息整理成字典
-                print(consumer_detail)
+                logger.info("已解析消费者视角优惠明细")
                 result_dict = {}
 
                 if consumer_detail:
@@ -330,5 +328,4 @@ if __name__ == "__main__":
     # 调用函数提取报表信息
     reports_data = Obj.extract_reports_from_html(html_content_, "2025-08-06 12:26")
 
-    # 打印结果
-    print(json.dumps(reports_data, ensure_ascii=False, indent=2))
+    logger.info(json.dumps(reports_data, ensure_ascii=False, indent=2))

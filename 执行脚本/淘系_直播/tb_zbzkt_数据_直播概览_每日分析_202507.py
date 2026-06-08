@@ -5,13 +5,13 @@ from extra.logger_ import logger
 
 
 def parse_res(res_json):
-    print(res_json)
+    logger.info("解析直播概览接口返回数据")
     ret = res_json["ret"][0]
     if ret == "SUCCESS::调用成功":
         result = res_json["data"]["result"]
         for i in result:
             cn_item_data = Obj.cn_to_en(i, "live_overview")
-            print(cn_item_data)
+            logger.info(f"直播概览单条数据: {cn_item_data}")
 
 
 if __name__ == "__main__":

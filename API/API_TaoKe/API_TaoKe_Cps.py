@@ -24,6 +24,8 @@ from cookie_manager.extra_cookie import get_cookie_value
 
 
 class TaoKeCpsApi(TaoKeBaseApi):
+    """淘宝联盟 CPS 报表任务：创建任务、轮询状态、下载解析。"""
+
     def __init__(self, cookie, start_time, end_time, name_suffix):
         super().__init__(cookie)
         self.cookie = cookie
@@ -55,7 +57,7 @@ class TaoKeCpsApi(TaoKeBaseApi):
             "Host": "ad.alimama.com",  # noqa
         }
         res = requests.get(url=url, headers=headers, params=params)
-        print(res.json())
+        logger.info("淘宝联盟 CPS 任务创建接口已返回")
         if req_log(res):
             logger.success(f"成功！！！创建任务日期:{self.start_time}_{self.end_time}")
             return res.json()
@@ -92,7 +94,6 @@ class TaoKeCpsApi(TaoKeBaseApi):
         url = api + urlencode(params)
         res = requests.get(url, headers=headers)
         if req_log(res):
-            # print(res.json())
             return res.json()
         else:
             return None

@@ -109,9 +109,7 @@ if __name__ == "__main__":
                 dateRange = f" {start_date}|{end_data}"
                 logger.info(f"正在采集{dateRange}的月数据")
                 res_json = GoodObj.category_360__flow_from(dateRange, cateId)
-                print(f"请求参数: dateRange={dateRange}, cateId={cateId}")
-                # print(res_json)
+                logger.info(f"请求参数: dateRange={dateRange}, cateId={cateId}")
                 analyzing_res(res_json)
-        # print(res_json)
 
 # python tb_sycm_商品_品类360_流量分析_流量来源_202504.py --mode=monthly --month=01

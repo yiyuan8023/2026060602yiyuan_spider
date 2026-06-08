@@ -88,7 +88,6 @@ class TaoKeGoodAnalysisApi(TaoKeBaseApi):
 
         else:
             res_json = self.tb_tk_goods_analysis(start_time, end_time)
-            # print(res_json)
             if res_json and res_json.get("data"):
                 id_list = res_json.get("data").get("idList")
                 logger.info(f"任务已创建，{id_list}")

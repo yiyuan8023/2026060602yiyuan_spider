@@ -30,7 +30,8 @@ class CookieFailError(Exception):
 
 
 class JdszBaseAPI:
-    # 京东商智 基础模块
+    """京东商智基础模块，负责登录态校验和加密请求头生成。"""
+
     def __init__(self, cookie):
         """
         初始化
@@ -63,6 +64,7 @@ class JdszBaseAPI:
         :param host:
         :return:
         """
+        # 京东商智接口依赖 User-Mnp/User-Mup/Uuid，业务 API 不要重复生成。
         user_mnp_mup = self.fetch_user_mnp_mup(api, host, self.ua)
         logger.info(user_mnp_mup)
         common_headers = {
@@ -80,6 +82,7 @@ class JdszBaseAPI:
         """
         user_mup = int(round(time.time() * 1000))  # 生成当前时间的毫秒级时间戳
 
+        # uuid_.js 复刻浏览器端签名逻辑，api/host/ua/cookie 都会参与计算。
         uuid = context.call("n", api, host, ua, self.cookie)  # 调用js函数 n 来生成UUID
         aa = api + uuid + str(user_mup) + "372ad2c2b6"  # 生成User-Mnp的参数
         user_mnp = context.call(
@@ -115,9 +118,8 @@ class JdszBaseAPI:
         :return:返回zip里面的文件第一个吃的bytes
         """
         with zipfile.ZipFile(io.BytesIO(res.content), "r") as zip_ref:
-            # 获取 ZIP 文件中的所有文件名
             filenames = zip_ref.namelist()
-            # 只处理第一个文件
+            # 京东导出 ZIP 当前只取第一个 Excel 文件；多文件场景再扩展。
             first_excel_file = filenames[0]
             return zip_ref.open(first_excel_file)
 

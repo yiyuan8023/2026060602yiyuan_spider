@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import List, Optional
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-print(PROJECT_ROOT)
 os.environ["LOG_MODE"] = "both"  # 日志输出到控制台和文件
 
 if str(PROJECT_ROOT) not in sys.path:

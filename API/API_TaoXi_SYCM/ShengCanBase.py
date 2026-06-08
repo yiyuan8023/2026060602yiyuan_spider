@@ -6,7 +6,9 @@ from config import UA
 
 
 class ShengCanBaseApi:
-    # 检测cookie有没有失效
+    """生意参谋基础登录态，负责从首页提取 token、userId 和 session。"""
+
+    # 检测 cookie 是否失效，后续请求依赖这里提取到的三个值。
     def __init__(self, cookie):
         self.cookie = cookie
         self.ua = UA
@@ -40,9 +42,6 @@ class ShengCanBaseApi:
             if token_match and userid_match:
                 logger.success(
                     f"SycmAPI初始化成功，token={token_match[0]},userId={userid_match[0]}"
-                )
-                print(
-                    f"token={token_match[0]},userId={userid_match[0]},session = {session}"
                 )
                 return token_match[0], userid_match[0], session
             else:

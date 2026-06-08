@@ -2,12 +2,14 @@ CONTROL_CHAR_TRANS = str.maketrans("", "", "".join(chr(i) for i in range(32)) + 
 
 
 def clean_db_value(value):
+    """清理数据库不适合保存的控制字符和单引号。"""
     if isinstance(value, str):
         return value.translate(CONTROL_CHAR_TRANS)
     return value
 
 
 def get_ordered_keys(items):
+    """按记录出现顺序收集字段，保证建表和写入列顺序稳定。"""
     keys = []
     seen = set()
     for item in items:
@@ -19,6 +21,7 @@ def get_ordered_keys(items):
 
 
 def get_longest_values(items, max_rows=1000):
+    """取每个字段样本中最长的值，用于更稳妥地推断列宽。"""
     sample_items = items[:max_rows]
     result = {}
     for key in get_ordered_keys(sample_items):
@@ -37,6 +40,7 @@ def get_longest_values(items, max_rows=1000):
 
 
 def quote_identifier(identifier):
+    """安全引用表名或字段名，避免反引号破坏 SQL 结构。"""
     identifier = str(identifier)
     if not identifier:
         raise ValueError("数据库标识符不能为空")

@@ -13,7 +13,7 @@ from .parsers import read_csv_records, read_excel_records, read_zip_records
 
 
 class Downloader:
-    """通用下载器，负责 HTTP 请求和常见导出文件解析。"""
+    """项目统一下载入口，负责普通 HTTP 请求和导出文件解析。"""
 
     def __init__(
         self,
@@ -47,6 +47,7 @@ class Downloader:
     def _prepare_headers(self):
         """合并默认请求头和调用方传入的请求头。"""
         default_headers = {"User-Agent": UA}
+        # cookie 只有在调用方明确传入时才放入请求头，避免写入空 cookie。
         if self.cookie:
             default_headers["cookie"] = self.cookie
         if self.headers:
@@ -80,6 +81,7 @@ class Downloader:
         """发送 HTTP POST 请求。"""
         try:
             logger.info(f"POST请求URL: {self._safe_url()}")
+            # json_data 和 data 二选一，避免调用方在业务层重复封装 POST 分支。
             if self.json_data is not None:
                 response = requests.post(
                     self.url,
@@ -115,6 +117,7 @@ class Downloader:
         """下载文件并返回 BytesIO 对象。"""
         try:
             response = self.download_web()
+            # 统一返回内存文件对象，供 Excel/CSV/ZIP 解析函数复用。
             return io.BytesIO(response.content)
         except requests.exceptions.RequestException as exc:
             logger.error(f"下载文件失败: {exc}")

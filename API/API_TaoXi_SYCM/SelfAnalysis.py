@@ -4,6 +4,7 @@ from urllib.parse import urlencode
 from tenacity import retry, stop_after_attempt, wait_fixed
 import requests
 from extra.extra_reqlog import req_log
+from extra.logger_ import logger
 from config import UA
 
 from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi
@@ -11,6 +12,8 @@ from downloader.core import Downloader
 
 
 class SelfAnalysis(ShengCanBaseApi):
+    """生意参谋自助取数 API，负责报表创建、下载触发和下载链接查询。"""
+
     def __init__(self, cookie):
         super().__init__(cookie)
         self.cookie = cookie
@@ -19,14 +22,13 @@ class SelfAnalysis(ShengCanBaseApi):
     # wait_fixed(3)：每次重试之间等待 3 毫秒
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(3))
     def create_report(self, shop_id, start_date, end_date):
-        # 【商品-流量来源】创建报表,获取报表id
+        # 【商品-流量来源】创建报表，返回后续下载链路需要的 report_id。
         url = "https://sycm.taobao.com/lyone/fetchData/createReport.json"
         data = {
             "datasource": "电商后台",
             "channelName": "天猫淘宝",
             "dataPlatform": "生意参谋",
             "shopIds": [shop_id],  # 不同店铺id不同
-            # "shopIds": ["20893"],  # 不同店铺id不同
             "dataType": "商品",
             "dataDimension": "流量来源",
             "dateType": "day",
@@ -77,13 +79,13 @@ class SelfAnalysis(ShengCanBaseApi):
         ).download_web()
         if req_log(res):
             res_json = res.json()
-            # print(res_json)
             return res_json["data"]["id"]
         else:
             return None
 
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(3))
     def create_report2(self, start_date, end_date):
+        # 店铺维度流量来源详情报表，保留独立方法避免和商品维度指标混用。
         url = "https://sycm.taobao.com/lyone/fetchData/createReport.json"
         data = {
             "datasource": "电商后台",
@@ -137,13 +139,13 @@ class SelfAnalysis(ShengCanBaseApi):
         )
         if req_log(res):
             res_json = res.json()
-            # print(res_json)
             return res_json["data"]["id"]
         else:
             return None
 
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(3))
     def fetch_data_download(self, report_id):
+        """触发自助取数报表下载任务。"""
         api = "https://sycm.taobao.com/lyone/fetchData/download.json?"
         params = {
             "reportId": report_id,
@@ -159,14 +161,13 @@ class SelfAnalysis(ShengCanBaseApi):
         )
         if req_log(res):
             res_json = res.json()
-            # print(res_json)
             return True
         else:
             return False
 
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(3))
     def query_download_url(self, report_id):
-        # 获取下载地址链接
+        """查询下载地址；status=1 表示下载链接已生成。"""
         api = "https://sycm.taobao.com/lyone/fetchData/queryDownloadUrl.json?"
         params = {
             "reportId": report_id,
@@ -181,11 +182,10 @@ class SelfAnalysis(ShengCanBaseApi):
 
         if req_log(res):
             res_json = res.json()
-            # print(res_json)
             data = res_json["data"]
             status = data["status"]
             if status == "2":
-                print("下载任务已提交，请等待数据处理")
+                logger.info("下载任务已提交，请等待数据处理")
                 return None
             elif status == "1":
                 url = data["url"]

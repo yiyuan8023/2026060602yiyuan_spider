@@ -20,7 +20,10 @@ def select_shop_date(
     period_type: str = "day",
 ):
     """
-    数据采集器函数，用户获取要采集的店铺和采集日期
+    统一生成采集店铺 Cookie 和采集日期列表。
+
+    命令行参数优先级高于函数默认值，便于同一执行脚本支持临时补数。
+
     Args:
         db_table_name: 数据库表名
         site (str): 站点名称
@@ -34,14 +37,13 @@ def select_shop_date(
             - crawl_day_list: 需要采集的日期列表
     """
 
-    # 记录开始采集日志
     if shop_name_list is None:
         shop_name_list = []
     logger.info(f"\n{'*' * 120}")
     logger.info(f"开始采集：{db_table_name}")
     logger.info(f"接收到的命令行参数: {sys.argv}")
 
-    # 解析命令行参数获取日期范围和店铺名称
+    # 命令行可临时覆盖日期范围和店铺，最终执行脚本无需重复写解析逻辑。
     start_date, end_data, shop_names = parser_main()
     # logger.info(f"解析得到的日期: start_date={start_date}, end_data={end_data},shop_names = {shop_names}")
 
@@ -62,7 +64,7 @@ def select_shop_date(
         else:
             crawl_day_list = get_recent_days(recent_period)
 
-    # 确定需要采集的店铺列表，如果命令行指定了店铺，则使用指定的店铺列表，如果函数参数提供了店铺列表，则使用该列表
+    # shop_names 来自命令行，优先级高于脚本内默认店铺列表。
     if shop_names:
         shop_name_list = shop_names
     else:
@@ -70,7 +72,7 @@ def select_shop_date(
 
     logger.info(f"采集日期列表{crawl_day_list},采集店铺{shop_name_list}")
 
-    # 如果店铺列表不为空，获取该站点指定店铺的cookies，如果为None则获取所有店铺cookies，即采集所有店铺
+    # 空店铺列表表示采集该站点全部店铺；非空列表由 repository 参数化查询。
     if shop_name_list:
         shop_cookies = DBManager().select_cookies_shop(site, shop_name_list)
     else:

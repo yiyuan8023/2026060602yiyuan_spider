@@ -5,6 +5,8 @@ from config import UA
 
 
 class TaoKeBaseApi(object):
+    """淘宝联盟基础能力，负责共享请求头和导出任务状态分类。"""
+
     def __init__(self, cookie):
         self.cookie = cookie
         self.ua = UA
@@ -19,7 +21,7 @@ class TaoKeBaseApi(object):
         if not task_status_list_res:
             return {}, {}
 
-        # 检查返回结果中的错误码，判断cookie是否过期
+        # 601 是淘宝联盟常见 Cookie 失效码，调用方应停止本店铺后续任务。
         if task_status_list_res.get("code") == 601:
             raise "cookie过期"
 
@@ -40,6 +42,7 @@ class TaoKeBaseApi(object):
         un_finish_task = {}  # {文件名: 任务ID}
 
         for task in result:
+            # process/status 组合决定下载任务是否可取文件。
             if task.get("process") == "100" and task.get("status") == 1:
                 finish_task[task["fileName"]] = task["id"]
             elif task.get("process") == "0":

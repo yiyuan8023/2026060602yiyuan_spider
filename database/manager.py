@@ -9,6 +9,8 @@ from database.writer import DataWriterMixin
 
 
 class DBManager(CookieRepositoryMixin, DataWriterMixin, TableSchemaMixin):
+    """数据库统一入口，组合连接管理、表结构、写入和业务仓储能力。"""
+
     def __init__(self, db_config=None):
         db_params = get_database_config(db_config)
         db_params.setdefault("charset", "utf8mb4")
@@ -24,6 +26,7 @@ class DBManager(CookieRepositoryMixin, DataWriterMixin, TableSchemaMixin):
         self.close()
 
     def execute_sql(self, sql, params=None, fetch=False):
+        """执行参数化 SQL；查询不提交事务，写操作失败时回滚。"""
         try:
             self.cursor.execute(sql, params)
             if fetch:

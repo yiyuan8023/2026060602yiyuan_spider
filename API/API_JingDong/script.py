@@ -151,7 +151,6 @@ def jd1_1_01_jdsz(**kwargs):
             f"正在爬取”{shop_name}“ {d} 的 ”jd1_1_01_jdsz_交易_交易概况_全部渠道【商家版】“"
         )
         res_json = JdSzTrade.fetch_trade_summary(date=d, startDate=d, endDate=d)
-        # print(res_json)
         content = res_json["content"]
         item = spider_cn("jd1_1_01_jdsz", content)
         item.update(
@@ -183,7 +182,6 @@ def jd1_1_09_jdsz(**kwargs):
         res_json = JdSzProduct.fetch_product_analysis__category_analysis(
             date=d, startDate=d, endDate=d
         )
-        # print(res_json)
         data = res_json["body"]["data"]
         if data:
             data = flatten_data(data)
@@ -258,7 +256,6 @@ def jd1_1_02_jdsz(**kwargs):
         )
         gridData = res_json["content"]["gridData"]
         items = spider_2_6_cn(gridData, d, shop_name, "jd1_1_02_jdsz")
-        # print(items)
         db.do_insert(items, "jd_jdsz_商品_商品明细_spu")
 
 
@@ -282,7 +279,6 @@ def jd1_1_06_jdsz(**kwargs):
         )
         gridData = res_json["content"]["gridData"]
         items = spider_2_6_cn(gridData, d, shop_name, "jd1_1_06_jdsz")
-        # print(items)
         db.do_insert(items, "jd_jdsz_商品_商品明细_sku")
 
 
@@ -315,7 +311,6 @@ def jd1_1_08_jdsz(**kwargs):
                 "唯一去重": f"{shop_name}{i['日期']}day",
             }
         )
-    # print(items)
     db.do_insert(items, "jd_jdsz_报表_新建报表_店铺")
 
 

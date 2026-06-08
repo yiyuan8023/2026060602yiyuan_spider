@@ -7,6 +7,8 @@ from database.utils import clean_db_value, get_ordered_keys, quote_identifier
 
 
 class DataWriterMixin:
+    """数据写入能力：批量 upsert 和先删后插两种常用入库流程。"""
+
     def update_insert_data(
         self,
         items,
@@ -16,6 +18,7 @@ class DataWriterMixin:
         user=None,
         batch_size=5000,
     ):
+        """批量 upsert，适合按唯一键持续覆盖平台采集结果。"""
         if not items:
             return
 
@@ -32,6 +35,7 @@ class DataWriterMixin:
         field_names = get_ordered_keys(items)
         fields_str = ", ".join(quote_identifier(field) for field in field_names)
         update_fields = [field for field in field_names if field not in ["created_at", "create_time"]]
+        # ON DUPLICATE KEY UPDATE 只更新业务字段，避免覆盖创建时间。
         duplicate_str = ",".join(
             f"{quote_identifier(field)}=VALUES({quote_identifier(field)})"
             for field in update_fields
@@ -80,6 +84,7 @@ class DataWriterMixin:
     def insert_delete_insert_data(
         self, items, db_table_name, del_sql, uu_id=None, user=None
     ):
+        """先小批测试写入，再按条件删除旧数据并批量重写。"""
         if not items:
             logger.warning("没有需要插入的数据")
             return False
