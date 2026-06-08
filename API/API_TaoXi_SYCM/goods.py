@@ -8,7 +8,7 @@ from extra.extra_reqlog import req_log
 from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi
 from extra.logger_ import logger
 from config import UA
-from extra.extra_date import get_millisecond_timestamp, get_second_timestamp
+from date_utils import get_millisecond_timestamp, get_second_timestamp
 
 
 class Goods(ShengCanBaseApi):

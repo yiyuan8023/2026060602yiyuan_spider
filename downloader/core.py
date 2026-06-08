@@ -126,15 +126,17 @@ class Downloader:
             logger.error(f"处理下载文件时发生未知错误: {exc}")
             raise
 
-    def download_excel(self, sheet_name=0, skiprows=0, engine=None):  # NOQA
+    def download_excel(self, sheet_name=0, skiprows=0, engine=None, **read_kwargs):  # NOQA
         """下载 Excel 并解析为字典列表。"""
         try:
             data = self.download_file_to_byte()
+            # dtype 等读取细节留给调用方传入，但下载和解析入口仍统一在 downloader。
             return read_excel_records(
                 data,
                 sheet_name=sheet_name,
                 skiprows=skiprows,
                 engine=engine,
+                **read_kwargs,
             )
         except Exception as exc:
             logger.error(f"处理Excel文件时发生未知错误: {exc}")

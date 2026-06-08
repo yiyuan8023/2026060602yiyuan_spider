@@ -140,7 +140,7 @@ if __name__ == "__main__":
        from extra.logger_ import logger
        logger.info("开始采集")
 
-    2. 最终执行脚本临时切换日志模式，必须在导入 logger 前设置：
+    2. 最终任务脚本临时切换日志模式，必须在导入 logger 前设置：
        import os
        os.environ["LOG_MODE"] = "both"  # file / console / both
        from extra.logger_ import logger

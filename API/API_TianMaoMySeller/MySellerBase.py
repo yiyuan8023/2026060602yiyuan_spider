@@ -8,7 +8,7 @@ from urllib.parse import urlencode
 import requests
 
 from config import UA
-from extra.extra_date import get_millisecond_timestamp
+from date_utils import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 
 path_ = os.path.join(os.path.dirname(__file__), "cn_en_mapping.json")

@@ -1,15 +1,23 @@
-import io
+# 先调 meta 拿完整指标字段，避免导出缺列
+# GuangHeAssetOverview.py
+#
+# 再创建导出任务，平台返回 taskId
+# GuangHeAssetOverview.py
+#
+# 再轮询任务状态，等 status == "2" 并拿到 fileUrl
+# GuangHeAssetOverview.py
+#
+# 最后才把 fileUrl 交给 Downloader.download_excel(...)
+# GuangHeAssetOverview.py
+
 import json
 import time
-from pathlib import Path
-
-import requests
 
 from API.API_TaoXi_GuangHe.GuangHeBase import GuangHeBaseApi
+from downloader.core import Downloader
+from date_utils import get_date
 from extra.extra_error import handle_request_error
-from extra.excel_reader import read_excel_dataframe
 from extra.logger_ import logger
-from config import UA
 
 
 PAGE_URL = "https://creator.guanghe.taobao.com/page/unify/asset-overview?tab=productAnalysis"
@@ -32,7 +40,7 @@ class GuangHeAssetOverviewApi(GuangHeBaseApi):
 
     def _create_download_task(self, day):
         """创建商品分析内容消费的单日下载任务。"""
-        stat_day = self._format_day(day)
+        stat_day = get_date(day, "%Y%m%d")
         indicator_fields = self._get_content_consume_indicator_fields()
 
         # params 是下载任务内部参数，scene 与外层 task scene 不同。
@@ -79,6 +87,7 @@ class GuangHeAssetOverviewApi(GuangHeBaseApi):
             response_json = self._mtop_request(
                 "mtop.taobao.guangguang.creator.download.task.status",
                 {"source": "guanghe", "taskId": task_id},
+                log_success=False,
             )
             model = response_json.get("data", {}).get("model", {})
             status = str(model.get("status", ""))
@@ -94,39 +103,19 @@ class GuangHeAssetOverviewApi(GuangHeBaseApi):
         raise TimeoutError(f"光合平台下载任务超时，task_id={task_id}")
 
     @staticmethod
-    def _read_excel_content(content):
-        """读取平台下载的 Excel 明细页，商品 id 按字符串保留。"""
-        df = read_excel_dataframe(
-            io.BytesIO(content),
+    def _download_excel_records(download_url):
+        """通过 downloader 下载并解析 Excel 明细页，商品 id 按字符串保留。"""
+        return Downloader(api=download_url, timeout=60).download_excel(
             sheet_name="明细数据",
             dtype={"商品id": str},
         )
-        df = df.fillna("")
-        return df.to_dict("records")
 
     def product_analysis_content_consumption_excel(self, day):
         """按日期在线下载商品分析内容消费明细。"""
         try:
             task_id = self._create_download_task(day)
             download_url = self._query_download_url(task_id)
-            response = requests.get(download_url, headers={"User-Agent": UA}, timeout=60)
-            response.raise_for_status()
-            return self._read_excel_content(response.content)
+            return self._download_excel_records(download_url)
         except Exception as exc:
             handle_request_error(exc, context="光合平台商品分析下载")
             raise
-
-    @staticmethod
-    def read_local_excel(file_path):
-        """读取本地样例 Excel，用于离线校验字段和入库结构。"""
-        file_path = Path(file_path)
-        if not file_path.exists():
-            raise FileNotFoundError(file_path)
-
-        df = read_excel_dataframe(
-            file_path,
-            sheet_name="明细数据",
-            dtype={"商品id": str},
-        )
-        df = df.fillna("")
-        return df.to_dict("records")

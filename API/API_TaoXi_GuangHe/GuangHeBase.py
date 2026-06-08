@@ -4,7 +4,7 @@ from http.cookies import SimpleCookie
 
 import requests
 
-from extra.extra_date import get_millisecond_timestamp
+from date_utils import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 from config import UA
 
@@ -44,7 +44,7 @@ class GuangHeBaseApi:
         sign_text = f"{token}&{timestamp}&{APP_KEY}&{data_text}"
         return hashlib.md5(sign_text.encode("utf-8")).hexdigest()
 
-    def _mtop_request(self, api, data, version="1.0"):
+    def _mtop_request(self, api, data, version="1.0", log_success=True):
         """统一发起 mtop 请求，自动处理 token 过期后的 Cookie 刷新重试。"""
         last_response = None
         for _ in range(3):
@@ -73,7 +73,12 @@ class GuangHeBaseApi:
                 headers=headers,
                 timeout=30,
             )
-            req_log(response, context=f"光合mtop:{api}", raise_error=True)
+            req_log(
+                response,
+                context=f"光合mtop:{api}",
+                raise_error=True,
+                log_success=log_success,
+            )
             response_json = response.json()
             last_response = response_json
             ret_text = "|".join(response_json.get("ret", []))
@@ -85,7 +90,3 @@ class GuangHeBaseApi:
             return response_json
 
         raise RuntimeError(f"mtop请求失败: {last_response}")
-
-    @staticmethod
-    def _format_day(day):
-        return str(day).replace("-", "")

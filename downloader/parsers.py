@@ -5,7 +5,7 @@ from typing import Optional
 
 import pandas as pd
 
-from extra.excel_reader import read_excel_dataframe
+from excel_tool.reader import read_excel_dataframe
 from extra.logger_ import logger
 
 from .encoding import detect_text_encoding
@@ -24,17 +24,18 @@ def dataframe_to_records(df: pd.DataFrame):
     return df_filled.to_dict("records")
 
 
-def _read_excel_sheet(data, sheet_name=0, skiprows=0, engine=None):
+def _read_excel_sheet(data, sheet_name=0, skiprows=0, engine=None, **read_kwargs):
     read_kwargs = {
         "sheet_name": sheet_name,
         "skiprows": skiprows,
+        **read_kwargs,
     }
     if engine:
         read_kwargs["engine"] = engine
     return read_excel_dataframe(data, **read_kwargs)
 
 
-def read_excel_records(data, sheet_name=0, skiprows=0, engine=None):
+def read_excel_records(data, sheet_name=0, skiprows=0, engine=None, **read_kwargs):
     """读取 Excel 内容，支持 sheet_name 通配符。"""
     start_position = data.tell() if hasattr(data, "tell") else 0
 
@@ -61,6 +62,7 @@ def read_excel_records(data, sheet_name=0, skiprows=0, engine=None):
                 sheet_name=sheet,
                 skiprows=skiprows,
                 engine=engine,
+                **read_kwargs,
             )
             df_temp["__SheetName__"] = sheet
             dfs.append(df_temp)
@@ -72,6 +74,7 @@ def read_excel_records(data, sheet_name=0, skiprows=0, engine=None):
         sheet_name=sheet_name,
         skiprows=skiprows,
         engine=engine,
+        **read_kwargs,
     )
     return dataframe_to_records(df_excel)
 

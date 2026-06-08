@@ -25,7 +25,7 @@ class PddBaseApi(object):
 
     def __init__(self):
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        # anti_content.js 与当前模块同目录，避免执行脚本依赖工作目录。
+        # anti_content.js 与当前模块同目录，避免任务脚本依赖工作目录。
         js_file_path = os.path.join(current_dir, "anti_content.js")
         logger.info(f"加载拼多多 anti_content 脚本: {js_file_path}")
 

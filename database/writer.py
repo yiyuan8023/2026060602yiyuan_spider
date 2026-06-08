@@ -1,6 +1,6 @@
 import uuid
 
-from extra.extra_date import get_date
+from date_utils import get_date
 from extra.logger_ import logger
 
 from database.utils import clean_db_value, get_ordered_keys, quote_identifier

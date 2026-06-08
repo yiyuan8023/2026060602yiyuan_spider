@@ -1,10 +1,10 @@
-import sys
+﻿import sys
 from typing import Union, List
 
 from database import DBManager
 from extra.extra_parser import parser_main
 from extra.logger_ import logger
-from extra.extra_date import (
+from date_utils import (
     get_date_range,
     get_recent_days,
     get_recent_months_first_day,
@@ -16,19 +16,19 @@ def select_shop_date(
     db_table_name: Union[str, List[str]],
     site: str = "淘系_生意参谋",
     shop_name_list=None,
-    recent_period: int = 3,
+    recent_days: int = 3,
     period_type: str = "day",
 ):
     """
     统一生成采集店铺 Cookie 和采集日期列表。
 
-    命令行参数优先级高于函数默认值，便于同一执行脚本支持临时补数。
+    命令行参数优先级高于函数默认值，便于同一任务脚本支持临时补数。
 
     Args:
         db_table_name: 数据库表名
         site (str): 站点名称
         shop_name_list (list, optional): 店铺名称列表，默认为None(所有店铺)
-        recent_period (int): 默认采集周期数，默认为3（最近3天或3个月）
+        recent_days (int): 默认采集周期数，默认为3（最近3天或3个月）
         period_type (str): 周期类型，'day_'表示天，'month_'表示月，默认为'_day_'
 
     Returns:
@@ -43,7 +43,7 @@ def select_shop_date(
     logger.info(f"开始采集：{db_table_name}")
     logger.info(f"接收到的命令行参数: {sys.argv}")
 
-    # 命令行可临时覆盖日期范围和店铺，最终执行脚本无需重复写解析逻辑。
+    # 命令行可临时覆盖日期范围和店铺，最终任务脚本无需重复写解析逻辑。
     start_date, end_data, shop_names = parser_main()
     # logger.info(f"解析得到的日期: start_date={start_date}, end_data={end_data},shop_names = {shop_names}")
 
@@ -60,9 +60,9 @@ def select_shop_date(
     else:
         # 如果没有指定日期，则根据period_type使用默认的近期日期
         if period_type == "month":
-            crawl_day_list = get_recent_months_first_day(recent_period)
+            crawl_day_list = get_recent_months_first_day(recent_days)
         else:
-            crawl_day_list = get_recent_days(recent_period)
+            crawl_day_list = get_recent_days(recent_days)
 
     # shop_names 来自命令行，优先级高于脚本内默认店铺列表。
     if shop_names:

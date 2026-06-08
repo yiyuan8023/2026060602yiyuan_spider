@@ -9,9 +9,10 @@ DEFAULT_EMAIL = "yiyuan@bi-cheng.cn"
 
 
 def _get_log_mode():
+    # LOG_MODE=file 仅记录文件，LOG_MODE=console 仅记录控制台，LOG_MODE=both 同时记录文件和控制台
     log_mode = os.environ.get("LOG_MODE", "").strip().lower()
     if log_mode not in {"file", "console", "both"}:
-        return "file"
+        return "both"
     return log_mode
 
 

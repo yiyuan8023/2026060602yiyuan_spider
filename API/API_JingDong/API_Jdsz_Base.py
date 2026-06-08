@@ -14,7 +14,7 @@ from extra.extra_reqlog import req_log
 from extra.logger_ import logger
 from config import UA
 
-# 获取当前执行脚本的绝对路径
+# 获取当前任务脚本的绝对路径
 current_path = os.path.dirname(os.path.abspath(__file__))
 js_path = os.path.join(current_path, "uuid_.js")
 js_file = open(js_path, "r", encoding="utf8")

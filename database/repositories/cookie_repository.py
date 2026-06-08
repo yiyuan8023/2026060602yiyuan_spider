@@ -2,7 +2,7 @@ from database.utils import quote_identifier
 
 
 class CookieRepositoryMixin:
-    """Cookie 查询仓储，统一处理店铺列表参数化，避免执行脚本拼 SQL。"""
+    """Cookie 查询仓储，统一处理店铺列表参数化，避免任务脚本拼 SQL。"""
 
     def select_cookies_shop(self, site: str, shop_names):
         if isinstance(shop_names, str):
@@ -12,7 +12,7 @@ class CookieRepositoryMixin:
         if not shop_names:
             return []
 
-        # 店铺名用参数占位符传入，避免把 IN 条件交给执行脚本字符串拼接。
+        # 店铺名用参数占位符传入，避免把 IN 条件交给任务脚本字符串拼接。
         placeholders = ", ".join(["%s"] * len(shop_names))
         sql = (
             f"SELECT {quote_identifier('店铺名称')}, {quote_identifier('cookie_str')}, {quote_identifier('cookie')} "

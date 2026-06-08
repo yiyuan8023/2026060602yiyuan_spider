@@ -1,7 +1,7 @@
 import argparse
 from datetime import datetime
 
-from extra.extra_date import get_month_first_and_last_day
+from date_utils import get_month_first_and_last_day
 
 # 命令行参数解析工具，主要用于处理数据采集任务的时间范围参数
 

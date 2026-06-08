@@ -1,4 +1,4 @@
-import os
+﻿import os
 
 from config.local_config import get_local_section
 
@@ -7,7 +7,7 @@ DEFAULT_DATABASE_NAMES = {
     "rinnai_py": "rinnai_py", # noqa
     "caiwu_hzbc": "caiwu_hzbc", # noqa
     "rinnai": "rinnai", # noqa
-    "rinnai_import": "rinnai",
+    "rinnai_import": "rinnai",  # noqa
     "jingdong": "bc",
     "jd_import": "project",
     "bc": "bc",
