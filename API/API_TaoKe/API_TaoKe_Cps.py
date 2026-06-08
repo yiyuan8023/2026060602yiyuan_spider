@@ -15,7 +15,7 @@ import pandas as pd
 import requests
 
 from API.API_TaoKe.API_TaoKe_Base import TaoKeBaseApi
-from extra.downloader.core import Downloader
+from downloader.core import Downloader
 from extra.extra_date import get_millisecond_timestamp
 from extra.extra_reqlog import req_log
 from extra.logger_ import logger

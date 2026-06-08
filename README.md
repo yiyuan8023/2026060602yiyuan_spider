@@ -38,6 +38,7 @@ yiyuan_spider/
 ├── API/                  # 各平台 API 封装
 ├── config/               # 项目配置入口，读取部署环境变量
 ├── cookie_manager/       # Cookie 采集、转换、刷新和浏览器登录维护
+├── downloader/           # 请求、下载、文件解析辅助
 ├── excel_tool/           # Excel/CSV 读取、写入、入库工具
 ├── extra/                # 通用基础能力：日志、数据库、日期、请求、解析、文件处理
 ├── 执行脚本/              # 具体业务采集脚本
@@ -124,7 +125,6 @@ API 层主要负责：
 | `select_shop_date.py` | 获取采集店铺 Cookie 和采集日期 |
 | `extra_date.py` | 日期区间、近期日期、月份周期等日期工具 |
 | `extra_parser.py` | 命令行参数解析 |
-| `downloader/` | 请求、下载、文件解析辅助 |
 | `excel_reader.py` | Excel 读取相关辅助 |
 | `en_to_cn.py` | 英文字段转中文字段 |
 

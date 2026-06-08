@@ -1,7 +1,7 @@
 from urllib.parse import urlencode
 import requests
 
-from extra.downloader.core import Downloader
+from downloader.core import Downloader
 from extra.extra_error import handle_request_error
 from extra.extra_reqlog import req_log
 

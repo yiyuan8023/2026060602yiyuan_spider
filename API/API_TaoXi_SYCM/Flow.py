@@ -1,6 +1,6 @@
 from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi
 from extra.logger_ import logger
-from extra.downloader.core import Downloader
+from downloader.core import Downloader
 from extra.excel_reader import excel_engine, read_excel_dataframe
 
 

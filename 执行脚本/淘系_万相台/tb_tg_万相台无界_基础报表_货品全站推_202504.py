@@ -5,7 +5,7 @@ import pandas as pd
 from API.API_TaoXi_WanXiangTai.WxtReport import WxtReportApi
 from extra.select_shop_date import select_shop_date
 from database import DBManager
-from extra.downloader.core import Downloader
+from downloader.core import Downloader
 from extra.extra_date import get_time_ago, get_df_min_max_date, get_items_min_max_date
 from extra.logger_ import logger
 

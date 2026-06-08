@@ -13,7 +13,7 @@ import pandas as pd
 import requests
 
 from API.API_JingDong.API_Jdsz_Base import JdszBaseAPI
-from extra.downloader.core import Downloader
+from downloader.core import Downloader
 from extra.extra_reqlog import req_log
 
 

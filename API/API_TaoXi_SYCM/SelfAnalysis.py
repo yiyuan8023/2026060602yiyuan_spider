@@ -7,7 +7,7 @@ from extra.extra_reqlog import req_log
 from config import UA
 
 from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi
-from extra.downloader.core import Downloader
+from downloader.core import Downloader
 
 
 class SelfAnalysis(ShengCanBaseApi):
