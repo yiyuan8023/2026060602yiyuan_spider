@@ -4,6 +4,7 @@
 from time import sleep
 
 from API.API_TaoKe.API_TaoKe_Good import TaoKeGoodAnalysisApi
+from extra.extra_date import get_date_range
 from extra.select_shop_date import select_shop_date
 from database import DBManager
 
@@ -21,18 +22,19 @@ if __name__ == "__main__":
     # name_suffix = "商品分析"
     level3Dims = [
         # {"全部推广类型": None, },
-        {"超级U选/全部活动": "3_2_5"},
-        {"超级淘客/全部活动": "3_2_9"},
-        {"普通招商/全部活动": "2_1_1"},
-        # {"定向计划/全部计划": "1_3_1"},
-        # {"营销计划日常": "1_2_1"},
-        # {"自选计划": "1_4_1"},
-        # {"通用计划": "1_1_1"}
+        {"超级U选/全部活动": "3_2_5"},  # 团长维度
+        {"超级淘客/全部活动": "3_2_9"},  # 团长维度
+        {"普通招商/全部活动": "2_1_1"},  # 团长维度
+        # {"定向计划/全部计划": "1_3_1"}, # 不要
+        {"营销计划日常": "1_2_1"},
+        {"自选计划": "1_4_1"},
+        {"通用计划": "1_1_1"}
     ]
 
     # 数据采集
     shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 5)
-    # crawl_day_list = get_date_range('2025-05-01', '2025-05-31')
+    # crawl_day_list = get_date_range('2026-05-01', '2026-05-15')
+    # crawl_day_list = ['2026-04-16']
 
     for i in shop_cookies:
         cookie = i[1]

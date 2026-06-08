@@ -2,10 +2,11 @@
 
 from API.API_Pdd.API_Pdd_Centre import PddDataCentre
 from API.API_Pdd.API_Pdd_Font_Decrypt import decrypt_unicode_string, res_decrypt
+from extra.extra_date import get_date_range
 from extra.select_shop_date import select_shop_date
 from database import DBManager
 from extra.logger_ import logger
-from extra.settings import EMAIL
+from config import EMAIL
 
 # noqa: E501
 dict_str = {
@@ -25,14 +26,14 @@ dict_str = {
 }
 
 if __name__ == "__main__":
-    db_config = None  # noqa
+    db_config = "rinnai_py"  # noqa
     cc_email = EMAIL
     # db_config = "rinnai_py"  # noqa
-    shop_name_list = ["林内官方旗舰店"]  # 默认采集店铺,如果为[],则采集所有店铺
-    table_name = "pdd_数据中心_商品数据_商品明细_商品明细效果"
+    shop_name_list = ["林内官方旗舰店", "林内八八专卖店", "林内辰之光专卖店"]  # 默认采集店铺,如果为[],则采集所有店铺
+    table_name = "pdd_数据中心_商品数据_商品明细_商品明细效果_202606"
     site = "拼多多"
-    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 1)
-
+    shop_cookies, crawl_day_list = select_shop_date(table_name, site, shop_name_list, 3)
+    # crawl_day_list  = get_date_range('2026-03-20', '2026-04-02')
     for i in shop_cookies:
         cookie = i[1]
         shop_name = i[0]

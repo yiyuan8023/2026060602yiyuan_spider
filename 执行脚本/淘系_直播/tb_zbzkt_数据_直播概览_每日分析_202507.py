@@ -1,4 +1,4 @@
-from API.API_TiaoMaoMySeller import TbLiveDataAPI
+from API.API_TianMaoMySeller import TbLiveDataAPI
 
 from extra.select_shop_date import select_shop_date
 from extra.logger_ import logger

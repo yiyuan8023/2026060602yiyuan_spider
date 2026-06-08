@@ -225,8 +225,8 @@ def process_excel_workbook_no_warning(input_file, output_file):
 # 使用示例
 if __name__ == "__main__":
     # 设置输入和输出文件路径
-    input_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接(202603).xlsx"
-    output_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接(202603)已处理.xlsx"
+    input_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接(202604).xlsx"
+    output_file_ = r"Z:\000数据中台专用\26财务数据02\20240917财务预实分析\00临时文件\预实整体情况表-BI对接(202604)已处理.xlsx"
 
     table_name = "yp_报表管理_目录视图_预实汇总_032001"
     # db_config = None # noqa

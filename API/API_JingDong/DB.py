@@ -1,19 +1,19 @@
 import pymysql
+import os
+import sys
 from pymysql.converters import escape_string
 from log_ import logger
 
-from settings_pass import *
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+from config.jingdong import get_jingdong_database_config
 
 
 class DB:
     def __init__(self):
-        adbparams = dict(
-            host=MYSQL_HOST,
-            db=MYSQL_DBNAME,
-            user=MYSQL_USER,
-            password=MYSQL_PASSWORD,
-            port=MYSQL_PORT,
-        )
+        adbparams = get_jingdong_database_config()
         self.connect = pymysql.connect(**adbparams)
         self.cursor = self.connect.cursor()
 

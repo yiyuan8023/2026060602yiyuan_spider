@@ -13,6 +13,9 @@ ENV/
 .env
 .env.*
 !.env.example
+config/local.json
+config/*.local.json
+!config/local.example.json
 *.pem
 *.key
 *.crt

@@ -1,0 +1,46 @@
+{
+  "mysql": {
+    "test": {
+      "host": "127.0.0.1",
+      "db": "yiyuan_test",
+      "user": "mysql_user",
+      "password": "mysql_password",
+      "port": 3306
+    },
+    "jingdong": {
+      "host": "127.0.0.1",
+      "db": "bc",
+      "user": "mysql_user",
+      "password": "mysql_password",
+      "port": 3306
+    },
+    "jd_import": {
+      "host": "127.0.0.1",
+      "db": "project",
+      "user": "mysql_user",
+      "password": "mysql_password",
+      "port": 3306
+    },
+    "rinnai_import": {
+      "host": "127.0.0.1",
+      "db": "rinnai",
+      "port": 3306
+    }
+  },
+  "smtp": {
+    "host": "smtp.qiye.aliyun.com",
+    "port": 465,
+    "sender": "sender@example.com",
+    "password": "smtp_authorization_code"
+  },
+  "chitu": {
+    "default_password": "",
+    "passwords": {
+      "shop_name": "export_verify_password"
+    }
+  },
+  "paths": {
+    "navicat_backup_root": "C:/path/to/navicat/backups",
+    "database_backup_destination": "Z:/database_backups"
+  }
+}

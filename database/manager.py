@@ -1,7 +1,7 @@
 import pymysql
 
+from config import get_database_config
 from extra.logger_ import logger
-from extra.settings import DATABASE_CONFIGS
 
 from database.repositories import CookieRepositoryMixin
 from database.schema import TableSchemaMixin
@@ -10,12 +10,7 @@ from database.writer import DataWriterMixin
 
 class DBManager(CookieRepositoryMixin, DataWriterMixin, TableSchemaMixin):
     def __init__(self, db_config=None):
-        config_name = db_config or "test"
-        db_params = DATABASE_CONFIGS.get(config_name)
-        if not db_params:
-            raise ValueError(f"未知数据库配置: {config_name}")
-
-        db_params = dict(db_params)
+        db_params = get_database_config(db_config)
         db_params.setdefault("charset", "utf8mb4")
         db_params.setdefault("autocommit", False)
 

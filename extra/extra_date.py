@@ -163,7 +163,7 @@ def get_recent_days(n: int = 3) -> List[str]:
     today = datetime.now()
     date_list = []
 
-    # 从最早的日期到今天的顺序添加
+    # 从昨天往前倒序添加，不包括今天
     for i in range(n):
         date_ = today - timedelta(days=i + 1)
         date_list.append(date_.strftime("%Y-%m-%d"))
@@ -249,6 +249,11 @@ def get_format_timestamp(timestamp):
     Returns:    str: 格式化后的日期字符串 (YYYY-MM-DD)
     """
     if not timestamp:
+        return None
+
+    try:
+        timestamp = float(timestamp)
+    except (TypeError, ValueError):
         return None
 
     # 判断是秒级还是毫秒级时间戳
@@ -339,15 +344,11 @@ def get_recent_months_first_day(n=3) -> List[str]:
     date_list = []
 
     # 从最早的月份到上一个月的顺序添加
-    for i in range(n):
-        # 计算需要回溯的月份
-        target_month = today.month - (n - i)
-        target_year = today.year
-
-        # 处理跨年情况
-        if target_month <= 0:
-            target_year -= 1
-            target_month += 12
+    for months_ago in range(n, 0, -1):
+        # 用月份总数统一处理跨年，避免回溯超过12个月时报错
+        month_index = today.year * 12 + today.month - 1 - months_ago
+        target_year = month_index // 12
+        target_month = month_index % 12 + 1
 
         # 构造每月第一天的日期
         first_day = date(target_year, target_month, 1)
@@ -510,6 +511,9 @@ def get_split_date_range(
         [('2025-01-01', '2025-01-30'), ('2025-01-31', '2025-03-01'), ('2025-03-02', '2025-03-15')]
     """
     # 使用现有函数解析日期
+    if interval_days <= 0:
+        raise ValueError("interval_days 必须大于 0")
+
     start_dt = ensure_datetime(start_date)
     end_dt = ensure_datetime(end_date)
 
@@ -545,8 +549,8 @@ def get_df_min_max_date(df, date_column_name="日期"):
     df[date_column_name] = pd.to_datetime(df[date_column_name])
 
     # 获取日期区间的最小值和最大值
-    min_date = df["日期"].min()
-    max_date = df["日期"].max()
+    min_date = df[date_column_name].min()
+    max_date = df[date_column_name].max()
     logger.info(f"日期区间: {min_date} - {max_date}")
     return min_date, max_date
 

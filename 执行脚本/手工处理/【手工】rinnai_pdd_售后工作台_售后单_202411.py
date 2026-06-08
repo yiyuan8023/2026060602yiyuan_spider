@@ -1,4 +1,4 @@
-from excel.excel_to_db import FileToItems
+from excel_tool.excel_to_db import FileToItems
 from database import DBManager
 from extra.logger_ import logger
 
@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     logger.info(f"\n{'*' * 120}")
 
-    file_path_ = r"E:\1\f7e9050c92a851b0016442ab604b0488_20251212091737.xlsx"  # NOQA
+    file_path_ = r"E:\1\f7e9050c92a851b0016442ab604b0488_20260522084545.xlsx"  # NOQA
     table_name = "rinnai_pdd_售后工作台_售后单_202411"  # noqa
     shop_name = "林内官方旗舰店"
 

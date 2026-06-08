@@ -1,13 +1,13 @@
-from excel.excel_to_db import FileToItems
+from excel_tool.excel_to_db import FileToItems
 from database import DBManager
 from extra.logger_ import logger
 
 if __name__ == "__main__":
     db_config = "rinnai"  # noqa
     # db_config = None
-    password = "f48944"
+    password = "266138"
     logger.info(f"\n{'*' * 120}")
-    file_path_ = r"E:\1\快手小店批量导出-2026-04-27+16_18.xlsx"  # NOQA
+    file_path_ = r"E:\1\快手小店批量导出-2026-05-27+10_37.xlsx"  # NOQA
     table_name = "rinnai_ks_快手小店_订单查询_订单列表_202501"  # noqa
     shop_name = "林内官方旗舰店"
 

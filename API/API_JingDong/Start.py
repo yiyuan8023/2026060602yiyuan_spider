@@ -5,9 +5,15 @@
 # @File : Start.py
 # @Project : JDSZ
 import time
+import os
+import sys
 from copy import deepcopy
 
 import requests
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 from API_Jdsz_Base import CookieFailError
 from email_ import send_email, str_html
@@ -15,7 +21,7 @@ from script import *
 from extra import get_bihome_requirements, getTimeStr
 import argparse
 from log_ import logger, error_logs, error_logs2
-from settings_pass import (
+from config.jingdong import (
     SCRIPT_SET,
     JDSZ_API_SCRIPT_MAP,
     START_DATE_DAYS,

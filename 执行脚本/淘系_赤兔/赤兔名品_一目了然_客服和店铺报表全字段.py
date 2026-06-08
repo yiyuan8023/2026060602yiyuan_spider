@@ -5,6 +5,7 @@ from extra_cookie import cookiejar_to_cookie_str
 from extra_parser import parser_main
 from extra_time import calculate_days_diff_with_range, get_date, split_date_range
 from logger_ import logger
+from config.chitu import get_chitu_password
 
 
 def fetch_customer_it(from_, to_):
@@ -64,7 +65,6 @@ def chitu_clear_a_glance():
 
 
 if __name__ == "__main__":
-    CHITU_PASSWORD = {"小吉旗舰店": "xiaoji123"}
     logger.info("*" * 100)
     logger.info("开始采集：tb_赤兔名品_一目了然_客服和店铺报表全字段")
     start_date, end_data = parser_main()
@@ -86,7 +86,7 @@ if __name__ == "__main__":
             cookie_str = cookiejar_to_cookie_str(cookie_res["content"])
             # 一目了然，初始化
             ChiTuClearAGlance = ChiTuClearAGlanceAPI(
-                cookie_str, CHITU_PASSWORD[shop_name]
+                cookie_str, get_chitu_password(shop_name)
             )
             chitu_clear_a_glance()
         else:

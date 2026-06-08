@@ -6,7 +6,7 @@ from API.API_Pdd.API_Pdd_Base import PddBaseApi
 
 from extra.extra_reqlog import req_log
 from extra.logger_ import logger
-from extra.settings import UA
+from config import UA
 
 
 class PddDataCentre(PddBaseApi):

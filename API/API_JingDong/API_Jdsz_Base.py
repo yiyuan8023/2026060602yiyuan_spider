@@ -12,7 +12,7 @@ import requests
 
 from extra.extra_reqlog import req_log
 from extra.logger_ import logger
-from extra.settings import UA
+from config import UA
 
 # 获取当前执行脚本的绝对路径
 current_path = os.path.dirname(os.path.abspath(__file__))

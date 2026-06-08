@@ -1,4 +1,4 @@
-from API.API_TiaoMaoMySeller.MysellerTrade import MySellerTradeAPI
+from API.API_TianMaoMySeller.MysellerTrade import MySellerTradeAPI
 from extra.select_shop_date import select_shop_date
 from database import DBManager
 from extra.extra_date import get_min_max_timestamps

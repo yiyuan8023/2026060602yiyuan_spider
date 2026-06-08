@@ -6,11 +6,17 @@
 # @Project : JDSZ
 from copy import deepcopy
 from datetime import datetime, timedelta
+import os
+import sys
 
 import requests
 import json
 
-from settings_pass import SCRIPT_SET
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+from config.jingdong import SCRIPT_SET
 
 
 def getTimeStr(timedelta_: int = 0) -> str:

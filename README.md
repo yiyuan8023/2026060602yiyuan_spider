@@ -4,7 +4,7 @@
 
 `yiyuan_spider` 是一个面向电商平台和内部数据处理场景的 Python 数据采集工具箱。项目主要用于从多个平台采集店铺、商品、流量、交易、售后、财务等数据，并将结果清洗后写入 MySQL 或导出为 Excel/CSV 文件。
 
-当前项目不是单一 Web 服务，也不是单一爬虫脚本，而是由平台 API 封装、执行脚本、通用工具、Cookie 管理、Excel 处理和任务调度共同组成的脚本型数据采集仓库。
+当前项目不是单一 Web 服务，也不是单一爬虫脚本，而是由平台 API 封装、执行脚本、通用工具、Cookie 管理和 Excel 处理共同组成的脚本型数据采集仓库。后续任务调度和部署配置统一交由 `F:\05ai_project\2026030502爬虫部署` 维护。
 
 ## 适用场景
 
@@ -22,7 +22,6 @@
 - Playwright
 - pandas / numpy / openpyxl / xlrd
 - PyMySQL / mysql-connector-python
-- APScheduler / schedule
 - loguru
 - ddddocr / fonttools / pillow
 - pdf2image
@@ -37,12 +36,10 @@
 ```text
 yiyuan_spider/
 ├── API/                  # 各平台 API 封装
+├── config/               # 项目配置入口，读取部署环境变量
 ├── cookie_manager/       # Cookie 采集、转换、刷新和浏览器登录维护
-├── excel/                # Excel/CSV 读取、写入、入库工具
+├── excel_tool/           # Excel/CSV 读取、写入、入库工具
 ├── extra/                # 通用基础能力：日志、数据库、日期、请求、解析、文件处理
-├── main/                 # 调度入口和任务配置
-├── setting/              # 程序运行配置
-├── yrx/                  # 零散实验或业务文件
 ├── 执行脚本/              # 具体业务采集脚本
 ├── 测试/                  # 测试和 UI 实验文件
 ├── log/                  # 运行日志目录
@@ -66,10 +63,10 @@ F:\05ai_project\2026060603yiyuan_spider_tool
 | `API_ChiTu` | 赤兔相关接口 |
 | `API_JingDong` | 京东商智相关接口 |
 | `API_Pdd` | 拼多多数据中心相关接口 |
-| `API_ShengCan` | 生意参谋相关接口 |
+| `API_TaoXi_SYCM` | 生意参谋相关接口 |
 | `API_TaoKe` | 淘宝联盟相关接口 |
-| `API_TiaoMaoMySeller` | 淘系商家工作台、直播等相关接口 |
-| `API_Wxt` | 万相台相关接口 |
+| `API_TianMaoMySeller` | 淘系商家工作台、直播等相关接口 |
+| `API_TaoXi_WanXiangTai` | 万相台相关接口 |
 | `API_YingDao` | 影刀相关接口 |
 
 API 层主要负责：
@@ -107,19 +104,28 @@ API 层主要负责：
 -> 记录日志
 ```
 
+### config
+
+`config/` 是项目配置入口，只保留源码默认值和环境变量读取逻辑，不保存真实数据库密码、Cookie 或服务器敏感信息。
+
+| 文件 | 说明 |
+|---|---|
+| `runtime.py` | UA、通知邮箱、日志模式等运行配置 |
+| `database.py` | 数据库配置读取和校验 |
+| `__init__.py` | 对外统一导出配置项 |
+
 ### extra
 
 `extra/` 是项目通用能力层，常用文件包括：
 
 | 文件 | 说明 |
 |---|---|
-| `settings.py` | 全局配置入口，包含 UA、日志开关、数据库配置引用 |
 | `logger_.py` | loguru 日志封装 |
 | `select_shop_date.py` | 获取采集店铺 Cookie 和采集日期 |
 | `extra_date.py` | 日期区间、近期日期、月份周期等日期工具 |
 | `extra_parser.py` | 命令行参数解析 |
-| `downloader.py` | 请求、下载、文件处理辅助 |
-| `extra_excel.py` | Excel 相关辅助 |
+| `downloader/` | 请求、下载、文件解析辅助 |
+| `excel_reader.py` | Excel 读取相关辅助 |
 | `en_to_cn.py` | 英文字段转中文字段 |
 
 ### cookie_manager
@@ -134,9 +140,9 @@ API 层主要负责：
 - 将 Cookie 更新回数据库。
 - 提供 Cookie 字符串解析、随机 UA 等辅助方法。
 
-### excel
+### excel_tool
 
-`excel/` 用于处理本地文件和数据库之间的数据流。
+`excel_tool/` 用于处理本地文件和数据库之间的数据流。
 
 主要能力：
 
@@ -146,50 +152,61 @@ API 层主要负责：
 - 将文件数据写入 MySQL。
 - 将数据导出为 Excel。
 
-### main
-
-`main/` 是任务调度相关目录。
-
-| 文件 | 说明 |
-|---|---|
-| `script_scheduler.py` | 脚本调度器，支持线程池、队列、定时任务、立即执行 |
-| `scheduler_setting.py` | 调度任务清单 |
-
-调度器能力：
-
-- 按脚本路径执行 Python 脚本。
-- 限制最大并发数。
-- 已运行脚本防重复。
-- 超过并发时进入待执行队列。
-- 支持 `time`、`cron`、`date` 三种调度方式。
-
 ## 配置说明
 
-项目当前配置集中在 `extra/settings.py` 以及少量业务脚本中。
+项目当前配置入口位于 `config/`。真实账号、密码、授权码放在项目内的 `config/local.json`，该文件已加入 `.gitignore`，不会上传 Git。
 
 建议长期维护时使用环境变量或 `.env` 文件承载敏感配置。文档中不记录真实账号、密码、服务器地址等敏感值。
 
-推荐配置项示例：
+本地私有配置模板见：
+
+```text
+config/local.example.json
+```
+
+真实配置文件位置：
+
+```text
+config/local.json
+```
+
+如果没有本地配置文件，代码会继续读取环境变量兜底。推荐配置项示例：
 
 ```text
 MYSQL_HOST=<数据库地址>
 MYSQL_PORT=<数据库端口>
-MYSQL_DB=<数据库名或环境名>
+MYSQL_DB=<数据库名>
 MYSQL_USER=<数据库用户名>
 MYSQL_PASSWORD=<数据库密码>
-LOGFILE=1
+MYSQL_CONFIG_NAME=<默认数据库配置名，可选>
+LOG_MODE=file
+YIYUAN_UA=<默认请求 User-Agent，可选>
+YIYUAN_EMAIL=<默认通知邮箱，可选>
+SMTP_HOST=<SMTP服务器，可选>
+SMTP_PORT=<SMTP端口，可选>
+SMTP_SENDER=<发件邮箱，可选>
+SMTP_PASSWORD=<SMTP授权码>
+CHITU_PASSWORD=<赤兔导出校验密码，可选>
+CHITU_PASSWORDS_JSON=<按店铺配置赤兔导出校验密码的JSON，可选>
+NAVICAT_BACKUP_ROOT=<Navicat备份源目录>
+DATABASE_BACKUP_DESTINATION=<数据库备份目标目录，可选>
 PYTHONIOENCODING=utf-8
 ```
+
+多数据库配置可在 `config/local.json` 的 `mysql` 节点中按配置名维护，也可使用带配置名前缀的环境变量，例如 `MYSQL_RINNAI_HOST`、`MYSQL_RINNAI_DB`、`MYSQL_RINNAI_USER`、`MYSQL_RINNAI_PASSWORD`。
+京东采集、京东导入、林内导入等历史脚本分别使用 `MYSQL_JINGDONG_*`、`MYSQL_JD_IMPORT_*`、`MYSQL_RINNAI_IMPORT_*` 前缀。
+赤兔脚本优先读取 `CHITU_PASSWORDS_JSON` 中与店铺名匹配的密码，其次读取统一的 `CHITU_PASSWORD`。
 
 当前代码中常见配置类型：
 
 - 数据库连接配置。
-- 日志输出开关。
+- 日志输出模式：`LOG_MODE=file` 只写文件日志，`LOG_MODE=console` 只输出控制台，`LOG_MODE=both` 文件和控制台同时输出。
 - User-Agent。
 - 采集店铺列表。
 - 目标表名。
 - 采集周期。
-- 调度时间。
+
+调度时间、并发策略和部署环境配置不在本仓库维护，统一放在 `F:\05ai_project\2026030502爬虫部署`。
 
 ## 数据流
 
@@ -210,7 +227,7 @@ PYTHONIOENCODING=utf-8
 
 ```text
 本地 Excel/CSV 文件
--> excel.FileToItems 读取文件
+-> excel_tool.FileToItems 读取文件
 -> DataFrame 转 dict list
 -> DBManager 写入目标表
 -> log 记录导入结果
@@ -241,20 +258,6 @@ playwright install chromium
 
 ```powershell
 python "执行脚本\拼多多\pdd_数据中心_商品数据_商品明细_商品明细效果.py"
-```
-
-### 使用调度器执行
-
-调度器入口：
-
-```powershell
-python "main\scheduler_setting.py"
-```
-
-调度配置位于：
-
-```text
-main/scheduler_setting.py
 ```
 
 ## 命令行参数
@@ -292,7 +295,7 @@ log/
 
 ## 数据库
 
-数据库能力由 `database/` 包提供，旧入口 `extra/db_manager.py` 仅保留兼容导入。
+数据库能力由 `database/` 包提供，脚本统一使用 `from database import DBManager`。
 
 主要功能：
 
@@ -320,7 +323,7 @@ log/
 - 将敏感配置迁移到环境变量或 `.env`。
 - 为常用脚本补充用途、表名、默认店铺、默认周期说明。
 - 统一执行脚本模板，减少每个脚本重复写店铺、日期、入库逻辑。
-- 为调度任务建立独立配置文件，避免路径编码和脚本路径写死。
+- 调度和部署配置集中维护在 `F:\05ai_project\2026030502爬虫部署`，避免在采集源码仓库里继续写死路径。
 
 ## 常见风险
 
@@ -351,4 +354,4 @@ log/
 4. 设置表名、站点、店铺、采集周期。
 5. 生成稳定唯一 key。
 6. 小日期范围测试入库。
-7. 再加入调度配置。
+7. 将任务接入 `F:\05ai_project\2026030502爬虫部署` 的调度配置。

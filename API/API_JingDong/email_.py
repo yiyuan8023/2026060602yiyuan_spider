@@ -6,9 +6,17 @@
 # @Project : ExtraTool
 import re
 import smtplib
+import os
+import sys
 from email.mime.text import MIMEText
 from email.header import Header
 from email.mime.multipart import MIMEMultipart
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+from config import get_smtp_config
 
 
 # shuju_python@bi-cheng.cn 邮箱组
@@ -18,14 +26,8 @@ def send_email(
     receiver_email: list = ["shuju_python@bi-cheng.cn"],
     content_type="text",
 ):
-    # 设置发件人和收件人的邮箱地址
-    sender_email = "sjbi@bi-cheng.cn"
-    # receiver_email = 'junqianshang@bi-cheng.cn'
-    # 邮箱服务器及端口，这里以QQ邮箱为例
-    smtp_server = "smtp.qiye.aliyun.com"
-    smtp_port = 465  # 对于大多数SMTP服务器，使用STARTTLS时默认为587
-    # 邮箱授权码（而不是密码）
-    password = "tZtHOQL5AEw8cGXY"
+    smtp_config = get_smtp_config()
+    sender_email = smtp_config["sender"]
     # 创建邮件正文
     # message_content = '这是一封来自Python程序的测试邮件！'
     msg = MIMEMultipart()
@@ -50,20 +52,16 @@ def send_email(
         # 将html_part附加到根消息
         msg.attach(html_part)
     try:
-        # 连接SMTP服务器并启动安全传输模式
-        server = smtplib.SMTP_SSL(smtp_server, smtp_port)
-        # server.starttls()  # 启用TLS或SSL加密
-        # 登录SMTP服务器
-        server.login(sender_email, password)
-        # 发送邮件
+        server = smtplib.SMTP_SSL(smtp_config["host"], smtp_config["port"])
+        server.login(sender_email, smtp_config["password"])
         server.sendmail(sender_email, receiver_email, msg.as_string())
 
         print("邮件发送成功！")
     except Exception as e:
         print(e.args)
     finally:
-        # 关闭SMTP连接
-        server.quit()
+        if "server" in locals():
+            server.quit()
 
 
 def replace_with_pattern(match):

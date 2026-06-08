@@ -1,7 +1,7 @@
 import random
 from time import sleep
 
-from API.API_TiaoMaoMySeller.MysellerTrade import MySellerTradeAPI
+from API.API_TianMaoMySeller.MysellerTrade import MySellerTradeAPI
 from extra.select_shop_date import select_shop_date
 from database import DBManager
 

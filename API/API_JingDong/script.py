@@ -5,7 +5,13 @@
 # @File : script.py
 # @Project : JDSZ
 import random
+import os
+import sys
 from time import sleep
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 from DB import DB
 from JdSzCustomAPI import JdSzCustomAPI
@@ -16,7 +22,7 @@ from cn_en_map import cn_en_map
 from JdSzTradeAPI import JdSzTradeAPI
 from extra import generate_dates, get_1970_days, format_date
 from log_ import logger
-from settings_pass import WAIT_TIME_MAX, WAIT_TIME_MIN
+from config.jingdong import WAIT_TIME_MAX, WAIT_TIME_MIN
 
 db = DB()
 

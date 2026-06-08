@@ -1,7 +1,7 @@
 # File: TaoKeBaseApi
 
 from extra.logger_ import logger
-from extra.settings import UA
+from config import UA
 
 
 class TaoKeBaseApi(object):

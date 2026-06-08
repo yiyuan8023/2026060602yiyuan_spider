@@ -5,6 +5,7 @@ from extra_cookie import cookiejar_to_cookie_str
 from extra.select_shop_date import select_shop_date
 from extra_time import get_date
 from extra.logger_ import logger
+from config.chitu import get_chitu_password
 
 
 def chitu_shop_performance():
@@ -42,8 +43,6 @@ def product_consultation_analysis(from_, to_):
 
 
 if __name__ == "__main__":
-    CHITU_PASSWORD = {"小吉旗舰店": "xiaoji123"}
-
     shop_name_list = ["林内官方旗舰店"]  # 默认采集店铺,如果为[],则采集所有店铺
     table_name = "tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504"  # NOQA
     site = "淘系_生意参谋"
@@ -62,7 +61,7 @@ if __name__ == "__main__":
         if cookie_res["status"] == 1:
             cookie_str = cookiejar_to_cookie_str(cookie_res["content"])
             # 一目了然，初始化
-            ChiTuObj = ChiTuShopPerformanceAPI(cookie_str, CHITU_PASSWORD[shop_name])
+            ChiTuObj = ChiTuShopPerformanceAPI(cookie_str, get_chitu_password(shop_name))
 
             chitu_shop_performance()
 
