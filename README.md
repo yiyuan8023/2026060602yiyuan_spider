@@ -187,8 +187,6 @@ SMTP_HOST=<SMTP服务器，可选>
 SMTP_PORT=<SMTP端口，可选>
 SMTP_SENDER=<发件邮箱，可选>
 SMTP_PASSWORD=<SMTP授权码>
-CHITU_PASSWORD=<赤兔导出校验密码，可选>
-CHITU_PASSWORDS_JSON=<按店铺配置赤兔导出校验密码的JSON，可选>
 NAVICAT_BACKUP_ROOT=<Navicat备份源目录>
 DATABASE_BACKUP_DESTINATION=<数据库备份目标目录，可选>
 PYTHONIOENCODING=utf-8
@@ -196,7 +194,7 @@ PYTHONIOENCODING=utf-8
 
 多数据库配置可在 `config/local.json` 的 `mysql` 节点中按配置名维护，也可使用带配置名前缀的环境变量，例如 `MYSQL_RINNAI_HOST`、`MYSQL_RINNAI_DB`、`MYSQL_RINNAI_USER`、`MYSQL_RINNAI_PASSWORD`。
 京东采集、京东导入、林内导入等历史脚本分别使用 `MYSQL_JINGDONG_*`、`MYSQL_JD_IMPORT_*`、`MYSQL_RINNAI_IMPORT_*` 前缀。
-赤兔脚本优先读取 `CHITU_PASSWORDS_JSON` 中与店铺名匹配的密码，其次读取统一的 `CHITU_PASSWORD`。
+赤兔导出校验密码写在对应任务脚本的 `SHOP_CONFIGS` 中，和店铺、数据库配置、报表名称放在一起维护。
 
 当前代码中常见配置类型：
 

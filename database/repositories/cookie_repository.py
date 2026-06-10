@@ -28,3 +28,62 @@ class CookieRepositoryMixin:
             f"WHERE {quote_identifier('站点')}=%s;"
         )
         return self.execute_sql(sql, params=[site], fetch=True)
+
+    def select_cookie(self, site: str, shop_name: str):
+        sql = (
+            f"SELECT {quote_identifier('店铺名称')}, {quote_identifier('cookie_str')}, {quote_identifier('cookie')} "
+            f"FROM {quote_identifier('cookie')} "
+            f"WHERE {quote_identifier('站点')}=%s AND {quote_identifier('店铺名称')}=%s "
+            "LIMIT 1;"
+        )
+        rows = self.execute_sql(sql, params=[site, shop_name], fetch=True)
+        return rows[0] if rows else None
+
+    def upsert_cookie(
+        self,
+        site: str,
+        shop_name: str,
+        cookie_str: str,
+        cookie=None,
+        cookie_dict=None,
+        account=None,
+        yingdao_account=None,
+        maintainer_email=None,
+    ):
+        """写入 Cookie 源表 get_cookie；读取仍由 cookie 视图统一合并。"""
+        key = f"{site}|{shop_name}"
+        fields = [
+            "店铺名称",
+            "账号",
+            "站点",
+            "影刀执行账号",
+            "维护人邮箱",
+            "cookie",
+            "cookie_str",
+            "cookie_dict",
+            "key",
+        ]
+        values = [
+            shop_name,
+            account,
+            site,
+            yingdao_account,
+            maintainer_email,
+            cookie,
+            cookie_str,
+            cookie_dict,
+            key,
+        ]
+        insert_fields = ", ".join(quote_identifier(field) for field in fields)
+        placeholders = ", ".join(["%s"] * len(fields))
+        update_fields = [field for field in fields if field != "key"]
+        duplicate_sql = ", ".join(
+            f"{quote_identifier(field)}=VALUES({quote_identifier(field)})"
+            for field in update_fields
+        )
+        sql = (
+            f"INSERT INTO {quote_identifier('get_cookie')} ({insert_fields}) "
+            f"VALUES ({placeholders}) "
+            f"ON DUPLICATE KEY UPDATE {duplicate_sql}, {quote_identifier('updatetime')}=CURRENT_TIMESTAMP;"
+        )
+        self.execute_sql(sql, params=values)
