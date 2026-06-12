@@ -1,58 +1,23 @@
-import json
+"""
+开发说明：
+- 作者：一元
+- 创建时间：2026-06-06 13:28:51
+- 最近修改：2026-06-10 21:05:00
+- 文件用途：手动触发淘系直播中控台 Cookie 准备流程，优先复用已保存直播 Cookie，失效时用生意参谋 Cookie 派生并写回 get_cookie。
+- 业务范围：适用于淘系直播中控台 Cookie 维护，当前默认处理林内官方旗舰店。
+- 依赖入口：调用 API.API_TaoXi_ZhiBo.get_taoxi_zhibo_cookie_header，日志走 extra.logger_。
+- 验收方式：修改后执行 py_compile；真实验证时运行本脚本并确认 get_cookie 中淘系_直播中控台 Cookie 可被直播采集任务复用。
+- 注意事项：本脚本不输出真实 Cookie；自动刷新依赖生意参谋 Cookie JSON 可用。
+"""
 
-from cookie_manager.cookie_collector import cookie_collector
-from cookie_manager.web_cookie_manager import WebCookieManager
-from database import DBManager
+from API.API_TaoXi_ZhiBo import get_taoxi_zhibo_cookie_header
 from extra.logger_ import logger
 
+
+SHOP_NAME_LIST = ["林内官方旗舰店"]
+
+
 if __name__ == "__main__":
-
-    # shop_name_list = ['林内官方旗舰店', '林内厨电旗舰店']  # 默认采集店铺,如果为[],则采集所有店铺
-    shop_name_list = ["林内官方旗舰店"]  # 默认采集店铺,如果为[],则采集所有店铺
-    # shop_name_list = []
-    table_name = "get_cookie"
-    site = "生意参谋"
-    target_site = "淘系_直播中控台"
-    first_url = f"https://login.taobao.com/havanaone/login/login.htm"
-    target_url = f"https://liveplatform.taobao.com/restful/index/live/overview"
-
-    shop_cookies = cookie_collector(site, shop_name_list)
-    # print(shop_cookies)
-
-    for i in shop_cookies:
-        items = {}
-        cookie = i[2]
-        shop_name = i[0]
-        cookieObj = WebCookieManager(first_url, cookie, target_url)
-        result = cookieObj.main()
-
-        if result.get("status") == 1:
-
-            items["店铺名称"] = shop_name
-            items["站点"] = target_site
-            items["key"] = f"{target_site}|{shop_name}"
-
-            # 构建 cookie_json, 将 cookie 转换为 JSON 字符串
-            items["cookie"] = json.dumps(
-                {"url": target_url, "cookies": result.get("content")},
-                ensure_ascii=False,
-            )
-
-            # 构建 cookie 字符串
-            items["cookie_str"] = "; ".join(
-                [
-                    f"{cookie['name']}={cookie['value']}"
-                    for cookie in result.get("content")
-                ]
-            )
-
-            items["cookie_dict"] = json.dumps(
-                {item["name"]: item["value"] for item in result.get("content")}
-            )
-
-            items_list = [items]
-            # print(items_list)
-            DBManager().update_insert_data(items_list, table_name, primary_key="key")
-            logger.info(f"{shop_name}获取cookie成功")
-        else:
-            logger.info(f"{shop_name}获取cookie失败")
+    for shop_name in SHOP_NAME_LIST:
+        get_taoxi_zhibo_cookie_header(shop_name)
+        logger.info(f"{shop_name} 淘系直播 Cookie 准备完成")

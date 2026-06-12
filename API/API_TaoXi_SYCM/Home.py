@@ -1,13 +1,8 @@
-from urllib.parse import urlencode
-
-import requests
-
-from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi
-from extra.extra_reqlog import req_log
+from downloader.core import Downloader
+from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi  # noqa
 from extra.logger_ import logger
 
 from date_utils import get_second_timestamp
-from config import UA
 
 
 class Home(ShengCanBaseApi):
@@ -22,7 +17,7 @@ class Home(ShengCanBaseApi):
         首页数据概览
         :return:
         """
-        api = "https://sycm.taobao.com/portal/coreIndex/new/overview/v2.json?"
+        api = "https://sycm.taobao.com/portal/coreIndex/new/overview/v2.json?"  # noqa
         params = {
             "needCycleCrc": True,
             "dateType": "day",
@@ -30,8 +25,13 @@ class Home(ShengCanBaseApi):
             "_": get_second_timestamp(),
             "token": self.token,
         }
-        url = api + urlencode(params)
         logger.info("请求生意参谋首页数据概览")
-        res = requests.get(url, headers={"User-Agent": UA, "cookie": self.cookie})
-        req_log(res)
+        res = Downloader(
+            api=api,
+            cookie=self.cookie,
+            params=params,
+            context="生意参谋首页数据概览",
+        ).download_web()
+        if not res.ok:
+            return None
         return res.json()

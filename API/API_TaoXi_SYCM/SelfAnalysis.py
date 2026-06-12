@@ -1,13 +1,10 @@
 import json
 import time
-from urllib.parse import urlencode
-from tenacity import retry, stop_after_attempt, wait_fixed
-import requests
-from extra.extra_reqlog import req_log
-from extra.logger_ import logger
-from config import UA
 
-from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi
+from tenacity import retry, stop_after_attempt, wait_fixed
+from extra.logger_ import logger
+
+from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi  # noqa
 from downloader.core import Downloader
 
 
@@ -23,7 +20,7 @@ class SelfAnalysis(ShengCanBaseApi):
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(3))
     def create_report(self, shop_id, start_date, end_date):
         # 【商品-流量来源】创建报表，返回后续下载链路需要的 report_id。
-        url = "https://sycm.taobao.com/lyone/fetchData/createReport.json"
+        url = "https://sycm.taobao.com/lyone/fetchData/createReport.json"  # noqa
         data = {
             "datasource": "电商后台",
             "channelName": "天猫淘宝",
@@ -75,9 +72,14 @@ class SelfAnalysis(ShengCanBaseApi):
         headers = {"content-type": "application/json;charset=UTF-8"}
 
         res = Downloader(
-            api=url, method="post", headers=headers, cookie=self.cookie, json_data=data
+            api=url,
+            method="post",
+            headers=headers,
+            cookie=self.cookie,
+            json_data=data,
+            context="生意参谋自助取数创建商品报表",
         ).download_web()
-        if req_log(res):
+        if res.ok:
             res_json = res.json()
             return res_json["data"]["id"]
         else:
@@ -86,7 +88,7 @@ class SelfAnalysis(ShengCanBaseApi):
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(3))
     def create_report2(self, start_date, end_date):
         # 店铺维度流量来源详情报表，保留独立方法避免和商品维度指标混用。
-        url = "https://sycm.taobao.com/lyone/fetchData/createReport.json"
+        url = "https://sycm.taobao.com/lyone/fetchData/createReport.json"  # noqa
         data = {
             "datasource": "电商后台",
             "channelName": "天猫淘宝",
@@ -128,16 +130,17 @@ class SelfAnalysis(ShengCanBaseApi):
             "endDate": end_date,
         }
 
-        res = requests.post(
-            url,
+        res = Downloader(
+            api=url,
+            method="post",
             headers={
-                "User-Agent": UA,
-                "cookie": self.cookie,
                 "content-type": "application/json;charset=UTF-8",
             },
-            data=json.dumps(data),
-        )
-        if req_log(res):
+            cookie=self.cookie,
+            data=json.dumps(data, ensure_ascii=False),
+            context="生意参谋自助取数创建店铺报表",
+        ).download_web()
+        if res.ok:
             res_json = res.json()
             return res_json["data"]["id"]
         else:
@@ -146,21 +149,20 @@ class SelfAnalysis(ShengCanBaseApi):
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(3))
     def fetch_data_download(self, report_id):
         """触发自助取数报表下载任务。"""
-        api = "https://sycm.taobao.com/lyone/fetchData/download.json?"
+        api = "https://sycm.taobao.com/lyone/fetchData/download.json?"  # noqa
         params = {
             "reportId": report_id,
         }
-        url = api + urlencode(params)
-        res = requests.get(
-            url,
+        res = Downloader(
+            api=api,
+            params=params,
             headers={
-                "User-Agent": UA,
-                "cookie": self.cookie,
-                "refer": f"https://sycm.taobao.com/lyone/auto_analysis/datafetch/report_generation?insertType=sycm&layoutHide=1&useDebug=false&reportId={report_id}&type=create",
+                "refer": f"https://sycm.taobao.com/lyone/auto_analysis/datafetch/report_generation?insertType=sycm&layoutHide=1&useDebug=false&reportId={report_id}&type=create",  # noqa
             },
-        )
-        if req_log(res):
-            res_json = res.json()
+            cookie=self.cookie,
+            context="生意参谋自助取数触发下载",
+        ).download_web()
+        if res.ok:
             return True
         else:
             return False
@@ -168,19 +170,23 @@ class SelfAnalysis(ShengCanBaseApi):
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(3))
     def query_download_url(self, report_id):
         """查询下载地址；status=1 表示下载链接已生成。"""
-        api = "https://sycm.taobao.com/lyone/fetchData/queryDownloadUrl.json?"
+        api = "https://sycm.taobao.com/lyone/fetchData/queryDownloadUrl.json?"  # noqa
         params = {
             "reportId": report_id,
         }
         headers = {
-            "refer": f"https://sycm.taobao.com/lyone/auto_analysis/datafetch/report_generation?"
-            f"insertType=sycm&layoutHide=1&useDebug=false&reportId={report_id}&type=create"
+            "refer": f"https://sycm.taobao.com/lyone/auto_analysis/datafetch/report_generation?"  # noqa
+            f"insertType=sycm&layoutHide=1&useDebug=false&reportId={report_id}&type=create"  # noqa
         }
         res = Downloader(
-            api=api, params=params, headers=headers, cookie=self.cookie
+            api=api,
+            params=params,
+            headers=headers,
+            cookie=self.cookie,
+            context="生意参谋自助取数查询下载地址",
         ).download_web()
 
-        if req_log(res):
+        if res.ok:
             res_json = res.json()
             data = res_json["data"]
             status = data["status"]
@@ -194,3 +200,24 @@ class SelfAnalysis(ShengCanBaseApi):
                 return None
         else:
             return None
+
+    def download_report_excel(self, report_id, max_retry=60, interval=2):
+        """触发并轮询报表下载，返回解析后的 Excel 明细。"""
+        if not report_id:
+            logger.warning("report_id为空，跳过报表下载")
+            return []
+
+        if not self.fetch_data_download(report_id):
+            logger.warning(f"报表下载任务触发失败，report_id={report_id}")
+            return []
+
+        for _ in range(max_retry):
+            file_url = self.query_download_url(report_id)
+            if file_url:
+                logger.info(f"报表生成完成，report_id={report_id}")
+                return Downloader(api=file_url, cookie=self.cookie).download_excel()
+
+            logger.info(f"报表生成中，report_id={report_id}")
+            time.sleep(interval)
+
+        raise TimeoutError(f"生意参谋自助取数报表生成超时，report_id={report_id}")

@@ -1,11 +1,11 @@
-def create_data_mapping(title_index, values):
+def create_data_mapping(source_title_index, source_values):
     """
     将标题索引和对应的值关联起来
     """
     result = {}
-    for title, index in title_index.items():
-        if index < len(values):
-            result[title] = values[index]
+    for title, index in source_title_index.items():
+        if index < len(source_values):
+            result[title] = source_values[index]
         else:
             result[title] = None  # 如果索引超出范围，设为None
     return result

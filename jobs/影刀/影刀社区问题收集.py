@@ -24,4 +24,4 @@ if __name__ == "__main__":
         logger.info(f"影刀社区第【{i}】页的数据已入库")
     logger.info(f"\n{'*' * 120}")
 
-    # python tb_sycm_首页_数据概览_图表_新版_202504.py --start-date=2025-03-27 --end-date=2025-04-18 # NOQA
+    # python tb_sycm_首页_数据概览_图表_新版_202504.py --start-date=2025-03-27 --end-date=2025-04-18 # noqa

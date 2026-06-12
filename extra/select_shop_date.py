@@ -84,7 +84,7 @@ def select_shop_date(
 
 if __name__ == "__main__":
     _shop_name_list = ["林内官方旗舰店"]  # 默认采集店铺,如果为[],则采集所有店铺
-    table_name = "tb_sycm_自助分析_取数_商品_流量来源_所有商品_格式化_202507"  # NOQA
+    table_name = "tb_sycm_自助分析_取数_商品_流量来源_所有商品_格式化_202507"  # noqa
     _site = "生意参谋"
 
     shop_cookiesA, crawl_day_listA = select_shop_date(

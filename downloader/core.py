@@ -1,3 +1,15 @@
+"""
+开发说明：
+- 作者：一元
+- 创建时间：2026-06-08 10:39:40
+- 最近修改：2026-06-10 22:08:17
+- 文件用途：提供项目统一 HTTP 下载入口，封装网页请求、请求日志、文件下载、Excel/CSV/ZIP 解析和下载内容基础校验。
+- 业务范围：适用于 API 模块和任务脚本中普通 HTTP 请求、平台导出文件下载及通用文件解析。
+- 依赖入口：使用 requests、config.UA、extra.extra_reqlog.req_log、extra.logger_、downloader.encoding 和 downloader.parsers。
+- 验收方式：修改后执行 py_compile；通过导入探针和最小 Response 样本验证请求日志参数与 Excel 响应校验逻辑。
+- 注意事项：日志只记录安全 URL 主体，不输出 Cookie、签名 URL、授权参数或完整错误响应内容。
+"""
+
 import io
 from typing import Any, Dict, Optional, Union
 from urllib.parse import urlencode, urlsplit, urlunsplit
@@ -25,6 +37,10 @@ class Downloader:
         data: Optional[Union[Dict, str, bytes]] = None,
         json_data: Optional[Dict] = None,
         timeout: int = 30,
+        context: Optional[str] = None,
+        log_response: bool = True,
+        raise_error: bool = False,
+        log_success: bool = True,
     ):
         self.api = api
         self.method = method.lower()
@@ -36,6 +52,10 @@ class Downloader:
         self.timeout = timeout
         self.json_data = json_data
         self.data = data or {}
+        self.context = context
+        self.log_response = log_response
+        self.raise_error = raise_error
+        self.log_success = log_success
 
     def _build_url(self):
         """构造完整 URL。"""
@@ -59,6 +79,15 @@ class Downloader:
         parts = urlsplit(self.url)
         return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
 
+    def _log_response(self, response: requests.Response, method: str):
+        if self.log_response:
+            req_log(
+                response,
+                context=self.context or f"Downloader {method}",
+                raise_error=self.raise_error,
+                log_success=self.log_success,
+            )
+
     def _make_request_get(self) -> requests.Response:
         """发送 HTTP GET 请求。"""
         try:
@@ -68,7 +97,7 @@ class Downloader:
                 headers=self.default_headers,
                 timeout=self.timeout,
             )
-            req_log(response, context="Downloader GET")
+            self._log_response(response, "GET")
             return response
         except requests.exceptions.RequestException as exc:
             logger.error(f"GET网络请求失败: {exc}")
@@ -96,7 +125,7 @@ class Downloader:
                     headers=self.default_headers,
                     timeout=self.timeout,
                 )
-            req_log(response, context="Downloader POST")
+            self._log_response(response, "POST")
             return response
         except requests.exceptions.RequestException as exc:
             logger.error(f"POST网络请求失败: {exc}")
@@ -113,10 +142,49 @@ class Downloader:
             return self._make_request_get()
         raise ValueError(f"不支持的请求方式: {self.method}")
 
-    def download_file_to_byte(self):
+    @staticmethod
+    def _looks_like_excel(content: bytes):
+        """用文件头识别常见 xlsx/xls，避免把 JSON/HTML 错误页交给 Excel 解析。"""
+        return content.startswith(b"PK\x03\x04") or content.startswith(b"\xd0\xcf\x11\xe0")
+
+    @staticmethod
+    def _safe_content_preview(content: bytes, limit=200):
+        preview = content[:limit].decode("utf-8", errors="replace")
+        return " ".join(preview.split())
+
+    def _validate_excel_response(self, response: requests.Response):
+        content = response.content or b""
+        content_type = response.headers.get("Content-Type", "").lower()
+        content_disposition = response.headers.get("Content-Disposition", "").lower()
+        sample = content[:64].lstrip().lower()
+        header_indicates_excel = (
+            "excel" in content_type
+            or "spreadsheet" in content_type
+            or "application/octet-stream" in content_type
+            or ".xls" in content_disposition
+        )
+
+        if sample.startswith((b"{", b"[")):
+            raise ValueError(
+                f"下载结果不是Excel，疑似JSON错误响应: {self._safe_content_preview(content)}"
+            )
+        if sample.startswith(b"<") and not header_indicates_excel:
+            raise ValueError(
+                f"下载结果不是Excel，疑似HTML错误页: {self._safe_content_preview(content)}"
+            )
+        if not content:
+            raise ValueError("下载结果为空，无法解析为Excel")
+        if not self._looks_like_excel(content) and not header_indicates_excel:
+            raise ValueError(
+                f"下载结果不是可识别Excel，content_type={content_type or 'unknown'}"
+            )
+
+    def download_file_to_byte(self, validate_excel=False):
         """下载文件并返回 BytesIO 对象。"""
         try:
             response = self.download_web()
+            if validate_excel:
+                self._validate_excel_response(response)
             # 统一返回内存文件对象，供 Excel/CSV/ZIP 解析函数复用。
             return io.BytesIO(response.content)
         except requests.exceptions.RequestException as exc:
@@ -126,10 +194,17 @@ class Downloader:
             logger.error(f"处理下载文件时发生未知错误: {exc}")
             raise
 
-    def download_excel(self, sheet_name=0, skiprows=0, engine=None, **read_kwargs):  # NOQA
+    def download_excel(  # NOQA
+        self,
+        sheet_name=0,
+        skiprows=0,
+        engine=None,
+        validate_excel=False,
+        **read_kwargs,
+    ):
         """下载 Excel 并解析为字典列表。"""
         try:
-            data = self.download_file_to_byte()
+            data = self.download_file_to_byte(validate_excel=validate_excel)
             # dtype 等读取细节留给调用方传入，但下载和解析入口仍统一在 downloader。
             return read_excel_records(
                 data,

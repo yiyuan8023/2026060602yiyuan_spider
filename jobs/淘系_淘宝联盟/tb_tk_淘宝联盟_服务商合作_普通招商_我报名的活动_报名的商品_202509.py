@@ -2,7 +2,7 @@
 开发说明：
 - 作者：一元
 - 创建时间：2026-06-06 13:28:51
-- 最近修改：2026-06-08 16:30:08
+- 最近修改：2026-06-08 16:56:21
 - 文件用途：采集淘宝联盟服务商合作普通招商中我报名的活动和报名商品数据，解析后写入目标表。
 - 业务范围：适用于淘宝联盟服务商合作普通招商报名商品数据，当前按店铺和页码采集，与采集日期无直接关系。
 - 依赖入口：调用 API.API_TaoKe.API_TaoKe_MyProducts.TaoKeMyProductApi 获取报名商品数据，使用 select_shop_date 获取店铺 Cookie，使用 DBManager 入库，日志走 extra.logger_。
@@ -30,9 +30,9 @@ TASK_CONFIG = {
 }
 
 
-def extract_items(response_json: dict) -> List[dict]:
+def extract_items(response_data: dict) -> List[dict]:
     """从普通招商报名商品接口返回中提取入库字段。"""
-    body = response_json.get("data", {}).get("result", [])
+    body = response_data.get("data", {}).get("result", [])
     items = []
 
     for loop_item in body:
@@ -63,15 +63,15 @@ def extract_items(response_json: dict) -> List[dict]:
     return items
 
 
-def build_items(items: List[dict], shop_name: str) -> List[dict]:
+def build_items(raw_items: List[dict], item_shop_name: str) -> List[dict]:
     """补充店铺名称，并过滤缺少报名记录主键的数据。"""
     result = []
-    for item in items:
+    for item in raw_items:
         sign_up_record = str(item.get("sign_up_record", "")).strip()
         if not sign_up_record:
             continue
 
-        item["店铺名称"] = shop_name
+        item["店铺名称"] = item_shop_name
         result.append(item)
     return result
 

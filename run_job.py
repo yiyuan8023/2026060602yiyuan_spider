@@ -14,6 +14,7 @@ import argparse
 import os
 import runpy
 import sys
+import traceback
 from pathlib import Path
 from typing import Sequence
 
@@ -45,6 +46,18 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         dest="separator",
         action="store_true",
         help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
+        "--notify-dingtalk",
+        action="store_true",
+        default=None,
+        help="任务失败时发送钉钉通知，需要配置 dingtalk.robot_webhook。",
+    )
+    parser.add_argument(
+        "--no-notify-dingtalk",
+        action="store_false",
+        dest="notify_dingtalk",
+        help="任务失败时不发送钉钉通知，用于临时覆盖本地配置。",
     )
     args, job_args = parser.parse_known_args(argv)
     args.job_args = job_args
@@ -93,12 +106,40 @@ def run_job(job_path: Path, job_args: Sequence[str]) -> None:
         sys.argv = old_argv
 
 
+def _is_success_exit(exc: SystemExit) -> bool:
+    """判断 SystemExit 是否代表正常退出。"""
+    return exc.code in (None, 0)
+
+
+def _notify_job_failure(job_path: Path, exc: BaseException, enabled_override: bool | None) -> None:
+    """任务异常后尝试发送钉钉通知，通知失败不能覆盖原始异常。"""
+    try:
+        from API.API_DingTalk.API_DingTalk_Notify import notify_job_failure
+
+        notify_job_failure(
+            job_path,
+            exc,
+            traceback_text=traceback.format_exc(),
+            enabled_override=enabled_override,
+        )
+    except Exception as notify_exc:  # noqa: BLE001
+        print(f"钉钉失败通知发送失败：{notify_exc}", file=sys.stderr)
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     """命令行入口：解析参数、准备运行环境、执行目标任务。"""
     args = parse_args(argv)
     job_path = resolve_job_path(args.job)
     setup_runtime(args.log_mode, args.keep_cwd)
-    run_job(job_path, args.job_args)
+    try:
+        run_job(job_path, args.job_args)
+    except SystemExit as exc:
+        if not _is_success_exit(exc):
+            _notify_job_failure(job_path, exc, args.notify_dingtalk)
+        raise
+    except Exception as exc:
+        _notify_job_failure(job_path, exc, args.notify_dingtalk)
+        raise
     return 0
 
 

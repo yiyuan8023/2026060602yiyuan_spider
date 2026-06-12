@@ -68,7 +68,8 @@ F:\05ai_project\2026060603yiyuan_spider_tool
 | `API_Pdd` | 拼多多数据中心相关接口 |
 | `API_TaoXi_SYCM` | 生意参谋相关接口 |
 | `API_TaoKe` | 淘宝联盟相关接口 |
-| `API_TianMaoMySeller` | 淘系商家工作台、直播等相关接口 |
+| `API_TaoXi_GongZuoTai` | 淘系商家工作台相关接口 |
+| `API_TaoXi_ZhiBo` | 淘系直播中控台相关接口 |
 | `API_TaoXi_WanXiangTai` | 万相台相关接口 |
 | `API_YingDao` | 影刀相关接口 |
 
@@ -259,11 +260,53 @@ playwright install chromium
 .\.venv\Scripts\python.exe run_job.py "jobs\拼多多\pdd_数据中心_商品数据_商品明细_商品明细效果.py" --log-mode both
 ```
 
-需要给目标任务脚本透传参数时，把参数追加在任务路径后面：
+`run_job.py` 的职责只到运行环境准备和参数透传：
+
+- 第一个位置参数是要执行的任务脚本，例如 `jobs\...\xxx.py`。
+- `--log-mode`、`--keep-cwd`、`--notify-dingtalk`、`--no-notify-dingtalk` 是 runner 自己消费的参数。
+- 其他未知参数会原样传给目标任务脚本，目标脚本里的 `select_shop_date(...)` 可通过 `extra.extra_parser` 读取。
+
+需要给目标任务脚本透传采集参数时，把参数追加在任务路径后面：
 
 ```powershell
 .\.venv\Scripts\python.exe run_job.py "jobs\拼多多\pdd_数据中心_商品数据_商品明细_商品明细效果.py" --log-mode both --start-date 2026-06-01 --end-date 2026-06-07
 ```
+
+外部调度器建议按三段填写：
+
+| 调度器字段 | 推荐值 |
+|---|---|
+| 运行目录 | `F:\05ai_project\2026060602yiyuan_spider` |
+| 脚本文件 | `run_job.py` |
+| 脚本参数 | `"jobs\淘系_直播\tb_zbzkt_数据_直播概览_每日分析_202507.py" --log-mode both` |
+
+如果调度器不自动处理空格或中文路径，任务脚本路径外层加英文双引号。日常定时任务优先只传任务路径和 `--log-mode`，默认店铺、默认周期写在任务脚本的 `TASK_CONFIG` / `SHOP_CONFIGS` 中。
+
+临时补某一天、某个店铺时，再追加日期和店铺参数：
+
+```powershell
+.\.venv\Scripts\python.exe run_job.py "jobs\淘系_直播\tb_zbzkt_数据_直播概览_每日分析_202507.py" --log-mode both --start-date 2026-06-10 --end-date 2026-06-10 --shop-names "林内官方旗舰店"
+```
+
+外部 Python 调度器如果已经在内存中拿到了日期和店铺，不要拼接一整段命令字符串，优先传参数列表：
+
+```python
+from run_job import main as run_job_main
+
+run_job_main([
+    r"jobs\淘系_直播\tb_zbzkt_数据_直播概览_每日分析_202507.py",
+    "--log-mode",
+    "both",
+    "--start-date",
+    day,
+    "--end-date",
+    day,
+    "--shop-names",
+    shop_name,
+])
+```
+
+如果调度器参数框过长，不要把大量店铺名、日期范围或业务配置全部塞进脚本参数。优先把固定配置沉到任务脚本配置区；后续如确实需要大批量动态配置，再扩展 `extra.extra_parser` 支持 `--config state\scheduler\xxx.json` 这类短路径配置。
 
 仍可在项目根目录下直接运行脚本，但这种方式更依赖当前工作目录：
 
@@ -273,14 +316,37 @@ playwright install chromium
 
 ## 命令行参数
 
-部分脚本会通过 `extra.extra_parser` 读取命令行参数，用于覆盖默认采集日期和店铺。
+部分脚本会通过 `select_shop_date(...)` 间接调用 `extra.extra_parser`，读取命令行参数并覆盖默认采集日期和店铺。
 
-具体参数格式需要以 `extra/extra_parser.py` 的实现为准。维护脚本时，应优先确认：
+`extra.extra_parser` 是采集业务参数解析器，不负责设置项目路径、工作目录或日志模式；这些由 `run_job.py` 负责。两者的关系是：
+
+```text
+调度器 / 命令行
+-> run_job.py 解析 runner 参数并透传剩余参数
+-> 目标 jobs 脚本运行
+-> select_shop_date(...)
+-> extra.extra_parser 解析采集参数
+```
+
+当前常用采集参数：
+
+| 参数 | 说明 | 示例 |
+|---|---|---|
+| `--start-date` | 覆盖采集开始日期，格式 `YYYY-MM-DD` | `--start-date 2026-06-01` |
+| `--end-date` | 覆盖采集结束日期，不传时部分日期工具会按单日处理 | `--end-date 2026-06-07` |
+| `--shop-names` | 覆盖任务脚本默认店铺，多个店铺用英文逗号分隔 | `--shop-names "店铺1,店铺2"` |
+| `--mode` | 采集模式，当前定义有 `daily`、`monthly`、`weekly` | `--mode daily` |
+| `--month` | 月模式参数 | `--month 2026-06-01` |
+
+日常调度推荐使用 `daily` 日期范围，也就是 `--start-date` / `--end-date`。`monthly` 和 `weekly` 参数存在于解析器中，但接入具体任务前必须单独验证返回结构、日期口径和目标脚本是否支持。
+
+维护脚本时，应优先确认：
 
 - 是否支持开始日期。
 - 是否支持结束日期。
 - 是否支持指定店铺。
 - 默认采集周期是多少。
+- 是否通过 `select_shop_date(...)` 读取 `extra.extra_parser`。
 
 ## 日志
 

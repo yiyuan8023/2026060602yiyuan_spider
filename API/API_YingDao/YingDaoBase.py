@@ -1,5 +1,4 @@
 from downloader.core import Downloader
-from extra.extra_reqlog import req_log
 from extra.logger_ import logger
 from config import UA
 
@@ -23,9 +22,14 @@ class YingDaoApi:
             "User-Agent": self.ua,
         }
 
-        res = Downloader(api, params=params, headers=headers).download_web()
+        res = Downloader(
+            api,
+            params=params,
+            headers=headers,
+            context="影刀社区问题",
+        ).download_web()
         items = []
-        if req_log(res):
+        if res.ok:
             questions = res.json().get("data", [])
             for question in questions:
                 item = {

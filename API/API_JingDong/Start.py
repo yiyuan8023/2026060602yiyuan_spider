@@ -33,9 +33,9 @@ valid_shop_names, plan_execute_list = get_bihome_requirements()
 valid_programs = SCRIPT_SET
 
 
-def requirement_names_list__dict(requirement_names):
+def requirement_names_list__dict(requirement_name_list):
     d = {}
-    for i in requirement_names:
+    for i in requirement_name_list:
         api = JDSZ_API_SCRIPT_MAP[i][0]
         if api not in d.keys():
             d[api] = [i]
@@ -44,7 +44,7 @@ def requirement_names_list__dict(requirement_names):
     return d
 
 
-def filter_execute_list(execute_list, shop_name, program):
+def filter_execute_list(candidate_execute_list, selected_shop_names, selected_programs):
     """
     把解析到的命令行参数和允许的最大范围的店铺及脚本进行筛选
     :param execute_list:
@@ -53,39 +53,39 @@ def filter_execute_list(execute_list, shop_name, program):
     :return:
     """
     result = []
-    if (not shop_name) and (not program):
+    if (not selected_shop_names) and (not selected_programs):
         result = plan_execute_list
     else:
-        if (not program) and shop_name:
-            for i in execute_list:
-                if i["shop_name"] in shop_name:
+        if (not selected_programs) and selected_shop_names:
+            for i in candidate_execute_list:
+                if i["shop_name"] in selected_shop_names:
                     result.append(i)
                 else:
                     logger.error(f"【{i.get('shop_name')}】不在BIHome执行清单内")
         else:
             islogger = True
-            if (not shop_name) and program:
-                shop_name = valid_shop_names
+            if (not selected_shop_names) and selected_programs:
+                selected_shop_names = valid_shop_names
                 islogger = False
-            for i in execute_list:
+            for i in candidate_execute_list:
                 j = deepcopy(i)
-                if i.get("shop_name") not in shop_name:
+                if i.get("shop_name") not in selected_shop_names:
                     pass
                 else:
                     requirement_names = i.get("requirement_names", [])
-                    req_list = list(set(requirement_names) & set(program))
+                    req_list = list(set(requirement_names) & set(selected_programs))
                     if req_list:
                         j["requirement_names"] = req_list
                         result.append(j)
-                        if set(req_list) != set(program):
+                        if set(req_list) != set(selected_programs):
                             if islogger:
                                 logger.error(
-                                    f"【{i.get('shop_name')}】的BIHome执行清单内没有脚本：{list(set(program) - set(req_list))}"
+                                    f"【{i.get('shop_name')}】的BIHome执行清单内没有脚本：{list(set(selected_programs) - set(req_list))}"
                                 )
                     else:
                         if islogger:
                             logger.error(
-                                f"【{i.get('shop_name')}】的BIHome执行清单内没有脚本：{program}"
+                                f"【{i.get('shop_name')}】的BIHome执行清单内没有脚本：{selected_programs}"
                             )
 
     return result

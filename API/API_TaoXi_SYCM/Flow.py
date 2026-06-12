@@ -1,4 +1,4 @@
-from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi
+from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi  # noqa
 from extra.logger_ import logger
 from downloader.core import Downloader
 from excel_tool.reader import excel_engine, read_excel_dataframe
@@ -10,9 +10,9 @@ class Flow(ShengCanBaseApi):
         self.cookie = cookie
 
     def shop_from__flow_from_build_day(self, day):
-        # tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504  # NOQA
+        # tb_sycm_流量_店铺来源_流量来源构成_整体_无线端_202504  # noqa
 
-        api = "https://sycm.taobao.com/flow/gray/excel.do?"
+        api = "https://sycm.taobao.com/flow/gray/excel.do?"  # noqa
         params = {
             "_path_": "v4/excel/shop/source/v3",
             "device": 2,
@@ -31,9 +31,9 @@ class Flow(ShengCanBaseApi):
             return None
 
     def shop_from__flow_from_build__shop_flow_day(self, day):
-        # 'tb_sycm_流量_店铺来源_流量来源构成_全店来源_新版' # NOQA
+        # 'tb_sycm_流量_店铺来源_流量来源构成_全店来源_新版' # noqa
 
-        api = "https://sycm.taobao.com/flow/gray/excel.do?"
+        api = "https://sycm.taobao.com/flow/gray/excel.do?"  # noqa
         params = {
             "_path_": "v4/excel/shop/source/summay/v4",  # NOQA
             "dateType": "day",
@@ -58,9 +58,9 @@ class Flow(ShengCanBaseApi):
             return []
 
     def goods_from__listen_good_flow_day(self, item_id, day):
-        #  tb_sycm_流量_商品来源_商品来源流量_旧版_202504  # NOQA
+        #  tb_sycm_流量_商品来源_商品来源流量_旧版_202504  # noqa
 
-        api = "https://sycm.taobao.com/flow/excel.do?"
+        api = "https://sycm.taobao.com/flow/excel.do?"  # noqa
         params = {
             "_path_": "v6/excel/item/crowdtype/source/v3",  # NOQA
             "belong": "all",
@@ -85,9 +85,9 @@ class Flow(ShengCanBaseApi):
             return None
 
     def goods_from__listen_good_flow_day_new(self, item_id, day):
-        # tb_sycm_流量_商品来源_商品来源流量_新版_202504 # NOQA
+        # tb_sycm_流量_商品来源_商品来源流量_新版_202504 # noqa
 
-        api = "https://sycm.taobao.com/flow/excel.do?"
+        api = "https://sycm.taobao.com/flow/excel.do?"  # noqa
         params = {
             "_path_": "qzt/item/crowdtype/source/download",  # NOQA
             "dateType": "day",

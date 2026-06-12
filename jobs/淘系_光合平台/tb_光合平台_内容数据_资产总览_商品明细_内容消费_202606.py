@@ -2,7 +2,7 @@
 开发说明：
 - 作者：一元
 - 创建时间：2026-06-06 22:47:55
-- 最近修改：2026-06-08 15:30:05
+- 最近修改：2026-06-08 16:56:21
 - 文件用途：采集光合平台资产总览中商品明细的内容消费数据，补充业务维度后写入目标表。
 - 业务范围：适用于淘系光合平台内容数据，按店铺和统计日期采集商品明细内容消费指标。
 - 依赖入口：调用 API.API_TaoXi_GuangHe.GuangHeAssetOverviewApi 获取和解析数据，使用 select_shop_date 获取店铺 Cookie 和采集日期，使用 DBManager 入库，日志走 extra.logger_。
@@ -13,6 +13,7 @@
 from typing import List
 from API.API_TaoXi_GuangHe import GuangHeAssetOverviewApi
 from database import DBManager
+from date_utils import get_date_range
 from extra.logger_ import logger
 from extra.select_shop_date import select_shop_date
 
@@ -30,28 +31,28 @@ TASK_CONFIG = {
 
 
 def build_items(
-        items: List[dict],
-        shop_name: str,
-        day: str,
-        date_type: str,
-        metric_type: str,
+        raw_items: List[dict],
+        item_shop_name: str,
+        stat_day: str,
+        item_date_type: str,
+        item_metric_type: str,
 ) -> List[dict]:
     """补充店铺、日期、指标类型和唯一 key，生成最终入库数据。"""
     result = []
-    for item in items:
+    for item in raw_items:
         product_id = str(item.get("商品id", "")).strip()
         if not product_id:
             continue
 
         item.update(
             {
-                "店铺名称": shop_name,
-                "统计日期": day,
-                "日期类型": date_type,
-                "指标类型": metric_type,
+                "店铺名称": item_shop_name,
+                "统计日期": stat_day,
+                "日期类型": item_date_type,
+                "指标类型": item_metric_type,
             }
         )
-        item["key"] = f"{day}_{product_id}_{metric_type}_{date_type}_{shop_name}"
+        item["key"] = f"{stat_day}_{product_id}_{item_metric_type}_{item_date_type}_{item_shop_name}"
         result.append(item)
     return result
 
@@ -68,12 +69,9 @@ if __name__ == "__main__":
         recent_days = shop_config["recent_days"]
 
         # select_shop_date 返回店铺 Cookie 和待采集日期，Cookie 字符串使用 shop_cookie[1]。
-        shop_cookies, crawl_day_list = select_shop_date(
-            table_name,
-            site,
-            [shop_name],
-            recent_days,
-        )
+        shop_cookies, crawl_day_list = select_shop_date(table_name, site, [shop_name], recent_days, )
+
+        # crawl_day_list = get_date_range('2026-03-01', '2026-06-07')
 
         for shop_cookie in shop_cookies:
             shop_name = shop_cookie[0]

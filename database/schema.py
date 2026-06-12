@@ -60,6 +60,7 @@ class TableSchemaMixin:
                 self._create_triggers(table_name)
             self.connect.commit()
             logger.info(f"表 `{table_name}` 创建成功")
+            logger.warning(f"创建表成功: table={table_name}, columns={keys}")
         except Exception as e:
             self.connect.rollback()
             logger.error(f"创建表 `{table_name}` 失败: {e}")
@@ -74,6 +75,7 @@ class TableSchemaMixin:
             alter_sql = self._build_alter_table_sql(table_name, columns_to_add, items)
             self.execute_sql(alter_sql)
             logger.info(f"表 {table_name} 已成功添加新字段: {columns_to_add}")
+            logger.warning(f"新增字段成功: table={table_name}, columns={columns_to_add}")
 
     def _get_existing_columns(self, table_name):
         sql = f"SHOW COLUMNS FROM {quote_identifier(table_name)};"

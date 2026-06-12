@@ -1,13 +1,8 @@
-from urllib.parse import urlencode
-import requests
-
 from downloader.core import Downloader
 from extra.extra_error import handle_request_error
-from extra.extra_reqlog import req_log
 
-from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi
+from API.API_TaoXi_SYCM.ShengCanBase import ShengCanBaseApi  # noqa
 from extra.logger_ import logger
-from config import UA
 from date_utils import get_millisecond_timestamp, get_second_timestamp
 
 
@@ -19,7 +14,7 @@ class Goods(ShengCanBaseApi):
     def good_rank__all_good_day(self, day):
         # tb_sycm_商品_商品排行_全部商品_202504 # noqa
 
-        api = "https://sycm.taobao.com/cc/item/view/excel/top.json?"
+        api = "https://sycm.taobao.com/cc/item/view/excel/top.json?"  # noqa
         params = {
             # "dateRange": f"{get_date(days)}|{get_date(days)}",
             "dateRange": f"{day}|{day}",
@@ -46,22 +41,22 @@ class Goods(ShengCanBaseApi):
         try:
             items = Downloader(
                 api=api, cookie=self.cookie, params=params
-            ).download_excel(skiprows=4, engine="xlrd")
+            ).download_excel(skiprows=4, engine="xlrd", dtype={"商品ID": str})
 
             return items
 
-        except Exception as e:
-            return handle_request_error(e)
+        except Exception as exc:
+            return handle_request_error(exc, context="生意参谋商品排行下载")
 
     def category_360__flow_from(self, daterange, cate_id):
         """
-        tb_sycm_商品_品类360_流量分析_流量来源_202504
+        tb_sycm_商品_品类360_流量分析_流量来源_202504  # noqa
         :param daterange:
         :param cate_id: 品类ID
         :return:接口返回的JSON数据或None
         """  # noqa
 
-        api = "https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?"
+        api = "https://sycm.taobao.com/cc/category/flow/source/overview/v3.json?"  # noqa
         params = {
             "dateRange": daterange,
             "dateType": "month",
@@ -77,29 +72,33 @@ class Goods(ShengCanBaseApi):
         }
 
         headers = {
-            "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cate_id}"
+            "referer": f"https://sycm.taobao.com/cc/cate_archives?activeKey=flow&cateId={cate_id}"  # noqa
             f"&dateRange={daterange}&dateType=month"
         }
 
         try:
             res = Downloader(
-                api=api, cookie=self.cookie, params=params, headers=headers
+                api=api,
+                cookie=self.cookie,
+                params=params,
+                headers=headers,
+                context="生意参谋品类360流量来源",
             ).download_web()
-            if req_log(res):
+            if res.ok:
                 return res.json()
             else:
                 logger.warning("请求返回为空或请求日志记录失败")
                 return None
 
-        except Exception as e:
-            return handle_request_error(e)
+        except Exception as exc:
+            return handle_request_error(exc, context="生意参谋品类360流量来源")
 
     def goods_360__title_drainage(self, daterange, itemid):
         """
         商品》》商品360》》标题与选词引流优化
         :return:
         """
-        api = "https://sycm.taobao.com/cc/item/title/v2/word/list.json?"
+        api = "https://sycm.taobao.com/cc/item/title/v2/word/list.json?"  # noqa
         params = {
             "dateRange": daterange,
             "dateType": "day",
@@ -111,29 +110,29 @@ class Goods(ShengCanBaseApi):
             "device": 0,
             "kwType": "se_keyword",
             "indexCode": "uv,payOrderByrCnt,payConveRate",  # noqa
-            "_": get_second_timestamp,
+            "_": get_second_timestamp(),
             "token": self.token,
         }
-        url = api + urlencode(params)
-        headers = {
-            "User-Agent": UA,
-            "cookie": self.cookie,
-        }
-        res = requests.get(url, headers=headers)
-        if req_log(res):
+        res = Downloader(
+            api=api,
+            cookie=self.cookie,
+            params=params,
+            context="生意参谋商品360标题引流",
+        ).download_web()
+        if res.ok:
             return res.json()
         else:
             return None
 
     def goods_360__title_drainage_excel(self, daterange, itemid):
         """
-        table_name = "tb_sycm_商品_商品360_标题优化_搜索词_202504"
+        table_name = "tb_sycm_商品_商品360_标题优化_搜索词_202504"  # noqa
         :param daterange: 日期区间
         :param itemid: 类目id
         :return:
         """  # noqa
 
-        api = "https://sycm.taobao.com/cc/item/title/word/excel.json?"
+        api = "https://sycm.taobao.com/cc/item/title/word/excel.json?"  # noqa
         params = {
             "itemId": itemid,
             "device": 0,
@@ -145,17 +144,17 @@ class Goods(ShengCanBaseApi):
         try:
             items = Downloader(
                 api=api, cookie=self.cookie, params=params
-            ).download_excel(skiprows=5)
+            ).download_excel(skiprows=5, dtype={"搜索词": str})
             return items
-        except Exception as e:
+        except Exception as exc:
             logger.warning("请求返回为空或请求日志记录失败")
-            return handle_request_error(e)
+            return handle_request_error(exc, context="生意参谋标题优化搜索词下载")
 
     def recommend_analysis_single_excel(self, day):
         # tb_sycm_内容_渠道效果_推荐_单条效果_微详情视频_全部内容_202507 # noqa
 
         api = (
-            r"https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"
+            r"https://sycm.taobao.com/s_content/recommend/analysis/single/export.json?"  # noqa
         )
         params = {
             "contentSource": "all",
@@ -167,8 +166,8 @@ class Goods(ShengCanBaseApi):
         try:
             items = Downloader(
                 api=api, cookie=self.cookie, params=params
-            ).download_excel(skiprows=5)
+            ).download_excel(skiprows=5, dtype={"视频id": str})
             return items
 
-        except Exception as e:
-            return handle_request_error(e)
+        except Exception as exc:
+            return handle_request_error(exc, context="生意参谋推荐单条效果下载")

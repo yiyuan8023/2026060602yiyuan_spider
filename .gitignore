@@ -23,6 +23,7 @@ config/*.local.json
 # Logs and runtime output
 log/
 logs/
+state/
 *.log
 *.log.zip
 

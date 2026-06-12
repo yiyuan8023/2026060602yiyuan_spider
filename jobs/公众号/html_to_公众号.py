@@ -175,7 +175,7 @@ def convert_html_to_wechat_format(html_content):
     return converter.get_wechat_html()
 
 
-def batch_convert_html_files(source_folder, target_folder):
+def batch_convert_html_files(source_dir, target_dir):
     """
     批量将HTML文件转换为微信公众号格式
 
@@ -184,13 +184,13 @@ def batch_convert_html_files(source_folder, target_folder):
         target_folder (str): 目标文件夹路径
     """
     # 创建目标文件夹（如果不存在）
-    Path(target_folder).mkdir(parents=True, exist_ok=True)
+    Path(target_dir).mkdir(parents=True, exist_ok=True)
 
     # 统计转换文件数量
     converted_count = 0
 
     # 遍历源文件夹中的所有文件
-    for root, dirs, files in os.walk(source_folder):
+    for root, dirs, files in os.walk(source_dir):
         for file in files:
             # 检查是否为HTML文件
             if file.lower().endswith((".html", ".htm")):
@@ -214,10 +214,10 @@ def batch_convert_html_files(source_folder, target_folder):
                 wechat_html_content = convert_html_to_wechat_format(html_content)
 
                 # 计算相对于源文件夹的路径
-                relative_path = os.path.relpath(source_file_path, source_folder)
+                relative_path = os.path.relpath(source_file_path, source_dir)
                 # 生成目标文件路径，保持目录结构
                 target_file_path = os.path.join(
-                    target_folder, os.path.splitext(relative_path)[0] + "_wechat.html"
+                    target_dir, os.path.splitext(relative_path)[0] + "_wechat.html"
                 )
 
                 # 创建目标文件的目录（如果不存在）
@@ -232,8 +232,8 @@ def batch_convert_html_files(source_folder, target_folder):
                 converted_count += 1
 
     print(f"\n转换完成! 共转换 {converted_count} 个文件。")
-    print(f"源文件夹: {source_folder}")
-    print(f"目标文件夹: {target_folder}")
+    print(f"源文件夹: {source_dir}")
+    print(f"目标文件夹: {target_dir}")
 
 
 # 执行批量转换

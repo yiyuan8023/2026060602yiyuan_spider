@@ -1,7 +1,6 @@
 from cookie_manager.extra_cookie import get_cookie_value
 from downloader.core import Downloader
 from date_utils import get_millisecond_timestamp
-from extra.extra_reqlog import req_log
 from extra.logger_ import logger
 from config import UA
 
@@ -40,10 +39,15 @@ class TaoKeDingXiangApi:
             "cookie": self.cookie,
         }
 
-        res = Downloader(api, params=params, headers=headers).download_web()
+        res = Downloader(
+            api,
+            params=params,
+            headers=headers,
+            context="淘宝客定向计划报表",
+        ).download_web()
 
         items = []
-        if req_log(res):
+        if res.ok:
             questions = res.json().get("data", {}).get("data", [])
             for question in questions:
                 item = {

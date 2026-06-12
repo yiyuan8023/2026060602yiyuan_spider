@@ -107,7 +107,10 @@ jobs 任务脚本层
 - 根目录 `run_job.py` 是任务脚本推荐启动入口。
 - `run_job.py` 负责设置项目根目录、`sys.path`、工作目录和 `LOG_MODE`，再执行目标任务脚本。
 - 调度器优先调用 `run_job.py "jobs\...\xxx.py"`，不要依赖调度器当前工作目录。
+- 调度器字段按三段配置：运行目录填项目根目录，脚本文件填 `run_job.py`，脚本参数填目标任务脚本路径和少量运行参数。
+- `run_job.py` 只消费 runner 参数，例如 `--log-mode`、`--keep-cwd`、钉钉通知开关；采集日期、店铺等业务参数必须透传给目标脚本处理。
 - 单个任务脚本仍应保持业务编排职责，不应各自堆重复启动补丁。
+- 不把大量店铺、日期、业务配置塞进调度器脚本参数；固定配置优先沉到任务脚本的 `TASK_CONFIG` / `SHOP_CONFIGS`，大批量动态配置后续通过短路径配置文件能力扩展。
 
 ### 4.3 `downloader/`
 
@@ -138,7 +141,7 @@ from downloader.core import Downloader
 - 跨模块通用辅助能力。
 - 日志入口。
 - 请求日志入口。
-- 命令行参数解析。
+- 采集命令行参数解析。
 - 店铺日期选择。
 - 路径、文件、字段转换、错误摘要等轻量工具。
 
@@ -153,6 +156,15 @@ from extra.extra_reqlog import req_log
 
 - 不直接在业务模块导入 `loguru.logger`。
 - 不在业务模块调用 `logger.add(...)`、`logger.remove(...)`。
+- 不把 `run_job.py` 的启动职责搬进 `extra.extra_parser`。
+- 不让 `extra.extra_parser` 直接承担调度器、路径初始化、日志初始化或任务执行职责。
+
+`extra.extra_parser` 使用边界：
+
+- 它只解析目标任务脚本需要的采集参数，例如 `--start-date`、`--end-date`、`--shop-names`、`--mode`、`--month`。
+- 它通常由 `select_shop_date(...)` 间接调用，用于覆盖任务脚本默认店铺和默认日期范围。
+- 它解析的是 `run_job.py` 透传后的目标脚本参数，不解析 `run_job.py` 自己的 runner 参数。
+- `daily` 日期范围是当前推荐调度口径；`monthly`、`weekly` 接入具体任务前必须先验证返回结构和任务兼容性。
 - 不新增 `extra.extra_date.py`。
 - 不新增 `extra.excel_reader.py`。
 

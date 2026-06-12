@@ -2,7 +2,7 @@
 开发说明：
 - 作者：一元
 - 创建时间：2026-06-06 13:28:51
-- 最近修改：2026-06-08 16:30:08
+- 最近修改：2026-06-08 16:56:21
 - 文件用途：采集淘宝联盟商品分析数据，按店铺、日期和计划类型创建并下载报表后写入目标表。
 - 业务范围：适用于淘宝联盟商品分析页面，覆盖超级 U 选、超级淘客、普通招商、营销计划、自选计划和通用计划等计划类型。
 - 依赖入口：调用 API.API_TaoKe.API_TaoKe_Good.TaoKeGoodAnalysisApi 创建和下载报表，使用 select_shop_date 获取店铺 Cookie 和日期，使用 DBManager 入库，日志走 extra.logger_。
@@ -39,22 +39,27 @@ TASK_CONFIG = {
 }
 
 
-def build_items(items: List[dict], shop_name: str, day: str, plan_type: str) -> List[dict]:
+def build_items(
+        raw_items: List[dict],
+        item_shop_name: str,
+        stat_day: str,
+        item_plan_type: str,
+) -> List[dict]:
     """补充店铺、统计日期、计划类型和唯一 key，生成最终入库数据。"""
     result = []
-    for item in items:
+    for item in raw_items:
         product_id = str(item.get("商品ID", "")).strip()
         if not product_id:
             continue
 
         item.update(
             {
-                "店铺名称": shop_name,
-                "统计日期": day,
-                "计划类型": plan_type,
+                "店铺名称": item_shop_name,
+                "统计日期": stat_day,
+                "计划类型": item_plan_type,
             }
         )
-        item["key"] = f"{product_id}_{shop_name}_{plan_type}_{day}"
+        item["key"] = f"{product_id}_{item_shop_name}_{item_plan_type}_{stat_day}"
         result.append(item)
     return result
 
@@ -82,11 +87,7 @@ if __name__ == "__main__":
             for level_config in TASK_CONFIG["level3_dims"]:
                 plan_type = level_config["name"]
                 level3_dim = level_config["value"]
-                api = TaoKeGoodAnalysisApi(
-                    cookie,
-                    name_suffix=plan_type,
-                    level3_dim=level3_dim,
-                )
+                api = TaoKeGoodAnalysisApi(cookie, name_suffix=plan_type, level3_dim=level3_dim, )
 
                 task_status_list_res = api.goods_task_status_list()
                 finish_task, _un_finish_task = api.get_task_status_list(
@@ -94,11 +95,7 @@ if __name__ == "__main__":
                 )
 
                 for day in crawl_day_list:
-                    api.create_goods_analysis_task(
-                        start_time=day,
-                        end_time=day,
-                        finish_task=finish_task,
-                    )
+                    api.create_goods_analysis_task(start_time=day, end_time=day, finish_task=finish_task, )
 
                 finished_days = set()
                 poll_count = 0

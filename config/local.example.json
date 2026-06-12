@@ -39,6 +39,19 @@
       "shop_name": "export_verify_password"
     }
   },
+  "dingtalk": {
+    "client_id": "your_client_id_or_app_key",
+    "client_secret": "your_client_secret_or_app_secret",
+    "robot_webhook": "your_custom_robot_webhook",
+    "robot_secret": "",
+    "reply_prefix": "收到：",
+    "operator_id": "",
+    "user_id": "",
+    "notify_enabled": false,
+    "notify_at_mobiles": [],
+    "notify_is_at_all": false,
+    "notify_use_card": false
+  },
   "paths": {
     "navicat_backup_root": "C:/path/to/navicat/backups",
     "database_backup_destination": "Z:/database_backups"
