@@ -122,6 +122,37 @@ class PddBaseApi:
             logger.error(f"{context} 返回内容不是 JSON，已跳过解析")
             return None
 
+    def get_json(
+        self,
+        url: str,
+        *,
+        params: Optional[Dict[str, Any]] = None,
+        headers: Optional[Dict[str, str]] = None,
+        context: str,
+    ) -> Optional[Dict[str, Any]]:
+        """发送 JSON GET 请求，只返回平台原始 JSON。"""
+        try:
+            response = requests.get(
+                url=url,
+                params=params,
+                headers=headers or self.build_headers(),
+                timeout=REQUEST_TIMEOUT,
+            )
+        except requests.RequestException as exc:
+            logger.error(f"{context} 请求异常，已跳过解析：{exc}")
+            return None
+
+        req_log(response, context=context)
+        if response.status_code != 200:
+            logger.warning(f"{context} 请求失败，状态码：{response.status_code}")
+            return None
+
+        try:
+            return response.json()
+        except ValueError:
+            logger.error(f"{context} 返回内容不是 JSON，已跳过解析")
+            return None
+
     @logger.catch
     def get_web_spider_rule(self) -> Optional[Dict[str, Optional[str]]]:
         """获取 web_spider_rule 参数和 ttf 字体链接。"""

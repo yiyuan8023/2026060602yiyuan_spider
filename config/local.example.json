@@ -33,6 +33,15 @@
     "sender": "sender@example.com",
     "password": "smtp_authorization_code"
   },
+  "mailbox": {
+    "host": "imap.163.com",
+    "port": 993,
+    "username": "your_163_account@163.com",
+    "password": "your_163_imap_authorization_code",
+    "folder": "INBOX",
+    "use_ssl": true,
+    "timeout": 30
+  },
   "chitu": {
     "default_password": "",
     "passwords": {

@@ -25,7 +25,13 @@ TASK_CONFIG = {
     "max_pages": 20,
     "shops": [
         {
-            "shop_names": ["林内官方旗舰店", "林内八八专卖店", "林内辰之光专卖店"],
+            "shop_names": [
+                "林内官方旗舰店",
+                # "林内八八专卖店",
+                # "林内辰之光专卖店"
+            ],
+
+
             "db_config": "rinnai_py",  # noqa
             "recent_days": 3,
         },
