@@ -435,7 +435,7 @@ if __name__ == "__main__":
     # 场景3: 直接使用提取函数处理邮件对象
     print("\n直接使用邮箱 API 返回结果做提取:")
 
-    recent_messages = api.fetch_recent_messages(limit=50)
+    recent_messages = api.fetch_recent_messages(limit=10)
     for message in recent_messages:
         # 分别提取验证码和密码
         verification_result = extract_verification_code_from_message(message)
