@@ -52,6 +52,17 @@ test-results/
 playwright-report/
 blob-report/
 
+# TaoXi login local artifacts
+API_login/API_TaoXi_login/config.json
+API_login/API_TaoXi_login/recycle_bin/
+API_login/API_TaoXi_login/**/taobao_cookies*.json
+API_login/API_TaoXi_login/**/taobao_cookies*.txt
+API_login/API_TaoXi_login/**/debug*.png
+API_login/API_TaoXi_login/**/manual_debug*.png
+API_login/API_TaoXi_login/**/captured/
+API_login/API_TaoXi_login/**/captured_requests.json
+API_login/API_TaoXi_login/**/_[!_]*.py
+
 # OS and editor noise
 .DS_Store
 Thumbs.db
