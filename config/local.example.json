@@ -48,6 +48,48 @@
       "shop_name": "export_verify_password"
     }
   },
+  "taobao_login": {
+    "table_name": "get_cookie",
+    "site": "生意参谋",
+    "recent_days": 1,
+    "manual_timeout": 300,
+    "defaults": {
+      "timeout": 30,
+      "max_retries": 3,
+      "retry_delay": 5,
+      "slider_retry": 4,
+      "validate_url": "https://myseller.taobao.com/home.htm",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    },
+    "shops": [
+      {
+        "shop_name": "示例店铺",
+        "login_id": "主账号:子账号",
+        "password": "登录密码"
+      }
+    ]
+  },
+  "dchain_login": {
+    "table_name": "get_cookie",
+    "site": "DChain",
+    "recent_days": 1,
+    "manual_timeout": 300,
+    "defaults": {
+      "timeout": 30,
+      "max_retries": 3,
+      "retry_delay": 5,
+      "slider_retry": 4,
+      "validate_url": "https://web.scm.tmall.com/",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    },
+    "shops": [
+      {
+        "shop_name": "DChain_示例账号",
+        "login_id": "账号名",
+        "password": "登录密码"
+      }
+    ]
+  },
   "dingtalk": {
     "client_id": "your_client_id_or_app_key",
     "client_secret": "your_client_secret_or_app_secret",
@@ -57,6 +99,7 @@
     "operator_id": "",
     "user_id": "",
     "notify_enabled": false,
+    "notify_keyword": "",
     "notify_at_mobiles": [],
     "notify_is_at_all": false,
     "notify_use_card": false

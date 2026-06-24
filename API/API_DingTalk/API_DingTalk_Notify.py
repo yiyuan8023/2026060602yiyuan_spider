@@ -3,7 +3,7 @@
 开发说明：
 - 作者：一贯
 - 创建时间：2026-06-11 06:29:55
-- 最近修改：2026-06-11 06:29:55
+- 最近修改：2026-06-15 15:58:02
 - 文件用途：封装钉钉任务通知模板，重点支持 run_job.py 任务异常后的机器人告警。
 - 业务范围：适用于本项目 jobs 任务、调度器和手动脚本的失败通知、成功通知和简短运行摘要通知。
 - 依赖入口：使用 pathlib、traceback、API_DingTalk_Base 和 API_DingTalk_Message。
@@ -44,6 +44,10 @@ def _tail_traceback(traceback_text: str | None) -> str:
     return "\n".join(lines[-MAX_TRACEBACK_LINES:])
 
 
+def _normalize_keyword(value: Any) -> str:
+    return str(value or "").strip()
+
+
 class DingTalkJobNotifier:
     """任务运行结果钉钉通知器。"""
 
@@ -55,12 +59,14 @@ class DingTalkJobNotifier:
         at_mobiles: list[str] | None = None,
         is_at_all: bool = False,
         use_card: bool = False,
+        notify_keyword: str = "",
     ) -> None:
         self.sender = sender
         self.enabled = enabled
         self.at_mobiles = at_mobiles or []
         self.is_at_all = is_at_all
         self.use_card = use_card
+        self.notify_keyword = _normalize_keyword(notify_keyword)
 
     @classmethod
     def from_config(cls, *, enabled_override: bool | None = None) -> "DingTalkJobNotifier":
@@ -79,6 +85,9 @@ class DingTalkJobNotifier:
             get_config_value("DINGTALK_NOTIFY_USE_CARD", "notify_use_card", False, section=section),
             default=False,
         )
+        notify_keyword = _normalize_keyword(
+            get_config_value("DINGTALK_NOTIFY_KEYWORD", "notify_keyword", "", section=section)
+        )
         sender = DingTalkWebhookSender() if enabled else None
         return cls(
             sender=sender,
@@ -86,12 +95,22 @@ class DingTalkJobNotifier:
             at_mobiles=at_mobiles,
             is_at_all=is_at_all,
             use_card=use_card,
+            notify_keyword=notify_keyword,
         )
+
+    def _apply_keyword(self, title: str, text: str) -> tuple[str, str]:
+        """满足钉钉机器人关键词安全策略。"""
+        if not self.notify_keyword:
+            return title, text
+        if self.notify_keyword in title or self.notify_keyword in text:
+            return title, text
+        return f"{self.notify_keyword} {title}", f"**{self.notify_keyword}**\n\n{text}"
 
     def send_markdown(self, title: str, text: str) -> dict[str, Any] | None:
         """按通知配置发送 Markdown。"""
         if not self.enabled or not self.sender:
             return None
+        title, text = self._apply_keyword(title, text)
         return self.sender.send_markdown(
             title,
             _truncate(text),
@@ -124,8 +143,9 @@ class DingTalkJobNotifier:
         if not self.enabled or not self.sender:
             return None
         if self.use_card:
+            title, text = self._apply_keyword(title, text)
             return self.sender.send_action_card(title=title, text=_truncate(text), single_title="我知道了", single_url="")
-        return self.sender.send_markdown(title, text, at_mobiles=self.at_mobiles, is_at_all=self.is_at_all)
+        return self.send_markdown(title, text)
 
     def send_job_success(self, job_path: str | Path, summary: str = "任务执行完成") -> dict[str, Any] | None:
         """发送任务成功通知。"""

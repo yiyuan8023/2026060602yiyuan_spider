@@ -22,11 +22,13 @@ from typing import Any
 from extra.logger_ import logger
 
 try:
-    from ..taobao_login import DEFAULT_COOKIE_SITE, DEFAULT_COOKIE_URL, cookie_dict_to_header
+    from ..API_TaoXi_SYCM_login import DEFAULT_COOKIE_SITE, DEFAULT_COOKIE_URL
+    from ..API_TaoXi_base_login import cookie_dict_to_header
 except ImportError:
-    from API_login.API_TaoXi_login.taobao_login import (
-        DEFAULT_COOKIE_SITE, DEFAULT_COOKIE_URL, cookie_dict_to_header,
+    from API_login.API_TaoXi_login.API_TaoXi_SYCM_login import (
+        DEFAULT_COOKIE_SITE, DEFAULT_COOKIE_URL,
     )
+    from API_login.API_TaoXi_login.API_TaoXi_base_login import cookie_dict_to_header
 # 人工介入复用自动化模块的浏览器填表助手（跨包引用 auto_login）
 try:
     from ..auto_login.taobao_login_auto import (

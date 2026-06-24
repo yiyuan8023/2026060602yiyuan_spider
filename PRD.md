@@ -82,6 +82,30 @@ jobs 任务脚本层
 - 不在 API 层绕开 downloader 自己写一次性下载器。
 - 不在 API 层写数据库 cookie 拼接 SQL。
 
+### 4.1.1 `API_login/`
+
+职责：
+
+- 平台登录态验证。
+- 登录 Cookie 刷新。
+- 协议登录、安全参数提取、自动化登录兜底等平台登录细节。
+- Cookie 字符串、浏览器 Cookie JSON、Cookie dict 之间的结构转换。
+- 将刷新后的 Cookie 写入 `get_cookie`。
+
+硬规范：
+
+- 登录 API 层不写最终业务采集表名。
+- 登录 API 层不维护店铺列表批处理逻辑。
+- 登录 API 层不打印真实账号密码、完整 Cookie、Webhook、数据库密码。
+- 派生 Cookie 或平台登录 Cookie 刷新，优先放在 `API_login/<平台登录模块>`。
+- 读取优先走数据库 `cookie` 面，写入走 `get_cookie`，不要在 API 层拼接裸 SQL。
+
+当前重点模块：
+
+| 模块 | 说明 |
+|---|---|
+| `API_login/API_TaoXi_login` | 淘系 Havana 登录 Cookie 准备能力（SYCM + DChain），含协议登录、Cookie 验证刷新、`asyncUrls` 补全、IV 短信求解、浏览器自动化兜底和写库 |
+
 ### 4.2 `jobs/`
 
 职责：
@@ -111,6 +135,24 @@ jobs 任务脚本层
 - `run_job.py` 只消费 runner 参数，例如 `--log-mode`、`--keep-cwd`、钉钉通知开关；采集日期、店铺等业务参数必须透传给目标脚本处理。
 - 单个任务脚本仍应保持业务编排职责，不应各自堆重复启动补丁。
 - 不把大量店铺、日期、业务配置塞进调度器脚本参数；固定配置优先沉到任务脚本的 `TASK_CONFIG` / `SHOP_CONFIGS`，大批量动态配置后续通过短路径配置文件能力扩展。
+
+### 4.2.1 `jobs_login/`
+
+职责：
+
+- 登录 Cookie 准备任务入口。
+- 从 `config/local.json` 读取多店铺登录配置。
+- 调用 `select_shop_date(...)` 获取数据库已有 Cookie。
+- 按店铺调用 `API_login` 模块完成验证、刷新和写库。
+- 单店铺失败时记录日志、发送通知并继续后续店铺。
+- 汇总输出成功、失败和跳过结果。
+
+硬规范：
+
+- 登录任务脚本可以定义 `table_name`、`site`、`recent_days` 和店铺配置读取规则。
+- 账号密码只从本地私有配置读取，不写入代码、文档或日志。
+- 单店铺失败不得直接中断整个批次，除非配置文件整体不可读或缺少必要结构。
+- 推荐通过 `run_job.py "jobs_login\xxx.py"` 启动。
 
 ### 4.3 `downloader/`
 
@@ -283,18 +325,15 @@ from excel_tool.reader import read_excel_dataframe, read_excel_to_dict, excel_en
 
 ### 4.10 独立登录项目边界
 
-统一登录页、登录任务调度、平台登录适配和人工同步入口，已经单独拆到：
+当前采集仓库允许维护业务采集所必需的登录 Cookie 准备能力，但必须按 `API_login/` 和 `jobs_login/` 分层，不再混入普通 `jobs/` 业务采集脚本。
 
-```text
-F:\05ai_project\2026060601yiyuan_spider_login
-```
+边界调整为：
 
-当前采集仓库的边界调整为：
-
-- 继续维护采集脚本、平台 API、Cookie 读取和既有采集链路。
-- 新的登录中枢不再放在本仓库内扩张。
-- 后续如果新增统一登录页、登录状态任务流或平台登录适配，优先在独立登录项目实现。
-- 当前仓库只保留业务采集所需的最小登录辅助和 Cookie 消费口。
+- `API_login/` 负责平台登录实现、Cookie 验证、刷新、写库。
+- `jobs_login/` 负责登录任务编排、多店铺配置、失败通知和汇总。
+- `cookie_manager/` 保留通用 Cookie 转换、浏览器登录态维护等历史辅助能力。
+- 普通业务采集脚本只消费可用 Cookie，不承载登录流程。
+- 如果未来出现统一登录页面、人工同步后台或跨项目登录中枢，再单独评估是否拆成独立项目。
 
 ## 5. 标准业务流程
 
@@ -360,8 +399,10 @@ API 创建导出任务
 
 ```text
 读取旧 Cookie
--> 必要时调用独立登录项目刷新
--> 写回数据库 cookie / get_cookie
+-> jobs_login 读取登录配置和店铺列表
+-> API_login 验证旧 Cookie
+-> Cookie 失效时按平台规则刷新
+-> 写回数据库 get_cookie
 -> logger 记录平台、店铺、成功或失败原因
 ```
 
@@ -371,6 +412,47 @@ API 创建导出任务
 - 登录失败时有明确原因。
 - 风控或人工验证不强行绕过。
 - 不在日志里打印完整 Cookie。
+
+### 5.5 淘系登录 Cookie 准备流程
+
+#### SYCM（生意参谋）
+
+```text
+jobs_login/taobao_shop_cookie.py
+-> 读取 config/local.json 的 taobao_login
+-> select_shop_date(table_name, site, shop_name_list, recent_days)
+-> API_TaoXi_base_login 验证数据库 Cookie
+-> Cookie 可用则滚动刷新写回 get_cookie
+-> Cookie 不可用则 iv8 纯协议登录
+-> IV 二次验证则 iv_sms_solver 纯协议短信求解
+-> 协议成功后补全 asyncUrls + returnUrl?st=xxx
+-> 协议失败后浏览器自动化兜底
+-> 写入 get_cookie
+-> 单店铺失败通知钉钉并继续
+```
+
+#### DChain（供应链）
+
+```text
+jobs_login/dchain_cookie.py
+-> 读取 config/local.json 的 dchain_login
+-> select_shop_date(table_name, site, shop_name_list, recent_days)
+-> API_TaoXi_base_login 验证数据库 Cookie
+-> Cookie 可用则滚动刷新写回 get_cookie
+-> Cookie 不可用则 iv8 纯协议登录（appName=ascp, fromSite=31）
+-> 协议成功后补全 asyncUrls + 3步ST回调（proxy→updateSession→autoLogin）
+-> 协议失败后浏览器自动化兜底（进 iframe#alibaba-login-box）
+-> 写入 get_cookie
+-> 单账号失败通知钉钉并继续
+```
+
+验收重点：
+
+- SYCM `site` 为 `生意参谋`，DChain `site` 为 `DChain`。
+- SYCM `login_id` 格式 `主账号:子账号`，DChain 格式 `bc_xxx`。
+- 两者共用 `API_TaoXi_base_login` 核心逻辑，站点差异通过 `st_callback` 参数区分。
+- `cookie` 字段按 `get_cookie` 既有浏览器 Cookie JSON 结构保存。
+- 钉钉机器人启用关键词策略时必须配置 `dingtalk.notify_keyword`。
 
 ## 6. 新增或迁移脚本准则
 
@@ -392,7 +474,18 @@ API 创建导出任务
 
 ### 6.4 新增平台登录适配必须明确
 
-登录适配如果属于统一登录中枢能力，应直接落在独立登录项目中，不再优先写入当前采集仓库。
+登录适配如果服务于当前采集仓库的 Cookie 准备，可以落在 `API_login/` 和 `jobs_login/`，但必须先明确：
+
+- API 模块路径。
+- 启动脚本路径。
+- 本地配置段名称。
+- Cookie 读取来源。
+- Cookie 写入目标。
+- 登录状态验证 URL 或验证接口。
+- 刷新链路，例如 Cookie 复用、协议登录、浏览器兜底。
+- 单店铺失败后的通知和继续策略。
+
+如果是统一登录页面、人工同步后台、跨项目登录中枢，再单独评估是否拆到独立项目。
 
 ### 6.2 迁移历史脚本必须处理
 

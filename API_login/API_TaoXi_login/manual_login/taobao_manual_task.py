@@ -21,9 +21,9 @@ from config.local_config import get_local_section
 from extra.logger_ import logger
 
 try:
-    from ..taobao_login import DEFAULT_COOKIE_SITE
+    from ..API_TaoXi_SYCM_login import DEFAULT_COOKIE_SITE
 except ImportError:
-    from API_login.API_TaoXi_login.taobao_login import DEFAULT_COOKIE_SITE
+    from API_login.API_TaoXi_login.API_TaoXi_SYCM_login import DEFAULT_COOKIE_SITE
 try:
     from ..auto_login.taobao_login_auto import DEFAULT_OUTPUT_DIR
 except ImportError:

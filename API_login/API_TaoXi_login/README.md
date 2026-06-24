@@ -1,33 +1,48 @@
 # 淘系登录 Cookie 准备模块
 
-本目录是 `yiyuan_spider` 项目内的淘系登录 API 模块，用于为生意参谋/淘宝卖家后台准备可复用 Cookie。模块不单独维护 Git 仓库、不单独维护虚拟环境，统一使用项目根目录的 `.venv`、`config/local.json`、`database` 和 `extra.logger_`。
+本目录是 `yiyuan_spider` 项目内的淘系登录 API 模块，覆盖 **生意参谋（SYCM）** 和 **DChain 供应链** 两个站点的自动化登录。模块不单独维护 Git 仓库、不单独维护虚拟环境，统一使用项目根目录的 `.venv`、`config/local.json`、`database` 和 `extra.logger_`。
 
 ## 当前定位
 
-- API 层：`API_login/API_TaoXi_login/taobao_login.py`
-- 启动脚本：`jobs_login/taobao_shop_cookie.py`
-- 配置文件：`config/local.json`
+- API 层：`API_login/API_TaoXi_login/`（三子包架构，见下方目录说明）
+- SYCM 启动脚本：`jobs_login/taobao_shop_cookie.py`
+- DChain 启动脚本：`jobs_login/dchain_cookie.py`
+- 配置文件：`config/local.json`（`taobao_login` 段 = SYCM，`dchain_login` 段 = DChain）
 - 配置示例：`config/local.example.json`
 - Cookie 读取面：数据库 `cookie` 视图/表
 - Cookie 写入面：数据库 `get_cookie`
 
 ## 登录链路
 
-当前执行顺序是：
+两个站点共用同一套 Havana 登录基础设施（RSA + iv8 AWSC + JSVMP），差异由 `st_callback` 参数区分：
 
-1. 从 `config/local.json` 读取 `taobao_login` 多店铺配置。
-2. 每个店铺先通过 `select_shop_date(table_name, site, [shop_name], recent_days)` 读取数据库已有 Cookie。
-3. `prepare_shop_cookie()` 先验证数据库 Cookie 是否仍可用；**有效则用该 Cookie 访问后台完成滚动刷新（捕获服务端 Set-Cookie，滑动续期 + 轮转令牌更新），把刷新后的 Cookie 覆盖写回 `get_cookie`，不重登、不发短信**。
-4. Cookie 失效或不存在时，才走纯协议登录。
-5. 协议登录先提取 AWSC 安全令牌 `umidToken` 与 `bx-ua`：优先用 **iv8（C++ 原生浏览器环境）执行 `protocol_login/js/` 下 `awsc_baxia.js`+`um.js`+`collina.js` 纯协议生成**（无浏览器，~4 秒），iv8 不可用时回落 DrissionPage 提取。合格令牌可直接通过初始 `RGV587` 风控。
-6. 若平台返回 IV 二次身份验证（`loginResult` 为空且跳转 `passport.taobao.com/iv/...`），调用 `iv_sms_solver` 纯协议求解：发码 `send_code.do` → `sms_helper` 读邮箱转发验证码 → 提交 `J_Form` 过 IV。
-7. 登录/IV 通过后补全 `asyncUrls`、校验登录态有效，再写入 `get_cookie`。
-8. 纯协议（含 IV 短信）失败时，降级到浏览器自动化兜底；兜底严格判定登录态，IV 验证页不会被误判为成功。
-9. 单个店铺失败时记录日志、发送钉钉通知，并继续执行下一个店铺。
+### 共用流程（base_login）
+
+1. 从 `config/local.json` 读取多店铺/账号配置。
+2. 每个店铺先通过 `select_shop_date()` 读取数据库已有 Cookie。
+3. `prepare_shop_cookie()` 先验证数据库 Cookie 是否仍可用；**有效则滚动刷新覆盖写回 `get_cookie`，不重登、不发短信**。
+4. Cookie 失效或不存在时，走纯协议登录。
+5. iv8 生成 `umidToken` + `bx-ua`（无浏览器，~4s），iv8 不可用回落 DrissionPage 提取。
+6. 若返回 IV 二次验证，`iv_sms_solver` 纯协议求解。
+7. 登录成功后通过 `st_callback` 建立目标站点 session → 校验 → 写 `get_cookie`。
+8. 纯协议失败时降级到浏览器自动化兜底。
+9. 单店铺失败时记录日志 + 钉钉通知，继续下一个。
+
+### SYCM 特有
+
+- `st_callback=None`（默认）：简单 `returnUrl?st=xxx` 即完成 session 建立。
+- 验证 URL：`myseller.taobao.com`
+
+### DChain 特有
+
+- `st_callback=_dchain_st_callback`：3 步建立 DChain session（basic_login_proxy → updateSession → autoLogin）。
+- 登录入口：`havanalogin.taobao.com/mini_login.htm?appName=ascp&fromSite=31`（iframe 嵌入）。
+- 验证 URL：`web.scm.tmall.com`
+- 浏览器兜底需进入 `iframe#alibaba-login-box` 才能操作表单和滑块。
 
 ## 配置格式
 
-`config/local.json` 中使用 `taobao_login` 段配置，不再支持旧字段 `account` / `sub_name`，必须直接配置完整 `login_id`。
+### SYCM（`config/local.json` → `taobao_login` 段）
 
 ```json
 {
@@ -55,13 +70,36 @@
 }
 ```
 
+### DChain（`config/local.json` → `dchain_login` 段）
+
+```json
+{
+  "dchain_login": {
+    "table_name": "get_cookie",
+    "site": "DChain",
+    "recent_days": 1,
+    "defaults": {
+      "timeout": 30,
+      "max_retries": 3,
+      "retry_delay": 5
+    },
+    "shops": [
+      {
+        "shop_name": "示例账号",
+        "login_id": "bc_xxx",
+        "password": "登录密码"
+      }
+    ]
+  }
+}
+```
+
 说明：
 
-- `shop_name` 是数据库 Cookie 按店铺查询和写入时使用的店铺名。
-- `login_id` 是淘宝登录页使用的完整登录账号，例如 `主账号:子账号`。
+- `shop_name` 是数据库 Cookie 按店铺/账号查询和写入时使用的标识名。
+- `login_id` 是登录页使用的完整账号（SYCM: `主账号:子账号`，DChain: `bc_xxx`）。
 - `password` 是该登录账号对应的密码。
-- `site` 当前统一使用 `生意参谋`。
-- `source_site` / `target_site` 已合并为 `site`。
+- SYCM 的 `site` 使用 `生意参谋`，DChain 使用 `DChain`。
 
 ## 钉钉通知
 
@@ -89,36 +127,30 @@
 
 ## 启动方式
 
-推荐通过项目根目录运行：
+### SYCM Cookie 准备
 
 ```powershell
 .\.venv\Scripts\python.exe run_job.py "jobs_login\taobao_shop_cookie.py" --log-mode both
 ```
 
-也可以直接运行：
+### DChain Cookie 准备
 
 ```powershell
-.\.venv\Scripts\python.exe "jobs_login\taobao_shop_cookie.py"
+.\.venv\Scripts\python.exe run_job.py "jobs_login\dchain_cookie.py" --log-mode both
 ```
 
-独立浏览器自动化调试脚本只用于排查登录页面、滑块、短信或二维码问题，不是批量刷新入口：
-
-```powershell
-.\.venv\Scripts\python.exe "API_login\API_TaoXi_login\auto_login\taobao_login_auto.py" --shop-name "示例店铺"
-```
-
-需要人工介入时，使用 jobs 入口读取 `config/local.json` 的账号密码，按 `jobs_login/taobao_manual_shop_cookie.py` 内的 `TASK_CONFIG.shops` 选择店铺，自动填写后手动过滑块/短信/扫码，成功后保存页面 Cookie 到 `get_cookie`：
+### 人工介入（SYCM）
 
 ```powershell
 .\.venv\Scripts\python.exe run_job.py "jobs_login\taobao_manual_shop_cookie.py" --log-mode both
 ```
 
-临时只处理一个店铺时再加 `--shop-name`。
+临时只处理一个店铺时加 `--shop-name`。只保存本地不写库加 `--no-db --save-local`。
 
-如果只想保存本地 Cookie 文件、不写数据库：
+### 独立浏览器调试
 
 ```powershell
-.\.venv\Scripts\python.exe run_job.py "jobs_login\taobao_manual_shop_cookie.py" --log-mode both --shop-name "示例店铺" --no-db --save-local
+.\.venv\Scripts\python.exe "API_login\API_TaoXi_login\auto_login\taobao_login_auto.py" --shop-name "示例店铺"
 ```
 
 ## 依赖安装
@@ -152,26 +184,38 @@
 
 ```text
 API_login/API_TaoXi_login/
-  taobao_login.py              # 主入口/调度：协议登录、Cookie 验证、IV 求解调度、写库、浏览器兜底
-  sms_helper.py                # 短信/邮箱读码（协议 IV 与浏览器兜底共用）
-  requirements.txt             # 本模块额外依赖
-  README.md / PRD.md / SKILL_SUMMARY.md / iv8_补环境教程.md   # 文档与逆向资料
-
-  protocol_login/              # 【协议登录】纯协议、无浏览器
-    iv8_token_provider.py      #   iv8 生成 umidToken + bx-ua（主令牌来源）
-    iv_sms_solver.py           #   IV 二次身份验证（短信模式）纯协议求解
-    js/                        #   iv8 运行时依赖：awsc_baxia.js / um.js / collina.js（必须随仓库提交）
-
-  auto_login/                  # 【自动化登录】DrissionPage 无人值守浏览器兜底
-    taobao_login_auto.py       #   独立浏览器自动化调试脚本 + 浏览器填表助手
-    slider_helper.py           #   NC 滑块识别/轨迹/拖动
-    extract_security_tokens.py #   DrissionPage AWSC 令牌提取（iv8 失败兜底）
-
-  manual_login/                # 【人工介入登录】可见浏览器，人工过滑块/短信/扫码
-    taobao_login_manual.py     #   人工介入登录 API（自动填表后人工过验，复用 auto_login 填表助手）
-    taobao_manual_task.py      #   人工介入任务辅助层（合并 TASK_CONFIG 与本地账号密码）
-
-  recycle_bin/                 # 测试过程产生的无用文件（已 gitignore，不提交）
+├── API_TaoXi_base_login/            # 【共用基础】三层共用的核心逻辑
+│   ├── havana.py                    #   Havana 协议登录核心（配置/RSA/令牌/login/prepare_shop_cookie）
+│   ├── cookie_manager.py            #   Cookie CRUD + DB 读写 + 验证刷新
+│   ├── browser_fallback.py          #   浏览器自动化兜底（iframe检测/滑块/短信循环）
+│   └── __init__.py                  #   统一 re-export 所有公共符号
+│
+├── API_TaoXi_SYCM_login/           # 【生意参谋】站点特有常量 + prepare_sycm_cookie()
+│   └── __init__.py
+│
+├── API_TaoXi_DC_login/             # 【DChain】站点特有常量 + 3步ST回调 + prepare_dchain_cookie()
+│   └── __init__.py
+│
+├── protocol_login/                  # 【协议登录】纯协议、无浏览器
+│   ├── iv8_token_provider.py        #   iv8 生成 umidToken + bx-ua
+│   ├── iv_sms_solver.py             #   IV 二次验证短信模式纯协议求解
+│   └── js/                          #   iv8 运行时 JS（awsc_baxia/um/collina）
+│
+├── auto_login/                      # 【自动化登录】DrissionPage 浏览器兜底
+│   ├── taobao_login_auto.py         #   浏览器自动化调试 + 填表助手
+│   ├── slider_helper.py             #   NC 滑块识别/轨迹/拖动
+│   └── extract_security_tokens.py   #   DrissionPage AWSC 令牌提取
+│
+├── manual_login/                    # 【人工介入登录】可见浏览器，人工过验
+│   ├── taobao_login_manual.py       #   人工介入登录 API
+│   └── taobao_manual_task.py        #   人工介入任务辅助层
+│
+├── sms_helper.py                    # 短信/邮箱读码（协议 IV 与浏览器兜底共用）
+├── requirements.txt                 # 本模块额外依赖（含 iv8>=0.1.3）
+├── README.md                        # 本文件
+├── 逆向经验贴.md                     # 合并版逆向文档（Part A: SYCM + Part B: DChain）
+├── iv8_补环境教程.md                  # iv8 用法与补环境技巧
+└── recycle_bin/                      # 测试过程产生的无用文件（gitignore）
 ```
 
 ## 安全约束

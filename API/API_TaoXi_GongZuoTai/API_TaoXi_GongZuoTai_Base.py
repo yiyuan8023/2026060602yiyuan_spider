@@ -40,7 +40,7 @@ class TaoXiGongZuoTaiBaseApi:
         sign_text = f"{token}&{timestamp}&{APP_KEY}&{data}"
         return hashlib.md5(sign_text.encode("utf-8")).hexdigest()
 
-    def get_cookie_token(self, cookie=None):
+    def get_cookie_token(self, cookie=None, log_success=False, context="商家工作台mtop token"):
         """请求轻量用户接口，借平台 Set-Cookie 刷新 _m_h5_tk token。"""
         api = "https://h5api.m.taobao.com/h5/mtop.user.getusersimple/1.0/"
         data = "{}"
@@ -61,7 +61,7 @@ class TaoXiGongZuoTaiBaseApi:
         url = api + "?" + urlencode(params)
         headers = {"user-agent": self.ua, "cookie": cookie if cookie else self.cookie}
         response = requests.get(url, headers=headers, timeout=30)
-        req_log(response, context="商家工作台mtop token")
+        req_log(response, context=context, log_success=log_success)
 
         set_cookie = response.headers.get("Set-Cookie") if response.headers else None
         if not set_cookie:
@@ -107,7 +107,10 @@ class TaoXiGongZuoTaiBaseApi:
         """请求商家工作台 mtop 接口，自动刷新 token 并按页面参数签名。"""
         last_response = None
         for _ in range(2):
-            cookie_token = self.get_cookie_token(self.cookie)
+            cookie_token = self.get_cookie_token(
+                self.cookie,
+                context=f"商家工作台mtop token:{api}",
+            )
             if not cookie_token or not cookie_token.get("token"):
                 raise RuntimeError("商家工作台 mtop token 刷新失败")
 
@@ -172,7 +175,10 @@ class TaoXiGongZuoTaiBaseApi:
         """请求商家工作台 mtop POST 接口，兼容页面 originaljson 表单提交方式。"""
         last_response = None
         for _ in range(2):
-            cookie_token = self.get_cookie_token(self.cookie)
+            cookie_token = self.get_cookie_token(
+                self.cookie,
+                context=f"商家工作台mtop token:{api}",
+            )
             if not cookie_token or not cookie_token.get("token"):
                 raise RuntimeError("商家工作台 mtop token 刷新失败")
 

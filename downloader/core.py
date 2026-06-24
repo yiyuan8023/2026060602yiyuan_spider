@@ -77,7 +77,12 @@ class Downloader:
     def _safe_url(self):
         """日志里只保留 URL 主体，避免 signed URL 或查询参数外泄。"""
         parts = urlsplit(self.url)
-        return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+        path = parts.path
+        sensitive_host = any(marker in parts.netloc.lower() for marker in ("oss", "cos", "obs", "s3"))
+        sensitive_path = any(marker in path.lower() for marker in ("download", "export"))
+        if sensitive_host or sensitive_path:
+            path = "/<hidden>"
+        return urlunsplit((parts.scheme, parts.netloc, path, "", ""))
 
     def _log_response(self, response: requests.Response, method: str):
         if self.log_response:

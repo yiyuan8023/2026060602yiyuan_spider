@@ -67,7 +67,13 @@ class DataWriterMixin:
                 )
             except Exception as e:
                 self.connect.rollback()
-                logger.error(f"执行 SQL 语句时发生错误: {e}")
+                self._log_update_insert_error(
+                    table_name=table_name,
+                    error=e,
+                    batch_start=i + 1,
+                    batch_end=min(i + batch_size, total_items),
+                    total_items=total_items,
+                )
                 raise
 
         logger.info(f"结束时间：{get_date(date_format='%Y-%m-%d %H:%M:%S')}")
@@ -80,6 +86,33 @@ class DataWriterMixin:
         if isinstance(value, str) and value == "":
             return None
         return value
+
+    @staticmethod
+    def _log_update_insert_error(table_name, error, batch_start, batch_end, total_items):
+        error_text = str(error)
+        lower_error = error_text.lower()
+        schema_error_markers = (
+            "data too long",
+            "incorrect datetime value",
+            "incorrect date value",
+            "incorrect decimal value",
+            "incorrect integer value",
+            "out of range value",
+            "truncated incorrect",
+            "cannot be null",
+        )
+        schema_hint = ""
+        if any(marker in lower_error for marker in schema_error_markers):
+            schema_hint = (
+                "；可能是数据库字段类型、字段长度、日期格式或数值格式与表结构不匹配，"
+                "脚本不会自动修改字段类型，请调整表结构后重跑"
+            )
+
+        logger.error(
+            f"数据入库失败: table={table_name}, "
+            f"batch={batch_start}-{batch_end}/{total_items}, "
+            f"error={error_text}{schema_hint}"
+        )
 
     def insert_delete_insert_data(
         self, items, db_table_name, del_sql, uu_id=None, user=None

@@ -36,6 +36,7 @@
 ```text
 yiyuan_spider/
 ├── API/                  # 各平台 API 封装
+├── API_login/            # 平台登录、Cookie 验证、刷新和写库能力
 ├── config/               # 项目配置入口，读取部署环境变量
 ├── cookie_manager/       # Cookie 采集、转换、刷新和浏览器登录维护
 ├── date_utils.py         # 日期区间、近期日期、月份周期和时间戳工具
@@ -43,6 +44,7 @@ yiyuan_spider/
 ├── excel_tool/           # Excel reader、CSV 读取、写入、入库工具
 ├── extra/                # 通用基础能力：日志、请求、解析、文件处理
 ├── jobs/                 # 具体业务采集脚本
+├── jobs_login/           # 登录 Cookie 准备任务脚本
 ├── run_job.py            # 任务脚本统一启动入口
 ├── 测试/                  # 测试和 UI 实验文件
 ├── log/                  # 运行日志目录
@@ -80,6 +82,25 @@ API 层主要负责：
 - 处理平台返回结构。
 - 部分平台的字体解密、JS 参数生成、压缩包读取等特殊逻辑。
 
+### API_login
+
+`API_login/` 是平台登录和 Cookie 准备层。它只负责登录态验证、刷新、Cookie 结构转换和写入项目统一 Cookie 表，不承载具体业务采集。
+
+当前重点模块：
+
+| 目录 | 说明 |
+|---|---|
+| `API_TaoXi_login` | 淘系/淘宝卖家后台登录 Cookie 准备能力，迁移自旧登录项目并按当前项目规则改造 |
+
+淘系登录模块边界：
+
+- 优先验证数据库 `cookie` 读取面的已有 Cookie。
+- Cookie 不可用时，按“协议登录 -> 自动化登录兜底”的顺序刷新。
+- 协议登录成功后补全 `asyncUrls`。
+- 刷新结果写入 `get_cookie`，由数据库统一读取面继续合并使用。
+- 账号密码来自 `config/local.json` 的 `taobao_login.shops`。
+- 不在 `API_login/API_TaoXi_login` 下单独维护 `.git`、`.venv`、`config.json` 或 IDE 配置。
+
 ### 任务脚本
 
 `jobs/` 是具体任务入口。脚本按平台或业务分类，例如：
@@ -106,6 +127,23 @@ API 层主要负责：
 -> 生成唯一 key
 -> 写入 MySQL
 -> 记录日志
+```
+
+### 登录任务脚本
+
+`jobs_login/` 是登录 Cookie 准备任务入口，和业务采集脚本分开维护。
+
+当前脚本：
+
+| 脚本 | 说明 |
+|---|---|
+| `jobs_login/taobao_shop_cookie.py` | 按多店铺配置准备淘系登录 Cookie，优先复用数据库 Cookie，失败时钉钉通知并继续下一个店铺 |
+| `jobs_login/taobao_manual_shop_cookie.py` | 人工介入登录入口，按脚本 `TASK_CONFIG.shops` 选择店铺，自动填写账号密码后等待人工过滑块/短信/扫码，并保存页面 Cookie |
+
+推荐通过 `run_job.py` 启动：
+
+```powershell
+.\.venv\Scripts\python.exe run_job.py "jobs_login\taobao_shop_cookie.py" --log-mode both
 ```
 
 ### config
@@ -141,15 +179,19 @@ API 层主要负责：
 - 将 Cookie 更新回数据库。
 - 提供 Cookie 字符串解析、随机 UA 等辅助方法。
 
-### 登录项目拆分
+### 登录与 Cookie 准备
 
-登录态相关的新能力已经单独迁移到：
+当前仓库保留采集任务需要的登录 Cookie 准备能力。登录相关代码按两层维护：
+
+- `API_login/`：平台登录、Cookie 验证、刷新、写库。
+- `jobs_login/`：读取多店铺配置，组织登录任务，处理单店铺失败和通知。
+
+淘系登录 Cookie 准备模块详见：
 
 ```text
-F:\05ai_project\2026060601yiyuan_spider_login
+API_login\API_TaoXi_login\README.md
+API_login\API_TaoXi_login\PRD.md
 ```
-
-当前仓库继续保留历史采集任务、Cookie 读取和既有登录辅助代码；新的统一登录页、任务调度和平台登录适配，后续都在登录项目里维护。
 
 ### excel_tool
 
@@ -215,6 +257,8 @@ PYTHONIOENCODING=utf-8
 - 采集店铺列表。
 - 目标表名。
 - 采集周期。
+- 登录 Cookie 准备配置，例如 `taobao_login`。
+- 钉钉通知配置，例如 `dingtalk.notify_keyword`。
 
 调度时间、并发策略和部署环境配置不在本仓库维护，统一放在 `F:\05ai_project\2026030502爬虫部署`。
 
@@ -247,8 +291,10 @@ Cookie 更新数据流：
 
 ```text
 数据库旧 Cookie
--> 必要时使用独立登录项目刷新
--> 写回数据库
+-> jobs_login 读取多店铺登录配置
+-> API_login 验证或刷新 Cookie
+-> 写回 get_cookie
+-> cookie 读取面合并使用
 ```
 
 ## 运行方式

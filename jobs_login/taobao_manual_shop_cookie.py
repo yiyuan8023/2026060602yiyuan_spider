@@ -16,7 +16,7 @@ import argparse
 from pathlib import Path
 
 
-from API_login.API_TaoXi_login.taobao_login import DEFAULT_COOKIE_SITE
+from API_login.API_TaoXi_login.API_TaoXi_SYCM_login import DEFAULT_COOKIE_SITE
 from API_login.API_TaoXi_login.manual_login.taobao_manual_task import (
     DEFAULT_OUTPUT_DIR,
     load_manual_task_config,

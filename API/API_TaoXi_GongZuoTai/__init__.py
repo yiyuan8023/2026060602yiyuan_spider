@@ -25,11 +25,15 @@ from API.API_TaoXi_GongZuoTai.API_TaoXi_GongZuoTai_PriceProtection import (
 from API.API_TaoXi_GongZuoTai.API_TaoXi_GongZuoTai_OrderDetail import (
     TaoXiGongZuoTaiOrderDetailApi,
 )
+from API.API_TaoXi_GongZuoTai.API_TaoXi_GongZuoTai_GovSubsidyAudit import (
+    TaoXiGongZuoTaiGovSubsidyAuditApi,
+)
 from API.API_TaoXi_GongZuoTai.parser_order_discount_details import (
     parse_order_discount_details,
 )
 
 __all__ = [
+    "TaoXiGongZuoTaiGovSubsidyAuditApi",
     "TaoXiGongZuoTaiOrderDetailApi",
     "TaoXiGongZuoTaiOrderReportApi",
     "TaoXiGongZuoTaiPriceProtectionApi",

@@ -46,11 +46,11 @@ def get_mailbox_config():
 
     if not username:
         raise RuntimeError(
-            "缺少邮箱账号，请在 config/local.json 的 mailbox.username 或 MAILBOX_USERNAME 中配置。"
+            "缺少邮箱账号，请在 config/local.json 的 其他.username 或 MAILBOX_USERNAME 中配置。"
         )
     if not password:
         raise RuntimeError(
-            "缺少邮箱授权码，请在 config/local.json 的 mailbox.password 或 MAILBOX_PASSWORD 中配置。"
+            "缺少邮箱授权码，请在 config/local.json 的 其他.password 或 MAILBOX_PASSWORD 中配置。"
         )
 
     return {

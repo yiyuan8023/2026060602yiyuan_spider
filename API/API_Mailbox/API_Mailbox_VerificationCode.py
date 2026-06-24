@@ -404,10 +404,10 @@ if __name__ == "__main__":
     # 初始化 API 实例
     api = MailboxVerificationCodeApi()
     
-    # # 场景1: 获取最近5封邮件并打印摘要
-    # recent_messages = api.fetch_recent_messages(limit=5)
-    # print("最近 5 封邮件摘要:")
-    # print(json.dumps([message.to_dict() for message in recent_messages], ensure_ascii=False, indent=2))
+    # 场景1: 获取最近5封邮件并打印摘要
+    recent_messages = api.fetch_recent_messages(limit=5)
+    print("最近 5 封邮件摘要:")
+    print(json.dumps([message.to_dict() for message in recent_messages], ensure_ascii=False, indent=2))
 
     # 场景2: 查找最新的验证码邮件
     # latest_code = api.find_latest_verification_code(limit=20)
@@ -433,15 +433,15 @@ if __name__ == "__main__":
     #     print("\n最近 20 封邮件中未找到验证码。")
     #
     # 场景3: 直接使用提取函数处理邮件对象
-    print("\n直接使用邮箱 API 返回结果做提取:")
-
-    recent_messages = api.fetch_recent_messages(limit=10)
-    for message in recent_messages:
-        # 分别提取验证码和密码
-        verification_result = extract_verification_code_from_message(message)
-        password_result = extract_password_from_message(message)
-        print(verification_result)
-        print(password_result)
+    # print("\n直接使用邮箱 API 返回结果做提取:")
+    #
+    # recent_messages = api.fetch_recent_messages(limit=10)
+    # for message in recent_messages:
+    #     # 分别提取验证码和密码
+    #     verification_result = extract_verification_code_from_message(message)
+    #     password_result = extract_password_from_message(message)
+    #     print(verification_result)
+    #     print(password_result)
 
 
         # 如果两者都为空,跳过该邮件
