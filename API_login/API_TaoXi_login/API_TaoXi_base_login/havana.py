@@ -9,7 +9,6 @@ import json
 import time
 import base64
 import hashlib
-import logging
 import sys
 import uuid
 from pathlib import Path
@@ -90,12 +89,7 @@ SLIDER_RETRY = int(CFG.get("slider_retry", 4))
 VALIDATE_URL = CFG["validate_url"]
 USER_AGENT = CFG["user_agent"]
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[logging.StreamHandler(sys.stdout)],
-)
-log = logging.getLogger("tb_login")
+from extra.logger_ import logger
 
 BASE_HEADERS = {
     "User-Agent": USER_AGENT,
@@ -172,16 +166,38 @@ def generate_page_trace_id() -> str:
     return f"{rand}{ts}0{rand[:4]}"
 
 
+def _resolve_return_url(login_form_data: dict, view_data: dict) -> str:
+    """解析登录成功后的 returnUrl。
+
+    mini_login.htm（DChain"淘宝登录"tab）不会把 URL 上的 returnUrl 回填进
+    loginFormData/viewData，若直接取 loginFormData.returnUrl 会得到空串，导致 ST 回调
+    被跳过、DChain 的 4 步建会话流程不执行，最终 Cookie 缺少 scm 会话而校验失败。
+    依次回落：loginFormData.returnUrl -> viewData.returnUrl -> HAVANA_LOGIN_URL 查询参数。
+    """
+    return_url = (login_form_data or {}).get("returnUrl", "") or (view_data or {}).get("returnUrl", "")
+    if return_url:
+        return return_url
+    try:
+        from urllib.parse import parse_qs
+        candidate = parse_qs(urlparse(HAVANA_LOGIN_URL).query).get("returnUrl", [""])[0]
+        if candidate:
+            logger.info(f"  returnUrl 回落自登录页查询参数: {candidate[:60]}")
+            return candidate
+    except Exception as exc:
+        logger.warning(f"  解析 HAVANA_LOGIN_URL 的 returnUrl 失败: {exc}")
+    return ""
+
+
 # ═══════════════════════════════════════════════
 # 安全令牌
 # ═══════════════════════════════════════════════
 
 def extract_security_tokens() -> dict:
-    log.info("  提取安全令牌 (AWSC SDK)...")
+    logger.info("  提取安全令牌 (AWSC SDK)...")
     try:
         from DrissionPage import ChromiumPage, ChromiumOptions
     except ImportError:
-        log.warning("  DrissionPage 未安装，跳过令牌提取")
+        logger.warning("  DrissionPage 未安装，跳过令牌提取")
         return {}
 
     co = ChromiumOptions()
@@ -232,9 +248,9 @@ def extract_security_tokens() -> dict:
         if init_result.get("status") == "success":
             umid_token = init_result["data"]["tn"]
             tokens["umidToken"] = umid_token
-            log.info(f"  umidToken: {umid_token[:50]}...")
+            logger.info(f"  umidToken: {umid_token[:50]}...")
         else:
-            log.warning(f"  umidToken 获取失败: {init_result}")
+            logger.warning(f"  umidToken 获取失败: {init_result}")
 
         ua_val = page.run_js('''
             if (window.baxiaCommon && typeof window.baxiaCommon.getUA === "function") {
@@ -248,18 +264,18 @@ def extract_security_tokens() -> dict:
         ''')
         if ua_val and "not_loaded" not in ua_val.lower():
             tokens["ua"] = ua_val
-            log.info(f"  ua: {ua_val[:80]}...")
+            logger.info(f"  ua: {ua_val[:80]}...")
         else:
-            log.warning(f"  ua 获取失败")
+            logger.warning(f"  ua 获取失败")
 
         browser_cookies = page.cookies()
         tokens["_cookies"] = {c["name"]: c["value"] for c in browser_cookies}
-        log.info(f"  浏览器 cookies: {list(tokens['_cookies'].keys())[:10]}")
+        logger.info(f"  浏览器 cookies: {list(tokens['_cookies'].keys())[:10]}")
 
         page.quit()
         page = None
     except Exception as exc:
-        log.warning(f"  安全令牌提取失败: {exc}")
+        logger.warning(f"  安全令牌提取失败: {exc}")
         import traceback
         traceback.print_exc()
     finally:
@@ -281,11 +297,11 @@ def get_security_tokens() -> dict:
 
         tokens = get_security_tokens_iv8(user_agent=USER_AGENT, timeout=TIMEOUT)
         if tokens.get("umidToken") and tokens.get("ua"):
-            log.info("  采用 iv8 纯协议安全令牌（无浏览器）")
+            logger.info("  采用 iv8 纯协议安全令牌（无浏览器）")
             return tokens
-        log.info("  iv8 令牌不可用，回落 DrissionPage 提取")
+        logger.info("  iv8 令牌不可用，回落 DrissionPage 提取")
     except Exception as exc:
-        log.warning(f"  iv8 令牌提取异常，回落 DrissionPage: {type(exc).__name__}: {exc}")
+        logger.warning(f"  iv8 令牌提取异常，回落 DrissionPage: {type(exc).__name__}: {exc}")
     return extract_security_tokens()
 
 
@@ -297,7 +313,7 @@ def _try_solve_iv_sms(session: "requests.Session", redirect_url: str) -> bool:
             from protocol_login.iv_sms_solver import solve_iv_sms
         return solve_iv_sms(session, redirect_url, sms_wait=120, timeout=TIMEOUT)
     except Exception as exc:
-        log.warning(f"  IV 短信求解调用失败: {type(exc).__name__}: {exc}")
+        logger.warning(f"  IV 短信求解调用失败: {type(exc).__name__}: {exc}")
         return False
 
 
@@ -316,67 +332,66 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
     session = requests.Session()
     session.headers.update(BASE_HEADERS)
 
-    browser_cookies = security_tokens.get("_cookies", {})
-    if browser_cookies:
-        for name, val in browser_cookies.items():
-            session.cookies.set(name, val, domain=".taobao.com")
-
-    log.info("=" * 55)
-    log.info("Step 1 > 访问 Havana 登录页...")
+    logger.info("=" * 55)
+    logger.info("Step 1 > 访问 Havana 登录页...")
     try:
         r1 = session.get(HAVANA_LOGIN_URL, timeout=TIMEOUT)
     except Exception as exc:
-        log.error(f"  网络请求失败: {exc}")
+        logger.error(f"  网络请求失败: {exc}")
         return None, f"network_error:{exc}"
 
-    log.info(f"  状态码: {r1.status_code}")
-    log.info(f"  Cookies: {[c.name for c in session.cookies]}")
+    logger.info(f"  状态码: {r1.status_code}")
+    logger.info(f"  Cookies: {[c.name for c in session.cookies]}")
 
-    log.info("Step 2 > 提取页面配置...")
+    logger.info("Step 2 > 提取页面配置...")
     view_config = extract_json_var(r1.text, "viewConfig")
     view_data = extract_json_var(r1.text, "viewData")
 
     if not view_config or not view_data:
-        log.error("  无法提取 viewConfig/viewData")
+        logger.error("  无法提取 viewConfig/viewData")
         return None, "error:page_parse_failed"
 
     rsa_modulus = view_config.get("rsaModulus", "")
     rsa_exponent = view_config.get("rsaExponent", "10001")
-    log.info(f"  RSA modulus (前40): {rsa_modulus[:40]}...")
+    logger.info(f"  RSA modulus (前40): {rsa_modulus[:40]}...")
 
     api_config = view_config.get("api", {})
     login_api = api_config.get("loginApi", "")
     if not login_api:
-        log.error("  未找到 loginApi")
+        logger.error("  未找到 loginApi")
         return None, "error:no_login_api"
-    log.info(f"  Login API: {login_api}")
+    logger.info(f"  Login API: {login_api}")
 
     login_form_data = view_data.get("loginFormData", {})
-    log.info(f"  loginFormData: {list(login_form_data.keys())}")
+    logger.info(f"  loginFormData: {list(login_form_data.keys())}")
 
     if not rsa_modulus:
-        log.error("  RSA modulus 为空")
+        logger.error("  RSA modulus 为空")
         return None, "error:no_rsa_key"
 
-    log.info("Step 3 > RSA 加密密码...")
+    logger.info("Step 3 > RSA 加密密码...")
     try:
         encrypted_pwd = rsa_encrypt_password(rsa_modulus, rsa_exponent, PASSWORD)
-        log.info(f"  加密成功 (前40): {encrypted_pwd[:40]}...")
+        logger.info(f"  加密成功 (前40): {encrypted_pwd[:40]}...")
     except Exception as exc:
-        log.error(f"  RSA 加密失败: {exc}")
+        logger.error(f"  RSA 加密失败: {exc}")
         return None, f"error:rsa_encrypt_failed:{exc}"
 
-    log.info("Step 4 > POST 登录请求...")
+    logger.info("Step 4 > POST 登录请求...")
     post_data = {}
     post_data.update(login_form_data)
+
+    # 检查GET响应是否已预填umidToken（DChain会预填）
+    prefilled_umid = login_form_data.get("umidToken", "")
+    use_prefilled = bool(prefilled_umid)
+
     post_data.update({
         "loginId": LOGIN_ID,
         "password2": encrypted_pwd,
+        "password": encrypted_pwd,
         "keepLogin": "false",
         "ua": security_tokens.get("ua", ""),
         "umidGetStatusVal": security_tokens.get("umidGetStatusVal", "255"),
-        "umidToken": security_tokens.get("umidToken", ""),
-        "umidTag": "WEB" if security_tokens.get("umidToken") else "NOT_INIT",
         "navlanguage": "zh-CN",
         "navUserAgent": USER_AGENT,
         "navPlatform": "Win32",
@@ -386,17 +401,32 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
         "defaultView": "password",
         "pageTraceId": generate_page_trace_id(),
     })
+
+    # 只在没有预填token时才用iv8生成的token
+    if not use_prefilled:
+        post_data["umidToken"] = security_tokens.get("umidToken", "")
+        post_data["umidTag"] = "WEB" if security_tokens.get("umidToken") else "NOT_INIT"
+
     if security_tokens.get("deviceId"):
         post_data["deviceId"] = security_tokens["deviceId"]
 
-    login_url = f"https://login.taobao.com{login_api}"
-    log.info(f"  POST URL: {login_url}")
-    log.info(f"  umidToken: {'(有)' if post_data.get('umidToken') else '(空)'}")
-    log.info(f"  ua: {'(有)' if post_data.get('ua') else '(空)'}")
+    from urllib.parse import urlparse
+    parsed = urlparse(r1.url)
+    login_base = f"{parsed.scheme}://{parsed.netloc}"
+    login_url = f"{login_base}{login_api}"
+    logger.info(f"  POST URL: {login_url}")
+    logger.info(f"  r1.url: {r1.url}")
+    if use_prefilled:
+        logger.info(f"  使用GET响应预填的umidToken: {prefilled_umid[:30]}...")
+    else:
+        logger.info(f"  使用iv8生成的umidToken: {post_data.get('umidToken', '')[:30]}...")
+    logger.info(f"  ua: {'(有)' if post_data.get('ua') else '(空)'}")
+    logger.info(f"  password2: {'(有 ' + str(len(post_data.get('password2',''))) + '位)' if post_data.get('password2') else '(空!)'}")
+    logger.info(f"  _csrf_token: {post_data.get('_csrf_token', '(无)')[:20]}...")
 
     session.headers.update({
-        "Referer": HAVANA_LOGIN_URL,
-        "Origin": "https://login.taobao.com",
+        "Referer": r1.url,
+        "Origin": login_base,
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         "X-Requested-With": "XMLHttpRequest",
         "Accept": "application/json, text/javascript, */*; q=0.01",
@@ -405,15 +435,15 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
     try:
         r2 = session.post(login_url, data=post_data, timeout=TIMEOUT)
     except Exception as exc:
-        log.error(f"  POST 失败: {exc}")
+        logger.error(f"  POST 失败: {exc}")
         return None, f"network_error:{exc}"
 
-    log.info(f"  响应状态码: {r2.status_code}")
+    logger.info(f"  响应状态码: {r2.status_code}")
 
-    log.info("Step 5 > 解析登录结果...")
+    logger.info("Step 5 > 解析登录结果...")
     try:
         resp_json = r2.json()
-        log.info(f"  JSON: {json.dumps(resp_json, ensure_ascii=False)[:500]}")
+        logger.info(f"  JSON: {json.dumps(resp_json, ensure_ascii=False)[:500]}")
 
         ret_list = resp_json.get("ret", [])
         data = resp_json.get("data", {})
@@ -424,20 +454,20 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
         ret_str = " ".join(ret_list) if ret_list else ""
 
         if "RGV587_ERROR" in ret_str:
-            log.warning(f"  触发风控: {ret_str}")
+            logger.warning(f"  触发风控: {ret_str}")
             return {c.name: c.value for c in session.cookies}, "captcha"
 
         if "FAIL_SYS_USER_VALIDATE" in ret_str and "RGV587" not in ret_str:
-            log.warning(f"  账号/密码错误: {ret_str}")
+            logger.warning(f"  账号/密码错误: {ret_str}")
             return {c.name: c.value for c in session.cookies}, f"error:{ret_str}"
 
         if data.get("isCheckCodeShowed"):
-            log.warning("  触发验证码")
+            logger.warning("  触发验证码")
             return {c.name: c.value for c in session.cookies}, "captcha"
 
         title_msg = data.get("titleMsg", "")
         if title_msg:
-            log.warning(f"  错误提示: {title_msg}")
+            logger.warning(f"  错误提示: {title_msg}")
             return {c.name: c.value for c in session.cookies}, f"error:{title_msg}"
 
         redirect_url = (
@@ -455,7 +485,7 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
         if (redirect_url and isinstance(redirect_url, str)
                 and login_result != "success"
                 and ("/iv/" in redirect_url or "havana_iv_token" in redirect_url)):
-            log.warning(f"  触发 IV 二次身份验证: {redirect_url[:50]}...")
+            logger.warning(f"  触发 IV 二次身份验证: {redirect_url[:50]}...")
             if _try_solve_iv_sms(session, redirect_url):
                 try:
                     session.get(VALIDATE_URL, timeout=TIMEOUT)
@@ -468,9 +498,9 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
                         pass
                 cookies = {c.name: c.value for c in session.cookies}
                 if validate_cookies(cookies):
-                    log.info("  IV 短信验证通过，登录态有效")
+                    logger.info("  IV 短信验证通过，登录态有效")
                     return cookies, "success"
-                log.warning("  IV 已提交但登录态校验未通过")
+                logger.warning("  IV 已提交但登录态校验未通过")
             return {c.name: c.value for c in session.cookies}, "need_verify:iv"
 
         is_success = (
@@ -484,13 +514,13 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
         )
 
         if is_success:
-            log.info(f"  登录成功! 重定向: {redirect_url}")
+            logger.info(f"  登录成功! 重定向: {redirect_url}")
             if redirect_url:
                 try:
                     r3 = session.get(redirect_url, timeout=TIMEOUT)
-                    log.info(f"  重定向后 URL: {r3.url}")
+                    logger.info(f"  重定向后 URL: {r3.url}")
                 except Exception as exc:
-                    log.warning(f"  跟随重定向失败: {exc}")
+                    logger.warning(f"  跟随重定向失败: {exc}")
 
             for url in async_urls[:5]:
                 try:
@@ -501,34 +531,34 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
             # ST 回调
             st_token = data.get("st", "")
             st2_token = data.get("st2", "")
-            return_url = login_form_data.get("returnUrl", "")
+            return_url = _resolve_return_url(login_form_data, view_data)
             if st_token and return_url:
                 if st_callback:
                     st_callback(session, st_token, st2_token, return_url)
                 else:
                     st_cb_url = f"{return_url}{'&' if '?' in return_url else '?'}st={st_token}"
-                    log.info(f"  ST 回调: {st_cb_url[:80]}...")
+                    logger.info(f"  ST 回调: {st_cb_url[:80]}...")
                     try:
                         session.get(st_cb_url, timeout=TIMEOUT)
                     except Exception as exc:
-                        log.warning(f"  ST 回调失败: {exc}")
+                        logger.warning(f"  ST 回调失败: {exc}")
 
             return {c.name: c.value for c in session.cookies}, "success"
 
         change_view = data.get("changeView", "")
         if change_view:
-            log.warning(f"  需要切换验证方式: {change_view}")
+            logger.warning(f"  需要切换验证方式: {change_view}")
             return {c.name: c.value for c in session.cookies}, f"need_verify:{change_view}"
 
-        log.warning("  未识别的响应结构")
+        logger.warning("  未识别的响应结构")
         return {c.name: c.value for c in session.cookies}, "unknown"
 
     except ValueError:
-        log.warning(f"  响应非 JSON: {r2.text[:300]}")
+        logger.warning(f"  响应非 JSON: {r2.text[:300]}")
         if r2.status_code in (301, 302, 303):
             loc = r2.headers.get("Location", "")
             if loc and "login" not in loc.lower():
-                log.info(f"  302 重定向 (可能成功): {loc}")
+                logger.info(f"  302 重定向 (可能成功): {loc}")
                 try:
                     session.get(loc, timeout=TIMEOUT)
                 except Exception:
@@ -544,24 +574,24 @@ def login(security_tokens: dict = None, st_callback=None) -> tuple[dict | None, 
 def login_with_retry(st_callback=None) -> tuple[dict | None, str]:
     from .browser_fallback import browser_login_fallback
 
-    log.info("Step 0 > 提取 AWSC 安全令牌...")
+    logger.info("Step 0 > 提取 AWSC 安全令牌...")
     security_tokens = get_security_tokens()
     has_tokens = bool(security_tokens.get("umidToken") and security_tokens.get("ua"))
 
     if has_tokens:
-        log.info(f"  令牌提取成功，尝试协议登录")
+        logger.info(f"  令牌提取成功，尝试协议登录")
     else:
-        log.warning(f"  令牌提取不完整，协议登录可能被拦截")
+        logger.warning(f"  令牌提取不完整，协议登录可能被拦截")
 
-    log.info("登录尝试: 协议模式")
+    logger.info("登录尝试: 协议模式")
     cookies, status = login(security_tokens=security_tokens, st_callback=st_callback)
 
     if status == "success":
         return cookies, status
 
-    log.info("")
-    log.info("协议登录被风控拦截，降级到浏览器自动化方案...")
-    log.info("")
+    logger.info("")
+    logger.info("协议登录被风控拦截，降级到浏览器自动化方案...")
+    logger.info("")
     cookies, status = browser_login_fallback()
     return cookies, status
 
@@ -599,16 +629,16 @@ def prepare_shop_cookie(
         save_cookies_database, save_cookies_json, save_cookies_netscape,
     )
 
-    log.info(f"{shop_name} 开始准备淘宝登录 Cookie，站点={site}")
+    logger.info(f"{shop_name} 开始准备淘宝登录 Cookie，站点={site}")
     if not db_cookie_str and not db_cookie:
         db_cookie_str, db_cookie = load_cookies_database(site, shop_name)
 
     existing_cookies = merge_cookie_sources(db_cookie_str, db_cookie)
     if existing_cookies:
-        log.info(f"{shop_name} 发现数据库 Cookie，先验证有效性")
+        logger.info(f"{shop_name} 发现数据库 Cookie，先验证有效性")
         cookie_valid, refreshed_cookies = validate_and_refresh_cookies(existing_cookies)
         if cookie_valid:
-            log.info(f"{shop_name} 数据库 Cookie 有效，刷新后回写 get_cookie")
+            logger.info(f"{shop_name} 数据库 Cookie 有效，刷新后回写 get_cookie")
             saved_to_db = False
             try:
                 save_cookies_database(
@@ -621,7 +651,7 @@ def prepare_shop_cookie(
                 )
                 saved_to_db = True
             except Exception as exc:
-                log.warning(f"{shop_name} 刷新 Cookie 回写失败：{type(exc).__name__}: {exc}")
+                logger.warning(f"{shop_name} 刷新 Cookie 回写失败：{type(exc).__name__}: {exc}")
             return {
                 "shop_name": shop_name,
                 "site": site,
@@ -629,20 +659,20 @@ def prepare_shop_cookie(
                 "cookie_count": len(refreshed_cookies),
                 "saved_to_db": saved_to_db,
             }
-        log.info(f"{shop_name} 数据库 Cookie 已失效，开始重新登录")
+        logger.info(f"{shop_name} 数据库 Cookie 已失效，开始重新登录")
     else:
-        log.info(f"{shop_name} 未获取到数据库 Cookie，开始重新登录")
+        logger.info(f"{shop_name} 未获取到数据库 Cookie，开始重新登录")
 
     if not LOGIN_ID or not PASSWORD:
         raise RuntimeError(f"{shop_name} 缺少账号或密码，无法重新登录")
 
     cookies, status = login_with_retry(st_callback=st_callback)
-    log.info("=" * 55)
-    log.info(f"{shop_name} 登录结果: {status}")
+    logger.info("=" * 55)
+    logger.info(f"{shop_name} 登录结果: {status}")
 
     if status == "success" and cookies:
         if not validate_cookies(cookies):
-            log.warning(f"{shop_name} 新登录 Cookie 校验未通过，跳过写库")
+            logger.warning(f"{shop_name} 新登录 Cookie 校验未通过，跳过写库")
             return {
                 "shop_name": shop_name,
                 "site": site,
@@ -651,7 +681,7 @@ def prepare_shop_cookie(
                 "saved_to_db": False,
             }
 
-        log.info(f"{shop_name} 新登录 Cookie 校验通过，写入 get_cookie")
+        logger.info(f"{shop_name} 新登录 Cookie 校验通过，写入 get_cookie")
         cookie_header = save_cookies_database(
             shop_name=shop_name,
             cookies=cookies,
