@@ -24,8 +24,23 @@ config/*.local.json
 log/
 logs/
 state/
+tmp/
 *.log
 *.log.zip
+
+# Local agent and planning artifacts
+.agents/
+.claude/
+.codex/
+task_plan.md
+findings.md
+progress.md
+
+# WIP and split-out login artifacts
+_wip_*
+API_login/
+jobs_login/
+get_cookie/
 
 # Build and packaging output
 build/
