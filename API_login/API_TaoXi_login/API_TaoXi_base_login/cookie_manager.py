@@ -4,21 +4,19 @@ from __future__ import annotations
 
 import json
 import time
-import logging
 from pathlib import Path
 from typing import Any
 
 import requests
 
 from . import havana
-
-log = logging.getLogger("tb_login")
+from extra.logger_ import logger
 
 
 def save_cookies_json(cookies: dict, path: Path) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(cookies, f, ensure_ascii=False, indent=2)
-    log.info(f"JSON cookies 已保存 -> {path}")
+    logger.info(f"JSON cookies 已保存 -> {path}")
 
 
 def save_cookies_netscape(cookies: dict, domain: str, path: Path) -> None:
@@ -28,7 +26,7 @@ def save_cookies_netscape(cookies: dict, domain: str, path: Path) -> None:
         lines.append(f".{domain}\tTRUE\t/\tFALSE\t{ts}\t{name}\t{value}\n")
     with open(path, "w", encoding="utf-8") as f:
         f.writelines(lines)
-    log.info(f"Netscape cookies 已保存 -> {path}")
+    logger.info(f"Netscape cookies 已保存 -> {path}")
 
 
 def load_cookies_json(path: Path) -> dict | None:
@@ -158,7 +156,7 @@ def save_cookies_database(
             yingdao_account=yingdao_account,
             maintainer_email=maintainer_email,
         )
-    log.info(f"{shop_name} Cookie 已写入 get_cookie，站点={site}")
+    logger.info(f"{shop_name} Cookie 已写入 get_cookie，站点={site}")
     return cookie_header
 
 
@@ -175,37 +173,37 @@ def load_cookies_database(site: str, shop_name: str) -> tuple[str | None, str | 
 def validate_cookies(cookies: dict) -> bool:
     required_keys = {"cookie2"}
     if not required_keys & set(cookies.keys()):
-        log.info("  Cookie 缺少关键字段，需重新登录")
+        logger.info("  Cookie 缺少关键字段，需重新登录")
         return False
 
-    log.info("  验证 Cookie 有效性...")
+    logger.info("  验证 Cookie 有效性...")
     try:
         session = requests.Session()
         session.headers.update(havana.BASE_HEADERS)
         session.cookies.update(cookies)
         resp = session.get(havana.VALIDATE_URL, timeout=havana.TIMEOUT, allow_redirects=False)
         if resp.status_code == 200:
-            log.info("  Cookie 有效")
+            logger.info("  Cookie 有效")
             return True
         if resp.status_code in (301, 302):
             location = resp.headers.get("Location", "")
             if "login" in location.lower():
-                log.info("  Cookie 已过期")
+                logger.info("  Cookie 已过期")
                 return False
-            log.info("  Cookie 有效 (非登录重定向)")
+            logger.info("  Cookie 有效 (非登录重定向)")
             return True
     except Exception as exc:
-        log.warning(f"  验证请求失败: {exc}")
+        logger.warning(f"  验证请求失败: {exc}")
     return False
 
 
 def validate_and_refresh_cookies(cookies: dict) -> tuple[bool, dict]:
     required_keys = {"unb", "cookie2"}
     if not required_keys & set(cookies.keys()):
-        log.info("  Cookie 缺少关键字段，需重新登录")
+        logger.info("  Cookie 缺少关键字段，需重新登录")
         return False, cookies
 
-    log.info("  用有效 Cookie 访问后台并刷新...")
+    logger.info("  用有效 Cookie 访问后台并刷新...")
     try:
         session = requests.Session()
         session.headers.update(havana.BASE_HEADERS)
@@ -214,9 +212,9 @@ def validate_and_refresh_cookies(cookies: dict) -> tuple[bool, dict]:
         if resp.status_code == 200 and "login" not in resp.url.lower():
             refreshed = dict(cookies)
             refreshed.update(session.cookies.get_dict())
-            log.info(f"  Cookie 有效，已刷新（{len(refreshed)} 项）")
+            logger.info(f"  Cookie 有效，已刷新（{len(refreshed)} 项）")
             return True, refreshed
-        log.info("  Cookie 已过期")
+        logger.info("  Cookie 已过期")
     except Exception as exc:
-        log.warning(f"  校验/刷新请求失败: {exc}")
+        logger.warning(f"  校验/刷新请求失败: {exc}")
     return False, cookies

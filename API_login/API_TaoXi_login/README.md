@@ -50,7 +50,6 @@
     "table_name": "get_cookie",
     "site": "生意参谋",
     "recent_days": 1,
-    "manual_timeout": 300,
     "defaults": {
       "timeout": 30,
       "max_retries": 3,
@@ -139,14 +138,6 @@
 .\.venv\Scripts\python.exe run_job.py "jobs_login\dchain_cookie.py" --log-mode both
 ```
 
-### 人工介入（SYCM）
-
-```powershell
-.\.venv\Scripts\python.exe run_job.py "jobs_login\taobao_manual_shop_cookie.py" --log-mode both
-```
-
-临时只处理一个店铺时加 `--shop-name`。只保存本地不写库加 `--no-db --save-local`。
-
 ### 独立浏览器调试
 
 ```powershell
@@ -205,10 +196,6 @@ API_login/API_TaoXi_login/
 │   ├── taobao_login_auto.py         #   浏览器自动化调试 + 填表助手
 │   ├── slider_helper.py             #   NC 滑块识别/轨迹/拖动
 │   └── extract_security_tokens.py   #   DrissionPage AWSC 令牌提取
-│
-├── manual_login/                    # 【人工介入登录】可见浏览器，人工过验
-│   ├── taobao_login_manual.py       #   人工介入登录 API
-│   └── taobao_manual_task.py        #   人工介入任务辅助层
 │
 ├── sms_helper.py                    # 短信/邮箱读码（协议 IV 与浏览器兜底共用）
 ├── requirements.txt                 # 本模块额外依赖（含 iv8>=0.1.3）

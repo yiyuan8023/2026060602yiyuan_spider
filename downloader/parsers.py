@@ -5,7 +5,7 @@ from typing import Optional
 
 import pandas as pd
 
-from excel_tool.reader import read_excel_dataframe
+from excel_tool.reader import get_xlsx_sheet_names_xml, read_excel_dataframe
 from extra.logger_ import logger
 
 from .encoding import detect_text_encoding
@@ -33,6 +33,38 @@ def _read_excel_sheet(data, sheet_name=0, skiprows=0, engine=None, **read_kwargs
     if engine:
         read_kwargs["engine"] = engine
     return read_excel_dataframe(data, **read_kwargs)
+
+
+def get_excel_sheet_names(data, engine=None):
+    """读取 Excel 工作表名称，供业务脚本做固定 Sheet 校验。"""
+    start_position = data.tell() if hasattr(data, "tell") else 0
+    try:
+        _reset_position(data, start_position)
+        return get_xlsx_sheet_names_xml(data)
+    except (KeyError, OSError, ValueError, zipfile.BadZipFile):
+        _reset_position(data, start_position)
+
+    excel_kwargs = {}
+    if engine:
+        excel_kwargs["engine"] = engine
+
+    _reset_position(data, start_position)
+    xl_file = pd.ExcelFile(data, **excel_kwargs)
+    try:
+        return list(xl_file.sheet_names)
+    finally:
+        xl_file.close()
+        _reset_position(data, start_position)
+
+
+def validate_excel_sheet_name(data, sheet_name, engine=None, context="Excel文件"):
+    """固定 Sheet 名称；名称被改动时直接抛错，避免误入库。"""
+    if not isinstance(sheet_name, str) or "*" in sheet_name or "?" in sheet_name:
+        return
+
+    sheet_names = get_excel_sheet_names(data, engine=engine)
+    if sheet_name not in sheet_names:
+        raise ValueError(f"{context} Sheet名称不匹配: expected={sheet_name}, actual={sheet_names}")
 
 
 def read_excel_records(data, sheet_name=0, skiprows=0, engine=None, **read_kwargs):

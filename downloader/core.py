@@ -2,7 +2,7 @@
 开发说明：
 - 作者：一元
 - 创建时间：2026-06-08 10:39:40
-- 最近修改：2026-06-10 22:08:17
+- 最近修改：2026-06-25 18:45:00
 - 文件用途：提供项目统一 HTTP 下载入口，封装网页请求、请求日志、文件下载、Excel/CSV/ZIP 解析和下载内容基础校验。
 - 业务范围：适用于 API 模块和任务脚本中普通 HTTP 请求、平台导出文件下载及通用文件解析。
 - 依赖入口：使用 requests、config.UA、extra.extra_reqlog.req_log、extra.logger_、downloader.encoding 和 downloader.parsers。
@@ -157,7 +157,49 @@ class Downloader:
         preview = content[:limit].decode("utf-8", errors="replace")
         return " ".join(preview.split())
 
+    def _validate_file_response(
+        self,
+        response: requests.Response,
+        *,
+        reject_json_error=True,
+        reject_html_error=False,
+        require_content=True,
+    ):
+        """校验下载响应，避免把错误页当文件交给解析器。"""
+        content = response.content or b""
+        content_type = response.headers.get("Content-Type", "").lower()
+        sample = content[:64].lstrip().lower()
+
+        if not response.ok:
+            raise requests.HTTPError(
+                f"文件下载失败，status_code={response.status_code}",
+                response=response,
+            )
+        if require_content and not content:
+            raise ValueError("下载结果为空，无法解析为文件")
+        if reject_json_error and (
+            sample.startswith((b"{", b"["))
+            or "application/json" in content_type
+            or "text/json" in content_type
+        ):
+            raise ValueError(
+                f"下载结果不是文件，疑似JSON错误响应: {self._safe_content_preview(content)}"
+            )
+        if reject_html_error and (
+            sample.startswith(b"<")
+            or "text/html" in content_type
+        ):
+            raise ValueError(
+                f"下载结果不是文件，疑似HTML错误页: {self._safe_content_preview(content)}"
+            )
+
     def _validate_excel_response(self, response: requests.Response):
+        self._validate_file_response(
+            response,
+            reject_json_error=True,
+            reject_html_error=False,
+            require_content=True,
+        )
         content = response.content or b""
         content_type = response.headers.get("Content-Type", "").lower()
         content_disposition = response.headers.get("Content-Disposition", "").lower()
@@ -169,27 +211,34 @@ class Downloader:
             or ".xls" in content_disposition
         )
 
-        if sample.startswith((b"{", b"[")):
-            raise ValueError(
-                f"下载结果不是Excel，疑似JSON错误响应: {self._safe_content_preview(content)}"
-            )
         if sample.startswith(b"<") and not header_indicates_excel:
             raise ValueError(
                 f"下载结果不是Excel，疑似HTML错误页: {self._safe_content_preview(content)}"
             )
-        if not content:
-            raise ValueError("下载结果为空，无法解析为Excel")
         if not self._looks_like_excel(content) and not header_indicates_excel:
             raise ValueError(
                 f"下载结果不是可识别Excel，content_type={content_type or 'unknown'}"
             )
 
-    def download_file_to_byte(self, validate_excel=False):
+    def download_file_to_byte(
+        self,
+        validate_excel=False,
+        reject_json_error=True,
+        reject_html_error=False,
+        require_content=True,
+    ):
         """下载文件并返回 BytesIO 对象。"""
         try:
             response = self.download_web()
             if validate_excel:
                 self._validate_excel_response(response)
+            else:
+                self._validate_file_response(
+                    response,
+                    reject_json_error=reject_json_error,
+                    reject_html_error=reject_html_error,
+                    require_content=require_content,
+                )
             # 统一返回内存文件对象，供 Excel/CSV/ZIP 解析函数复用。
             return io.BytesIO(response.content)
         except requests.exceptions.RequestException as exc:
@@ -198,6 +247,21 @@ class Downloader:
         except Exception as exc:
             logger.error(f"处理下载文件时发生未知错误: {exc}")
             raise
+
+    def download_file_bytes(
+        self,
+        validate_excel=False,
+        reject_json_error=True,
+        reject_html_error=False,
+        require_content=True,
+    ):
+        """下载文件并返回原始 bytes，适合 API 层拿到签名 URL 后复用。"""
+        return self.download_file_to_byte(
+            validate_excel=validate_excel,
+            reject_json_error=reject_json_error,
+            reject_html_error=reject_html_error,
+            require_content=require_content,
+        ).getvalue()
 
     def download_excel(  # NOQA
         self,

@@ -52,7 +52,6 @@
     "table_name": "get_cookie",
     "site": "生意参谋",
     "recent_days": 1,
-    "manual_timeout": 300,
     "defaults": {
       "timeout": 30,
       "max_retries": 3,
@@ -73,7 +72,6 @@
     "table_name": "get_cookie",
     "site": "DChain",
     "recent_days": 1,
-    "manual_timeout": 300,
     "defaults": {
       "timeout": 30,
       "max_retries": 3,

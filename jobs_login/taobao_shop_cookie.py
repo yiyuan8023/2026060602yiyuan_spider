@@ -12,16 +12,7 @@
 
 from __future__ import annotations
 
-import os
-import sys
-from pathlib import Path
 from typing import Any
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
-os.environ.setdefault("LOG_MODE", "both")
 
 from API.API_DingTalk.API_DingTalk_Notify import DingTalkJobNotifier
 from API_login.API_TaoXi_login.API_TaoXi_SYCM_login import prepare_sycm_cookie
@@ -36,7 +27,7 @@ TASK_CONFIG = {
     "table_name": TABLE_NAME,
     "site": SITE,
     "recent_days": 1,
-    "shops": ["林内官方旗舰店", "林内热水器旗舰店", "林内品牌折扣店", "智慧家电直销店"],
+    "shops": ["林内官方旗舰店", "林内热水器旗舰店", "林内品牌折扣店", "智慧家电直销店", "林内厨电旗舰店"],
 }
 
 
@@ -114,10 +105,10 @@ def build_dingtalk_notifier() -> DingTalkJobNotifier:
 
 
 def notify_shop_failure(
-    notifier: DingTalkJobNotifier,
-    task_config: dict[str, Any],
-    shop_name: str,
-    error_message: str,
+        notifier: DingTalkJobNotifier,
+        task_config: dict[str, Any],
+        shop_name: str,
+        error_message: str,
 ) -> None:
     """发送单店铺失败通知；通知失败只记录日志，不阻断后续店铺。"""
     if not notifier.enabled:

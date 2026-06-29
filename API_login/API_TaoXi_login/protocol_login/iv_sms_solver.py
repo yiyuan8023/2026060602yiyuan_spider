@@ -15,14 +15,13 @@
 
 from __future__ import annotations
 
-import logging
 import re
 from typing import Any
 
 import requests
 from bs4 import BeautifulSoup
 
-log = logging.getLogger("tb_login")
+from extra.logger_ import logger
 
 # normal_validate 引导页里 verify_modes 跳转 URL 的模板（JS 拼接 _umidfg）
 _VERIFY_MODES_RE = re.compile(r"(https://passport\.taobao\.com/iv/verify_modes\.htm\?[^\"']+)")
@@ -48,7 +47,7 @@ def _follow_to_identity_verify(session: requests.Session, iv_redirect_url: str, 
     # 2) normal_validate 是 JS 引导页，提取 verify_modes URL，_umidfg 直接置 1（已验证可达短信表单）
     match = _VERIFY_MODES_RE.search(html1)
     if not match:
-        log.warning("  IV: 未能从引导页提取 verify_modes 跳转")
+        logger.warning("  IV: 未能从引导页提取 verify_modes 跳转")
         return None, None
 
     verify_modes_url = (match.group(1)
@@ -122,20 +121,20 @@ def solve_iv_sms(
         except ImportError:
             from API_login.API_TaoXi_login.sms_helper import get_sms_code
 
-        log.info("  IV: 进入短信二次验证求解...")
+        logger.info("  IV: 进入短信二次验证求解...")
         iv_html, iv_form_url = _follow_to_identity_verify(session, iv_redirect_url, timeout)
         if not iv_html or not iv_form_url:
             return False
         if _looks_risky(iv_html) and "J_Phone_Checkcode" not in iv_html:
-            log.warning("  IV: 验证页疑似被风控/滑块拦截，短信路径不可用")
+            logger.warning("  IV: 验证页疑似被风控/滑块拦截，短信路径不可用")
             return False
 
         parsed = _parse_iv_sms_form(iv_html)
         if not parsed:
-            log.warning("  IV: 未识别到短信验证表单（可能为滑块或其它模式）")
+            logger.warning("  IV: 未识别到短信验证表单（可能为滑块或其它模式）")
             return False
         if not parsed["send_code_url"]:
-            log.warning("  IV: 未找到发码接口 send_code.do")
+            logger.warning("  IV: 未找到发码接口 send_code.do")
             return False
 
         # 取一次基准邮件 UID，避免读到历史验证码
@@ -163,25 +162,25 @@ def solve_iv_sms(
         except ValueError:
             send_ok = False
         if not send_ok:
-            log.warning(f"  IV: 发码失败或被拦截（状态码 {sr.status_code}）")
+            logger.warning(f"  IV: 发码失败或被拦截（状态码 {sr.status_code}）")
             if _looks_risky(sr.text):
-                log.warning("  IV: 发码响应含风控特征，短信路径不可用")
+                logger.warning("  IV: 发码响应含风控特征，短信路径不可用")
             return False
-        log.info("  IV: 短信验证码已发送，等待邮箱转发读取...")
+        logger.info("  IV: 短信验证码已发送，等待邮箱转发读取...")
 
         # 读码：优先轮询比 baseline 新的验证码
         code = get_sms_code(wait_seconds=sms_wait, poll_interval=sms_poll, subject_keyword="验证码")
         if not code:
-            log.warning("  IV: 未读取到短信验证码")
+            logger.warning("  IV: 未读取到短信验证码")
             return False
-        log.info(f"  IV: 读取到验证码（{len(code)} 位）")
+        logger.info(f"  IV: 读取到验证码（{len(code)} 位）")
 
         # 提交校验码（form 无 action，POST 回 identity_verify 当前页；复用同一遍历的 URL 与 htoken）
         submit_fields = dict(parsed["fields"])
         submit_fields[parsed["code_field"]] = code
         return _submit_iv_code(session, iv_form_url, submit_fields, timeout)
     except Exception as exc:
-        log.warning(f"  IV: 短信求解异常: {type(exc).__name__}: {exc}")
+        logger.warning(f"  IV: 短信求解异常: {type(exc).__name__}: {exc}")
         return False
 
 
@@ -206,11 +205,11 @@ def _submit_iv_code(session: requests.Session, iv_form_url: str, submit_fields: 
         json_ok = False
 
     if json_ok or left_iv:
-        log.info(f"  IV: 短信验证通过（最终 URL: {resp.url[:60]}...）")
+        logger.info(f"  IV: 短信验证通过（最终 URL: {resp.url[:60]}...）")
         return True
 
     if _looks_risky(body):
-        log.warning("  IV: 提交后仍被风控拦截")
+        logger.warning("  IV: 提交后仍被风控拦截")
     else:
-        log.warning(f"  IV: 短信验证未通过（最终 URL: {resp.url[:60]}...）")
+        logger.warning(f"  IV: 短信验证未通过（最终 URL: {resp.url[:60]}...）")
     return False

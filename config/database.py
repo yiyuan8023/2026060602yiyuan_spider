@@ -13,6 +13,7 @@ DEFAULT_DATABASE_NAMES = {
     "bc": "bc",
     "hb": "hb",
 }
+DEFAULT_COOKIE_DATABASE_CONFIG_NAME = "test"
 
 
 def _env_prefix(config_name):
@@ -62,3 +63,18 @@ def get_database_config(config_name=None, require_credentials=True):
             f"或配置 MYSQL_* / {env_prefix}* 环境变量。"
         )
     return config
+
+
+def get_database_name(config_name=None):
+    """只解析数据库名，不要求当前环境提供完整连接凭据。"""
+    name = config_name or os.environ.get("MYSQL_CONFIG_NAME") or "test"
+    database_name = _local_database_value(name, "DB") or _env_value(name, "DB") or DEFAULT_DATABASE_NAMES.get(name)
+    if not database_name:
+        raise RuntimeError(f"数据库配置 {name} 缺少 db，请在 config/local.json 或环境变量中配置。")
+    return database_name
+
+
+def get_cookie_database_name():
+    """Cookie 源表固定库名，默认使用 test 配置对应的数据库。"""
+    config_name = os.environ.get("MYSQL_COOKIE_CONFIG_NAME") or DEFAULT_COOKIE_DATABASE_CONFIG_NAME
+    return get_database_name(config_name)

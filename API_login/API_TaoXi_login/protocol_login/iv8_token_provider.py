@@ -16,7 +16,6 @@
 from __future__ import annotations
 
 import json
-import logging
 from pathlib import Path
 from typing import Any
 
@@ -59,7 +58,7 @@ try {
 }
 """
 
-log = logging.getLogger("tb_login")
+from extra.logger_ import logger
 
 
 def _build_environment(user_agent: str) -> dict[str, Any]:
@@ -112,7 +111,7 @@ def _forward_request(session: requests.Session, entry: dict[str, Any], timeout: 
             resp = session.get(url, timeout=timeout)
         return resp.text, resp.status_code or 200
     except requests.RequestException as exc:
-        log.warning(f"  AWSC 请求转发失败: {url[:60]} ({type(exc).__name__})")
+        logger.warning(f"  AWSC 请求转发失败: {url[:60]} ({type(exc).__name__})")
         return "", 0
 
 
@@ -147,7 +146,7 @@ def _run_inject_loop(ctx, session: requests.Session, timeout: int, max_rounds: i
             try:
                 ctx.add_resource(url, text, status if status else 200, {"content-type": inject_ct})
             except Exception as exc:  # iv8 注入异常不应中断整体流程
-                log.warning(f"  注入响应失败: {url[:60]} ({type(exc).__name__})")
+                logger.warning(f"  注入响应失败: {url[:60]} ({type(exc).__name__})")
 
     return captured
 
@@ -180,16 +179,16 @@ def get_security_tokens_iv8(
 
     missing = [name for name in SDK_FILES if not (JS_DIR / name).exists()]
     if missing:
-        log.warning(f"  iv8 token 提取缺少 SDK 文件: {missing}，跳过 iv8 路径")
+        logger.warning(f"  iv8 token 提取缺少 SDK 文件: {missing}，跳过 iv8 路径")
         return {}
 
     try:
         import iv8
     except ImportError:
-        log.warning("  iv8 未安装，跳过 iv8 token 提取")
+        logger.warning("  iv8 未安装，跳过 iv8 token 提取")
         return {}
 
-    log.info("  iv8 提取 AWSC 安全令牌 (umidToken + bx-ua)...")
+    logger.info("  iv8 提取 AWSC 安全令牌 (umidToken + bx-ua)...")
     session = _make_session(user_agent)
     environment = _build_environment(user_agent)
 
@@ -213,7 +212,7 @@ def get_security_tokens_iv8(
             ctx.eval(_CONFIG_FY)
             fy_err = ctx.eval("window._fyErr") or ""
             if fy_err:
-                log.warning(f"  configFY 初始化异常: {fy_err[:80]}")
+                logger.warning(f"  configFY 初始化异常: {fy_err[:80]}")
 
             captured = _run_inject_loop(ctx, session, timeout=timeout, max_rounds=max_rounds)
             ctx.eval("__iv8__.eventLoop.sleep(800)")
@@ -226,13 +225,13 @@ def get_security_tokens_iv8(
             except Exception:
                 ua_val = ""
     except Exception as exc:
-        log.warning(f"  iv8 token 提取失败: {type(exc).__name__}: {exc}")
+        logger.warning(f"  iv8 token 提取失败: {type(exc).__name__}: {exc}")
         return {}
 
     # bx-ua 正常以 "<数字>#" 开头（如 140#...）；哨兵值 default*/defaultUA* 视为无效
     ua_valid = bool(ua_val) and "#" in ua_val[:6] and not ua_val.lower().startswith("default")
     if not umid_token or not ua_valid:
-        log.warning(
+        logger.warning(
             f"  iv8 token 不完整 (umid={'有' if umid_token else '空'}, "
             f"ua={'有' if ua_valid else '空'})，将回落浏览器提取"
         )
@@ -241,7 +240,7 @@ def get_security_tokens_iv8(
     # inject 过程中 session 已从真实请求积累到部分淘宝 Cookie（cna 等），一并带回登录会话
     cookies = {name: value for name, value in session.cookies.get_dict().items()}
 
-    log.info(f"  iv8 令牌就绪: umidToken({len(umid_token)}位 {umid_token[:8]}…), "
+    logger.info(f"  iv8 令牌就绪: umidToken({len(umid_token)}位 {umid_token[:8]}…), "
              f"bx-ua({len(ua_val)}位 {ua_val[:6]}…), cookies={len(cookies)}")
     return {
         "umidToken": umid_token,
@@ -252,7 +251,6 @@ def get_security_tokens_iv8(
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
     result = get_security_tokens_iv8()
     print("\n" + "=" * 60)
     if result:

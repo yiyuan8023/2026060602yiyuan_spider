@@ -26,7 +26,7 @@ SITE = "生意参谋"
 PRIMARY_KEY = "交易子订单号"
 MAX_WORKERS = 3
 USE_LATEST_SUCCESS_EXPORT = os.environ.get("USE_LATEST_SUCCESS_EXPORT") == "1"
-AUDIT_YEAR = "2025"
+AUDIT_YEAR = "2026"
 AUDIT_AREA_ID_BY_YEAR = {
     "2024": 429,
     "2025": 428,
@@ -85,6 +85,18 @@ SHOP_CONFIGS = [
         "db_config": "rinnai",
         "recent_days": 1,
         "audit_params": build_audit_params(2208107135654),
+    },
+    {
+        "shop_name": "林内品牌折扣店",
+        "db_config": "rinnai",
+        "recent_days": 1,
+        "audit_params": build_audit_params(3830928885),
+    },
+    {
+        "shop_name": "林内厨电旗舰店",
+        "db_config": "rinnai",
+        "recent_days": 1,
+        "audit_params": build_audit_params(2212375622312),
     },
 ]
 

@@ -66,6 +66,8 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def resolve_job_path(job: str) -> Path:
     """把用户输入的任务脚本路径解析为绝对路径，并限制在项目根目录内。"""
+    if job.startswith(("\\", "/")) and not job.startswith(("\\\\", "//")):
+        job = job.lstrip("\\/")
     raw_path = Path(job)
     job_path = raw_path if raw_path.is_absolute() else PROJECT_ROOT / raw_path
     job_path = job_path.resolve()

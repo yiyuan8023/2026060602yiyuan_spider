@@ -344,7 +344,7 @@ def run_auto_login(shop_config: dict[str, Any], output_dir: Path, save_local: bo
 
         accept_agreement_dialog(page)
         if "login" in page.url:
-            handle_nc_slider(page, max_retry=slider_retry, logger=logger)
+            handle_nc_slider(page, max_retry=slider_retry)
             time.sleep(2)
 
         if "login" in page.url:

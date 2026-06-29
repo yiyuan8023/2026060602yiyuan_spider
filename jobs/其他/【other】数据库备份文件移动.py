@@ -1,15 +1,11 @@
 import json
-import logging
 import os
 import shutil
 from pathlib import Path
 
+from extra.logger_ import logger
 
-logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-LOCAL_CONFIG_PATH = PROJECT_ROOT / "config" / "local.json"
+LOCAL_CONFIG_PATH = Path.cwd() / "config" / "local.json"
 DEFAULT_DESTINATION = Path(r"Z:\数据库备份")
 
 

@@ -82,7 +82,11 @@ class TaoXiGongZuoTaiGovSubsidyAuditApi(TaoXiGongZuoTaiBaseApi):
         sleep_seconds=60,
     ):
         """创建导出任务，轮询成功后下载 Excel 明细。"""
-        export_params = self._with_total_page_size(params)
+        export_params, total = self._with_total_page_size(params)
+        if total == 0:
+            logger.info("国家补贴审计订单查询总数为0，跳过创建导出任务")
+            return []
+
         create_data = self.create_audit_order_export(export_params)
         create_task_ids = self._extract_task_identifiers(create_data)
         if create_task_ids:
@@ -179,11 +183,21 @@ class TaoXiGongZuoTaiGovSubsidyAuditApi(TaoXiGongZuoTaiBaseApi):
         query_params["pageIndex"] = 1
         query_params["pageSize"] = 1
         response_data = self.query_audit_order_list(query_params)
-        total = (response_data.get("data") or {}).get("total")
-        if total:
-            export_params["pageSize"] = int(total)
+        total = self._parse_total((response_data.get("data") or {}).get("total"))
+        if total is not None and total > 0:
+            export_params["pageSize"] = total
         export_params.setdefault("pageIndex", 1)
-        return export_params
+        return export_params, total
+
+    @staticmethod
+    def _parse_total(total):
+        if total in (None, ""):
+            return None
+        try:
+            return int(total)
+        except (TypeError, ValueError):
+            logger.warning(f"国家补贴审计订单查询总数无法解析: {total}")
+            return None
 
     def _find_matching_success_task(self, export_data, params, task_ids=None):
         for task in self._find_matching_tasks(export_data, params, task_ids=task_ids):

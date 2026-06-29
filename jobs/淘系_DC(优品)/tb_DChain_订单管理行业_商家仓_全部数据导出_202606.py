@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Run DChain Cainiao-warehouse order export collection."""
+"""Run DChain merchant-warehouse order export collection."""
 
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import requests
 
 from API.API_TaoXi_DC import TaoXiDCOrderExportApi
 from database import DBManager
@@ -12,20 +14,29 @@ from extra.logger_ import logger
 from extra.select_shop_date import select_shop_date
 
 
-# TABLE_NAME = "tb_DChain_订单管理行业_菜鸟仓_全部数据导出_202606"
-TABLE_NAME = "tb_天猫优品_销售管理_订单管理_菜鸟仓_202411"
+# TABLE_NAME = "tb_DChain_订单管理行业_商家仓_全部数据导出_202606"
+TABLE_NAME = "tb_天猫优品_销售管理_订单管理_商家仓_202411"
 SITE = "DChain"
 MAX_WORKERS = 1
-WAREHOUSE = "cn"
+WAREHOUSE = "merchant"
+# 页面“创建时间”对应订单创建时间字段；系统创建时间字段 sysCreateTimeRange 会导致 GEI 导出策略误判范围。
 DATE_FIELD = "tradeCreateTimeRange"
 DELETE_TIME_FIELD = "下单时间"
 USE_LATEST_SUCCESS_EXPORT = os.environ.get("USE_LATEST_SUCCESS_EXPORT") == "1"
+BI_REFRESH_URL = "https://bi.bi-cheng.cn/public-api/data-source/m74904312e1184cbc80bcc1e/refresh?token=g7a72f219f6374f1eadfa015"
 
 SHOP_CONFIGS = [
     {
         "shop_name": "安徽碧橙网络技术有限公司",
+        # "db_config": None,
         "db_config": "bc",
-        "recent_days": 3,
+        "recent_days": 60,
+    },
+    {
+        "shop_name": "四川碧橙新零售有限公司",
+        # "db_config": None,
+        "db_config": "bc",
+        "recent_days": 60,
     },
 ]
 
@@ -37,7 +48,7 @@ def build_time_range(crawl_day_list):
 
 
 def fetch_shop_report(shop_cookie, shop_config_by_name, start_time, end_time):
-    """Create and download one shop's DChain Cainiao-warehouse order export."""
+    """Create and download one shop's DChain merchant-warehouse order export."""
     shop_name = shop_cookie[0]
     cookie = shop_cookie[1]
     shop_config = shop_config_by_name.get(shop_name, {})
@@ -66,11 +77,11 @@ def fetch_shop_report(shop_cookie, shop_config_by_name, start_time, end_time):
 
 
 def write_shop_items(shop_result):
-    """Delete the selected date range, then insert the downloaded rows."""
+    """Write one shop's downloaded rows."""
     shop_name = shop_result["shop_name"]
     items = shop_result["items"]
     if not items:
-        logger.warning(f"{shop_name} DChain菜鸟仓全部数据导出没有数据，跳过入库")
+        logger.warning(f"{shop_name} DChain商家仓全部数据导出没有数据，跳过入库")
         return
 
     delete_sql = (
@@ -87,6 +98,13 @@ def write_shop_items(shop_result):
     with DBManager(db_config=shop_result["db_config"]) as db_manager:
         db_manager.delete_insert_data(items, TABLE_NAME, delete_sql, delete_params)
     logger.info("-" * 100)
+
+
+def trigger_bi_refresh():
+    """Trigger BI data source refresh after this job finishes."""
+    response = requests.get(BI_REFRESH_URL, timeout=30)
+    response.raise_for_status()
+    logger.info("DChain商家仓全部数据导出完成，已触发BI数据源刷新")
 
 
 if __name__ == "__main__":
@@ -106,13 +124,13 @@ if __name__ == "__main__":
         shop_cookies = [shop_cookie for shop_cookie in all_shop_cookies if shop_cookie[0] in expected_names]
 
     start_time, end_time = build_time_range(crawl_day_list)
-    logger.info(f"DChain菜鸟仓全部数据导出时间范围：{start_time} - {end_time}")
+    logger.info(f"DChain商家仓全部数据导出时间范围：{start_time} - {end_time}")
 
     if not shop_cookies:
-        logger.warning("DChain菜鸟仓全部数据导出没有可执行店铺")
+        logger.warning("DChain商家仓全部数据导出没有可执行店铺")
     else:
         worker_count = min(MAX_WORKERS, len(shop_cookies))
-        logger.info(f"DChain菜鸟仓全部数据导出开始，店铺数={len(shop_cookies)}，并发数={worker_count}")
+        logger.info(f"DChain商家仓全部数据导出开始，店铺数={len(shop_cookies)}，并发数={worker_count}")
         with ThreadPoolExecutor(max_workers=worker_count) as executor:
             future_by_shop = {
                 executor.submit(
@@ -129,6 +147,7 @@ if __name__ == "__main__":
                 try:
                     write_shop_items(future.result())
                 except Exception:
-                    logger.exception(f"{shop_name} DChain菜鸟仓全部数据导出失败")
+                    logger.exception(f"{shop_name} DChain商家仓全部数据导出失败")
                     raise
     logger.info("*" * 100)
+    trigger_bi_refresh()

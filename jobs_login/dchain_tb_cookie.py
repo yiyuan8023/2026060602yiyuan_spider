@@ -1,36 +1,27 @@
 """
 开发说明：
 - 作者：一元
-- 创建时间：2026-06-24 12:50:00
-- 最近修改：2026-06-24 12:50:00
-- 文件用途：启动 DChain 供应链系统登录 Cookie 准备任务，优先复用 cookie 视图，失效后刷新并写入 get_cookie。
-- 业务范围：适用于 Alibaba DChain (web.scm.tmall.com) Cookie 登录态准备，使用淘系 Havana 统一登录。
-- 依赖入口：调用 extra.select_shop_date.select_shop_date 获取数据库 Cookie，调用 API_login.API_TaoXi_DC_login.prepare_dchain_cookie 执行验证、登录和写库。
+- 创建时间：2026-06-24 22:16:00
+- 最近修改：2026-06-24 22:16:00
+- 文件用途：启动 DChain 淘宝登录 Cookie 准备任务（适用于必须使用"淘宝登录"tab的账号），优先复用 cookie 视图，失效后刷新并写入 get_cookie。
+- 业务范围：适用于 Alibaba DChain (web.scm.tmall.com) 使用淘宝会员登录方式的账号（如林内供应商:BI），使用淘系 Havana 统一登录但appName=taobao。
+- 依赖入口：调用 extra.select_shop_date.select_shop_date 获取数据库 Cookie，调用 API_login.API_TaoXi_DC_TB_login.prepare_dchain_tb_cookie 执行验证、登录和写库。
 - 验收方式：修改后执行 py_compile 和导入探针；真实运行时先单账号验证 Cookie 复用、失效刷新和 get_cookie 写入。
 - 注意事项：日志不得输出真实 Cookie、账号密码或数据库敏感配置；正式运行建议通过 run_job.py 启动。
 """
 
 from __future__ import annotations
 
-import os
-import sys
-from pathlib import Path
 from typing import Any
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
-os.environ.setdefault("LOG_MODE", "both")
-
 from API.API_DingTalk.API_DingTalk_Notify import DingTalkJobNotifier
-from API_login.API_TaoXi_login.API_TaoXi_DC_login import prepare_dchain_cookie
+from API_login.API_TaoXi_login.API_TaoXi_DC_TB_login import prepare_dchain_tb_cookie
 from config.local_config import get_local_section
 from extra.logger_ import logger
 from extra.select_shop_date import select_shop_date
 
 TABLE_NAME = "get_cookie"
-SITE = "DChain"
+SITE = "DChain_TB"
 
 TASK_CONFIG = {
     "table_name": TABLE_NAME,
@@ -61,25 +52,25 @@ def normalize_shop_configs(raw_shops, defaults: dict[str, Any]) -> list[dict[str
         elif isinstance(raw_item, dict):
             raw_config = raw_item.copy()
         else:
-            raise RuntimeError("config/local.json 的 dchain_login.shops 仅支持对象、列表或店铺名字符串")
+            raise RuntimeError("config/local.json 的 dchain_tb_login.shops 仅支持对象、列表或店铺名字符串")
 
         if not raw_config.get("shop_name"):
-            raise RuntimeError("config/local.json 的 dchain_login.shops 存在缺少 shop_name 的配置")
+            raise RuntimeError("config/local.json 的 dchain_tb_login.shops 存在缺少 shop_name 的配置")
         shop_configs.append({**defaults, **raw_config})
     return shop_configs
 
 
 def load_task_config() -> dict[str, Any]:
-    """读取 config/local.json 中的 dchain_login 多账号配置。"""
-    local_config = get_local_section("dchain_login")
+    """读取 config/local.json 中的 dchain_tb_login 多账号配置。"""
+    local_config = get_local_section("dchain_tb_login")
     task_config = TASK_CONFIG.copy()
     if not local_config:
-        logger.warning("config/local.json 未配置 dchain_login，将不执行任何账号")
+        logger.warning("config/local.json 未配置 dchain_tb_login，将不执行任何账号")
         return task_config
 
     defaults = local_config.get("defaults") or {}
     if not isinstance(defaults, dict):
-        raise RuntimeError("config/local.json 的 dchain_login.defaults 必须是对象")
+        raise RuntimeError("config/local.json 的 dchain_tb_login.defaults 必须是对象")
 
     for key in ("table_name", "site", "recent_days"):
         if key in local_config:
@@ -124,10 +115,10 @@ def notify_shop_failure(
         return
 
     safe_error = error_message.replace("\n", " ")[:800]
-    title = f"DChain 登录 Cookie 失败：{shop_name}"
+    title = f"DChain 淘宝登录 Cookie 失败：{shop_name}"
     text = (
         f"### {title}\n\n"
-        f"- 任务：`jobs_login/dchain_cookie.py`\n"
+        f"- 任务：`jobs_login/dchain_tb_cookie.py`\n"
         f"- 站点：{task_config.get('site')}\n"
         f"- 账号：{shop_name}\n"
         f"- 目标表：`{task_config.get('table_name')}`\n"
@@ -145,7 +136,7 @@ def run_one_shop(task_config: dict[str, Any], shop_config: dict[str, Any]) -> di
     recent_days = int(shop_config.get("recent_days", task_config["recent_days"]))
     shop_name = shop_config["shop_name"]
 
-    logger.info(f"{shop_name} 开始准备 DChain 登录 Cookie，目标写入=get_cookie")
+    logger.info(f"{shop_name} 开始准备 DChain 淘宝登录 Cookie，目标写入=get_cookie")
 
     shop_cookies, _crawl_day_list = select_shop_date(
         table_name,
@@ -157,7 +148,7 @@ def run_one_shop(task_config: dict[str, Any], shop_config: dict[str, Any]) -> di
     db_cookie_str = cookie_row[1] if cookie_row else None
     db_cookie = cookie_row[2] if cookie_row else None
 
-    result = prepare_dchain_cookie(
+    result = prepare_dchain_tb_cookie(
         shop_name=shop_name,
         login_id=require_login_id(shop_config, shop_name),
         password=shop_config.get("password") or "",
@@ -176,10 +167,10 @@ def run_one_shop(task_config: dict[str, Any], shop_config: dict[str, Any]) -> di
 
     status = result.get("status")
     if status not in {"success", "db_cookie_valid"}:
-        raise RuntimeError(f"{shop_name} DChain 登录 Cookie 准备失败，状态={status}")
+        raise RuntimeError(f"{shop_name} DChain 淘宝登录 Cookie 准备失败，状态={status}")
 
     logger.info(
-        f"{shop_name} DChain 登录 Cookie 准备完成，状态={status}，"
+        f"{shop_name} DChain 淘宝登录 Cookie 准备完成，状态={status}，"
         f"Cookie 数量={result.get('cookie_count', 0)}，写库={result.get('saved_to_db')}"
     )
     return result
@@ -188,7 +179,7 @@ def run_one_shop(task_config: dict[str, Any], shop_config: dict[str, Any]) -> di
 def main() -> None:
     task_config = load_task_config()
     if not task_config["shops"]:
-        raise RuntimeError("未找到 DChain 登录账号配置，请在 config/local.json 的 dchain_login.shops 中配置")
+        raise RuntimeError("未找到 DChain 淘宝登录账号配置，请在 config/local.json 的 dchain_tb_login.shops 中配置")
 
     results = []
     failed_results = []
@@ -199,18 +190,18 @@ def main() -> None:
             results.append(run_one_shop(task_config, shop_config))
         except Exception as exc:
             error_message = f"{type(exc).__name__}: {exc}"
-            logger.error(f"{shop_name} DChain 登录 Cookie 准备失败，已跳过继续下一个账号：{error_message}")
+            logger.error(f"{shop_name} DChain 淘宝登录 Cookie 准备失败，已跳过继续下一个账号：{error_message}")
             notify_shop_failure(notifier, task_config, shop_name, error_message)
             failed_results.append({"shop_name": shop_name, "error": error_message})
             continue
 
     logger.info(
-        f"DChain 登录 Cookie 准备任务完成，总账号数={len(task_config['shops'])}，"
+        f"DChain 淘宝登录 Cookie 准备任务完成，总账号数={len(task_config['shops'])}，"
         f"成功={len(results)}，失败={len(failed_results)}"
     )
     if failed_results:
         failed_names = "、".join(item["shop_name"] for item in failed_results)
-        logger.warning(f"DChain 登录 Cookie 准备失败账号：{failed_names}")
+        logger.warning(f"DChain 淘宝登录 Cookie 准备失败账号：{failed_names}")
 
 
 if __name__ == "__main__":

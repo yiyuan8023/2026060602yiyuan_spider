@@ -12,16 +12,7 @@
 
 from __future__ import annotations
 
-import os
-import sys
-from pathlib import Path
 from typing import Any
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
-os.environ.setdefault("LOG_MODE", "both")
 
 from API.API_DingTalk.API_DingTalk_Notify import DingTalkJobNotifier
 from API_login.API_TaoXi_login.API_TaoXi_DC_login import prepare_dchain_cookie

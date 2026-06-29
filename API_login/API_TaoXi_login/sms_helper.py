@@ -9,10 +9,9 @@
 
 import sys
 import time
-import logging
 from pathlib import Path
 
-log = logging.getLogger("tb_login")
+from extra.logger_ import logger
 
 # 将原始项目加入 sys.path 以复用邮箱 API
 _SPIDER_PROJECT = Path(r"F:\05ai_project\2026060602yiyuan_spider")
@@ -46,11 +45,11 @@ def get_sms_code(
     try:
         from API.API_Mailbox import MailboxVerificationCodeApi
     except ImportError as e:
-        log.error(f"  无法导入邮箱 API: {e}")
-        log.error(f"  请确认 {_SPIDER_PROJECT} 路径正确且依赖已安装")
+        logger.error(f"  无法导入邮箱 API: {e}")
+        logger.error(f"  请确认 {_SPIDER_PROJECT} 路径正确且依赖已安装")
         return None
 
-    log.info(f"  等待短信验证码 (最多 {wait_seconds}s, 每 {poll_interval}s 检查一次)...")
+    logger.info(f"  等待短信验证码 (最多 {wait_seconds}s, 每 {poll_interval}s 检查一次)...")
     start_time = time.time()
     last_seen_uid = None
 
@@ -64,15 +63,15 @@ def get_sms_code(
         )
         if baseline:
             last_seen_uid = baseline.uid
-            log.info(f"  基准邮件 UID: {last_seen_uid} (忽略此前的验证码)")
+            logger.info(f"  基准邮件 UID: {last_seen_uid} (忽略此前的验证码)")
     except Exception as exc:
-        log.warning(f"  获取基准邮件失败: {exc}")
+        logger.warning(f"  获取基准邮件失败: {exc}")
 
     # 轮询等待新验证码
     while time.time() - start_time < wait_seconds:
         time.sleep(poll_interval)
         elapsed = int(time.time() - start_time)
-        log.info(f"  检查邮箱... ({elapsed}s/{wait_seconds}s)")
+        logger.info(f"  检查邮箱... ({elapsed}s/{wait_seconds}s)")
 
         try:
             api = MailboxVerificationCodeApi()
@@ -82,12 +81,12 @@ def get_sms_code(
                 subject_keyword=subject_keyword,
             )
             if result and result.uid != last_seen_uid:
-                log.info(f"  收到验证码: {result.code} (来自: {result.sender})")
+                logger.info(f"  收到验证码: {result.code} (来自: {result.sender})")
                 return result.code
         except Exception as exc:
-            log.warning(f"  邮箱查询异常: {exc}")
+            logger.warning(f"  邮箱查询异常: {exc}")
 
-    log.warning(f"  等待 {wait_seconds}s 未收到验证码")
+    logger.warning(f"  等待 {wait_seconds}s 未收到验证码")
     return None
 
 
@@ -102,7 +101,7 @@ def get_sms_code_immediate(
     try:
         from API.API_Mailbox import MailboxVerificationCodeApi
     except ImportError as e:
-        log.error(f"  无法导入邮箱 API: {e}")
+        logger.error(f"  无法导入邮箱 API: {e}")
         return None
 
     try:
@@ -113,9 +112,9 @@ def get_sms_code_immediate(
             subject_keyword=subject_keyword,
         )
         if result:
-            log.info(f"  最新验证码: {result.code} (来自: {result.sender}, 时间: {result.sent_at})")
+            logger.info(f"  最新验证码: {result.code} (来自: {result.sender}, 时间: {result.sent_at})")
             return result.code
     except Exception as exc:
-        log.warning(f"  邮箱查询异常: {exc}")
+        logger.warning(f"  邮箱查询异常: {exc}")
 
     return None

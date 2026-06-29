@@ -8,14 +8,9 @@ extract_security_tokens.py
 
 import time
 import json
-import logging
 from DrissionPage import ChromiumPage, ChromiumOptions
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s"
-)
-log = logging.getLogger("token_extractor")
+from extra.logger_ import logger
 
 
 def extract_awsc_tokens(wait_max=20, page=None):
@@ -33,7 +28,7 @@ def extract_awsc_tokens(wait_max=20, page=None):
 
     try:
         if own_page:
-            log.info("启动浏览器提取安全 token...")
+            logger.info("启动浏览器提取安全 token...")
             co = ChromiumOptions()
             co.set_argument('--lang=zh-CN')
             co.set_argument('--disable-blink-features=AutomationControlled')
@@ -83,19 +78,19 @@ def extract_awsc_tokens(wait_max=20, page=None):
                     return window._secTokens.ua || "";
                 ''') or data.get('ua', '')
 
-                log.info(f"umidToken: {data['umidToken'][:50]}...")
-                log.info(f"ua: {ua[:80]}...")
+                logger.info(f"umidToken: {data['umidToken'][:50]}...")
+                logger.info(f"ua: {ua[:80]}...")
                 return {
                     "success": True,
                     "umidToken": data['umidToken'],
                     "ua": ua,
                 }
 
-        log.warning(f"等待 {wait_max}s 未获取到 umidToken")
+        logger.warning(f"等待 {wait_max}s 未获取到 umidToken")
         return {"success": False, "umidToken": "", "ua": ""}
 
     except Exception as e:
-        log.error(f"提取 token 异常: {e}")
+        logger.error(f"提取 token 异常: {e}")
         return {"success": False, "umidToken": "", "ua": ""}
     finally:
         if own_page and page:

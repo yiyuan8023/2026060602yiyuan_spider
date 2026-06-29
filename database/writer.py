@@ -151,3 +151,40 @@ class DataWriterMixin:
             self.close()
             logger.error(f"数据更新失败: {e}")
             raise
+
+    def delete_insert_data(
+        self,
+        items,
+        db_table_name,
+        delete_sql,
+        delete_params=None,
+        uu_id=None,
+        user=None,
+    ):
+        """按条件删除旧数据后批量插入；适合无唯一键的区间型导出表。"""
+        if not items:
+            logger.warning("没有需要插入的数据")
+            return False
+
+        try:
+            table_exists = self._table_exists(db_table_name)
+            if table_exists:
+                self._check_and_update_table_structure(items, db_table_name)
+                logger.info("开始删除指定条件的旧数据")
+                self.execute_sql(delete_sql, delete_params)
+                logger.info("指定条件旧数据删除完成")
+
+            logger.info("准备批量写入数据")
+            self.update_insert_data(
+                items,
+                db_table_name,
+                primary_key=None,
+                uu_id=uu_id,
+                user=user,
+            )
+            logger.info("批量插入完成")
+            return True
+
+        except Exception as e:
+            logger.error(f"数据更新失败: {e}")
+            raise
