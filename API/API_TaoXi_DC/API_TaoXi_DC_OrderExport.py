@@ -83,11 +83,13 @@ class TaoXiDCOrderExportApi(TaoXiDCBaseApi):
 
     def prepare_export_payload(self, payload):
         export_payload = dict(payload)
+        skip_warehouse_filter = export_payload.pop("_skipWarehouseFilter", False)
         export_payload.setdefault("bizStatus", 0)
         export_payload.setdefault("isHistory", False)
         export_payload.setdefault("orderCodeType", 2)
-        export_payload.setdefault("warehouseDeliveryMode", 2)
-        export_payload.setdefault("isMerchant", True)
+        if not skip_warehouse_filter:
+            export_payload.setdefault("warehouseDeliveryMode", 2)
+            export_payload.setdefault("isMerchant", True)
         export_payload.setdefault("queryCode", "")
 
         if "userDTO" not in export_payload:
@@ -200,7 +202,7 @@ class TaoXiDCOrderExportApi(TaoXiDCBaseApi):
                 cookie=self.cookie,
                 headers={
                     "source": "ascp",
-                    "referer": self.PAGE_REFERER,
+                    "referer": self.page_referer,
                 },
                 timeout=60,
                 context="DChain订单导出下载",
@@ -225,10 +227,13 @@ class TaoXiDCOrderExportApi(TaoXiDCBaseApi):
             "bizStatus": biz_status,
             "isHistory": is_history,
             "orderCodeType": order_code_type,
-            "warehouseDeliveryMode": cls._warehouse_delivery_mode(warehouse),
-            "isMerchant": warehouse != "cn",
             "queryCode": "",
         }
+        if warehouse in (None, "", "all", "全部", "全部仓"):
+            payload["_skipWarehouseFilter"] = True
+        else:
+            payload["warehouseDeliveryMode"] = cls._warehouse_delivery_mode(warehouse)
+            payload["isMerchant"] = warehouse != "cn"
         return payload
 
     @staticmethod

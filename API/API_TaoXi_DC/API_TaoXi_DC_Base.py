@@ -16,14 +16,15 @@ class TaoXiDCBaseApi:
     API_HOST = "https://order.cbbs.tmall.com"
     PAGE_REFERER = "https://web.scm.tmall.com/pages/3c/indus_fulfillment_order_manage_config"
 
-    def __init__(self, cookie):
+    def __init__(self, cookie, page_referer=None):
         self.cookie = cookie
+        self.page_referer = page_referer or self.PAGE_REFERER
         self.session = requests.Session()
         self.session.headers.update(
             {
                 "user-agent": UA,
                 "cookie": cookie,
-                "referer": self.PAGE_REFERER,
+                "referer": self.page_referer,
                 "accept": "application/json, text/plain, */*",
             }
         )
@@ -96,7 +97,7 @@ class TaoXiDCBaseApi:
 
     def get_scm_token(self):
         """Read the SCM token from the DChain page bootstrap script."""
-        response = self.session.get(self.PAGE_REFERER, timeout=30)
+        response = self.session.get(self.page_referer, timeout=30)
         req_log(response, context="DChain页面Token获取", raise_error=True, log_success=False)
         match = re.search(r"window\._scm_token_\s*=\s*'([^']+)'", response.text or "")
         if not match:
